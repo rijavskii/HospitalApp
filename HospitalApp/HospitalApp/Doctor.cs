@@ -20,7 +20,7 @@ namespace HospitalApp
 
         public void AddRecord()
         {
-            
+
         }
 
     }
