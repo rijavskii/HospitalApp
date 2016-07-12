@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAddRecord.cs" />
     <Compile Include="Context\Employees.cs" />
     <Compile Include="Context\Patient.cs" />
     <Compile Include="Doctor.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Medicine.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PatientMap.cs" />
+    <Compile Include="MedicalRegistrar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.cs" />
