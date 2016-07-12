@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalApp
 {
-    class Doctor:IEmployee, IAddRecord
+    class MedicalRegistrar:IEmployee, IAddRecord
     {
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -15,13 +15,6 @@ namespace HospitalApp
         public string EndOfficeHours { get; set; }
         public string Cellphone { get; set; }
 
-        public string WorkingRoom { get; set; }
-        public string Specialization { get; set; }
-
-        public void AddRecord()
-        {
-            
-        }
-
+        public void AddRecord() { }
     }
 }
