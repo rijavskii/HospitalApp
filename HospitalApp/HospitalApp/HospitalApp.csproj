@@ -46,12 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\Employees.cs" />
+    <Compile Include="Context\Patient.cs" />
     <Compile Include="CoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CoreForm.Designer.cs">
       <DependentUpon>CoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Disease.cs" />
+    <Compile Include="Doctor.cs" />
+    <Compile Include="Enum\TypeMedicine.cs" />
+    <Compile Include="IAddRecord.cs" />
+    <Compile Include="IEmployee.cs" />
+    <Compile Include="MedicalRegistrar.cs" />
+    <Compile Include="Medicine.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="PatientMap.cs" />
+    <Compile Include="Record.cs" />
     <Compile Include="UCButtonDoctor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +141,7 @@
     <EmbeddedResource Include="UCListMedicine.resx">
       <DependentUpon>UCListMedicine.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
