@@ -33,16 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,26 +46,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAddRecord.cs" />
-    <Compile Include="Context\Employees.cs" />
-    <Compile Include="Context\Patient.cs" />
-    <Compile Include="Doctor.cs" />
-    <Compile Include="Disease.cs" />
-    <Compile Include="Enum\TypeMedicine.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="CoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CoreForm.Designer.cs">
+      <DependentUpon>CoreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IEmployee.cs" />
-    <Compile Include="Medicine.cs" />
-    <Compile Include="Patient.cs" />
-    <Compile Include="PatientMap.cs" />
-    <Compile Include="MedicalRegistrar.cs" />
+    <Compile Include="UCButtonDoctor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCButtonDoctor.Designer.cs">
+      <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCButtonRegistry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCButtonRegistry.Designer.cs">
+      <DependentUpon>UCButtonRegistry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCDoctors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCDoctors.Designer.cs">
+      <DependentUpon>UCDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCEditPatientInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCEditPatientInfo.Designer.cs">
+      <DependentUpon>UCEditPatientInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Record.cs" />
+    <Compile Include="UCFindPatient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCFindPatient.Designer.cs">
+      <DependentUpon>UCFindPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCImportMedicine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCImportMedicine.Designer.cs">
+      <DependentUpon>UCImportMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCListMedicine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCListMedicine.Designer.cs">
+      <DependentUpon>UCListMedicine.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CoreForm.resx">
+      <DependentUpon>CoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCButtonDoctor.resx">
+      <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCButtonRegistry.resx">
+      <DependentUpon>UCButtonRegistry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCDoctors.resx">
+      <DependentUpon>UCDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCEditPatientInfo.resx">
+      <DependentUpon>UCEditPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,7 +120,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="UCFindPatient.resx">
+      <DependentUpon>UCFindPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCImportMedicine.resx">
+      <DependentUpon>UCImportMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCListMedicine.resx">
+      <DependentUpon>UCListMedicine.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,7 +142,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
