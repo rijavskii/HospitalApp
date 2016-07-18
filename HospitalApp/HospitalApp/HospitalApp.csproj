@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,14 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\Employees.cs" />
-    <Compile Include="Context\Patient.cs" />
+    <Compile Include="Context\Adresses.cs" />
+    <Compile Include="Context\Positions.cs" />
+    <Compile Include="Context\Users.cs" />
+    <Compile Include="Context\WorkSchedules.cs" />
     <Compile Include="CoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CoreForm.Designer.cs">
       <DependentUpon>CoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\HospitalDbContext.cs" />
+    <Compile Include="DAL\HospitalDbInitializer.cs" />
     <Compile Include="Disease.cs" />
     <Compile Include="Doctor.cs" />
     <Compile Include="Enum\TypeMedicine.cs" />
@@ -64,63 +77,63 @@
     <Compile Include="Patient.cs" />
     <Compile Include="PatientMap.cs" />
     <Compile Include="Record.cs" />
-    <Compile Include="UCButtonDoctor.cs">
+    <Compile Include="UserControls\UCButtonDoctor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCButtonDoctor.Designer.cs">
+    <Compile Include="UserControls\UCButtonDoctor.Designer.cs">
       <DependentUpon>UCButtonDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCButtonRegistry.cs">
+    <Compile Include="UserControls\UCButtonRegistry.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCButtonRegistry.Designer.cs">
+    <Compile Include="UserControls\UCButtonRegistry.Designer.cs">
       <DependentUpon>UCButtonRegistry.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCDoctors.cs">
+    <Compile Include="UserControls\UCDoctors.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCDoctors.Designer.cs">
+    <Compile Include="UserControls\UCDoctors.Designer.cs">
       <DependentUpon>UCDoctors.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCEditPatientInfo.cs">
+    <Compile Include="UserControls\UCEditPatientInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCEditPatientInfo.Designer.cs">
+    <Compile Include="UserControls\UCEditPatientInfo.Designer.cs">
       <DependentUpon>UCEditPatientInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCFindPatient.cs">
+    <Compile Include="UserControls\UCFindPatient.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCFindPatient.Designer.cs">
+    <Compile Include="UserControls\UCFindPatient.Designer.cs">
       <DependentUpon>UCFindPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCImportMedicine.cs">
+    <Compile Include="UserControls\UCImportMedicine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCImportMedicine.Designer.cs">
+    <Compile Include="UserControls\UCImportMedicine.Designer.cs">
       <DependentUpon>UCImportMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCListMedicine.cs">
+    <Compile Include="UserControls\UCListMedicine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCListMedicine.Designer.cs">
+    <Compile Include="UserControls\UCListMedicine.Designer.cs">
       <DependentUpon>UCListMedicine.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CoreForm.resx">
       <DependentUpon>CoreForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCButtonDoctor.resx">
+    <EmbeddedResource Include="UserControls\UCButtonDoctor.resx">
       <DependentUpon>UCButtonDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCButtonRegistry.resx">
+    <EmbeddedResource Include="UserControls\UCButtonRegistry.resx">
       <DependentUpon>UCButtonRegistry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCDoctors.resx">
+    <EmbeddedResource Include="UserControls\UCDoctors.resx">
       <DependentUpon>UCDoctors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCEditPatientInfo.resx">
+    <EmbeddedResource Include="UserControls\UCEditPatientInfo.resx">
       <DependentUpon>UCEditPatientInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -132,13 +145,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UCFindPatient.resx">
+    <EmbeddedResource Include="UserControls\UCFindPatient.resx">
       <DependentUpon>UCFindPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCImportMedicine.resx">
+    <EmbeddedResource Include="UserControls\UCImportMedicine.resx">
       <DependentUpon>UCImportMedicine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCListMedicine.resx">
+    <EmbeddedResource Include="UserControls\UCListMedicine.resx">
       <DependentUpon>UCListMedicine.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

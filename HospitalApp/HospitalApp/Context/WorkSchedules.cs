@@ -8,7 +8,7 @@ namespace HospitalApp.Context
     {
         
         //Market this field as primary key
-        [Key]
+        [Key, ForeignKey("Id")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
