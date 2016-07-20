@@ -15,8 +15,10 @@ namespace HospitalApp.Context
         public int Id { get; set; }
         public int IdDoctor { get; set; }
         public int IdPatient { get; set; }
-        public int Disease { get; set; }
-        public int Medicine { get; set; }
+        [ForeignKey("FK_Disease")]
+        public ICollection<Disease> Disease { get; set; }
+        [ForeignKey("FK_Medicine")]
+        public ICollection<Medicine> Medicine { get; set; }
         public DateTime RecordDate { get; set; }
         public DateTime DischargeDate { get; set; }
         public string AdditionalInfo { get; set; }
