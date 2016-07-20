@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Context
 {
-    class Record
+    public class Record
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

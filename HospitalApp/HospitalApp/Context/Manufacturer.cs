@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Context
 {
-    public class ContactInfo
+    public class Manufacturer
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string IdUser { get; set; }
-        public string Type { get; set; }
-        public string Contact { get; set; }
-        public bool Default { get; set; }
+        [Index("IndexManufacturer",1, IsUnique = true)]
+        public string FactoryName { get; set; }
+        [Index("IndexManufacturer", 2, IsUnique = true)]
+        public string Country { get; set; }
+
+
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Context
 {
-    class ContactType
+    public class ContactType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

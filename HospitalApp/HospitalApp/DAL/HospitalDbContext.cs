@@ -18,7 +18,8 @@ namespace HospitalApp.DAL
         public DbSet<ContactInfo> ContactInfo { get; set; }
         public DbSet<ContactType> ContactType { get; set; }
         public DbSet<CardPatient> CardPatient { get; set; }
-        public DbSet<Records> Records { get; set; }
+       
+       // public DbSet<Records> Records { get; set; }
          
 
 

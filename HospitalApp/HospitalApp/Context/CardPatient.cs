@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace HospitalApp.Context
 {
-    class CardPatient
+    public class CardPatient
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int IdRecord { get; set; }
+        [ForeignKey("FK_UserRecords")]
+        public ICollection<Record> IdRecord { get; set; }
     }
 }
