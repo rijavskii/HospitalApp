@@ -14,6 +14,7 @@ namespace HospitalApp
     {
         public CoreForm()
         {
+
             InitializeComponent();
         }
 
