@@ -14,17 +14,17 @@ namespace HospitalApp.DAL
             defaultPositions.Add(new Positions() { PositionName = "Doctor"});
             defaultPositions.Add(new Positions() { PositionName = "Nurse" });
 
-            List<TypeMedicines> defaulTypeMedicines = new List<TypeMedicines>();
+            //List<TypeMedicines> defaulTypeMedicines = new List<TypeMedicines>();
 
-            defaulTypeMedicines.Add(new TypeMedicines() {});
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
-            defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() {});
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
+            //defaulTypeMedicines.Add(new TypeMedicines() { });
         }
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="IEmployee.cs" />
     <Compile Include="MedicalRegistrar.cs" />
     <Compile Include="Medicine.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PatientMap.cs" />
     <Compile Include="Record.cs" />
