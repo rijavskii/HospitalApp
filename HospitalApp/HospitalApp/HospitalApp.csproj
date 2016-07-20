@@ -59,7 +59,10 @@
     <Compile Include="Context\CardPatient.cs" />
     <Compile Include="Context\ContactInfo.cs" />
     <Compile Include="Context\ContactType.cs" />
+    <Compile Include="Context\Disease.cs" />
     <Compile Include="Context\Manufacturer.cs" />
+    <Compile Include="Context\Medicine.cs" />
+    <Compile Include="Context\MedicineType.cs" />
     <Compile Include="Context\Positions.cs" />
     <Compile Include="Context\Record.cs" />
     <Compile Include="Context\Users.cs" />

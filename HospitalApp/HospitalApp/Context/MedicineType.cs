@@ -15,7 +15,6 @@ namespace HospitalApp.Context
 
         public int Id { get; set; }
 
-        [Index("Name")]
         public string Name { get; set; }
     }
 

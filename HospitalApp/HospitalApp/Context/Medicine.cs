@@ -16,7 +16,7 @@ namespace HospitalApp.Context
         public int Id { get; set; }
 
         [Index("IndexMedicine", 1, IsUnique = true)]
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         [Index("IndexMedicine",2,IsUnique = true)]
         public Manufacturer Manufacturer { get; set; }
