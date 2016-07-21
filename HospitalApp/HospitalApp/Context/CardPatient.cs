@@ -10,10 +10,18 @@ namespace HospitalApp.Context
 {
     public class CardPatient
     {
+        public CardPatient()
+        {
+            IdRecord = new List<Record>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("FK_UserRecords")]
-        public ICollection<Record> IdRecord { get; set; }
+
+        public int FkUserRecords { get; set; }
+        
+        //TODO virtual to all classes
+        public virtual ICollection<Record> IdRecord { get; set; }
     }
 }

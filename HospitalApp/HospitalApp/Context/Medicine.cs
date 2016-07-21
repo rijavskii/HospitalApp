@@ -15,13 +15,14 @@ namespace HospitalApp.Context
 
         public int Id { get; set; }
 
-        [Index("IndexMedicine", 1, IsUnique = true)]
+        //[Index("IndexMedicine", 1, IsUnique = true)]
         public string Name { get; set; }
 
-        [Index("IndexMedicine",2,IsUnique = true)]
+
+        //[Index("IndexMedicine",2,IsUnique = true)]
         public Manufacturer Manufacturer { get; set; }
 
-        [Index("IndexMedicine", 3, IsUnique = true)]
+        //[Index("IndexMedicine", 3, IsUnique = true)]
         public MedicineType MedicineType { get;set; }
     }
 }

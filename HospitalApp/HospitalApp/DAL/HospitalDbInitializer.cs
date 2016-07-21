@@ -8,12 +8,18 @@ namespace HospitalApp.DAL
     {
         protected override void Seed(HospitalDbContext context)
         {
-            List<Positions> defaultPositions = new List<Positions>();
+            ICollection<Positions> defaultPositions = new List<Positions>();
 
             defaultPositions.Add(new Positions() { PositionName = "Undefined" });
             defaultPositions.Add(new Positions() { PositionName = "Doctor"});
             defaultPositions.Add(new Positions() { PositionName = "Nurse" });
 
+            foreach (var value in defaultPositions)
+            {
+                context.Positions.Add(value);
+                
+            }
+            base.Seed(context);
             //List<TypeMedicines> defaulTypeMedicines = new List<TypeMedicines>();
 
             //defaulTypeMedicines.Add(new TypeMedicines() {});

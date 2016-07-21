@@ -25,6 +25,12 @@ namespace HospitalApp.Context
         public DateTime EndWork { get; set; }
 
         //Foreign key to user
+        /// <summary>
+        /// 
+        /// </summary>
+        public int IdUser { get; set; }
+
+        
         public Users User { get; set; }
     }
 }

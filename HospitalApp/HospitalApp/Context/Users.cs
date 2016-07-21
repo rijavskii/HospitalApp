@@ -38,8 +38,8 @@ namespace HospitalApp.Context
         //Foreign key
         [Required]
 
-        // public int Position { get; set; }
-        // [ForeignKey("Position")]
+        public int Position { get; set; }
+        
         public Positions Positions { get; set; }
     }
 }

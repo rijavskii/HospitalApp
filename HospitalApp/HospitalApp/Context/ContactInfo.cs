@@ -14,13 +14,16 @@ namespace HospitalApp.Context
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [ForeignKey("FK_IdUser")]
+        public int FkIdUser { get; set; }
+       
         public Users IdUser { get; set; }
-        [ForeignKey("FK_ContactType")]
+
+        public int FkContactType { get; set; }
+        
         public ContactType Type { get; set; }
+
         public string Contact { get; set; }
         public bool Default { get; set; }
-
 
     }
 }

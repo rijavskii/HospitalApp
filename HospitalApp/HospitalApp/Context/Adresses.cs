@@ -32,8 +32,7 @@ namespace HospitalApp.Context
         
         public int Appartment { get; set; }
 
-
-        //Foreign key
+        public int IdUser { get; set; }
 
         public Users Users { get; set; }
 

@@ -3,14 +3,18 @@
   <configSections>
     
     <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 --></configSections>
+<<<<<<< HEAD
+  </configSections>
   <connectionStrings>
     <add name="hospitalDb" 
-       connectionString="Data Source=DIAMOND-ПК\SQLEXPRESS; 
+       connectionString="Data Source=localhost\SQLEXPRESS; 
        Initial Catalog=hospitalInitDb; Integrated Security = SSPI; 
        MultipleActiveResultSets=True;"
        providerName="System.Data.SqlClient"/>
   </connectionStrings>
+=======
+  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 --></configSections>
+>>>>>>> 1074b77cae6b834c4a5a72b6c31865dfe79274ad
   <startup>
     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
   </startup>

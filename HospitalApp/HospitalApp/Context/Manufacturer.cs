@@ -13,9 +13,9 @@ namespace HospitalApp.Context
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Index("IndexManufacturer",1, IsUnique = true)]
+        //[Index("IndexManufacturer",1, IsUnique = true)]
         public string FactoryName { get; set; }
-        [Index("IndexManufacturer", 2, IsUnique = true)]
+        //[Index("IndexManufacturer", 2, IsUnique = true)]
         public string Country { get; set; }
 
 

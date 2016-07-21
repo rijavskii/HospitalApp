@@ -6,14 +6,14 @@ namespace HospitalApp.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class init : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class dbcreates : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(dbcreates));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607200633550_init"; }
+            get { return "201607201649335_dbcreates"; }
         }
         
         string IMigrationMetadata.Source
