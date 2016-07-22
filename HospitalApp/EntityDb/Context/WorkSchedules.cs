@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HospitalApp.Context
+namespace EntityDb.Context
 {
     /// <summary>
     /// 
@@ -49,6 +49,6 @@ namespace HospitalApp.Context
         /// <summary>
         /// 
         /// </summary>
-        public Users User { get; set; }
+        public virtual Users User { get; set; }
     }
 }

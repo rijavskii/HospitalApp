@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HospitalApp.Context
+namespace EntityDb.Context
 {
-    public class ContactType
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ContactType : IPrimaryKey
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        /// <summary>
+        /// 
+        /// </summary>
         public int Id { get; set; }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name { get; set; }
     }
 }

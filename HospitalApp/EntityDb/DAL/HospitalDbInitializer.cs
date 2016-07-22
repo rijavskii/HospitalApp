@@ -25,7 +25,6 @@ namespace EntityDb.DAL
             foreach (var value in defaultPositions)
             {
                 context.Positions.Add(value);
-                
             }
             base.Seed(context);
             //List<TypeMedicines> defaulTypeMedicines = new List<TypeMedicines>();
