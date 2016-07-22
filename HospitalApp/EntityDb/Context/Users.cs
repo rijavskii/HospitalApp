@@ -12,7 +12,6 @@ namespace EntityDb.Context
         /// <summary>
         /// 
         /// </summary>
-        //Market this field as primary key
         public int Id { get; set; }
 
         /// <summary>

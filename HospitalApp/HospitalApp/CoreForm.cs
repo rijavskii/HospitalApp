@@ -12,11 +12,23 @@ namespace HospitalApp
 {
     public partial class CoreForm : Form
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public CoreForm()
         {
 
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exportMedicineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

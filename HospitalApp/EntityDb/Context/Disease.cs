@@ -4,19 +4,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EntityDb.Context
 {
     /// <summary>
-    /// 
+    /// Disease which you have in your card
     /// </summary>
     public class Disease
     {
         /// <summary>
-        /// 
+        /// Primary key field of table
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int IdPatient { get; set; }
+        public Users Patient { get; set; }
 
         /// <summary>
         /// 
@@ -24,7 +24,7 @@ namespace EntityDb.Context
         public string DiseaseName { get; set; }
 
         /// <summary>
-        /// 
+        /// How to drop yor disease
         /// </summary>
         public string Treatment { get; set; }
     }
