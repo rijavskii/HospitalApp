@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using HospitalApp.Context;
+using EntityDb.Context;
 
-namespace HospitalApp.DAL
+namespace EntityDb.DAL
 {
     public class HospitalDbContext : DbContext
     {
@@ -21,9 +21,5 @@ namespace HospitalApp.DAL
         public DbSet<CardPatient> CardPatient { get; set; }
         public DbSet<Record> Records { get; set; }
        
-         
-
-
-
     }
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HospitalApp.Context
+namespace EntityDb.Context
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Record
     {
         public Record ()
@@ -16,22 +16,54 @@ namespace HospitalApp.Context
             Medicine = new List<Medicine>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        /// <summary>
+        /// 
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int IdDoctor { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int IdPatient { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public DateTime RecordDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public DateTime DischargeDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string AdditionalInfo { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int FkDisease { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual ICollection<Disease> Disease { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int FkMedicine { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual ICollection<Medicine> Medicine { get; set; }
     }
 }

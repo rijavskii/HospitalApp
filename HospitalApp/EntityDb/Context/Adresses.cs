@@ -1,10 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using HospitalApp.Context;
 
-namespace HospitalApp.Context
+namespace EntityDb.Context
 {
-    public class Adresses
+    public class Adresses:IPrimaryKey
     {
         //Marked this field as primary key
         [Key]

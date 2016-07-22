@@ -4,33 +4,51 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HospitalApp.Context
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WorkSchedules
     {
         
-        //Market this field as primary key
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
-        [Required]
-        public int IdDoctor { get; set; }
-
-        [Required]
-        public int WorkRoom { get; set; }
-
-        [Required]
-        public DateTime StartWork { get; set; }
-
-        [Required]
-        public DateTime EndWork { get; set; }
-
-        //Foreign key to user
         /// <summary>
         /// 
         /// </summary>
-        public int IdUser { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        [Required]
+        public Users FkDoctor { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Required]
+        public int WorkRoom { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Required]
+        public DateTime Data { get; set; }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        [Required]
+        public DateTime StartWork { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Required]
+        public DateTime EndWork { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Users User { get; set; }
     }
 }

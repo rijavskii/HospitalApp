@@ -1,11 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using HospitalApp.Context;
+using EntityDb.Context;
 
-namespace HospitalApp.DAL
+namespace EntityDb.DAL
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class HospitalDbInitializer : CreateDatabaseIfNotExists<HospitalDbContext> //this base class used only when db created
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Seed(HospitalDbContext context)
         {
             ICollection<Positions> defaultPositions = new List<Positions>();
