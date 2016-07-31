@@ -56,11 +56,11 @@ namespace EntityDb.Context
         [Required]
         public int Appartment { get; set; }
 
-        /// <summary>
-        /// Person who lives by this adress
-        /// </summary>
-        [Required]
-        public virtual Users Users { get; set; }
+        ///// <summary>
+        ///// Person who lives by this adress
+        ///// </summary>
+        //[Required]
+        //public virtual Users Users { get; set; }
 
     }
 }

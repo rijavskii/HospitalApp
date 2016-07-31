@@ -4,12 +4,12 @@ using EntityDb.Context;
 namespace EntityDb.DAL
 {
     /// <summary>
-    /// 
+    /// Connecting to Database
     /// </summary>
     public class HospitalDbContext : DbContext
     {
         /// <summary>
-        /// 
+        /// Constructor which create our Database
         /// </summary>
         public HospitalDbContext() : base("hospitalDb")
         {
@@ -18,42 +18,37 @@ namespace EntityDb.DAL
             Database.Initialize(true);
         }
         /// <summary>
-        /// 
+        /// View for Users Table
         /// </summary>
         public DbSet<Users> Users{ get; set;}
 
         /// <summary>
-        /// 
+        /// View for Positions
         /// </summary>
         public DbSet<Positions> Positions { get; set; }
 
         /// <summary>
-        /// 
+        /// View for WorkSchedules
         /// </summary>
         public DbSet<WorkSchedules> WorkSchedules { get; set; }
 
         /// <summary>
-        /// 
+        /// View for Adresses 
         /// </summary>
         public DbSet<Adresses> Adresses { get; set; }
 
         /// <summary>
-        /// 
+        /// View for ContactInfo
         /// </summary>
         public DbSet<ContactInfo> ContactInfo { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public DbSet<ContactType> ContactType { get; set; }
-
-        /// <summary>
-        /// 
+        /// View for CardPatient
         /// </summary>
         public DbSet<CardPatient> CardPatient { get; set; }
 
         /// <summary>
-        /// 
+        /// View for Records
         /// </summary>
         public DbSet<Record> Records { get; set; }
        

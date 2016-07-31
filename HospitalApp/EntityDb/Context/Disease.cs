@@ -14,17 +14,17 @@ namespace EntityDb.Context
         public int Id { get; set; }
 
         /// <summary>
-        /// 
+        /// Who has this disease 
         /// </summary>
         public Users Patient { get; set; }
 
         /// <summary>
-        /// 
+        /// What disease we have here
         /// </summary>
         public string DiseaseName { get; set; }
 
         /// <summary>
-        /// How to drop yor disease
+        /// The best way to drop yor disease
         /// </summary>
         public string Treatment { get; set; }
     }

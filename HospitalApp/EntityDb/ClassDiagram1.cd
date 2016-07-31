@@ -3,7 +3,7 @@
   <Class Name="EntityDb.Context.Adresses">
     <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>QAACASAAgAAAAAAIAAAAAAAAAEIAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>QAACAQAAgAAAAAAIAAAAAAAAAEIAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Context\Adresses.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -14,11 +14,12 @@
       <HashCode>AAACAEAAAAAAAAAgABAAAAAAAAgAAAACEAAQAAAAgAg=</HashCode>
       <FileName>Context\Users.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="EntityDb.Context.WorkSchedules">
     <Position X="0.5" Y="3.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAAQAAAAAAAAAAAAQAAAAEABAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAACAAAAAQAAgAAAAAAAAAQAAAAAABAAAAAAAAAAAIA=</HashCode>
       <FileName>Context\WorkSchedules.cs</FileName>
     </TypeIdentifier>
   </Class>
