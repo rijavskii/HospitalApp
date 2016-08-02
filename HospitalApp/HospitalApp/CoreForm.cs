@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityDb.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,7 +64,8 @@ namespace HospitalApp
         private void TxtParseMethod(string fileName)
         {
             string fileText = File.ReadAllText(fileName);
-            List<string> stringMedicine = fileText.Split(Environment.NewLine.ToCharArray()).ToList();
+            List<string> stringMedicine = fileText.Split(Environment.NewLine.ToCharArray(),
+                StringSplitOptions.RemoveEmptyEntries).ToList();
 
             List<Medicine> MedDrug = new List<Medicine>();
 
@@ -71,18 +73,22 @@ namespace HospitalApp
             {
                 var medItems = item.Split(',').ToList();
 
-                Medicine itemMedicine = new Medicine();
+                //Medicine itemMedicine = new Medicine();
 
-                itemMedicine.Name = medItems[0];
-                itemMedicine.FactoryName = medItems[1];
-                itemMedicine.FactoryCountry = medItems[2];
-                itemMedicine.TypeName = medItems[3];
+                //itemMedicine.Name = medItems[0];
+                //itemMedicine.FactoryName = medItems[1];
+                //itemMedicine.FactoryCountry = medItems[2];
+                //itemMedicine.TypeName = medItems[3];
 
-                MedDrug.Add(itemMedicine);
+                //MedDrug.Add(itemMedicine);
+                MedDrug.Add(new Medicine()
+                {
+                    Name = medItems[0],
+                    FactoryName = medItems[1],
+                    FactoryCountry = medItems[2],
+                    TypeName = medItems[3]
+                });
             }
-
-        }
-
-           
+        }           
     }
 }
