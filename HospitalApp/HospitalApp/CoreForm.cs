@@ -40,10 +40,11 @@ namespace HospitalApp
             // Show the Dialog.
             if (openFile.ShowDialog() == DialogResult.OK)
             {
+                
                 switch (openFile.FilterIndex)
                 {
                     case 1:
-                        //(openFile.FileName);
+                        TxtParseMethod(openFile.FileName);
                         break;
                     case 2:
                         CsvParseMethod(openFile.FileName);
@@ -59,5 +60,29 @@ namespace HospitalApp
                 
             }
         }
+        private void TxtParseMethod(string fileName)
+        {
+            string fileText = File.ReadAllText(fileName);
+            List<string> stringMedicine = fileText.Split(Environment.NewLine.ToCharArray()).ToList();
+
+            List<Medicine> MedDrug = new List<Medicine>();
+
+            foreach (var item in stringMedicine)
+            {
+                var medItems = item.Split(',').ToList();
+
+                Medicine itemMedicine = new Medicine();
+
+                itemMedicine.Name = medItems[0];
+                itemMedicine.FactoryName = medItems[1];
+                itemMedicine.FactoryCountry = medItems[2];
+                itemMedicine.TypeName = medItems[3];
+
+                MedDrug.Add(itemMedicine);
+            }
+
+        }
+
+           
     }
 }
