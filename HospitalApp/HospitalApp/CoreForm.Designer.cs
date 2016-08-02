@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.scContent = new System.Windows.Forms.SplitContainer();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scContent = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
             this.scContent.SuspendLayout();
@@ -48,15 +48,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(995, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // scContent
-            // 
-            this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContent.Location = new System.Drawing.Point(0, 24);
-            this.scContent.Name = "scContent";
-            this.scContent.Size = new System.Drawing.Size(995, 494);
-            this.scContent.SplitterDistance = 184;
-            this.scContent.TabIndex = 1;
             // 
             // fileToolStripMenuItem
             // 
@@ -85,6 +76,16 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Visible = false;
+            // 
+            // scContent
+            // 
+            this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scContent.Location = new System.Drawing.Point(0, 24);
+            this.scContent.Name = "scContent";
+            this.scContent.Size = new System.Drawing.Size(995, 494);
+            this.scContent.SplitterDistance = 184;
+            this.scContent.TabIndex = 1;
             // 
             // CoreForm
             // 

@@ -54,9 +54,22 @@ namespace HospitalApp
 
         private void CsvParseMethod(string fileName)
         {
-            using (var csvParse = new FileStream(fileName, FileMode.Open))
+            var fileContent = File.ReadAllText(fileName);
+            var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
+                StringSplitOptions.RemoveEmptyEntries).ToList();
+            var nameFields = linesMedicine.ElementAt(0).Split(';').ToList();
+                linesMedicine.RemoveAt(0);
+
+            int nameMedicine = nameFields.IndexOf("Name");
+            int typeMedicine = nameFields.IndexOf("Type");
+            int manufacturerName = nameFields.IndexOf("Manufacturer Name");
+            int manufacturerCountry = nameFields.IndexOf("Country");
+            
+            
+            foreach (var medicine in linesMedicine)
             {
-                
+                var drugs = medicine.Split(';').ToList();
+
             }
         }
     }

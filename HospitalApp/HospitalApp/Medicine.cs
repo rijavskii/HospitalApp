@@ -1,4 +1,7 @@
-﻿using EntityDb.Context;
+﻿using System.Collections.Generic;
+using EntityDb.Context;
+using System;
+using HospitalApp.Enum;
 
 namespace HospitalApp
 {
@@ -7,9 +10,41 @@ namespace HospitalApp
     /// </summary>
     public class Medicine
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name { get; set; }
-        public string ManufacturerName { get; set; }
-        public string ManufacturerCountry { get; set; }
-        public MedicineType Type { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Manufacturer Manufacturer { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public TypeMedicine Type{ get; set; }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Medicine> CsvParseMedicines()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="medicine"></param>
+        public void PushToDb(List<Medicine> medicine)
+        {
+            foreach (var value in medicine)
+            {
+                
+            }
+        }
     }
 }

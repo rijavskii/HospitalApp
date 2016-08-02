@@ -8,12 +8,6 @@ namespace EntityDb.Context
     /// </summary>
     public class Positions : IPrimaryKey
     {
-        //public Positions()
-        //{
-        //    Id = Guid.NewGuid();
-        //}
-        //Market this field as primary key
-
         /// <summary>
         /// Primary key field of table
         /// </summary>
