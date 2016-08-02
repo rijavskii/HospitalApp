@@ -62,6 +62,10 @@ namespace EntityDb.DAL
         /// View for Records
         /// </summary>
         public DbSet<Record> Records { get; set; }
-       
+
+        /// <summary>
+        /// View for Medicines
+        /// </summary>
+        public DbSet<Medicine> Medicines { get; set; }
     }
 }
