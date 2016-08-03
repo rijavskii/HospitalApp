@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.scContent = new System.Windows.Forms.SplitContainer();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scContent = new System.Windows.Forms.SplitContainer();
+            this.importMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
             this.scContent.SuspendLayout();
@@ -49,18 +50,10 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // scContent
-            // 
-            this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContent.Location = new System.Drawing.Point(0, 24);
-            this.scContent.Name = "scContent";
-            this.scContent.Size = new System.Drawing.Size(995, 494);
-            this.scContent.SplitterDistance = 184;
-            this.scContent.TabIndex = 1;
-            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importMedicineToolStripMenuItem,
             this.exportMedicineToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -71,20 +64,37 @@
             // exportMedicineToolStripMenuItem
             // 
             this.exportMedicineToolStripMenuItem.Name = "exportMedicineToolStripMenuItem";
-            this.exportMedicineToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.exportMedicineToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exportMedicineToolStripMenuItem.Text = "Export medicine";
             this.exportMedicineToolStripMenuItem.Click += new System.EventHandler(this.exportMedicineToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Visible = false;
+            // 
+            // scContent
+            // 
+            this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scContent.Location = new System.Drawing.Point(0, 24);
+            this.scContent.Name = "scContent";
+            this.scContent.Size = new System.Drawing.Size(995, 494);
+            this.scContent.SplitterDistance = 184;
+            this.scContent.TabIndex = 1;
+            // 
+            // importMedicineToolStripMenuItem
+            // 
+            this.importMedicineToolStripMenuItem.Name = "importMedicineToolStripMenuItem";
+            this.importMedicineToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.importMedicineToolStripMenuItem.Text = "Import medicine";
+            this.importMedicineToolStripMenuItem.Click += new System.EventHandler(this.importMedicineToolStripMenuItem_Click);
             // 
             // CoreForm
             // 
@@ -113,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem exportMedicineToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importMedicineToolStripMenuItem;
     }
 }
 

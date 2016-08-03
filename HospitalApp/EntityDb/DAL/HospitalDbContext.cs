@@ -17,6 +17,17 @@ namespace EntityDb.DAL
             Database.SetInitializer<HospitalDbContext>(new HospitalDbInitializer());
             Database.Initialize(true);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Users>().HasRequired(x => x.Adress).WithOptional(y => y.Users);
+            base.OnModelCreating(modelBuilder);
+        }
+
         /// <summary>
         /// View for Users Table
         /// </summary>
@@ -51,6 +62,10 @@ namespace EntityDb.DAL
         /// View for Records
         /// </summary>
         public DbSet<Record> Records { get; set; }
-       
+
+        /// <summary>
+        /// View for Medicines
+        /// </summary>
+        public DbSet<Medicine> Medicines { get; set; }
     }
 }

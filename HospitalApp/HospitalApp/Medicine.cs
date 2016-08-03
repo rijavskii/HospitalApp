@@ -1,9 +1,7 @@
-﻿
-
+﻿using System.Collections.Generic;
 using EntityDb.Context;
 using System;
-using System.Collections.Generic;
-using System.IO;
+using HospitalApp.Enum;
 
 namespace HospitalApp
 {
@@ -12,18 +10,41 @@ namespace HospitalApp
     /// </summary>
     public class Medicine
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name { get; set; }
-        //public Manufacturer Manufact { get; set; }
-        //public MedicineType Type { get; set; }
-        public string FactoryName { get; set; }
-        public string FactoryCountry { get; set; }
-        public string TypeName { get; set; }
 
-        public override string ToString()
+        /// <summary>
+        /// 
+        /// </summary>
+        public Manufacturer Manufacturer { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public TypeMedicine Type{ get; set; }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Medicine> CsvParseMedicines()
         {
-            //return string.Format("{0}, {1}, {2}, {3}, {4}", Name, Manufact.FactoryName, Manufact.Country, Type.Name, Environment.NewLine);
-            return string.Format("{0}, {1}, {2}, {3}, {4}", Name, FactoryName, FactoryCountry, TypeName, Environment.NewLine);
+            return null;
         }
-       
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="medicine"></param>
+        public void PushToDb(List<Medicine> medicine)
+        {
+            foreach (var value in medicine)
+            {
+                
+            }
+        }
     }
 }
