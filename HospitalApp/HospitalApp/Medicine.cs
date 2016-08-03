@@ -8,22 +8,22 @@ namespace HospitalApp
     /// <summary>
     /// Class which allow us to export medicine
     /// </summary>
-    public class Medicine
+    public class Drugs
     {
         /// <summary>
         /// 
         /// </summary>
-        public string Name { get; set; }
+        public Medicine Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Manufacturer Manufacturer { get; set; }
+        public Manufacturer Manufacturers { get; set; }
         
         /// <summary>
         /// 
         /// </summary>
-        public TypeMedicine Type{ get; set; }
+        public MedicineType Type{ get; set; }
 
 
         /// <summary>

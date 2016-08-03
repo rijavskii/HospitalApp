@@ -64,13 +64,13 @@ namespace EntityDb.Context
         /// Where I should look user
         /// </summary>
         [Required]
-        public Adresses Adress { get; set; }
+        public virtual Adresses Adress { get; set; }
 
         //Foreign key
         /// <summary>
         /// Whom the person works
         /// </summary>
         [Required]
-        public Positions Position { get; set; }
+        public virtual Positions Position { get; set; }
     }
 }
