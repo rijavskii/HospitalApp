@@ -95,7 +95,6 @@ namespace HospitalApp
         private void TxtParseMethod(string fileName)
         {
             var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
-            string fileText = File.ReadAllText(fileName);
             List<string> stringMedicine = fileText.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
