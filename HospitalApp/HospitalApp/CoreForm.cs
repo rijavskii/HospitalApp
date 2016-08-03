@@ -54,6 +54,31 @@ namespace HospitalApp
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void importMedicineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files|*.txt|CSV Files|*.csv";
+            openFileDialog.Title = "Import Medicine";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                switch (openFileDialog.FilterIndex)
+                {
+                    case 1:
+                        TxtParseMethod(openFileDialog.FileName);
+                        break;
+                    case 2:
+                        CsvParseMethod(openFileDialog.FileName);
+                        break;
+                }
+            }
+        }
+
         private void CsvParseMethod(string fileName)
         {
             var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
@@ -144,29 +169,6 @@ namespace HospitalApp
             }
         }
 
-        private void importMedicineToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Text Files|*.txt|CSV Files|*.csv";
-            openFileDialog.Title = "Import Medicine";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                
-                switch (openFileDialog.FilterIndex)
-                {
-                    case 1:
-                        TxtParseMethod(openFileDialog.FileName);
-                        break;
-                    case 2:
-                        CsvParseMethod(openFileDialog.FileName);
-                        break;
-                }
-
-            }
-            
-        }
-
         private void SaveToTxtMethod(string fileName)
         {
             var context = new HospitalDbContext();
@@ -187,6 +189,7 @@ namespace HospitalApp
 
             //throw new NotImplementedException();
         }
+
 
         private void SaveToCsvMethod(string fileName)
         {
