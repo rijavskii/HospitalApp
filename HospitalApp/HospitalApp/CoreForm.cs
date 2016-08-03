@@ -137,11 +137,57 @@ namespace HospitalApp
 
                 MedDrug.Add(itemMedicine);
             }
+                 
+        }
+        //TODO ADD DB
+        private void AddTextToDb(string fileName) { 
+            using (var context = new HospitalDbContext())
+            {
+                var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+                List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
+                    StringSplitOptions.RemoveEmptyEntries).ToList();
+            
+                foreach (var item in stringMedicine)
+                {
+                    var medItems = item.Split(',').ToList();
+
+                    context.Medicines.Add(new Medicine()
+                    {
+                        Name = medItems[0],
+                        Manufacturer = new Manufacturer()
+                        {
+                            FactoryName = medItems[1],
+                            Country = medItems[2]
+                        },
+                        MedicineType = new MedicineType()
+                        {
+                            Name = medItems[3]
+                        }
+                    });
+                }
+                context.SaveChanges();
+            }
         }
 
         private void SaveToTxtMethod(string fileName)
         {
-            throw new NotImplementedException();
+            var context = new HospitalDbContext();
+            var listMedicines = context.Medicines.ToList();
+
+            using (var fileStream = new FileStream(fileName, FileMode.Create))
+            {
+                using (var fileWrite = new StreamWriter(fileStream))
+                {
+                    foreach (var medItem in listMedicines)
+                    {
+                        fileWrite.Write(medItem + Environment.NewLine);
+                    }
+                    fileWrite.Close();
+                }
+                fileStream.Close();
+            }
+
+            //throw new NotImplementedException();
         }
 
         //TODO 
