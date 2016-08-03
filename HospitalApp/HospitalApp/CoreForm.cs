@@ -131,8 +131,8 @@ namespace HospitalApp
 
                 Drugs itemMedicine = new Drugs();
                 itemMedicine.Name.Name = medItems[0];
-                itemMedicine.Manufacturers.FactoryName = medItems[1];
-                itemMedicine.Manufacturers.Country = medItems[2];
+                itemMedicine.Manufacturer.FactoryName = medItems[1];
+                itemMedicine.Manufacturer.Country = medItems[2];
                 itemMedicine.Type.Name = medItems[3];
 
                 MedDrug.Add(itemMedicine);
