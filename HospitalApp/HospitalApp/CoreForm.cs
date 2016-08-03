@@ -95,7 +95,7 @@ namespace HospitalApp
         private void TxtParseMethod(string fileName)
         {
             var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
-            List<string> stringMedicine = fileText.Split(Environment.NewLine.ToCharArray(),
+            List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
             List<Drugs> MedDrug = new List<Drugs>();
@@ -106,11 +106,41 @@ namespace HospitalApp
 
                 Drugs itemMedicine = new Drugs();
                 itemMedicine.Name.Name = medItems[0];
-                itemMedicine.Manufacturer.FactoryName = medItems[1];
-                itemMedicine.Manufacturer.Country = medItems[2];
+                itemMedicine.Manufacturers.FactoryName = medItems[1];
+                itemMedicine.Manufacturers.Country = medItems[2];
                 itemMedicine.Type.Name = medItems[3];
 
                 MedDrug.Add(itemMedicine);
+            }
+                 
+        }
+        //TO DO ADD DB
+        private void AddTextToDb(string fileName) { 
+            using (var context = new HospitalDbContext())
+            {
+                var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+                List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
+                    StringSplitOptions.RemoveEmptyEntries).ToList();
+            
+                foreach (var item in stringMedicine)
+                {
+                    var medItems = item.Split(',').ToList();
+
+                    context.Medicines.Add(new Medicine()
+                    {
+                        Name = medItems[0],
+                        Manufacturer = new Manufacturer()
+                        {
+                            FactoryName = medItems[1],
+                            Country = medItems[2]
+                        },
+                        MedicineType = new MedicineType()
+                        {
+                            Name = medItems[3]
+                        }
+                    });
+                }
+                context.SaveChanges();
             }
         }
 
@@ -139,7 +169,23 @@ namespace HospitalApp
 
         private void SaveToTxtMethod(string fileName)
         {
-            throw new NotImplementedException();
+            var context = new HospitalDbContext();
+            var listMedicines = context.Medicines.ToList();
+
+            using (var fileStream = new FileStream(fileName, FileMode.Create))
+            {
+                using (var fileWrite = new StreamWriter(fileStream))
+                {
+                    foreach (var medItem in listMedicines)
+                    {
+                        fileWrite.Write(medItem + Environment.NewLine);
+                    }
+                    fileWrite.Close();
+                }
+                fileStream.Close();
+            }
+
+            //throw new NotImplementedException();
         }
 
         private void SaveToCsvMethod(string fileName)
