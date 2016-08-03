@@ -30,6 +30,6 @@ namespace EntityDb.Context
         /// What kind of drugs this is
         /// </summary>
         //[Index("IndexMedicine", 3, IsUnique = true)]
-        public virtual MedicineType MedicineType { get;set; }
+        public virtual MedicineType MedicineType { get; set; }
     }
 }

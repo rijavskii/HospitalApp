@@ -14,16 +14,15 @@ using EntityDb.DAL;
 namespace HospitalApp
 {
     /// <summary>
-    /// 
+    /// Main application form
     /// </summary>
     public partial class CoreForm : Form
     {
         /// <summary>
-        /// 
+        /// Creates form initializer
         /// </summary>
         public CoreForm()
         {
-
             InitializeComponent();
         }
 
@@ -35,21 +34,21 @@ namespace HospitalApp
         private void exportMedicineToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Displays an OpenFileDialog so the user can select a File.
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "Text Files|*.txt|CSV Files|*.csv";
-            openFile.Title = "Export Medicine";
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Text Files|*.txt|CSV Files|*.csv";
+            saveFile.Title = "Export Medicine";
             
             // Show the Dialog.
-            if (openFile.ShowDialog() == DialogResult.OK)
+            if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 
-                switch (openFile.FilterIndex)
+                switch (saveFile.FilterIndex)
                 {
                     case 1:
-                        TxtParseMethod(openFile.FileName);
+                        SaveToTxtMethod(saveFile.FileName);
                         break;
                     case 2:
-                        CsvParseMethod(openFile.FileName);
+                        SaveToCsvMethod(saveFile.FileName);
                         break;
                 }
             }
@@ -57,20 +56,20 @@ namespace HospitalApp
 
         private void CsvParseMethod(string fileName)
         {
-            var fileContent = File.ReadAllText(fileName);
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
-            var nameFields = linesMedicine.ElementAt(0).Split(';').ToList();
+            var nameFields = linesMedicine.ElementAt(0).Split(',').ToList();
                 linesMedicine.RemoveAt(0);
 
-            int nameMedicine = nameFields.IndexOf("Name");
-            int typeMedicine = nameFields.IndexOf("Type");
-            int manufacturerName = nameFields.IndexOf("Manufacturer Name");
-            int manufacturerCountry = nameFields.IndexOf("Country");
+            int nameMedicine = nameFields.FindIndex(x=>x.Trim().Equals("Name"));
+            int typeMedicine = nameFields.FindIndex(x => x.Trim().Equals("MedicineType"));
+            int manufacturerName = nameFields.FindIndex(x => x.Trim().Equals("Manufacturer"));
+            int manufacturerCountry = nameFields.FindIndex(x => x.Trim().Equals("Country"));
 
             using (var context = new HospitalDbContext())
             {
-                foreach (var item in nameFields)
+                foreach (var item in linesMedicine)
                 {
                     var medItems = item.Split(',').ToList();
 
@@ -88,13 +87,14 @@ namespace HospitalApp
                         }
                     });
                 }
+                context.SaveChanges();
             }
             
         }
 
         private void TxtParseMethod(string fileName)
         {
-            string fileText = File.ReadAllText(fileName, Encoding.GetEncoding(1251));
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             List<string> stringMedicine = fileText.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -116,22 +116,20 @@ namespace HospitalApp
 
         private void importMedicineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog saveFileDialog = new OpenFileDialog();
-            saveFileDialog.Filter = "Text Files|*.txt|CSV Files|*.csv";
-            saveFileDialog.Title = "Import Medicine";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files|*.txt|CSV Files|*.csv";
+            openFileDialog.Title = "Import Medicine";
 
-            var context = new HospitalDbContext();
-            var listMedicines = context.Set<Medicine>();
-            
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                switch (saveFileDialog.FilterIndex)
+                
+                switch (openFileDialog.FilterIndex)
                 {
                     case 1:
-                        SaveToTxtMethod(saveFileDialog.FileName);
+                        TxtParseMethod(openFileDialog.FileName);
                         break;
                     case 2:
-                        SaveToCsvMethod(saveFileDialog.FileName);
+                        CsvParseMethod(openFileDialog.FileName);
                         break;
                 }
 
@@ -146,7 +144,15 @@ namespace HospitalApp
 
         private void SaveToCsvMethod(string fileName)
         {
-            throw new NotImplementedException();
+            var context = new HospitalDbContext();
+            var listMedicines = context.Medicines.ToList();
+            using (var fileStream = new FileStream(fileName, FileMode.Create))
+            {
+                foreach (var drug in listMedicines)
+                {
+
+                }
+            }
         }
     }
 }

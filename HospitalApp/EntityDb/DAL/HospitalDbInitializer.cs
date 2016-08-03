@@ -25,19 +25,16 @@ namespace EntityDb.DAL
             defaultPositions.Add(new Positions() { PositionName = "Doctor" });
             defaultPositions.Add(new Positions() { PositionName = "Nurse" });
 
-
-            
-            
             foreach (var value in defaultPositions)
             {
                 context.Positions.Add(value);
             }
 
-            context.Users.Add(new Users
-            {
-                Position = context.Positions.First(x => x.Id == 2),
-                FirstName = "FirstName"
-            });
+            //context.Users.Add(new Users
+            //{
+            //    Position = context.Positions.First(x => x.Id == 2),
+            //    FirstName = "FirstName"
+            //});
 
             base.Seed(context);
             
