@@ -139,7 +139,7 @@ namespace HospitalApp
             }
                  
         }
-        //TO DO ADD DB
+        //TODO ADD DB
         private void AddTextToDb(string fileName) { 
             using (var context = new HospitalDbContext())
             {
