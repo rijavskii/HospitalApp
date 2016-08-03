@@ -30,11 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scContent = new System.Windows.Forms.SplitContainer();
-            this.importMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
             this.scContent.SuspendLayout();
@@ -61,6 +61,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // importMedicineToolStripMenuItem
+            // 
+            this.importMedicineToolStripMenuItem.Name = "importMedicineToolStripMenuItem";
+            this.importMedicineToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.importMedicineToolStripMenuItem.Text = "Import medicine";
+            this.importMedicineToolStripMenuItem.Click += new System.EventHandler(this.importMedicineToolStripMenuItem_Click);
+            // 
             // exportMedicineToolStripMenuItem
             // 
             this.exportMedicineToolStripMenuItem.Name = "exportMedicineToolStripMenuItem";
@@ -78,6 +85,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // scContent
             // 
@@ -87,13 +95,6 @@
             this.scContent.Size = new System.Drawing.Size(995, 494);
             this.scContent.SplitterDistance = 184;
             this.scContent.TabIndex = 1;
-            // 
-            // importMedicineToolStripMenuItem
-            // 
-            this.importMedicineToolStripMenuItem.Name = "importMedicineToolStripMenuItem";
-            this.importMedicineToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.importMedicineToolStripMenuItem.Text = "Import medicine";
-            this.importMedicineToolStripMenuItem.Click += new System.EventHandler(this.importMedicineToolStripMenuItem_Click);
             // 
             // CoreForm
             // 
