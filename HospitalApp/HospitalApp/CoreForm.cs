@@ -198,18 +198,32 @@ namespace HospitalApp
             //throw new NotImplementedException();
         }
 
-
+        //TODO 
         private void SaveToCsvMethod(string fileName)
         {
             var context = new HospitalDbContext();
             var listMedicines = context.Medicines.ToList();
             using (var fileStream = new FileStream(fileName, FileMode.Create))
             {
-                foreach (var drug in listMedicines)
+                using (var streamWriter = new StreamWriter(fileStream))
                 {
-
+                    streamWriter.Write("Name, Manufacturer, Country, Type {0}",Environment.NewLine);
+                    foreach (var drug in listMedicines)
+                    {
+                        streamWriter.Write("{0}, {1}, {2}, {3}, {4}", 
+                            drug.Name, drug.Manufacturer.FactoryName,
+                            drug.Manufacturer.Country, drug.MedicineType.Name,
+                            Environment.NewLine);
+                    }
                 }
+                
             }
+           // MessageBox.Show()
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Close();
         }
     }
 }
