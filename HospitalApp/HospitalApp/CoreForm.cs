@@ -116,10 +116,13 @@ namespace HospitalApp
             }
             
         }
-
+        /// <summary>
+        /// parsing *.txt files and write in List MedDrug
+        /// </summary>
+        /// <param name="fileName"></param>
         private void TxtParseMethod(string fileName)
         {
-            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding(1251));
             List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -140,10 +143,15 @@ namespace HospitalApp
                  
         }
         //TODO ADD DB
+        /// <summary>
+        /// method to add info in DataBase
+        /// "UTF-8" - dont work. Work onli Encoding.GetEncoding(1251)
+        /// </summary>
+        /// <param name="fileName"></param>
         private void AddTextToDb(string fileName) { 
             using (var context = new HospitalDbContext())
             {
-                var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+                var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding(1251));
                 List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                     StringSplitOptions.RemoveEmptyEntries).ToList();
             
