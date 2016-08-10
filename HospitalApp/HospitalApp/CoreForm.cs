@@ -128,14 +128,14 @@ namespace HospitalApp
             MessageBox.Show("File " + name + " imported!", "Information",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        /// <summary>
         /// <summary>
         /// Read and parse data about drugs from *.txt file
         /// </summary>
         /// <param name="fileName"></param>
         private void TxtParseMethod(string fileName)
         {
-            var fileContent = File.ReadAllText(fileName, Encoding.Default);
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             
             List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
