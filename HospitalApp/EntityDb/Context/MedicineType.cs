@@ -16,7 +16,7 @@ namespace EntityDb.Context
         /// <summary>
         /// Name of drug type
         /// </summary>
-        public string Name { get; set; }
+        public string Type { get; set; }
     }
 
 }

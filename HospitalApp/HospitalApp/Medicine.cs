@@ -13,7 +13,7 @@ namespace HospitalApp
         /// <summary>
         /// 
         /// </summary>
-        public Medicine Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 
