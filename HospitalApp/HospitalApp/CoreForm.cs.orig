@@ -15,45 +15,12 @@ namespace HospitalApp
     /// </summary>
     public partial class CoreForm : Form
     {
-        private Users _myUser;
-        private ProgressBar myProgressBar;
-
-        private UCButtonDoctor ucButtonDoctor = new UCButtonDoctor();
         /// <summary>
         /// Creates main program form
         /// </summary>
         public CoreForm()
         {
-            Authorization newAuth = new Authorization();
-            newAuth.ShowDialog();
-            _myUser = newAuth._user;
-            
             InitializeComponent();
-            LoadControls();
-        }
-
-        private void LoadControls()
-        {
-            var position = _myUser.Position.PositionName.ToLower();
-            switch (position)
-            {
-                case "admin":
-                    this.scContent.Panel1.Controls.Clear();
-                    this.scContent.Panel1.Controls.Add(ucButtonDoctor);
-                    break; 
-
-                case "doctor":
-
-                    break;
-
-                case "undefined":
-
-                    break;
-
-                case "nurse":
-
-                    break;
-            }
         }
 
         /// <summary>
@@ -100,8 +67,6 @@ namespace HospitalApp
             };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                myProgressBar = new ProgressBar(openFileDialog.FileName);
-                myProgressBar.ShowDialog();
                 switch (openFileDialog.FilterIndex)
                 {
                     case 1:
@@ -120,10 +85,6 @@ namespace HospitalApp
         /// <param name="fileName">full name of working file</param>
         private void ParseAndAddCsvToDb(string fileName)
         {
-            this.progressBar1.Visible = true;
-            FileInfo myFileInfo = new FileInfo(fileName);
-            var percent = myFileInfo.Length/100;
-
             var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -134,7 +95,7 @@ namespace HospitalApp
             var refMed = typeof(Medicine).GetProperties();
             var refMan = typeof(Manufacturer).GetProperties();
             var refTypeMed = typeof(MedicineType).GetProperties();
-            
+            //TODO Reflection as fields name
             int nameMedicine = nameFields.FindIndex(x=>x.Trim().Equals(refMed[1].Name));
             int typeMedicine = nameFields.FindIndex(x => x.Trim().Equals(refTypeMed[1].Name));
             int manufacturerName = nameFields.FindIndex(x => x.Trim().Equals(refMan[1].Name));
@@ -163,21 +124,28 @@ namespace HospitalApp
                 context.SaveChanges();
             }
 
-            this.progressBar1.Visible = false;
-
             var name = fileName.Split('\\').Last();
             MessageBox.Show("File " + name + " imported!", "Information",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        
+<<<<<<< HEAD
+
         /// <summary>
         /// Read and parse data about drugs from *.txt file
+=======
+        /// <summary>
+        /// parsing *.txt files and write in List MedDrug
+>>>>>>> f32660509002353f2312c2d241d4e81678fbe878
         /// </summary>
         /// <param name="fileName"></param>
         private void TxtParseMethod(string fileName)
         {
-            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+<<<<<<< HEAD
+            var fileContent = File.ReadAllText(fileName, Encoding.Default);
             
+=======
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding(1251));
+>>>>>>> f32660509002353f2312c2d241d4e81678fbe878
             List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -204,6 +172,7 @@ namespace HospitalApp
             AddDrugToDb(medDrug, name);
                  
         }
+<<<<<<< HEAD
 
         /// <summary>
         /// Adding list of drugs to database
@@ -215,6 +184,22 @@ namespace HospitalApp
             using (var context = new HospitalDbContext())
             {
                 foreach (var item in medDrug)
+=======
+        //TODO ADD DB
+        /// <summary>
+        /// method to add info in DataBase
+        /// "UTF-8" - dont work. Work onli Encoding.GetEncoding(1251)
+        /// </summary>
+        /// <param name="fileName"></param>
+        private void AddTextToDb(string fileName) { 
+            using (var context = new HospitalDbContext())
+            {
+                var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding(1251));
+                List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
+                    StringSplitOptions.RemoveEmptyEntries).ToList();
+            
+                foreach (var item in stringMedicine)
+>>>>>>> f32660509002353f2312c2d241d4e81678fbe878
                 {
                     context.Medicines.Add(new Medicine()
                     {
@@ -281,13 +266,7 @@ namespace HospitalApp
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
-                    streamWriter.Write("{0}, {1}, {2}, {3} {4}",
-                                        typeof(Medicine).GetProperties()[1].Name, 
-                                        typeof(Manufacturer).GetProperties()[1].Name,
-                                        typeof(Manufacturer).GetProperties()[2].Name,
-                                        typeof(MedicineType).GetProperties()[1].Name,
-                                        Environment.NewLine);
-
+                    streamWriter.Write("Name, Manufacturer, Country, MedicineType {0}", Environment.NewLine);
                     foreach (var drug in listMedicines)
                     {
                         streamWriter.Write("{0}, {1}, {2}, {3}, {4}", 
@@ -311,7 +290,5 @@ namespace HospitalApp
         {
            Close();
         }
-
-        
     }
 }

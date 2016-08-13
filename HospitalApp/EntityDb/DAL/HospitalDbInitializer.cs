@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using EntityDb.Context;
 
 namespace EntityDb.DAL
@@ -18,23 +19,36 @@ namespace EntityDb.DAL
         /// <param name="context"></param>
         protected override void Seed(HospitalDbContext context)
         {
-            ICollection<Users> defaultUsers = new List<Users>();
-            ICollection<Positions> defaultPositions = new List<Positions>();
-
             context.Positions.Add(new Positions() { PositionName = "Undefined" });
-            defaultPositions.Add(new Positions() { PositionName = "Doctor" });
-            defaultPositions.Add(new Positions() { PositionName = "Nurse" });
+            context.Positions.Add(new Positions() { PositionName = "Doctor" });
+            context.Positions.Add(new Positions() { PositionName = "Nurse" });
+            context.Positions.Add(new Positions() { PositionName = "Admin"});
 
-            foreach (var value in defaultPositions)
+            context.Adresses.Add(new Adresses()
             {
-                context.Positions.Add(value);
-            }
+                City = "admin",
+                Region = "admin",
+                Street = "admin",
+                Appartment = 15,
+                District = "admin",
+                HouseNumber = "admin1",
+                Country = "Ukraine",
 
-            //context.Users.Add(new Users
-            //{
-            //    Position = context.Positions.First(x => x.Id == 2),
-            //    FirstName = "FirstName"
-            //});
+            });
+            //base.Seed(context);
+            context.SaveChanges();
+            context.Users.Add(new Users
+            {
+                FirstName = "admin",
+                LastName = "admin",
+                Login = "admin",
+                Password = "admin",
+                Passport = "admin",
+                IdentificationNumber = 0,
+                Adress = context.Adresses.First(x=>x.City=="admin"),
+                Position = context.Positions.First(x => x.PositionName == "Admin")
+                
+            });
 
             base.Seed(context);
             

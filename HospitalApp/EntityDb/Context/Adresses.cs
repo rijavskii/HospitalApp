@@ -59,8 +59,8 @@ namespace EntityDb.Context
         ///// <summary>
         ///// Person who lives by this adress
         ///// </summary>
-        [Required]
-        public virtual Users Users { get; set; }
+        //[Required]
+        public Users Users { get; set; }
 
     }
 }
