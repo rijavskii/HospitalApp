@@ -145,7 +145,7 @@ namespace HospitalApp
         //TODO ADD DB
         /// <summary>
         /// method to add info in DataBase
-        /// "UTF-8" - dont work. Work onli Encoding.GetEncoding(1251)
+        /// "UTF-8" - doesn't work. Work only Encoding.GetEncoding(1251)
         /// </summary>
         /// <param name="fileName"></param>
         private void AddTextToDb(string fileName) { 
@@ -194,7 +194,6 @@ namespace HospitalApp
                 }
                 fileStream.Close();
             }
-
             //throw new NotImplementedException();
         }
 
