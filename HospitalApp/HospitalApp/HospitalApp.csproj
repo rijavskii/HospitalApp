@@ -98,11 +98,23 @@
       <DependentUpon>ProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UCButtonAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCButtonAdmin.Designer.cs">
+      <DependentUpon>UCButtonAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCButtonDoctor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UCButtonDoctor.Designer.cs">
       <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCButtonNurse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCButtonNurse.Designer.cs">
+      <DependentUpon>UCButtonNurse.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCButtonRegistry.cs">
       <SubType>UserControl</SubType>

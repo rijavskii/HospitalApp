@@ -45,7 +45,13 @@ namespace HospitalApp
 
         private void Authorization_Load(object sender, EventArgs e)
         {
+            tbPassword.PasswordChar = '*';
+        }
 
+        private void btShowPassword_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == '*') tbPassword.PasswordChar = '\0';
+            else tbPassword.PasswordChar = '*';
         }
     }
 }
