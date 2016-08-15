@@ -15,9 +15,15 @@ namespace HospitalApp
     /// </summary>
     public partial class CoreForm : Form
     {
+        /// <summary>
+        /// Authorized user
+        /// </summary>
         private Users _myUser;
         private ProgressBar myProgressBar;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private UCButtonDoctor ucButtonDoctor = new UCButtonDoctor();
         /// <summary>
         /// Creates main program form
@@ -205,14 +211,7 @@ namespace HospitalApp
                  
         }
 
-        /// <summary>
-<<<<<<< HEAD
-        /// method to add info in DataBase
-        /// "UTF-8" - doesn't work. Work only Encoding.GetEncoding(1251)
-=======
-        /// Adding list of drugs to database
->>>>>>> be02183ee4f929b63f535c7e99435de1b4d79e48
-        /// </summary>
+        
         /// <param name="medDrug">List of drugs which need to be saved</param>
         /// <param name="name">short name of file we read</param>
         private void AddDrugToDb(List<Drugs> medDrug, string name )
@@ -267,14 +266,14 @@ namespace HospitalApp
                 }
                 fileStream.Close();
             }
-<<<<<<< HEAD
-            //throw new NotImplementedException();
-=======
+//<<<<<<< HEAD
+//            //throw new NotImplementedException();
+//=======
 
-            var name = fileName.Split('\\').Last();
-            MessageBox.Show("File " + name + " was succefully created!", "Information",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
->>>>>>> be02183ee4f929b63f535c7e99435de1b4d79e48
+//            var name = fileName.Split('\\').Last();
+//            MessageBox.Show("File " + name + " was succefully created!", "Information",
+//                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+//>>>>>>> be02183ee4f929b63f535c7e99435de1b4d79e48
         }
 
         /// <summary>
