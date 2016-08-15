@@ -35,12 +35,13 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btShowPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAuthorizate
             // 
-            this.btnAuthorizate.Location = new System.Drawing.Point(193, 101);
+            this.btnAuthorizate.Location = new System.Drawing.Point(208, 101);
             this.btnAuthorizate.Name = "btnAuthorizate";
             this.btnAuthorizate.Size = new System.Drawing.Size(75, 23);
             this.btnAuthorizate.TabIndex = 0;
@@ -82,6 +83,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(289, 101);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -101,6 +103,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
+            // btShowPassword
+            // 
+            this.btShowPassword.Location = new System.Drawing.Point(208, 72);
+            this.btShowPassword.Name = "btShowPassword";
+            this.btShowPassword.Size = new System.Drawing.Size(156, 23);
+            this.btShowPassword.TabIndex = 7;
+            this.btShowPassword.Text = "Show password";
+            this.btShowPassword.UseVisualStyleBackColor = true;
+            this.btShowPassword.Click += new System.EventHandler(this.btShowPassword_Click);
+            // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,6 +121,7 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(395, 136);
             this.ControlBox = false;
+            this.Controls.Add(this.btShowPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbPassword);
@@ -138,5 +151,6 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btShowPassword;
     }
 }

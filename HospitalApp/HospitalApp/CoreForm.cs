@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using EntityDb.DAL;
+using HospitalApp.UserControls;
 
 namespace HospitalApp
 {
@@ -33,9 +34,12 @@ namespace HospitalApp
             Authorization newAuth = new Authorization();
             newAuth.ShowDialog();
             _myUser = newAuth._user;
-            
-            InitializeComponent();
-            LoadControls();
+
+            if (_myUser != null)
+            {
+                InitializeComponent();
+                LoadControls();
+            }
         }
 
         private void LoadControls()
@@ -45,19 +49,17 @@ namespace HospitalApp
             {
                 case "admin":
                     this.scContent.Panel1.Controls.Clear();
-                    this.scContent.Panel1.Controls.Add(ucButtonDoctor);
+                    this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
                     break; 
 
                 case "doctor":
-
-                    break;
-
-                case "undefined":
-
+                    this.scContent.Panel1.Controls.Clear();
+                    this.scContent.Panel1.Controls.Add(new UCButtonDoctor());
                     break;
 
                 case "nurse":
-
+                    this.scContent.Panel1.Controls.Clear();
+                    this.scContent.Panel1.Controls.Add(new UCButtonNurse());
                     break;
             }
         }
@@ -266,14 +268,11 @@ namespace HospitalApp
                 }
                 fileStream.Close();
             }
-//<<<<<<< HEAD
-//            //throw new NotImplementedException();
-//=======
+            //throw new NotImplementedException();
 
-//            var name = fileName.Split('\\').Last();
-//            MessageBox.Show("File " + name + " was succefully created!", "Information",
-//                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-//>>>>>>> be02183ee4f929b63f535c7e99435de1b4d79e48
+            var name = fileName.Split('\\').Last();
+            MessageBox.Show("File " + name + " was succefully created!", "Information",
+                             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
