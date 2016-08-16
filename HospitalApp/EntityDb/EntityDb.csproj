@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="Context\Adresses.cs" />
     <Compile Include="Context\CardPatient.cs" />
     <Compile Include="Context\ContactInfo.cs" />

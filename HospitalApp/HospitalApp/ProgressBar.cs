@@ -11,7 +11,9 @@ using System.Windows.Forms;
 
 namespace HospitalApp
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'ProgressBar'
     public partial class ProgressBar : Form
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'ProgressBar'
     {
         private string _myFile;
 
@@ -29,7 +31,9 @@ namespace HospitalApp
         }
 
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'ProgressBar.UpdateProgress()'
         public void UpdateProgress()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'ProgressBar.UpdateProgress()'
         {
             var percent = _fileInfo.Length/100;
 

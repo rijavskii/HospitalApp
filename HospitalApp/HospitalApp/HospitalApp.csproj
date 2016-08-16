@@ -95,7 +95,9 @@
       <DependentUpon>CoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Enum\TypeMedicine.cs" />
-    <Compile Include="Medicine.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="Drugs.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgressBar.cs">
       <SubType>Form</SubType>
@@ -180,8 +182,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCButtonAdmin.resx">
+      <DependentUpon>UCButtonAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCButtonDoctor.resx">
       <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCButtonNurse.resx">
+      <DependentUpon>UCButtonNurse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCButtonRegistry.resx">
       <DependentUpon>UCButtonRegistry.cs</DependentUpon>

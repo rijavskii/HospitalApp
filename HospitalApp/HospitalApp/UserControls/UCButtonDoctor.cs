@@ -10,9 +10,13 @@ using System.Windows.Forms;
 
 namespace HospitalApp
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCButtonDoctor'
     public partial class UCButtonDoctor : UserControl
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonDoctor'
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCButtonDoctor.UCButtonDoctor()'
         public UCButtonDoctor()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonDoctor.UCButtonDoctor()'
         {
             InitializeComponent();
         }

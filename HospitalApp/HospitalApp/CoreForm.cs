@@ -1,6 +1,7 @@
 ﻿using EntityDb.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -20,12 +21,12 @@ namespace HospitalApp
         /// Authorized user
         /// </summary>
         private Users _myUser;
-        private ProgressBar myProgressBar;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private UCButtonDoctor ucButtonDoctor = new UCButtonDoctor();
+        
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ////private UCButtonDoctor ucButtonDoctor = new UCButtonDoctor();
+        
         /// <summary>
         /// Creates main program form
         /// </summary>
@@ -34,12 +35,15 @@ namespace HospitalApp
             Authorization newAuth = new Authorization();
             newAuth.ShowDialog();
             _myUser = newAuth._user;
-
+            //InitializeComponent();
             if (_myUser != null)
             {
                 InitializeComponent();
                 LoadControls();
             }
+            //scContent.Panel2.Controls.Add(new UCDoctors());
+            //var d  = scContent.Parent.Size;
+
         }
 
         private void LoadControls()
@@ -47,6 +51,7 @@ namespace HospitalApp
             var position = _myUser.Position.PositionName.ToLower();
             switch (position)
             {
+                //ToDO move to enum
                 case "admin":
                     this.scContent.Panel1.Controls.Clear();
                     this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
@@ -108,8 +113,7 @@ namespace HospitalApp
             };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                myProgressBar = new ProgressBar(openFileDialog.FileName);
-                myProgressBar.ShowDialog();
+                
                 switch (openFileDialog.FilterIndex)
                 {
                     case 1:
@@ -129,10 +133,8 @@ namespace HospitalApp
         private void ParseAndAddCsvToDb(string fileName)
         {
             this.progressBar1.Visible = true;
-            FileInfo myFileInfo = new FileInfo(fileName);
-            var percent = myFileInfo.Length/100;
-
-            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+            
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("Windows-1251"));
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -148,28 +150,59 @@ namespace HospitalApp
             int manufacturerName = nameFields.FindIndex(x => x.Trim().Equals(refMan[1].Name));
             int manufacturerCountry = nameFields.FindIndex(x => x.Trim().Equals(refMan[2].Name));
 
-            using (var context = new HospitalDbContext())
-            {
+            var context = new HospitalDbContext();
+            
                 foreach (var item in linesMedicine)
                 {
-                    var medItems = item.Split(',').ToList();
+
+                    
+                    List<string> medItems = item.Split(',').ToList();
+                    string nameC = medItems[manufacturerCountry].Trim();
+                    string nameF = medItems[manufacturerName].Trim();
+
+                    //Manufacturer ifexist=null;
+                    //MedicineType drugType=null;
+
+                    var drugType =
+                                context.MedicineType.FirstOrDefault(
+                                    x => x.Type.ToString().ToLower() == medItems.ElementAt(typeMedicine).ToLower());
+
+                    var ifexist = context.Manufacturers.FirstOrDefault(x => (
+                            x.Country.Trim().ToLower() ==  nameC.ToLower() &&
+                            x.FactoryName.Trim().ToLower() == nameF));
+
+                    context.Manufacturers.AddIfNoExists(new Manufacturer
+                    {
+                        FactoryName = "",
+                        Country = ""
+                    });
+                    
+                    
+
+                if(ifexist==null)
+                {
+                    ifexist = new Manufacturer()
+                    { 
+                        FactoryName = medItems[manufacturerName],
+                        Country = medItems[manufacturerCountry]
+                    };
+                }
+
+                    if(drugType==null) drugType = new MedicineType()
+                    {
+                        Type = medItems[typeMedicine]
+                    };
 
                     context.Medicines.Add(new Medicine()
-                    {
-                        Name = medItems[nameMedicine],
-                        Manufacturer = new Manufacturer()
                         {
-                            FactoryName = medItems[manufacturerName],
-                            Country = medItems[manufacturerCountry]
-                        },
-                        MedicineType = new MedicineType()
-                        {
-                            Type = medItems[typeMedicine]
-                        }
-                    });
+                            Name = medItems[nameMedicine].Trim(),
+                            Manufacturer = ifexist,
+                            MedicineType = drugType
+                        });
+                   
                 }
                 context.SaveChanges();
-            }
+            
 
             this.progressBar1.Visible = false;
 
@@ -177,6 +210,8 @@ namespace HospitalApp
             MessageBox.Show("File " + name + " imported!", "Information",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        
         
         /// <summary>
         /// Read and parse data about drugs from *.txt file
@@ -184,6 +219,8 @@ namespace HospitalApp
         /// <param name="fileName"></param>
         private void TxtParseMethod(string fileName)
         {
+            this.progressBar1.Visible = true;
+
             var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             
             List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
@@ -213,7 +250,9 @@ namespace HospitalApp
                  
         }
 
-        
+        /// <summary>
+        /// Export medicines to database from *.txt file
+        /// </summary>
         /// <param name="medDrug">List of drugs which need to be saved</param>
         /// <param name="name">short name of file we read</param>
         private void AddDrugToDb(List<Drugs> medDrug, string name )
@@ -241,6 +280,7 @@ namespace HospitalApp
 
             MessageBox.Show("File " + name + " imported!", "Information",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.progressBar1.Visible = false;
         }
 
         /// <summary>
@@ -268,7 +308,6 @@ namespace HospitalApp
                 }
                 fileStream.Close();
             }
-            //throw new NotImplementedException();
 
             var name = fileName.Split('\\').Last();
             MessageBox.Show("File " + name + " was succefully created!", "Information",
@@ -284,6 +323,8 @@ namespace HospitalApp
             var name = fileName.Split('\\').Last();
             var context = new HospitalDbContext();
             var listMedicines = context.Medicines.ToList();
+            var size = listMedicines.Count;
+
             using (var fileStream = new FileStream(fileName, FileMode.Create))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
@@ -305,7 +346,7 @@ namespace HospitalApp
                 }
                 
             }
-            MessageBox.Show("File "+name+" was succefully created!", "Information",
+           MessageBox.Show("File "+name+" was succefully created!", "Information",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

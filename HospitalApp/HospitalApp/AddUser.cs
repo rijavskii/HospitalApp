@@ -10,9 +10,13 @@ using System.Windows.Forms;
 
 namespace HospitalApp
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'AddUser'
     public partial class AddUser : Form
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'AddUser'
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'AddUser.AddUser()'
         public AddUser()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'AddUser.AddUser()'
         {
             InitializeComponent();
         }

@@ -12,13 +12,24 @@ using EntityDb.DAL;
 
 namespace HospitalApp
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'Authorization'
     public partial class Authorization : Form
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'Authorization'
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'Authorization._user'
         public Users _user { get; private set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'Authorization._user'
         
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'Authorization.Authorization()'
         public Authorization()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'Authorization.Authorization()'
         {
             InitializeComponent();
+#if DEBUG
+            tbLogin.Text = "admin";
+            tbPassword.Text = "admin";
+            //btnAuthorizate_Click(this, new EventArgs());
+#endif
         }
 
         private void btnAuthorizate_Click(object sender, EventArgs e)
@@ -50,8 +61,16 @@ namespace HospitalApp
 
         private void btShowPassword_Click(object sender, EventArgs e)
         {
-            if (tbPassword.PasswordChar == '*') tbPassword.PasswordChar = '\0';
-            else tbPassword.PasswordChar = '*';
+            if (tbPassword.PasswordChar == '*')
+            {
+                this.btShowPassword.Text = @"Hide password";
+                tbPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                this.btShowPassword.Text = @"Show password";
+                tbPassword.PasswordChar = '*';
+            }
         }
     }
 }
