@@ -76,6 +76,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,14 +95,34 @@
       <DependentUpon>CoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Enum\TypeMedicine.cs" />
-    <Compile Include="Medicine.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="Drugs.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressBar.Designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UCButtonAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCButtonAdmin.Designer.cs">
+      <DependentUpon>UCButtonAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCButtonDoctor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UCButtonDoctor.Designer.cs">
       <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCButtonNurse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCButtonNurse.Designer.cs">
+      <DependentUpon>UCButtonNurse.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCButtonRegistry.cs">
       <SubType>UserControl</SubType>
@@ -128,8 +160,17 @@
     <Compile Include="UserControls\UCListMedicine.Designer.cs">
       <DependentUpon>UCListMedicine.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CoreForm.resx">
       <DependentUpon>CoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,9 +180,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCButtonAdmin.resx">
+      <DependentUpon>UCButtonAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCButtonDoctor.resx">
       <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCButtonNurse.resx">
+      <DependentUpon>UCButtonNurse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCButtonRegistry.resx">
       <DependentUpon>UCButtonRegistry.cs</DependentUpon>
@@ -197,6 +245,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="icons\Icons-Land-Points-Of-Interest-Hospital-Red-2.ico" />
+    <None Include="icons\Register-icon %281%29.png" />
+    <Content Include="icons\Webiconset-Application-Register.ico" />
+    <None Include="Resources\y_96cc5968.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
