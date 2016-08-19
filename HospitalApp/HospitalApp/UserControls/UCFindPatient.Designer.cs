@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.lvFind = new System.Windows.Forms.ListView();
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,52 +72,17 @@
             this.chInnNumber});
             this.lvFind.FullRowSelect = true;
             this.lvFind.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup1.Tag = "1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
+            listViewGroup2.Tag = "1";
             this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup2});
             this.lvFind.Location = new System.Drawing.Point(3, 6);
             this.lvFind.Name = "lvFind";
             this.lvFind.Size = new System.Drawing.Size(559, 432);
             this.lvFind.TabIndex = 0;
             this.lvFind.UseCompatibleStateImageBehavior = false;
             this.lvFind.View = System.Windows.Forms.View.Details;
-            // 
-            // chFirstName
-            // 
-            this.chFirstName.Text = "First Name";
-            this.chFirstName.Width = 65;
-            // 
-            // chMiddleName
-            // 
-            this.chMiddleName.Text = "Middle Name";
-            this.chMiddleName.Width = 78;
-            // 
-            // chLastName
-            // 
-            this.chLastName.Text = "Last Name";
-            this.chLastName.Width = 65;
-            // 
-            // chBirthday
-            // 
-            this.chBirthday.Text = "Birthday";
-            this.chBirthday.Width = 69;
-            // 
-            // chAddress
-            // 
-            this.chAddress.Text = "Address";
-            this.chAddress.Width = 78;
-            // 
-            // chPassportNumber
-            // 
-            this.chPassportNumber.Text = "Passport Number";
-            this.chPassportNumber.Width = 98;
-            // 
-            // chInnNumber
-            // 
-            this.chInnNumber.Text = "Inn Number";
-            this.chInnNumber.Width = 78;
             // 
             // chFirstName
             // 
@@ -230,68 +195,22 @@
             this.scFindPatient.SplitterDistance = 229;
             this.scFindPatient.TabIndex = 7;
             // 
-            // lbPassportNumber
             // btnFind
             // 
-            this.lbPassportNumber.AutoSize = true;
-            this.lbPassportNumber.Location = new System.Drawing.Point(14, 95);
-            this.lbPassportNumber.Name = "lbPassportNumber";
-            this.lbPassportNumber.Size = new System.Drawing.Size(88, 13);
-            this.lbPassportNumber.TabIndex = 8;
-            this.lbPassportNumber.Text = "Passport Number";
-            // 
-            // lbLastName
-            // 
-            this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(14, 51);
-            this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(58, 13);
-            this.lbLastName.TabIndex = 7;
-            this.lbLastName.Text = "Last Name";
-            // 
-            // btCancel
-            // 
-            this.btCancel.Location = new System.Drawing.Point(711, 448);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(155, 23);
-            this.btCancel.TabIndex = 8;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.UseVisualStyleBackColor = true;
-            // 
-            // lbBirthday
-            // 
-            this.lbBirthday.AutoSize = true;
-            this.lbBirthday.Location = new System.Drawing.Point(14, 75);
-            this.lbBirthday.Name = "lbBirthday";
-            this.lbBirthday.Size = new System.Drawing.Size(49, 13);
-            this.lbBirthday.TabIndex = 9;
-            this.lbBirthday.Text = "Burthday";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(108, 69);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(185, 20);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
-            // splitter1
-            // 
-            this.btFind.Location = new System.Drawing.Point(218, 137);
-            this.btFind.Name = "btFind";
-            this.btFind.Size = new System.Drawing.Size(75, 23);
-            this.btFind.TabIndex = 14;
-            this.btFind.Text = "Find";
-            this.btFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.btnFind.Location = new System.Drawing.Point(143, 137);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 23);
+            this.btnFind.TabIndex = 0;
+            this.btnFind.Text = "Find";
             // 
             // lbInn
             // 
             this.lbInn.AutoSize = true;
             this.lbInn.Location = new System.Drawing.Point(14, 114);
             this.lbInn.Name = "lbInn";
-            this.lbInn.Size = new System.Drawing.Size(62, 13);
+            this.lbInn.Size = new System.Drawing.Size(66, 13);
             this.lbInn.TabIndex = 13;
-            this.lbInn.Text = "Inn Number";
+            this.lbInn.Text = "INN Number";
             // 
             // tbInnNumber
             // 
@@ -308,10 +227,8 @@
             this.splitter1.TabIndex = 11;
             this.splitter1.TabStop = false;
             // 
-            // dateTimePicker1
+            // dtpBirthday
             // 
-            this.chMiddleName.Text = "Middle Name";
-            this.chMiddleName.Width = 78;
             this.dtpBirthday.Location = new System.Drawing.Point(108, 69);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(110, 20);
