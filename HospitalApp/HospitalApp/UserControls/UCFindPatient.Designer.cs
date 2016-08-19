@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.lvFind = new System.Windows.Forms.ListView();
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,11 +72,11 @@
             this.chInnNumber});
             this.lvFind.FullRowSelect = true;
             this.lvFind.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup1";
-            listViewGroup2.Tag = "1";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup1.Tag = "1";
             this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup1});
             this.lvFind.Location = new System.Drawing.Point(3, 6);
             this.lvFind.Name = "lvFind";
             this.lvFind.Size = new System.Drawing.Size(559, 432);
@@ -202,6 +202,7 @@
             this.btnFind.Size = new System.Drawing.Size(75, 23);
             this.btnFind.TabIndex = 0;
             this.btnFind.Text = "Find";
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // lbInn
             // 

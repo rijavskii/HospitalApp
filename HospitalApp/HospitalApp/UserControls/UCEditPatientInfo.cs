@@ -10,16 +10,14 @@ using System.Windows.Forms;
 
 namespace HospitalApp
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCEditPatientInfo'
+
     public partial class UCEditPatientInfo : UserControl
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCEditPatientInfo'
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCEditPatientInfo.UCEditPatientInfo()'
+
         public UCEditPatientInfo()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCEditPatientInfo.UCEditPatientInfo()'
         {
             InitializeComponent();
-            dtpBirthday.MaxDate = DateTime.Now;
+            dtpBirthday.MaxDate = DateTime.Today;
         }
 
         private void lbInnNumber_Click(object sender, EventArgs e)
@@ -27,6 +25,10 @@ namespace HospitalApp
 
         }
 
+        /// <summary>
+        /// Check if all information about user is correct for saving
+        /// </summary>
+        /// <returns></returns>
         public bool UserValidation()
         {
             bool isValid = true;
@@ -47,22 +49,21 @@ namespace HospitalApp
                 isValid = false;
             }
 
-
-            //if (tbPassportSeries.Text.Length != 2)
-            //{
-            //    tbPassportSeries.BackColor = Color.Red;
-            //    isValid = false;
-            //}
-            //if (tbPassportNunber.Text.Length != 6)
-            //{
-            //    tbPassportNunber.BackColor = Color.Red;
-            //    isValid = false;
-            //}
-            //if (tbInnNumber.Text.Length != 10)
-            //{
-            //    tbInnNumber.BackColor = Color.Red;
-            //    isValid = false;
-            //}
+            if (tbPassportSeries.Text.Length != 2)
+            {
+                tbPassportSeries.BackColor = Color.Red;
+                isValid = false;
+            }
+            if (tbPassportNunber.Text.Length != 6)
+            {
+                tbPassportNunber.BackColor = Color.Red;
+                isValid = false;
+            }
+            if (tbInnNumber.Text.Length != 10)
+            {
+                tbInnNumber.BackColor = Color.Red;
+                isValid = false;
+            }
 
             return isValid;
         }

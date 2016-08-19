@@ -36,12 +36,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scContent = new System.Windows.Forms.SplitContainer();
-<<<<<<< HEAD
-            this.ucEditPatientInfo1 = new HospitalApp.UCEditPatientInfo();
-=======
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
->>>>>>> 92dd78df37853c3ffb6be9a41d9d955387805bab
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
             this.scContent.Panel2.SuspendLayout();

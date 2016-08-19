@@ -261,15 +261,10 @@ namespace HospitalApp
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// method to add info in DataBase
         /// "UTF-8" - doesn't work. Work only Encoding.GetEncoding(1251)
-
         /// Adding list of drugs to database
-
-=======
         /// Export medicines to database from *.txt file
->>>>>>> 92dd78df37853c3ffb6be9a41d9d955387805bab
         /// </summary>
         /// <param name="medDrug">List of drugs which need to be saved</param>
         /// <param name="name">short name of file we read</param>
@@ -326,20 +321,11 @@ namespace HospitalApp
                 }
                 fileStream.Close();
             }
-<<<<<<< HEAD
-
             //throw new NotImplementedException();
-
-=======
->>>>>>> 92dd78df37853c3ffb6be9a41d9d955387805bab
 
             var name = fileName.Split('\\').Last();
             MessageBox.Show("File " + name + " was succefully created!", "Information",
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
-<<<<<<< HEAD
-
-=======
->>>>>>> 92dd78df37853c3ffb6be9a41d9d955387805bab
         }
 
         /// <summary>
