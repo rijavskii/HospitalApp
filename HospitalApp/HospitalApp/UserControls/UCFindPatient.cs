@@ -21,5 +21,10 @@ namespace HospitalApp
         {
 
         }
+
+        private void scFindPatient_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

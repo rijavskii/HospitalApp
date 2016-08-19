@@ -36,8 +36,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scContent = new System.Windows.Forms.SplitContainer();
+            this.ucEditPatientInfo1 = new HospitalApp.UCEditPatientInfo();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
+            this.scContent.Panel2.SuspendLayout();
             this.scContent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,9 +95,20 @@
             this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scContent.Location = new System.Drawing.Point(0, 24);
             this.scContent.Name = "scContent";
+            // 
+            // scContent.Panel2
+            // 
+            this.scContent.Panel2.Controls.Add(this.ucEditPatientInfo1);
             this.scContent.Size = new System.Drawing.Size(995, 494);
             this.scContent.SplitterDistance = 184;
             this.scContent.TabIndex = 1;
+            // 
+            // ucEditPatientInfo1
+            // 
+            this.ucEditPatientInfo1.Location = new System.Drawing.Point(4, 4);
+            this.ucEditPatientInfo1.Name = "ucEditPatientInfo1";
+            this.ucEditPatientInfo1.Size = new System.Drawing.Size(828, 379);
+            this.ucEditPatientInfo1.TabIndex = 0;
             // 
             // CoreForm
             // 
@@ -110,6 +123,7 @@
             this.Text = "Hospital";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.scContent.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).EndInit();
             this.scContent.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -126,6 +140,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importMedicineToolStripMenuItem;
+        private UCEditPatientInfo ucEditPatientInfo1;
     }
 }
 

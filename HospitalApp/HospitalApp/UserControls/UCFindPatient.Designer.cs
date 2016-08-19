@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.lvFind = new System.Windows.Forms.ListView();
+            this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chBirthday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPassportNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chInnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -36,23 +43,16 @@
             this.lbFirstName = new System.Windows.Forms.Label();
             this.lbMiddleName = new System.Windows.Forms.Label();
             this.scFindPatient = new System.Windows.Forms.SplitContainer();
+            this.btFind = new System.Windows.Forms.Button();
+            this.lbInn = new System.Windows.Forms.Label();
+            this.tbInnNumber = new System.Windows.Forms.TextBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lbBirthday = new System.Windows.Forms.Label();
             this.lbPassportNumber = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
-            this.lbBirthday = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.lbInn = new System.Windows.Forms.Label();
-            this.tbInnNumber = new System.Windows.Forms.TextBox();
-            this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chBirthday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btEdit = new System.Windows.Forms.Button();
-            this.chPassportNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chInnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scFindPatient)).BeginInit();
             this.scFindPatient.Panel1.SuspendLayout();
             this.scFindPatient.Panel2.SuspendLayout();
@@ -78,6 +78,41 @@
             this.lvFind.UseCompatibleStateImageBehavior = false;
             this.lvFind.View = System.Windows.Forms.View.Details;
             this.lvFind.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // chFirstName
+            // 
+            this.chFirstName.Text = "First Name";
+            this.chFirstName.Width = 65;
+            // 
+            // chMiddleName
+            // 
+            this.chMiddleName.Text = "Middle Name";
+            this.chMiddleName.Width = 78;
+            // 
+            // chLastName
+            // 
+            this.chLastName.Text = "Last Name";
+            this.chLastName.Width = 65;
+            // 
+            // chBirthday
+            // 
+            this.chBirthday.Text = "Birthday";
+            this.chBirthday.Width = 52;
+            // 
+            // chAddress
+            // 
+            this.chAddress.Text = "Address";
+            this.chAddress.Width = 111;
+            // 
+            // chPassportNumber
+            // 
+            this.chPassportNumber.Text = "Passport Number";
+            this.chPassportNumber.Width = 98;
+            // 
+            // chInnNumber
+            // 
+            this.chInnNumber.Text = "Inn Number";
+            this.chInnNumber.Width = 72;
             // 
             // tbFirstName
             // 
@@ -146,6 +181,7 @@
             this.scFindPatient.Panel1.Controls.Add(this.tbLastName);
             this.scFindPatient.Panel1.Controls.Add(this.lbFirstName);
             this.scFindPatient.Panel1.Controls.Add(this.tbMiddleName);
+            this.scFindPatient.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.scFindPatient_Panel1_Paint);
             // 
             // scFindPatient.Panel2
             // 
@@ -153,6 +189,55 @@
             this.scFindPatient.Size = new System.Drawing.Size(863, 438);
             this.scFindPatient.SplitterDistance = 306;
             this.scFindPatient.TabIndex = 7;
+            // 
+            // btFind
+            // 
+            this.btFind.Location = new System.Drawing.Point(218, 137);
+            this.btFind.Name = "btFind";
+            this.btFind.Size = new System.Drawing.Size(75, 23);
+            this.btFind.TabIndex = 14;
+            this.btFind.Text = "Find";
+            this.btFind.UseVisualStyleBackColor = true;
+            // 
+            // lbInn
+            // 
+            this.lbInn.AutoSize = true;
+            this.lbInn.Location = new System.Drawing.Point(14, 114);
+            this.lbInn.Name = "lbInn";
+            this.lbInn.Size = new System.Drawing.Size(62, 13);
+            this.lbInn.TabIndex = 13;
+            this.lbInn.Text = "Inn Number";
+            // 
+            // tbInnNumber
+            // 
+            this.tbInnNumber.Location = new System.Drawing.Point(108, 111);
+            this.tbInnNumber.Name = "tbInnNumber";
+            this.tbInnNumber.Size = new System.Drawing.Size(185, 20);
+            this.tbInnNumber.TabIndex = 12;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 438);
+            this.splitter1.TabIndex = 11;
+            this.splitter1.TabStop = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(108, 69);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(185, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // lbBirthday
+            // 
+            this.lbBirthday.AutoSize = true;
+            this.lbBirthday.Location = new System.Drawing.Point(14, 75);
+            this.lbBirthday.Name = "lbBirthday";
+            this.lbBirthday.Size = new System.Drawing.Size(49, 13);
+            this.lbBirthday.TabIndex = 9;
+            this.lbBirthday.Text = "Burthday";
             // 
             // lbPassportNumber
             // 
@@ -181,71 +266,6 @@
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
             // 
-            // lbBirthday
-            // 
-            this.lbBirthday.AutoSize = true;
-            this.lbBirthday.Location = new System.Drawing.Point(14, 75);
-            this.lbBirthday.Name = "lbBirthday";
-            this.lbBirthday.Size = new System.Drawing.Size(49, 13);
-            this.lbBirthday.TabIndex = 9;
-            this.lbBirthday.Text = "Burthday";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(108, 69);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(185, 20);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 438);
-            this.splitter1.TabIndex = 11;
-            this.splitter1.TabStop = false;
-            // 
-            // lbInn
-            // 
-            this.lbInn.AutoSize = true;
-            this.lbInn.Location = new System.Drawing.Point(14, 114);
-            this.lbInn.Name = "lbInn";
-            this.lbInn.Size = new System.Drawing.Size(62, 13);
-            this.lbInn.TabIndex = 13;
-            this.lbInn.Text = "Inn Number";
-            // 
-            // tbInnNumber
-            // 
-            this.tbInnNumber.Location = new System.Drawing.Point(108, 111);
-            this.tbInnNumber.Name = "tbInnNumber";
-            this.tbInnNumber.Size = new System.Drawing.Size(185, 20);
-            this.tbInnNumber.TabIndex = 12;
-            // 
-            // chFirstName
-            // 
-            this.chFirstName.Text = "First Name";
-            this.chFirstName.Width = 65;
-            // 
-            // chMiddleName
-            // 
-            this.chMiddleName.Text = "Middle Name";
-            this.chMiddleName.Width = 78;
-            // 
-            // chLastName
-            // 
-            this.chLastName.Text = "Last Name";
-            this.chLastName.Width = 65;
-            // 
-            // chBirthday
-            // 
-            this.chBirthday.Text = "Birthday";
-            this.chBirthday.Width = 52;
-            // 
-            // chAddress
-            // 
-            this.chAddress.Text = "Address";
-            this.chAddress.Width = 111;
-            // 
             // btEdit
             // 
             this.btEdit.Location = new System.Drawing.Point(550, 447);
@@ -254,25 +274,6 @@
             this.btEdit.TabIndex = 9;
             this.btEdit.Text = "Edit";
             this.btEdit.UseVisualStyleBackColor = true;
-            // 
-            // chPassportNumber
-            // 
-            this.chPassportNumber.Text = "Passport Number";
-            this.chPassportNumber.Width = 98;
-            // 
-            // chInnNumber
-            // 
-            this.chInnNumber.Text = "Inn Number";
-            this.chInnNumber.Width = 72;
-            // 
-            // btFind
-            // 
-            this.btFind.Location = new System.Drawing.Point(218, 137);
-            this.btFind.Name = "btFind";
-            this.btFind.Size = new System.Drawing.Size(75, 23);
-            this.btFind.TabIndex = 14;
-            this.btFind.Text = "Find";
-            this.btFind.UseVisualStyleBackColor = true;
             // 
             // UCFindPatient
             // 
