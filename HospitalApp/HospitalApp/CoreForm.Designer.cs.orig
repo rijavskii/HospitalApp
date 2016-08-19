@@ -101,13 +101,31 @@
             this.scContent.Location = new System.Drawing.Point(0, 24);
             this.scContent.Name = "scContent";
             // 
-            // scContent.Panel2
+<<<<<<< HEAD
             // scContent.Panel1
             // 
+            this.scContent.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.scContent_Panel1_Paint);
+            this.scContent.Panel1MinSize = 200;
+            this.scContent.Panel2MinSize = 790;
+            this.scContent.Size = new System.Drawing.Size(995, 498);
+            this.scContent.SplitterDistance = 200;
+=======
+            // scContent.Panel2
+            // 
+            this.scContent.Panel2.Controls.Add(this.ucEditPatientInfo1);
             this.scContent.Size = new System.Drawing.Size(995, 494);
             this.scContent.SplitterDistance = 184;
+>>>>>>> 4b3ba00064a7e271c21668e272d036faa44180c3
             this.scContent.TabIndex = 1;
             // 
+<<<<<<< HEAD
+            // ucEditPatientInfo1
+            // 
+            this.ucEditPatientInfo1.Location = new System.Drawing.Point(4, 4);
+            this.ucEditPatientInfo1.Name = "ucEditPatientInfo1";
+            this.ucEditPatientInfo1.Size = new System.Drawing.Size(828, 379);
+            this.ucEditPatientInfo1.TabIndex = 0;
+=======
             // progressBar1
             // 
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -117,6 +135,7 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 0;
             this.progressBar1.Visible = false;
+>>>>>>> 92dd78df37853c3ffb6be9a41d9d955387805bab
             // 
             // CoreForm
             // 
@@ -150,8 +169,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importMedicineToolStripMenuItem;
+<<<<<<< HEAD
+        private UCEditPatientInfo ucEditPatientInfo1;
+=======
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ProgressBar progressBar1;
+>>>>>>> 92dd78df37853c3ffb6be9a41d9d955387805bab
     }
 }
 
