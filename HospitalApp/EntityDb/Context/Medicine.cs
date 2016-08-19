@@ -17,19 +17,20 @@ namespace EntityDb.Context
         /// <summary>
         /// This is a name of drug
         /// </summary>
-        //[Index("IndexMedicine", 1, IsUnique = true)]
+        [MaxLength(100)]
+        [Index("IndexMedicine", 1, IsUnique = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Who makes such drugs
         /// </summary>
-        //[Index("IndexMedicine",2,IsUnique = true)]
+        [Index("IndexMedicine",2,IsUnique = true)]
         public virtual Manufacturer Manufacturer { get; set; }
 
         /// <summary>
         /// What kind of drugs this is
         /// </summary>
-        //[Index("IndexMedicine", 3, IsUnique = true)]
+        [Index("IndexMedicine", 3, IsUnique = true)]
         public virtual MedicineType MedicineType { get; set; }
     }
 }

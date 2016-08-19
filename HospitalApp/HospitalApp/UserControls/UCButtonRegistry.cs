@@ -7,23 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HospitalApp.UserControls;
 
 namespace HospitalApp
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCButtonRegistry'
-    public partial class UCButtonRegistry : UserControl
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonRegistry'
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class UcButtonRegistry : UserControl
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCButtonRegistry.UCButtonRegistry()'
-        public UCButtonRegistry()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonRegistry.UCButtonRegistry()'
+        private Panel work;
+        /// <summary>
+        /// 
+        /// </summary>
+        public UcButtonRegistry(Panel myPanel)
         {
             InitializeComponent();
+            work = myPanel;
         }
 
+        
+
+        private void btnNewPatient_Click(object sender, EventArgs e)
+        {
+            work.Controls.Clear();
+            work.Controls.Add(new UCAddUser());
+        }
+
+        private void btnFindUser_Click(object sender, EventArgs e)
+        {
+          work.Controls.Clear();
+          work.Controls.Add(new UCFindPatient());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
+
+        
     }
 }

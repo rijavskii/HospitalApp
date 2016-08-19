@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -31,6 +32,12 @@ namespace EntityDb.Context
         public string LastName { get; set; }
 
         /// <summary>
+        /// When patient or worker was born
+        /// </summary>
+        [Column(TypeName = "datetime2")]
+        public DateTime Birthday { get; set; }
+
+        /// <summary>
         /// Name to access to your acount
         /// </summary>
         [Required]
@@ -58,7 +65,7 @@ namespace EntityDb.Context
         /// Your identification number
         /// </summary>
         [Required]
-        public int IdentificationNumber { get; set; }
+        public string IdentificationNumber { get; set; }
 
         /// <summary>
         /// Where I should look user

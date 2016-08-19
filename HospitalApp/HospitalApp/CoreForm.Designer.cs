@@ -95,14 +95,20 @@
             this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scContent.Location = new System.Drawing.Point(0, 24);
             this.scContent.Name = "scContent";
-            this.scContent.Size = new System.Drawing.Size(995, 494);
-            this.scContent.SplitterDistance = 184;
+            // 
+            // scContent.Panel1
+            // 
+            this.scContent.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.scContent_Panel1_Paint);
+            this.scContent.Panel1MinSize = 200;
+            this.scContent.Panel2MinSize = 790;
+            this.scContent.Size = new System.Drawing.Size(995, 498);
+            this.scContent.SplitterDistance = 200;
             this.scContent.TabIndex = 1;
             // 
             // progressBar1
             // 
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(0, 495);
+            this.progressBar1.Location = new System.Drawing.Point(0, 499);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(995, 23);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
@@ -113,12 +119,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 518);
+            this.ClientSize = new System.Drawing.Size(995, 522);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.scContent);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1010, 560);
             this.Name = "CoreForm";
             this.Text = "Hospital";
             this.menuStrip1.ResumeLayout(false);

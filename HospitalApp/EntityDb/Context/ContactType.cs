@@ -16,6 +16,7 @@ namespace EntityDb.Context
         /// <summary>
         /// Name of contact type (phone, fax, email, etc.)
         /// </summary>
+        [Required]
         public string Name { get; set; }
     }
 }

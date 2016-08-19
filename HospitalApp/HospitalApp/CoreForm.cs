@@ -5,9 +5,11 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 using EntityDb.DAL;
+using HospitalApp.Enum;
 using HospitalApp.UserControls;
 
 namespace HospitalApp
@@ -21,6 +23,7 @@ namespace HospitalApp
         /// Authorized user
         /// </summary>
         private Users _myUser;
+
         
         ///// <summary>
         ///// 
@@ -48,23 +51,29 @@ namespace HospitalApp
 
         private void LoadControls()
         {
-            var position = _myUser.Position.PositionName.ToLower();
-            switch (position)
+            var position = (EPositions)_myUser.Position.Id;
+            switch (EPositions.Admin)
             {
                 //ToDO move to enum
-                case "admin":
+                case EPositions.Admin:
                     this.scContent.Panel1.Controls.Clear();
-                    this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
+                    //this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
+                    scContent.Panel1.Controls.Add(new UcButtonRegistry(scContent.Panel2));
+
                     break; 
 
-                case "doctor":
+                case EPositions.Doctor:
                     this.scContent.Panel1.Controls.Clear();
-                    this.scContent.Panel1.Controls.Add(new UCButtonDoctor());
+                    this.scContent.Panel1.Controls.Add(new UCButtonDoctor(scContent.Panel2));
                     break;
 
-                case "nurse":
+                case EPositions.Nurse:
                     this.scContent.Panel1.Controls.Clear();
                     this.scContent.Panel1.Controls.Add(new UCButtonNurse());
+                    break;
+
+                case EPositions.Undefined:
+
                     break;
             }
         }
@@ -134,7 +143,7 @@ namespace HospitalApp
         {
             this.progressBar1.Visible = true;
             
-            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("Windows-1251"));
+            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -163,42 +172,43 @@ namespace HospitalApp
                     //Manufacturer ifexist=null;
                     //MedicineType drugType=null;
 
-                    var drugType =
-                                context.MedicineType.FirstOrDefault(
-                                    x => x.Type.ToString().ToLower() == medItems.ElementAt(typeMedicine).ToLower());
+                    MedicineType drugType = null;
+                                //context.MedicineType.FirstOrDefault(
+                                //    x => x.Name.ToString().ToLower() == medItems.ElementAt(typeMedicine).ToLower());
 
-                    var ifexist = context.Manufacturers.FirstOrDefault(x => (
-                            x.Country.Trim().ToLower() ==  nameC.ToLower() &&
-                            x.FactoryName.Trim().ToLower() == nameF));
+                    Manufacturer ifexist = null;//context.Manufacturers.FirstOrDefault(x => (
+                    //        x.Country.Trim().ToLower() ==  nameC.ToLower() &&
+                    //        x.FactoryName.Trim().ToLower() == nameF));
 
-                    context.Manufacturers.AddIfNoExists(new Manufacturer
-                    {
-                        FactoryName = "",
-                        Country = ""
-                    });
+                    //context.Manufacturers.AddIfNoExists(new Manufacturer
+                    //{
+                    //    FactoryName = "",
+                    //    Country = ""
+                    //});
                     
                     
 
-                if(ifexist==null)
-                {
+                
                     ifexist = new Manufacturer()
                     { 
                         FactoryName = medItems[manufacturerName],
                         Country = medItems[manufacturerCountry]
                     };
-                }
 
-                    if(drugType==null) drugType = new MedicineType()
-                    {
-                        Type = medItems[typeMedicine]
-                    };
 
-                    context.Medicines.Add(new Medicine()
+
+                //Name = medItems[typeMedicine];
+
+
+                context.Medicines.Add(new Medicine()
                         {
                             Name = medItems[nameMedicine].Trim(),
                             Manufacturer = ifexist,
-                            MedicineType = drugType
-                        });
+                            MedicineType = new MedicineType()
+                            {
+                                Name =  medItems[typeMedicine]
+                            }
+                });
                    
                 }
                 context.SaveChanges();
@@ -240,7 +250,7 @@ namespace HospitalApp
                         FactoryName = medItems[1],
                         Country = medItems[2]
                     },
-                    Type = new MedicineType() {Type = medItems[3]}
+                    Type = new MedicineType() {Name = medItems[3]}
                 };
 
                 medDrug.Add(itemMedicine);
@@ -271,7 +281,7 @@ namespace HospitalApp
                         },
                         MedicineType = new MedicineType()
                         {
-                            Type = item.Type.Type
+                            Name = item.Type.Name
                         }
                     });
                 }
@@ -301,7 +311,7 @@ namespace HospitalApp
                     {
                             fileWrite.Write("{0}, {1}, {2}, {3}, {4}",
                             drug.Name, drug.Manufacturer.FactoryName,
-                            drug.Manufacturer.Country, drug.MedicineType.Type,
+                            drug.Manufacturer.Country, drug.MedicineType.Name,
                             Environment.NewLine);
                     }
                     fileWrite.Close();
@@ -340,7 +350,7 @@ namespace HospitalApp
                     {
                         streamWriter.Write("{0}, {1}, {2}, {3}, {4}", 
                             drug.Name, drug.Manufacturer.FactoryName,
-                            drug.Manufacturer.Country, drug.MedicineType.Type,
+                            drug.Manufacturer.Country, drug.MedicineType.Name,
                             Environment.NewLine);
                     }
                 }
@@ -360,6 +370,9 @@ namespace HospitalApp
            Close();
         }
 
-        
+        private void scContent_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

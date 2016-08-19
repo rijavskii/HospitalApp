@@ -34,6 +34,7 @@
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btCancel = new System.Windows.Forms.Button();
             this.btEdit = new System.Windows.Forms.Button();
+            this.chCountry = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView1
@@ -41,10 +42,11 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chName,
             this.chManufacturer,
+            this.chCountry,
             this.chType});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(4, 7);
+            this.listView1.Location = new System.Drawing.Point(4, 8);
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
             this.listView1.Size = new System.Drawing.Size(749, 338);
@@ -55,17 +57,17 @@
             // chName
             // 
             this.chName.Text = "Name";
-            this.chName.Width = 410;
+            this.chName.Width = 253;
             // 
             // chManufacturer
             // 
             this.chManufacturer.Text = "Manufacturer";
-            this.chManufacturer.Width = 143;
+            this.chManufacturer.Width = 170;
             // 
             // chType
             // 
             this.chType.Text = "Type";
-            this.chType.Width = 192;
+            this.chType.Width = 169;
             // 
             // btCancel
             // 
@@ -85,6 +87,11 @@
             this.btEdit.TabIndex = 2;
             this.btEdit.Text = "Edit";
             this.btEdit.UseVisualStyleBackColor = true;
+            // 
+            // chCountry
+            // 
+            this.chCountry.Text = "Country";
+            this.chCountry.Width = 151;
             // 
             // UCListMedicine
             // 
@@ -107,5 +114,6 @@
         private System.Windows.Forms.ColumnHeader chType;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.ColumnHeader chCountry;
     }
 }

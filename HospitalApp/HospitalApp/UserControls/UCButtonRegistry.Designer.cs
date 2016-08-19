@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp
 {
-    partial class UCButtonRegistry
+    partial class UcButtonRegistry
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,68 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btNewPatient = new System.Windows.Forms.Button();
-            this.btFindPatient = new System.Windows.Forms.Button();
-            this.btExit = new System.Windows.Forms.Button();
-            this.btDoctors = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnNewPatient = new System.Windows.Forms.Button();
+            this.btnFindUser = new System.Windows.Forms.Button();
+            this.btnSignInDoctor = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btNewPatient
+            // tableLayoutPanel1
             // 
-            this.btNewPatient.Location = new System.Drawing.Point(6, 35);
-            this.btNewPatient.Name = "btNewPatient";
-            this.btNewPatient.Size = new System.Drawing.Size(162, 23);
-            this.btNewPatient.TabIndex = 3;
-            this.btNewPatient.Text = "New Patient";
-            this.btNewPatient.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnNewPatient, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnFindUser, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnSignInDoctor, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(194, 239);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // btFindPatient
+            // btnNewPatient
             // 
-            this.btFindPatient.Location = new System.Drawing.Point(6, 6);
-            this.btFindPatient.Name = "btFindPatient";
-            this.btFindPatient.Size = new System.Drawing.Size(162, 23);
-            this.btFindPatient.TabIndex = 2;
-            this.btFindPatient.Text = "Find Patient";
-            this.btFindPatient.UseVisualStyleBackColor = true;
+            this.btnNewPatient.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNewPatient.Location = new System.Drawing.Point(3, 3);
+            this.btnNewPatient.Name = "btnNewPatient";
+            this.btnNewPatient.Size = new System.Drawing.Size(188, 53);
+            this.btnNewPatient.TabIndex = 0;
+            this.btnNewPatient.Text = "New patient";
+            this.btnNewPatient.UseVisualStyleBackColor = true;
+            this.btnNewPatient.Click += new System.EventHandler(this.btnNewPatient_Click);
             // 
-            // btExit
+            // btnFindUser
             // 
-            this.btExit.Location = new System.Drawing.Point(6, 91);
-            this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(162, 23);
-            this.btExit.TabIndex = 8;
-            this.btExit.Text = "Exit";
-            this.btExit.UseVisualStyleBackColor = true;
-            this.btExit.Click += new System.EventHandler(this.btExit_Click);
+            this.btnFindUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFindUser.Location = new System.Drawing.Point(3, 62);
+            this.btnFindUser.Name = "btnFindUser";
+            this.btnFindUser.Size = new System.Drawing.Size(188, 53);
+            this.btnFindUser.TabIndex = 1;
+            this.btnFindUser.Text = "Find User";
+            this.btnFindUser.UseVisualStyleBackColor = true;
+            this.btnFindUser.Click += new System.EventHandler(this.btnFindUser_Click);
             // 
-            // btDoctors
+            // btnSignInDoctor
             // 
-            this.btDoctors.Location = new System.Drawing.Point(6, 62);
-            this.btDoctors.Name = "btDoctors";
-            this.btDoctors.Size = new System.Drawing.Size(162, 23);
-            this.btDoctors.TabIndex = 7;
-            this.btDoctors.Text = "Doctors";
-            this.btDoctors.UseVisualStyleBackColor = true;
+            this.btnSignInDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSignInDoctor.Location = new System.Drawing.Point(3, 121);
+            this.btnSignInDoctor.Name = "btnSignInDoctor";
+            this.btnSignInDoctor.Size = new System.Drawing.Size(188, 53);
+            this.btnSignInDoctor.TabIndex = 2;
+            this.btnSignInDoctor.Text = "Sign in to doctor";
+            this.btnSignInDoctor.UseVisualStyleBackColor = true;
             // 
-            // UCButtonRegistry
+            // UcButtonRegistry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btExit);
-            this.Controls.Add(this.btDoctors);
-            this.Controls.Add(this.btNewPatient);
-            this.Controls.Add(this.btFindPatient);
-            this.Name = "UCButtonRegistry";
-            this.Size = new System.Drawing.Size(174, 245);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Name = "UcButtonRegistry";
+            this.Size = new System.Drawing.Size(200, 250);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btNewPatient;
-        private System.Windows.Forms.Button btFindPatient;
-        private System.Windows.Forms.Button btExit;
-        private System.Windows.Forms.Button btDoctors;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnNewPatient;
+        private System.Windows.Forms.Button btnFindUser;
+        private System.Windows.Forms.Button btnSignInDoctor;
     }
 }

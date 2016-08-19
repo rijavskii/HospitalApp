@@ -18,7 +18,8 @@ namespace EntityDb.Context
         /// </summary>
         //ToDo Rename to Name
         //ToDo Make Required
-        public string Type { get; set; }
+        [Required]
+        public string Name { get; set; }
     }
 
 }

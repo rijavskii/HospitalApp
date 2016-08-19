@@ -21,7 +21,7 @@ namespace EntityDb.Context
         /// <summary>
         /// What disease we have here
         /// </summary>
-        public string DiseaseName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The best way to drop yor disease

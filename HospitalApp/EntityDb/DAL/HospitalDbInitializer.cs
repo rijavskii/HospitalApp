@@ -19,10 +19,11 @@ namespace EntityDb.DAL
         /// <param name="context"></param>
         protected override void Seed(HospitalDbContext context)
         {
-            context.Positions.Add(new Positions() { PositionName = "Undefined" });
-            context.Positions.Add(new Positions() { PositionName = "Doctor" });
-            context.Positions.Add(new Positions() { PositionName = "Nurse" });
-            context.Positions.Add(new Positions() { PositionName = "Admin"});
+            context.Positions.Add(new Positions() { Name = "Undefined" });
+            context.Positions.Add(new Positions() { Name = "Doctor" });
+            context.Positions.Add(new Positions() { Name = "Nurse" });
+            context.Positions.Add(new Positions() { Name = "Admin"});
+            context.Positions.Add(new Positions() { Name = "Registry" });
 
             context.Adresses.Add(new Adresses()
             {
@@ -33,6 +34,7 @@ namespace EntityDb.DAL
                 District = "admin",
                 HouseNumber = "admin1",
                 Country = "Ukraine",
+                //Users = context.Users.First(x=>x.Login == "admin")
 
             });
             //base.Seed(context);
@@ -44,9 +46,9 @@ namespace EntityDb.DAL
                 Login = "admin",
                 Password = "admin",
                 Passport = "admin",
-                IdentificationNumber = 0,
+                IdentificationNumber = "admin",
                 Adress = context.Adresses.First(x=>x.City=="admin"),
-                Position = context.Positions.First(x => x.PositionName == "Admin")
+                Position = context.Positions.First(x => x.Name == "Admin")
                 
             });
 

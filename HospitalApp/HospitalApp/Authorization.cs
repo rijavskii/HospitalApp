@@ -28,7 +28,8 @@ namespace HospitalApp
 #if DEBUG
             tbLogin.Text = "admin";
             tbPassword.Text = "admin";
-            //btnAuthorizate_Click(this, new EventArgs());
+            //var e = new EventArgs();
+            //btnAuthorizate_Click(this, e );
 #endif
         }
 

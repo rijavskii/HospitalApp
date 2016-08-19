@@ -17,7 +17,7 @@ namespace EntityDb.Context
         /// Position name of hospital worker
         /// </summary>
         [Required]
-        public string PositionName { get; set; }
+        public string Name { get; set; }
 
         
     }

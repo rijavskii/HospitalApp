@@ -56,10 +56,9 @@ namespace EntityDb.Context
         [Required]
         public int Appartment { get; set; }
 
-        ///// <summary>
-        ///// Person who lives by this adress
-        ///// </summary>
-        //[Required]
+        /// <summary>
+        /// Person who lives by this adress
+        /// </summary>
         public Users Users { get; set; }
 
     }
