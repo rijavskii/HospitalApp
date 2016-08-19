@@ -19,6 +19,7 @@ namespace HospitalApp
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCFindPatient.UCFindPatient()'
         {
             InitializeComponent();
+            dtpBirthday.MaxDate = DateTime.Now;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -29,6 +30,25 @@ namespace HospitalApp
         private void scFindPatient_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public bool validatePatient()
+        {
+            bool isValid = true;
+
+            if (tbFirstName.Text.Length < 3)
+            {
+                tbFirstName.BackColor = Color.Red;
+            }
+            if (tbMiddleName.Text.Length < 3)
+            {
+                tbMiddleName.BackColor = Color.Red;
+            }
+            if (tbLastName.Text.Length < 3)
+            {
+                tbLastName.BackColor = Color.Red;
+            }
+            return isValid;
         }
     }
 }

@@ -47,7 +47,7 @@
             this.lbInn = new System.Windows.Forms.Label();
             this.tbInnNumber = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.lbBirthday = new System.Windows.Forms.Label();
             this.lbPassportNumber = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
@@ -171,7 +171,7 @@
             this.scFindPatient.Panel1.Controls.Add(this.lbInn);
             this.scFindPatient.Panel1.Controls.Add(this.tbInnNumber);
             this.scFindPatient.Panel1.Controls.Add(this.splitter1);
-            this.scFindPatient.Panel1.Controls.Add(this.dateTimePicker1);
+            this.scFindPatient.Panel1.Controls.Add(this.dtpBirthday);
             this.scFindPatient.Panel1.Controls.Add(this.lbBirthday);
             this.scFindPatient.Panel1.Controls.Add(this.lbPassportNumber);
             this.scFindPatient.Panel1.Controls.Add(this.lbLastName);
@@ -223,12 +223,12 @@
             this.splitter1.TabIndex = 11;
             this.splitter1.TabStop = false;
             // 
-            // dateTimePicker1
+            // dtpBirthday
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(108, 69);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(185, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtpBirthday.Location = new System.Drawing.Point(108, 69);
+            this.dtpBirthday.Name = "dtpBirthday";
+            this.dtpBirthday.Size = new System.Drawing.Size(185, 20);
+            this.dtpBirthday.TabIndex = 10;
             // 
             // lbBirthday
             // 
@@ -306,7 +306,7 @@
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Label lbLastName;
         private System.Windows.Forms.Label lbPassportNumber;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpBirthday;
         private System.Windows.Forms.Label lbBirthday;
         private System.Windows.Forms.ColumnHeader chFirstName;
         private System.Windows.Forms.ColumnHeader chMiddleName;
