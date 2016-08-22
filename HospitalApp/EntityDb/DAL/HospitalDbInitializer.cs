@@ -5,6 +5,16 @@ using System.Linq;
 using System.Security.Cryptography;
 using EntityDb.Context;
 
+
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HospitalApp;
+
 namespace EntityDb.DAL
 {
     /// <summary>
@@ -39,12 +49,13 @@ namespace EntityDb.DAL
             });
             //base.Seed(context);
             context.SaveChanges();
+            string Password = "admin";
             context.Users.Add(new Users
             {
                 FirstName = "admin",
                 LastName = "admin",
                 Login = "admin",
-                Password = "admin",
+                Password = Password.GetMd5Hash("admin"),
                 Passport = "admin",
                 IdentificationNumber = "admin",
                 Adress = context.Adresses.First(x=>x.City=="admin"),
