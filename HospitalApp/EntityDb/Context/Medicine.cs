@@ -24,12 +24,14 @@ namespace EntityDb.Context
         /// <summary>
         /// Who makes such drugs
         /// </summary>
+        [MaxLength(100)]
         [Index("IndexMedicine",2,IsUnique = true)]
         public virtual Manufacturer Manufacturer { get; set; }
 
         /// <summary>
         /// What kind of drugs this is
         /// </summary>
+        [MaxLength(100)]
         [Index("IndexMedicine", 3, IsUnique = true)]
         public virtual MedicineType MedicineType { get; set; }
     }

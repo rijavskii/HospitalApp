@@ -15,8 +15,13 @@ using EntityDb.DAL;
 
 namespace HospitalApp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class UCFindPatient : UserControl
     {
+        private ListViewItem _items;
+        private List<Users> _users;
         /// <summary>
         /// Controller which allow to find users in database
         /// </summary>
@@ -28,89 +33,83 @@ namespace HospitalApp
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+
             using (var context = new HospitalDbContext())
             {
-                List<Users> findedUsers = context.Users.ToList();
-                string query=null;
+                _users = context.Users.Include(x=>x.Position).Include(x=>x.Adress).ToList();
+                
+                
                 if (tbFirstName.Text != String.Empty)
                 {
-                    findedUsers = findedUsers.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
+                    _users = _users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
                 }
 
                 if (tbLastName.Text != String.Empty)
                 {
-                    findedUsers = findedUsers.Where(x => x.LastName.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
+                    _users = _users.Where(x => x.LastName.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
                 }
-
-                if (tbPassportNumber.Text != String.Empty)
+                
+                if (mtbPassportSeries.Text.Trim() != String.Empty && mtbPassportNumber.Text.Trim() != String.Empty)
                 {
-                    findedUsers = findedUsers.Where(x => x.Passport.ToLower() == tbPassportNumber.Text.ToLower().Trim()).ToList();
+                    var passport = mtbPassportSeries.Text + mtbPassportNumber.Text;
+                    _users = _users.Where(x => x.Passport.ToLower() == passport.ToLower().Trim()).ToList();
                 }
 
-                if (tbInnNumber.Text != String.Empty)
+                if (mtbInnNumber.Text.Trim() != String.Empty)
                 {
-                    findedUsers = findedUsers.Where(x => x.IdentificationNumber.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
+                    _users = _users.Where(x => x.IdentificationNumber.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
                 }
-            
-            
-                var repo = new BaseRepository<Users>();
-                //var patients = context.Users.Where(x => x.FirstName.Trim().ToLower() == tbFirstName.Text.Trim().ToLower() &&
-                //                                        x.LastName.Trim().ToLower() == tbLastName.Text.Trim().ToLower()&&
-                //                                        x.Passport.Trim().ToLower() == tbPassportNumber.Text.Trim().ToLower()&&
-                //                                        x.IdentificationNumber.ToLower() == tbInnNumber.Text.Trim().ToLower()).ToList();
-                //repo.Get(x => x.FirstName == tbFirstName.Text).FirstOrDefault();
 
-                findedUsers = findedUsers.OrderByDescending(x=>x.FirstName).ToList();
-                AddToList(findedUsers);
+                _users = _users.OrderByDescending(x=>x.FirstName).ToList();
+                AddToList();
             }
-
-            
-            
         }
 
-        private void AddToList(List<Users> users)
+        private void AddToList()
         {
             lvFind.Items.Clear();
             using (var context = new HospitalDbContext())
             {
-                foreach (var user in users)
+                foreach (var user in _users)
                 {
-                    var items = new ListViewItem(user.FirstName);
+                    _items = new ListViewItem(user.FirstName);
 
                     //items.SubItems.Add(user.MiddleName);
-                    items.SubItems.Add(user.LastName);
+                    _items.SubItems.Add(user.LastName);
                     //items.SubItems.Add(user.Birthday);
                     //items.SubItems.Add(user.Adress);
-                    items.SubItems.Add(user.Passport);
-                    items.SubItems.Add(user.IdentificationNumber);
+                    _items.SubItems.Add(user.Passport);
+                    _items.SubItems.Add(user.IdentificationNumber);
 
-                    lvFind.Items.Add(items);
+                    lvFind.Items.Add(_items);
                 }
             }
         }
 
-        private void scFindPatient_Panel1_Paint(object sender, PaintEventArgs e)
+        private void lvFind_DoubleClick(object sender, EventArgs e)
+        {
+            EditPatient();
+        }
+
+        private void btSignInPatient_Click(object sender, EventArgs e)
         {
 
         }
 
-        public bool validatePatient()
+        private void btEdit_Click(object sender, EventArgs e)
         {
-            bool isValid = true;
+            EditPatient();
+        }
 
-            if (tbFirstName.Text.Length < 3)
+        private void EditPatient()
+        {
+            var currentUser = _users.ElementAt(_items.ListView.FocusedItem.Index);
+            EditPatient editPatient = new EditPatient(currentUser);
+            if (editPatient.ShowDialog() == DialogResult.Yes)
             {
-                tbFirstName.BackColor = Color.Red;
+                AddToList();
             }
-            if (tbMiddleName.Text.Length < 3)
-            {
-                tbMiddleName.BackColor = Color.Red;
-            }
-            if (tbLastName.Text.Length < 3)
-            {
-                tbLastName.BackColor = Color.Red;
-            }
-            return isValid;
+            
         }
     }
 }

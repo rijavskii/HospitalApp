@@ -73,5 +73,38 @@ namespace HospitalApp
                 tbPassword.PasswordChar = '*';
             }
         }
+
+        private void tbLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch ((Keys)e.KeyChar)
+            {
+                case Keys.Enter:
+                    btnAuthorizate_Click(sender, e);
+                    e.Handled = true;
+                    break;
+            }
+        }
+
+        private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch ((Keys)e.KeyChar)
+            {
+                case Keys.Enter:
+                    btnAuthorizate_Click(sender, e);
+                    e.Handled = true;
+                    break;  
+            }
+        }
+
+        private void Authorization_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch ((Keys)e.KeyChar)
+            {
+                case Keys.Escape:
+                    btnCancel_Click(sender, e);
+                    e.Handled = true;
+                    break;
+            }
+        }
     }
 }

@@ -74,6 +74,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(187, 20);
             this.tbLogin.TabIndex = 3;
+            this.tbLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLogin_KeyPress);
             // 
             // tbPassword
             // 
@@ -81,6 +82,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(187, 20);
             this.tbPassword.TabIndex = 4;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
             // 
             // btnCancel
             // 
@@ -138,6 +140,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Authorization";
             this.Load += new System.EventHandler(this.Authorization_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Authorization_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

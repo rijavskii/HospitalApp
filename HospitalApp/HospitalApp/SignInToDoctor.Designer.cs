@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp
 {
-    partial class AddUser
+    partial class SignInToDoctor
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,7 @@
         {
             this.ucEditPatientInfo1 = new HospitalApp.UCEditPatientInfo();
             this.btSave = new System.Windows.Forms.Button();
-            this.lbAddress = new System.Windows.Forms.Label();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbInnNumber = new System.Windows.Forms.Label();
-            this.tbInnNumber = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lbBirhday = new System.Windows.Forms.Label();
-            this.lbPassportNumber = new System.Windows.Forms.Label();
+            this.lbRoom = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
             this.lbMiddleName = new System.Windows.Forms.Label();
             this.tbPassportNunber = new System.Windows.Forms.TextBox();
@@ -45,7 +38,15 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.chTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chBusy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnSignIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ucEditPatientInfo1
@@ -58,77 +59,21 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(439, 170);
+            this.btSave.Location = new System.Drawing.Point(139, 112);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(111, 23);
             this.btSave.TabIndex = 53;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
             // 
-            // lbAddress
+            // lbRoom
             // 
-            this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(14, 147);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(45, 13);
-            this.lbAddress.TabIndex = 48;
-            this.lbAddress.Text = "Address";
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(108, 144);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(325, 20);
-            this.tbAddress.TabIndex = 47;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(439, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 152);
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lbInnNumber
-            // 
-            this.lbInnNumber.AutoSize = true;
-            this.lbInnNumber.Location = new System.Drawing.Point(14, 126);
-            this.lbInnNumber.Name = "lbInnNumber";
-            this.lbInnNumber.Size = new System.Drawing.Size(66, 13);
-            this.lbInnNumber.TabIndex = 45;
-            this.lbInnNumber.Text = "INN Number";
-            // 
-            // tbInnNumber
-            // 
-            this.tbInnNumber.Location = new System.Drawing.Point(108, 123);
-            this.tbInnNumber.Name = "tbInnNumber";
-            this.tbInnNumber.Size = new System.Drawing.Size(325, 20);
-            this.tbInnNumber.TabIndex = 44;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(108, 81);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(325, 20);
-            this.dateTimePicker1.TabIndex = 43;
-            // 
-            // lbBirhday
-            // 
-            this.lbBirhday.AutoSize = true;
-            this.lbBirhday.Location = new System.Drawing.Point(14, 87);
-            this.lbBirhday.Name = "lbBirhday";
-            this.lbBirhday.Size = new System.Drawing.Size(45, 13);
-            this.lbBirhday.TabIndex = 42;
-            this.lbBirhday.Text = "Birthday";
-            // 
-            // lbPassportNumber
-            // 
-            this.lbPassportNumber.AutoSize = true;
-            this.lbPassportNumber.Location = new System.Drawing.Point(14, 105);
-            this.lbPassportNumber.Name = "lbPassportNumber";
-            this.lbPassportNumber.Size = new System.Drawing.Size(88, 13);
-            this.lbPassportNumber.TabIndex = 41;
-            this.lbPassportNumber.Text = "Passport Number";
+            this.lbRoom.AutoSize = true;
+            this.lbRoom.Location = new System.Drawing.Point(14, 89);
+            this.lbRoom.Name = "lbRoom";
+            this.lbRoom.Size = new System.Drawing.Size(35, 13);
+            this.lbRoom.TabIndex = 41;
+            this.lbRoom.Text = "Room";
             // 
             // lbLastName
             // 
@@ -151,23 +96,23 @@
             // tbPassportNunber
             // 
             this.tbPassportNunber.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbPassportNunber.Location = new System.Drawing.Point(108, 102);
+            this.tbPassportNunber.Location = new System.Drawing.Point(108, 86);
             this.tbPassportNunber.Name = "tbPassportNunber";
-            this.tbPassportNunber.Size = new System.Drawing.Size(325, 20);
+            this.tbPassportNunber.Size = new System.Drawing.Size(142, 20);
             this.tbPassportNunber.TabIndex = 37;
             // 
             // tbFirstName
             // 
             this.tbFirstName.Location = new System.Drawing.Point(108, 18);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(325, 20);
+            this.tbFirstName.Size = new System.Drawing.Size(142, 20);
             this.tbFirstName.TabIndex = 34;
             // 
             // tbLastName
             // 
             this.tbLastName.Location = new System.Drawing.Point(108, 60);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(325, 20);
+            this.tbLastName.Size = new System.Drawing.Size(142, 20);
             this.tbLastName.TabIndex = 36;
             this.tbLastName.Tag = "";
             // 
@@ -184,23 +129,86 @@
             // 
             this.tbMiddleName.Location = new System.Drawing.Point(108, 39);
             this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(325, 20);
+            this.tbMiddleName.Size = new System.Drawing.Size(142, 20);
             this.tbMiddleName.TabIndex = 35;
             // 
-            // AddUser
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chFirstName,
+            this.chLastName});
+            this.listView1.Location = new System.Drawing.Point(17, 141);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(233, 234);
+            this.listView1.TabIndex = 54;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(306, 18);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(124, 20);
+            this.dateTimePicker1.TabIndex = 55;
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chTime,
+            this.chBusy,
+            this.chPatient});
+            this.listView2.Location = new System.Drawing.Point(305, 49);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(255, 325);
+            this.listView2.TabIndex = 56;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // chTime
+            // 
+            this.chTime.Text = "Time";
+            this.chTime.Width = 73;
+            // 
+            // chBusy
+            // 
+            this.chBusy.Text = "Allowed";
+            this.chBusy.Width = 74;
+            // 
+            // chPatient
+            // 
+            this.chPatient.Text = "Patient";
+            this.chPatient.Width = 103;
+            // 
+            // chFirstName
+            // 
+            this.chFirstName.Text = "First name";
+            this.chFirstName.Width = 70;
+            // 
+            // chLastName
+            // 
+            this.chLastName.Text = "LastName";
+            this.chLastName.Width = 69;
+            // 
+            // btnSignIn
+            // 
+            this.btnSignIn.Location = new System.Drawing.Point(580, 344);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(97, 30);
+            this.btnSignIn.TabIndex = 57;
+            this.btnSignIn.Text = "Sign in";
+            this.btnSignIn.UseVisualStyleBackColor = true;
+            // 
+            // SignInToDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 206);
-            this.Controls.Add(this.btSave);
-            this.Controls.Add(this.lbAddress);
-            this.Controls.Add(this.tbAddress);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbInnNumber);
-            this.Controls.Add(this.tbInnNumber);
+            this.ClientSize = new System.Drawing.Size(684, 392);
+            this.Controls.Add(this.btnSignIn);
+            this.Controls.Add(this.listView2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.lbBirhday);
-            this.Controls.Add(this.lbPassportNumber);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btSave);
+            this.Controls.Add(this.lbRoom);
             this.Controls.Add(this.lbLastName);
             this.Controls.Add(this.lbMiddleName);
             this.Controls.Add(this.tbPassportNunber);
@@ -208,9 +216,10 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
-            this.Name = "AddUser";
+            this.Name = "SignInToDoctor";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddUser";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,14 +229,7 @@
 
         private UCEditPatientInfo ucEditPatientInfo1;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.Label lbAddress;
-        private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbInnNumber;
-        private System.Windows.Forms.TextBox tbInnNumber;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lbBirhday;
-        private System.Windows.Forms.Label lbPassportNumber;
+        private System.Windows.Forms.Label lbRoom;
         private System.Windows.Forms.Label lbLastName;
         private System.Windows.Forms.Label lbMiddleName;
         private System.Windows.Forms.TextBox tbPassportNunber;
@@ -235,5 +237,14 @@
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lbFirstName;
         private System.Windows.Forms.TextBox tbMiddleName;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader chFirstName;
+        private System.Windows.Forms.ColumnHeader chLastName;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader chTime;
+        private System.Windows.Forms.ColumnHeader chBusy;
+        private System.Windows.Forms.ColumnHeader chPatient;
+        private System.Windows.Forms.Button btnSignIn;
     }
 }

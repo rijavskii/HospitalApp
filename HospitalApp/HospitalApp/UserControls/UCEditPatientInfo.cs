@@ -13,16 +13,13 @@ namespace HospitalApp
 
     public partial class UCEditPatientInfo : UserControl
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
         public UCEditPatientInfo()
         {
             InitializeComponent();
             dtpBirthday.MaxDate = DateTime.Today;
-        }
-
-        private void lbInnNumber_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -46,22 +43,6 @@ namespace HospitalApp
             if (tbLastName.Text.Length < 3)
             {
                 tbLastName.BackColor = Color.Red;
-                isValid = false;
-            }
-
-            if (tbPassportSeries.Text.Length != 2)
-            {
-                tbPassportSeries.BackColor = Color.Red;
-                isValid = false;
-            }
-            if (tbPassportNunber.Text.Length != 6)
-            {
-                tbPassportNunber.BackColor = Color.Red;
-                isValid = false;
-            }
-            if (tbInnNumber.Text.Length != 10)
-            {
-                tbInnNumber.BackColor = Color.Red;
                 isValid = false;
             }
 

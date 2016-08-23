@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Disease which you have in your card
     /// </summary>
-    public class Disease
+    public class Disease: IPrimaryKey
     {
         /// <summary>
         /// Primary key field of table
@@ -19,13 +19,10 @@ namespace EntityDb.Context
         public Users Patient { get; set; }
 
         /// <summary>
-        /// What disease we have here
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
         /// The best way to drop yor disease
         /// </summary>
         public string Treatment { get; set; }
+
+        
     }
 }

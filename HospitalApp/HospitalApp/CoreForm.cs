@@ -371,12 +371,7 @@ namespace HospitalApp
         /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           Close();
-        }
-
-        private void scContent_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            Close();
         }
     }
 }

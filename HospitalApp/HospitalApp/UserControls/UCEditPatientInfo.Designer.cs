@@ -1,5 +1,8 @@
 ﻿namespace HospitalApp
 {
+    /// <summary>
+    /// Design for user controller
+    /// </summary>
     partial class UCEditPatientInfo
     {
         /// <summary> 
@@ -29,13 +32,11 @@
         private void InitializeComponent()
         {
             this.lbInnNumber = new System.Windows.Forms.Label();
-            this.tbInnNumber = new System.Windows.Forms.TextBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.lbBirhday = new System.Windows.Forms.Label();
             this.lbPassportNumber = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
             this.lbMiddleName = new System.Windows.Forms.Label();
-            this.tbPassportNunber = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.btSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbPassportSeries = new System.Windows.Forms.TextBox();
             this.mtbPassportNumber = new System.Windows.Forms.MaskedTextBox();
             this.mtbPassportSeries = new System.Windows.Forms.MaskedTextBox();
             this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
@@ -65,15 +65,6 @@
             this.lbInnNumber.Size = new System.Drawing.Size(66, 13);
             this.lbInnNumber.TabIndex = 24;
             this.lbInnNumber.Text = "INN Number";
-            this.lbInnNumber.Click += new System.EventHandler(this.lbInnNumber_Click);
-            // 
-            // tbInnNumber
-            // 
-            this.tbInnNumber.Location = new System.Drawing.Point(395, 145);
-            this.tbInnNumber.Name = "tbInnNumber";
-            this.tbInnNumber.Size = new System.Drawing.Size(198, 20);
-            this.tbInnNumber.TabIndex = 23;
-            this.tbInnNumber.Text = "Not used";
             // 
             // dtpBirthday
             // 
@@ -117,15 +108,6 @@
             this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
             this.lbMiddleName.TabIndex = 18;
             this.lbMiddleName.Text = "Middle Name";
-            // 
-            // tbPassportNunber
-            // 
-            this.tbPassportNunber.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbPassportNunber.Location = new System.Drawing.Point(464, 124);
-            this.tbPassportNunber.Name = "tbPassportNunber";
-            this.tbPassportNunber.Size = new System.Drawing.Size(90, 20);
-            this.tbPassportNunber.TabIndex = 16;
-            this.tbPassportNunber.Text = "not used";
             // 
             // tbFirstName
             // 
@@ -226,7 +208,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(124, 127);
+            this.label1.Location = new System.Drawing.Point(144, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 34;
@@ -235,24 +217,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(278, 127);
+            this.label2.Location = new System.Drawing.Point(233, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 35;
             this.label2.Text = "Number";
             // 
-            // tbPassportSeries
-            // 
-            this.tbPassportSeries.Location = new System.Drawing.Point(223, 124);
-            this.tbPassportSeries.Name = "tbPassportSeries";
-            this.tbPassportSeries.Size = new System.Drawing.Size(49, 20);
-            this.tbPassportSeries.TabIndex = 36;
-            this.tbPassportSeries.Text = "Not used";
-            // 
             // mtbPassportNumber
             // 
             this.mtbPassportNumber.HidePromptOnLeave = true;
-            this.mtbPassportNumber.Location = new System.Drawing.Point(328, 124);
+            this.mtbPassportNumber.Location = new System.Drawing.Point(283, 124);
             this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
             this.mtbPassportNumber.Name = "mtbPassportNumber";
             this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
@@ -261,7 +235,7 @@
             // mtbPassportSeries
             // 
             this.mtbPassportSeries.HidePromptOnLeave = true;
-            this.mtbPassportSeries.Location = new System.Drawing.Point(166, 124);
+            this.mtbPassportSeries.Location = new System.Drawing.Point(186, 124);
             this.mtbPassportSeries.Mask = " L L";
             this.mtbPassportSeries.Name = "mtbPassportSeries";
             this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
@@ -283,7 +257,6 @@
             this.Controls.Add(this.mtbInnNumber);
             this.Controls.Add(this.mtbPassportSeries);
             this.Controls.Add(this.mtbPassportNumber);
-            this.Controls.Add(this.tbPassportSeries);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btSave);
@@ -295,13 +268,11 @@
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbInnNumber);
-            this.Controls.Add(this.tbInnNumber);
             this.Controls.Add(this.dtpBirthday);
             this.Controls.Add(this.lbBirhday);
             this.Controls.Add(this.lbPassportNumber);
             this.Controls.Add(this.lbLastName);
             this.Controls.Add(this.lbMiddleName);
-            this.Controls.Add(this.tbPassportNunber);
             this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
@@ -317,13 +288,11 @@
         #endregion
 
         private System.Windows.Forms.Label lbInnNumber;
-        private System.Windows.Forms.TextBox tbInnNumber;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
         private System.Windows.Forms.Label lbBirhday;
         private System.Windows.Forms.Label lbPassportNumber;
         private System.Windows.Forms.Label lbLastName;
         private System.Windows.Forms.Label lbMiddleName;
-        private System.Windows.Forms.TextBox tbPassportNunber;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lbFirstName;
@@ -338,7 +307,6 @@
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbPassportSeries;
         private System.Windows.Forms.MaskedTextBox mtbPassportNumber;
         private System.Windows.Forms.MaskedTextBox mtbPassportSeries;
         private System.Windows.Forms.MaskedTextBox mtbInnNumber;

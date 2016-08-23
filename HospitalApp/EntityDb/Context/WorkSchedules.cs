@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityDb.Context
 {
@@ -9,7 +8,6 @@ namespace EntityDb.Context
     /// </summary>
     public class WorkSchedules
     {
-
         /// <summary>
         /// Key to access to your acount
         /// </summary>

@@ -29,7 +29,7 @@ namespace EntityDb.Context
         /// <summary>
         /// Region where person registered
         /// </summary>
-        [Required]
+        
         public string Region { get; set; }
 
         /// <summary>

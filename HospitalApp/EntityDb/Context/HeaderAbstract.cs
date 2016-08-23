@@ -1,22 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Common;
-using System.Security.Cryptography.X509Certificates;
 
 namespace EntityDb.Context
 {
-    /// <summary>
-    /// Interface with primary key attribute
-    /// </summary>
-    public interface IPrimaryKey
+    public abstract class HeaderAbstract
     {
+
         /// <summary>
         /// Primary key field of table
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        int Id { get; set; }
+        public int Id { get; set; }
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        [Required]
+        public string Name { get; set; }
     }
 }

@@ -42,7 +42,9 @@ namespace EntityDb.DAL
             context.Users.Add(new Users
             {
                 FirstName = "admin",
+                MiddleName = "admin",
                 LastName = "admin",
+                Birthday = DateTime.Today,
                 Login = "admin",
                 Password = "admin",
                 Passport = "admin",

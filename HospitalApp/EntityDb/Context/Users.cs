@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+// ReSharper disable All
 
 namespace EntityDb.Context
 {
@@ -22,6 +23,14 @@ namespace EntityDb.Context
         [MaxLength(100, ErrorMessage = "Length must be less that 100 characters")]
         [Required]
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// User middle name
+        /// </summary>
+        [MinLength(3, ErrorMessage = "Length must be more that 5 characters")]
+        [MaxLength(100, ErrorMessage = "Length must be less that 100 characters")]
+        [Required]
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// User Last Name(How do I call you v2)
@@ -70,14 +79,14 @@ namespace EntityDb.Context
         /// <summary>
         /// Where I should look user
         /// </summary>
-        [Required]
+        //[Required]
         public virtual Adresses Adress { get; set; }
 
         //Foreign key
         /// <summary>
         /// Whom the person works
         /// </summary>
-        [Required]
+        //[Required]
         public virtual Positions Position { get; set; }
     }
 }

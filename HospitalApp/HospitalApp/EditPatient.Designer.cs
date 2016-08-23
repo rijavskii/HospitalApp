@@ -1,13 +1,13 @@
-﻿namespace HospitalApp.UserControls
+﻿namespace HospitalApp
 {
-    partial class UCAddUser
+    partial class EditPatient
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,25 +20,22 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.btSave = new System.Windows.Forms.Button();
-            this.lbAddress = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
-            this.lbBirhday = new System.Windows.Forms.Label();
-            this.lbLastName = new System.Windows.Forms.Label();
-            this.lbMiddleName = new System.Windows.Forms.Label();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.lbFirstName = new System.Windows.Forms.Label();
-            this.tbMiddleName = new System.Windows.Forms.TextBox();
+            this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
+            this.mtbPassportSeries = new System.Windows.Forms.MaskedTextBox();
+            this.mtbPassportNumber = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbPassportNumber = new System.Windows.Forms.Label();
             this.gpAdress = new System.Windows.Forms.GroupBox();
             this.tbAppartment = new System.Windows.Forms.TextBox();
             this.tbStreet = new System.Windows.Forms.TextBox();
@@ -54,110 +51,91 @@
             this.lblRegion = new System.Windows.Forms.Label();
             this.lblDistrict = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
-            this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
-            this.mtbPassportSeries = new System.Windows.Forms.MaskedTextBox();
-            this.mtbPassportNumber = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbPassportNumber = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lbAddress = new System.Windows.Forms.Label();
+            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
+            this.lbBirhday = new System.Windows.Forms.Label();
+            this.lbLastName = new System.Windows.Forms.Label();
+            this.lbMiddleName = new System.Windows.Forms.Label();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.lbFirstName = new System.Windows.Forms.Label();
+            this.tbMiddleName = new System.Windows.Forms.TextBox();
             this.gpAdress.SuspendLayout();
             this.SuspendLayout();
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(467, 288);
+            this.btSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btSave.Location = new System.Drawing.Point(320, 277);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(111, 23);
-            this.btSave.TabIndex = 69;
-            this.btSave.Text = "Create";
+            this.btSave.TabIndex = 61;
+            this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // lbAddress
+            // mtbInnNumber
             // 
-            this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(21, 204);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(45, 13);
-            this.lbAddress.TabIndex = 68;
-            this.lbAddress.Text = "Address";
+            this.mtbInnNumber.HidePromptOnLeave = true;
+            this.mtbInnNumber.Location = new System.Drawing.Point(106, 122);
+            this.mtbInnNumber.Mask = "0000 0000 00";
+            this.mtbInnNumber.Name = "mtbInnNumber";
+            this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
+            this.mtbInnNumber.TabIndex = 94;
             // 
-            // pictureBox1
+            // mtbPassportSeries
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(446, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 152);
-            this.pictureBox1.TabIndex = 66;
-            this.pictureBox1.TabStop = false;
+            this.mtbPassportSeries.HidePromptOnLeave = true;
+            this.mtbPassportSeries.Location = new System.Drawing.Point(172, 101);
+            this.mtbPassportSeries.Mask = " L L";
+            this.mtbPassportSeries.Name = "mtbPassportSeries";
+            this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
+            this.mtbPassportSeries.TabIndex = 93;
             // 
-            // dtpBirthday
+            // mtbPassportNumber
             // 
-            this.dtpBirthday.Location = new System.Drawing.Point(115, 112);
-            this.dtpBirthday.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
-            this.dtpBirthday.Name = "dtpBirthday";
-            this.dtpBirthday.Size = new System.Drawing.Size(325, 20);
-            this.dtpBirthday.TabIndex = 63;
-            this.dtpBirthday.Value = new System.DateTime(2016, 8, 16, 0, 0, 0, 0);
+            this.mtbPassportNumber.HidePromptOnLeave = true;
+            this.mtbPassportNumber.Location = new System.Drawing.Point(269, 101);
+            this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
+            this.mtbPassportNumber.Name = "mtbPassportNumber";
+            this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
+            this.mtbPassportNumber.TabIndex = 92;
             // 
-            // lbBirhday
+            // label2
             // 
-            this.lbBirhday.AutoSize = true;
-            this.lbBirhday.Location = new System.Drawing.Point(21, 118);
-            this.lbBirhday.Name = "lbBirhday";
-            this.lbBirhday.Size = new System.Drawing.Size(45, 13);
-            this.lbBirhday.TabIndex = 62;
-            this.lbBirhday.Text = "Birthday";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(219, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 91;
+            this.label2.Text = "Number";
             // 
-            // lbLastName
+            // label1
             // 
-            this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(21, 94);
-            this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(58, 13);
-            this.lbLastName.TabIndex = 60;
-            this.lbLastName.Text = "Last Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(130, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 90;
+            this.label1.Text = "Series";
             // 
-            // lbMiddleName
+            // label3
             // 
-            this.lbMiddleName.AutoSize = true;
-            this.lbMiddleName.Location = new System.Drawing.Point(21, 73);
-            this.lbMiddleName.Name = "lbMiddleName";
-            this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
-            this.lbMiddleName.TabIndex = 59;
-            this.lbMiddleName.Text = "Middle Name";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 89;
+            this.label3.Text = "INN Number";
             // 
-            // tbFirstName
+            // lbPassportNumber
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(115, 49);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(325, 20);
-            this.tbFirstName.TabIndex = 54;
-            // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(115, 91);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(325, 20);
-            this.tbLastName.TabIndex = 56;
-            this.tbLastName.Tag = "";
-            // 
-            // lbFirstName
-            // 
-            this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(21, 52);
-            this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lbFirstName.TabIndex = 58;
-            this.lbFirstName.Text = "First Name";
-            // 
-            // tbMiddleName
-            // 
-            this.tbMiddleName.Location = new System.Drawing.Point(115, 70);
-            this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(325, 20);
-            this.tbMiddleName.TabIndex = 55;
+            this.lbPassportNumber.AutoSize = true;
+            this.lbPassportNumber.Location = new System.Drawing.Point(12, 104);
+            this.lbPassportNumber.Name = "lbPassportNumber";
+            this.lbPassportNumber.Size = new System.Drawing.Size(51, 13);
+            this.lbPassportNumber.TabIndex = 88;
+            this.lbPassportNumber.Text = "Passport:";
             // 
             // gpAdress
             // 
@@ -175,10 +153,10 @@
             this.gpAdress.Controls.Add(this.lblRegion);
             this.gpAdress.Controls.Add(this.lblDistrict);
             this.gpAdress.Controls.Add(this.lblCountry);
-            this.gpAdress.Location = new System.Drawing.Point(116, 187);
+            this.gpAdress.Location = new System.Drawing.Point(107, 147);
             this.gpAdress.Name = "gpAdress";
             this.gpAdress.Size = new System.Drawing.Size(324, 124);
-            this.gpAdress.TabIndex = 70;
+            this.gpAdress.TabIndex = 87;
             this.gpAdress.TabStop = false;
             // 
             // tbAppartment
@@ -293,73 +271,87 @@
             this.lblCountry.TabIndex = 0;
             this.lblCountry.Text = "Country";
             // 
-            // mtbInnNumber
+            // lbAddress
             // 
-            this.mtbInnNumber.HidePromptOnLeave = true;
-            this.mtbInnNumber.Location = new System.Drawing.Point(118, 162);
-            this.mtbInnNumber.Mask = "0000 0000 00";
-            this.mtbInnNumber.Name = "mtbInnNumber";
-            this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
-            this.mtbInnNumber.TabIndex = 77;
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Location = new System.Drawing.Point(12, 164);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(45, 13);
+            this.lbAddress.TabIndex = 86;
+            this.lbAddress.Text = "Address";
             // 
-            // mtbPassportSeries
+            // dtpBirthday
             // 
-            this.mtbPassportSeries.HidePromptOnLeave = true;
-            this.mtbPassportSeries.Location = new System.Drawing.Point(184, 141);
-            this.mtbPassportSeries.Mask = " L L";
-            this.mtbPassportSeries.Name = "mtbPassportSeries";
-            this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
-            this.mtbPassportSeries.TabIndex = 76;
+            this.dtpBirthday.Location = new System.Drawing.Point(106, 72);
+            this.dtpBirthday.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
+            this.dtpBirthday.Name = "dtpBirthday";
+            this.dtpBirthday.Size = new System.Drawing.Size(325, 20);
+            this.dtpBirthday.TabIndex = 85;
+            this.dtpBirthday.Value = new System.DateTime(2016, 8, 16, 0, 0, 0, 0);
             // 
-            // mtbPassportNumber
+            // lbBirhday
             // 
-            this.mtbPassportNumber.HidePromptOnLeave = true;
-            this.mtbPassportNumber.Location = new System.Drawing.Point(281, 141);
-            this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
-            this.mtbPassportNumber.Name = "mtbPassportNumber";
-            this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
-            this.mtbPassportNumber.TabIndex = 75;
+            this.lbBirhday.AutoSize = true;
+            this.lbBirhday.Location = new System.Drawing.Point(12, 78);
+            this.lbBirhday.Name = "lbBirhday";
+            this.lbBirhday.Size = new System.Drawing.Size(45, 13);
+            this.lbBirhday.TabIndex = 84;
+            this.lbBirhday.Text = "Birthday";
             // 
-            // label2
+            // lbLastName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 74;
-            this.label2.Text = "Number";
+            this.lbLastName.AutoSize = true;
+            this.lbLastName.Location = new System.Drawing.Point(12, 54);
+            this.lbLastName.Name = "lbLastName";
+            this.lbLastName.Size = new System.Drawing.Size(58, 13);
+            this.lbLastName.TabIndex = 83;
+            this.lbLastName.Text = "Last Name";
             // 
-            // label1
+            // lbMiddleName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 73;
-            this.label1.Text = "Series";
+            this.lbMiddleName.AutoSize = true;
+            this.lbMiddleName.Location = new System.Drawing.Point(12, 33);
+            this.lbMiddleName.Name = "lbMiddleName";
+            this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
+            this.lbMiddleName.TabIndex = 82;
+            this.lbMiddleName.Text = "Middle Name";
             // 
-            // label3
+            // tbFirstName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 165);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "INN Number";
+            this.tbFirstName.Location = new System.Drawing.Point(106, 9);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(325, 20);
+            this.tbFirstName.TabIndex = 78;
             // 
-            // lbPassportNumber
+            // tbLastName
             // 
-            this.lbPassportNumber.AutoSize = true;
-            this.lbPassportNumber.Location = new System.Drawing.Point(24, 144);
-            this.lbPassportNumber.Name = "lbPassportNumber";
-            this.lbPassportNumber.Size = new System.Drawing.Size(91, 13);
-            this.lbPassportNumber.TabIndex = 71;
-            this.lbPassportNumber.Text = "Passport Number:";
+            this.tbLastName.Location = new System.Drawing.Point(106, 51);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(325, 20);
+            this.tbLastName.TabIndex = 80;
+            this.tbLastName.Tag = "";
             // 
-            // UCAddUser
+            // lbFirstName
+            // 
+            this.lbFirstName.AutoSize = true;
+            this.lbFirstName.Location = new System.Drawing.Point(12, 12);
+            this.lbFirstName.Name = "lbFirstName";
+            this.lbFirstName.Size = new System.Drawing.Size(57, 13);
+            this.lbFirstName.TabIndex = 81;
+            this.lbFirstName.Text = "First Name";
+            // 
+            // tbMiddleName
+            // 
+            this.tbMiddleName.Location = new System.Drawing.Point(106, 30);
+            this.tbMiddleName.Name = "tbMiddleName";
+            this.tbMiddleName.Size = new System.Drawing.Size(325, 20);
+            this.tbMiddleName.TabIndex = 79;
+            // 
+            // EditPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(447, 309);
             this.Controls.Add(this.mtbInnNumber);
             this.Controls.Add(this.mtbPassportSeries);
             this.Controls.Add(this.mtbPassportNumber);
@@ -368,9 +360,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbPassportNumber);
             this.Controls.Add(this.gpAdress);
-            this.Controls.Add(this.btSave);
             this.Controls.Add(this.lbAddress);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpBirthday);
             this.Controls.Add(this.lbBirhday);
             this.Controls.Add(this.lbLastName);
@@ -379,9 +369,10 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
-            this.Name = "UCAddUser";
-            this.Size = new System.Drawing.Size(604, 331);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Controls.Add(this.btSave);
+            this.Name = "EditPatient";
+            this.ShowInTaskbar = false;
+            this.Text = "Edit Patient";
             this.gpAdress.ResumeLayout(false);
             this.gpAdress.PerformLayout();
             this.ResumeLayout(false);
@@ -390,23 +381,15 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.Label lbAddress;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dtpBirthday;
-        private System.Windows.Forms.Label lbBirhday;
-        private System.Windows.Forms.Label lbLastName;
-        private System.Windows.Forms.Label lbMiddleName;
-        private System.Windows.Forms.TextBox tbFirstName;
-        private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.Label lbFirstName;
-        private System.Windows.Forms.TextBox tbMiddleName;
+        private System.Windows.Forms.MaskedTextBox mtbInnNumber;
+        private System.Windows.Forms.MaskedTextBox mtbPassportSeries;
+        private System.Windows.Forms.MaskedTextBox mtbPassportNumber;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbPassportNumber;
         private System.Windows.Forms.GroupBox gpAdress;
-        private System.Windows.Forms.Label lblCountry;
-        private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.Label lblRegion;
-        private System.Windows.Forms.Label lblDistrict;
         private System.Windows.Forms.TextBox tbAppartment;
         private System.Windows.Forms.TextBox tbStreet;
         private System.Windows.Forms.TextBox tbHouseNumber;
@@ -417,12 +400,18 @@
         private System.Windows.Forms.Label lblAppartment;
         private System.Windows.Forms.Label lblHouseNumber;
         private System.Windows.Forms.Label lblStreet;
-        private System.Windows.Forms.MaskedTextBox mtbInnNumber;
-        private System.Windows.Forms.MaskedTextBox mtbPassportSeries;
-        private System.Windows.Forms.MaskedTextBox mtbPassportNumber;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbPassportNumber;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblRegion;
+        private System.Windows.Forms.Label lblDistrict;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lbAddress;
+        private System.Windows.Forms.DateTimePicker dtpBirthday;
+        private System.Windows.Forms.Label lbBirhday;
+        private System.Windows.Forms.Label lbLastName;
+        private System.Windows.Forms.Label lbMiddleName;
+        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.TextBox tbLastName;
+        private System.Windows.Forms.Label lbFirstName;
+        private System.Windows.Forms.TextBox tbMiddleName;
     }
 }
