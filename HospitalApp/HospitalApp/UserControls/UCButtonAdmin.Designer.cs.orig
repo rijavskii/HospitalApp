@@ -1,0 +1,137 @@
+﻿namespace HospitalApp.UserControls
+{
+    partial class UCButtonAdmin
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+<<<<<<< HEAD
+            this.btExit = new System.Windows.Forms.Button();
+            this.btDoctors = new System.Windows.Forms.Button();
+            this.btNewPatient = new System.Windows.Forms.Button();
+            this.btFindPatient = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btExit
+            // 
+            this.btExit.Location = new System.Drawing.Point(23, 104);
+            this.btExit.Name = "btExit";
+            this.btExit.Size = new System.Drawing.Size(162, 23);
+            this.btExit.TabIndex = 12;
+            this.btExit.Text = "Exit";
+            this.btExit.UseVisualStyleBackColor = true;
+            // 
+            // btDoctors
+            // 
+            this.btDoctors.Location = new System.Drawing.Point(23, 75);
+            this.btDoctors.Name = "btDoctors";
+            this.btDoctors.Size = new System.Drawing.Size(162, 23);
+            this.btDoctors.TabIndex = 11;
+            this.btDoctors.Text = "Doctors";
+            this.btDoctors.UseVisualStyleBackColor = true;
+            this.btDoctors.Click += new System.EventHandler(this.btDoctors_Click);
+            // 
+            // btNewPatient
+            // 
+            this.btNewPatient.Location = new System.Drawing.Point(23, 48);
+            this.btNewPatient.Name = "btNewPatient";
+            this.btNewPatient.Size = new System.Drawing.Size(162, 23);
+            this.btNewPatient.TabIndex = 10;
+            this.btNewPatient.Text = "New Patient";
+            this.btNewPatient.UseVisualStyleBackColor = true;
+            // 
+            // btFindPatient
+            // 
+            this.btFindPatient.Location = new System.Drawing.Point(23, 19);
+            this.btFindPatient.Name = "btFindPatient";
+            this.btFindPatient.Size = new System.Drawing.Size(162, 23);
+            this.btFindPatient.TabIndex = 9;
+            this.btFindPatient.Text = "Find Patient";
+            this.btFindPatient.UseVisualStyleBackColor = true;
+=======
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCButtonAdmin));
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(435, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+>>>>>>> 023c84a4de2f2487dc38d52619118acf0fa76627
+            // 
+            // UCButtonAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
+            this.Controls.Add(this.btExit);
+            this.Controls.Add(this.btDoctors);
+            this.Controls.Add(this.btNewPatient);
+            this.Controls.Add(this.btFindPatient);
+            this.Name = "UCButtonAdmin";
+            this.Size = new System.Drawing.Size(222, 330);
+            this.ResumeLayout(false);
+=======
+            this.Controls.Add(this.toolStrip1);
+            this.Name = "UCButtonAdmin";
+            this.Size = new System.Drawing.Size(435, 273);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+>>>>>>> 023c84a4de2f2487dc38d52619118acf0fa76627
+
+        }
+
+        #endregion
+
+<<<<<<< HEAD
+        private System.Windows.Forms.Button btExit;
+        private System.Windows.Forms.Button btDoctors;
+        private System.Windows.Forms.Button btNewPatient;
+        private System.Windows.Forms.Button btFindPatient;
+=======
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+>>>>>>> 023c84a4de2f2487dc38d52619118acf0fa76627
+    }
+}

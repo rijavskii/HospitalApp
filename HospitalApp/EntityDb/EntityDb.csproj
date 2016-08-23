@@ -78,6 +78,7 @@
     <Compile Include="Context\ContactType.cs" />
     <Compile Include="Context\Disease.cs" />
     <Compile Include="Context\HeaderAbstract.cs" />
+    <Compile Include="Context\Helper.cs" />
     <Compile Include="Context\IPrimaryKey.cs" />
     <Compile Include="Context\Manufacturer.cs" />
     <Compile Include="Context\Medicine.cs" />

@@ -38,7 +38,7 @@ namespace HospitalApp
             var context = new HospitalDbContext();
 
             var myLogin = this.tbLogin.Text;
-            var myPsd = this.tbPassword.Text;
+            var myPsd = this.tbPassword.Text.GetMd5Hash(tbPassword.Text);
 
            
                 _user = context.Users.FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
