@@ -1,31 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using EntityDb;
 using EntityDb.Context;
 using EntityDb.DAL;
 
 namespace HospitalApp
 {
     /// <summary>
-    /// 
+    /// Control to search patient in database
     /// </summary>
-    public partial class UCFindPatient : UserControl
+    public partial class UcFindPatient : UserControl
     {
         private ListViewItem _items;
         private List<Users> _users;
         /// <summary>
         /// Controller which allow to find users in database
         /// </summary>
-        public UCFindPatient()
+        public UcFindPatient()
         {
             InitializeComponent();
             dtpBirthday.MaxDate = DateTime.Now;
@@ -37,14 +30,15 @@ namespace HospitalApp
             using (var context = new HospitalDbContext())
             {
                 _users = context.Users.Include(x=>x.Position).Include(x=>x.Adress).ToList();
+                //_users = context.Users.Where(x=>x.IsPatient).Include(x=>x.Position).Include(x=>x.Adress).ToList();
                 
                 
-                if (tbFirstName.Text != String.Empty)
+                if (tbFirstName.Text.Trim() != String.Empty)
                 {
                     _users = _users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
                 }
 
-                if (tbLastName.Text != String.Empty)
+                if (tbLastName.Text.Trim() != String.Empty)
                 {
                     _users = _users.Where(x => x.LastName.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
                 }
@@ -68,16 +62,20 @@ namespace HospitalApp
         private void AddToList()
         {
             lvFind.Items.Clear();
+            string adress;
             using (var context = new HospitalDbContext())
             {
                 foreach (var user in _users)
                 {
+
+                    adress = user.Adress.Country + ", " + user.Adress.District + ", " + user.Adress.Region + ", " + user.Adress.City + ", " +
+                             user.Adress.Street + ", " + user.Adress.HouseNumber + ", " + user.Adress.Appartment;
                     _items = new ListViewItem(user.FirstName);
 
-                    //items.SubItems.Add(user.MiddleName);
+                    _items.SubItems.Add(user.MiddleName);
                     _items.SubItems.Add(user.LastName);
-                    //items.SubItems.Add(user.Birthday);
-                    //items.SubItems.Add(user.Adress);
+                    _items.SubItems.Add(user.Birthday.ToShortDateString());
+                    _items.SubItems.Add(adress);
                     _items.SubItems.Add(user.Passport);
                     _items.SubItems.Add(user.IdentificationNumber);
 
@@ -89,10 +87,17 @@ namespace HospitalApp
         private void lvFind_DoubleClick(object sender, EventArgs e)
         {
             EditPatient();
+
+            
         }
 
         private void btSignInPatient_Click(object sender, EventArgs e)
         {
+            var signToDoc = new SignInToDoctor();
+            if (signToDoc.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
 
         }
 
@@ -103,13 +108,20 @@ namespace HospitalApp
 
         private void EditPatient()
         {
-            var currentUser = _users.ElementAt(_items.ListView.FocusedItem.Index);
-            EditPatient editPatient = new EditPatient(currentUser);
-            if (editPatient.ShowDialog() == DialogResult.Yes)
+            int size = lvFind.SelectedItems.Count;
+
+            if (size == 1)
             {
-                AddToList();
+                var currentUser = _users.ElementAt(_items.ListView.FocusedItem.Index);
+                EditPatient editPatient = new EditPatient(currentUser);
+                if (editPatient.ShowDialog() == DialogResult.Yes)
+                {
+                    var context = new HospitalDbContext();
+                    _users = context.Users.ToList();
+                    AddToList();
+                }
             }
-            
+
         }
     }
 }

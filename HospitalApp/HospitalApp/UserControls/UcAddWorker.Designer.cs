@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp.UserControls
 {
-    partial class UCAddUser
+    partial class UcAddWorker
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btSave = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.lbAddress = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
@@ -61,24 +61,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbPassportNumber = new System.Windows.Forms.Label();
+            this.tbPositionsType = new System.Windows.Forms.TextBox();
+            this.lblPositionType = new System.Windows.Forms.Label();
+            this.cbPositions = new System.Windows.Forms.ComboBox();
+            this.lblPosition = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gpAdress.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btSave
+            // btnCreate
             // 
-            this.btSave.Location = new System.Drawing.Point(321, 282);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(111, 23);
-            this.btSave.TabIndex = 69;
-            this.btSave.Text = "Create";
-            this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            this.btnCreate.Location = new System.Drawing.Point(329, 366);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(111, 23);
+            this.btnCreate.TabIndex = 69;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btCreate_Click);
             // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(13, 169);
+            this.lbAddress.Location = new System.Drawing.Point(21, 204);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(45, 13);
             this.lbAddress.TabIndex = 68;
@@ -86,7 +90,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(438, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(446, 43);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(132, 152);
             this.pictureBox1.TabIndex = 66;
@@ -94,7 +98,7 @@
             // 
             // dtpBirthday
             // 
-            this.dtpBirthday.Location = new System.Drawing.Point(107, 77);
+            this.dtpBirthday.Location = new System.Drawing.Point(115, 112);
             this.dtpBirthday.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(325, 20);
@@ -104,7 +108,7 @@
             // lbBirhday
             // 
             this.lbBirhday.AutoSize = true;
-            this.lbBirhday.Location = new System.Drawing.Point(13, 83);
+            this.lbBirhday.Location = new System.Drawing.Point(21, 118);
             this.lbBirhday.Name = "lbBirhday";
             this.lbBirhday.Size = new System.Drawing.Size(45, 13);
             this.lbBirhday.TabIndex = 62;
@@ -113,7 +117,7 @@
             // lbLastName
             // 
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(13, 59);
+            this.lbLastName.Location = new System.Drawing.Point(21, 94);
             this.lbLastName.Name = "lbLastName";
             this.lbLastName.Size = new System.Drawing.Size(58, 13);
             this.lbLastName.TabIndex = 60;
@@ -122,7 +126,7 @@
             // lbMiddleName
             // 
             this.lbMiddleName.AutoSize = true;
-            this.lbMiddleName.Location = new System.Drawing.Point(13, 38);
+            this.lbMiddleName.Location = new System.Drawing.Point(21, 73);
             this.lbMiddleName.Name = "lbMiddleName";
             this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
             this.lbMiddleName.TabIndex = 59;
@@ -130,14 +134,14 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(107, 14);
+            this.tbFirstName.Location = new System.Drawing.Point(115, 49);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(325, 20);
             this.tbFirstName.TabIndex = 54;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(107, 56);
+            this.tbLastName.Location = new System.Drawing.Point(115, 91);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(325, 20);
             this.tbLastName.TabIndex = 56;
@@ -146,7 +150,7 @@
             // lbFirstName
             // 
             this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(13, 17);
+            this.lbFirstName.Location = new System.Drawing.Point(21, 52);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(57, 13);
             this.lbFirstName.TabIndex = 58;
@@ -154,7 +158,7 @@
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Location = new System.Drawing.Point(107, 35);
+            this.tbMiddleName.Location = new System.Drawing.Point(115, 70);
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(325, 20);
             this.tbMiddleName.TabIndex = 55;
@@ -175,7 +179,7 @@
             this.gpAdress.Controls.Add(this.lblRegion);
             this.gpAdress.Controls.Add(this.lblDistrict);
             this.gpAdress.Controls.Add(this.lblCountry);
-            this.gpAdress.Location = new System.Drawing.Point(108, 152);
+            this.gpAdress.Location = new System.Drawing.Point(116, 187);
             this.gpAdress.Name = "gpAdress";
             this.gpAdress.Size = new System.Drawing.Size(324, 124);
             this.gpAdress.TabIndex = 70;
@@ -297,7 +301,7 @@
             // mtbInnNumber
             // 
             this.mtbInnNumber.HidePromptOnLeave = true;
-            this.mtbInnNumber.Location = new System.Drawing.Point(110, 127);
+            this.mtbInnNumber.Location = new System.Drawing.Point(118, 162);
             this.mtbInnNumber.Mask = "0000 0000 00";
             this.mtbInnNumber.Name = "mtbInnNumber";
             this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
@@ -306,7 +310,7 @@
             // mtbPassportSeries
             // 
             this.mtbPassportSeries.HidePromptOnLeave = true;
-            this.mtbPassportSeries.Location = new System.Drawing.Point(176, 106);
+            this.mtbPassportSeries.Location = new System.Drawing.Point(184, 141);
             this.mtbPassportSeries.Mask = " L L";
             this.mtbPassportSeries.Name = "mtbPassportSeries";
             this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
@@ -315,7 +319,7 @@
             // mtbPassportNumber
             // 
             this.mtbPassportNumber.HidePromptOnLeave = true;
-            this.mtbPassportNumber.Location = new System.Drawing.Point(273, 106);
+            this.mtbPassportNumber.Location = new System.Drawing.Point(281, 141);
             this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
             this.mtbPassportNumber.Name = "mtbPassportNumber";
             this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
@@ -324,7 +328,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(223, 109);
+            this.label2.Location = new System.Drawing.Point(231, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 74;
@@ -333,7 +337,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 109);
+            this.label1.Location = new System.Drawing.Point(142, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 73;
@@ -342,7 +346,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 130);
+            this.label3.Location = new System.Drawing.Point(21, 165);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 72;
@@ -351,16 +355,53 @@
             // lbPassportNumber
             // 
             this.lbPassportNumber.AutoSize = true;
-            this.lbPassportNumber.Location = new System.Drawing.Point(13, 109);
+            this.lbPassportNumber.Location = new System.Drawing.Point(21, 144);
             this.lbPassportNumber.Name = "lbPassportNumber";
             this.lbPassportNumber.Size = new System.Drawing.Size(91, 13);
             this.lbPassportNumber.TabIndex = 71;
             this.lbPassportNumber.Text = "Passport Number:";
             // 
-            // UCAddUser
+            // tbPositionsType
+            // 
+            this.tbPositionsType.Location = new System.Drawing.Point(115, 343);
+            this.tbPositionsType.Name = "tbPositionsType";
+            this.tbPositionsType.Size = new System.Drawing.Size(169, 20);
+            this.tbPositionsType.TabIndex = 85;
+            // 
+            // lblPositionType
+            // 
+            this.lblPositionType.AutoSize = true;
+            this.lblPositionType.Location = new System.Drawing.Point(21, 350);
+            this.lblPositionType.Name = "lblPositionType";
+            this.lblPositionType.Size = new System.Drawing.Size(67, 13);
+            this.lblPositionType.TabIndex = 84;
+            this.lblPositionType.Text = "Position type";
+            // 
+            // cbPositions
+            // 
+            this.cbPositions.FormattingEnabled = true;
+            this.cbPositions.Location = new System.Drawing.Point(115, 317);
+            this.cbPositions.Name = "cbPositions";
+            this.cbPositions.Size = new System.Drawing.Size(169, 21);
+            this.cbPositions.TabIndex = 83;
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Location = new System.Drawing.Point(21, 325);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(44, 13);
+            this.lblPosition.TabIndex = 82;
+            this.lblPosition.Text = "Position";
+            // 
+            // UcAddWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tbPositionsType);
+            this.Controls.Add(this.lblPositionType);
+            this.Controls.Add(this.cbPositions);
+            this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.mtbInnNumber);
             this.Controls.Add(this.mtbPassportSeries);
             this.Controls.Add(this.mtbPassportNumber);
@@ -369,7 +410,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbPassportNumber);
             this.Controls.Add(this.gpAdress);
-            this.Controls.Add(this.btSave);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lbAddress);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpBirthday);
@@ -380,8 +421,8 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
-            this.Name = "UCAddUser";
-            this.Size = new System.Drawing.Size(581, 323);
+            this.Name = "UcAddWorker";
+            this.Size = new System.Drawing.Size(594, 405);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gpAdress.ResumeLayout(false);
             this.gpAdress.PerformLayout();
@@ -392,7 +433,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lbAddress;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
@@ -425,5 +466,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbPassportNumber;
+        private System.Windows.Forms.TextBox tbPositionsType;
+        private System.Windows.Forms.Label lblPositionType;
+        private System.Windows.Forms.ComboBox cbPositions;
+        private System.Windows.Forms.Label lblPosition;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp
 {
-    partial class UCFindPatient
+    partial class UcFindPatient
     {
         /// <summary> 
         /// Required designer variable.
@@ -331,7 +331,7 @@
             this.Controls.Add(this.scFindPatient);
             this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(800, 483);
-            this.Name = "UCFindPatient";
+            this.Name = "UcFindPatient";
             this.Size = new System.Drawing.Size(800, 500);
             this.scFindPatient.Panel1.ResumeLayout(false);
             this.scFindPatient.Panel1.PerformLayout();

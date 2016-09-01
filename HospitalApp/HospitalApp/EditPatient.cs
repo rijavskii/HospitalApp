@@ -44,8 +44,9 @@ namespace HospitalApp
             tbLastName.Text = user.LastName;
             dtpBirthday.Text = user.Birthday.ToShortDateString();
             //var pass = user.Passport.Substring(1,3);
-            
-            mtbPassportSeries.Text = user.Passport.Substring(1,3);
+            tbLogin.Text = user.Login;
+
+            //mtbPassportSeries.Text = user.Passport.Substring(1,3);
             mtbPassportNumber.Text = user.Passport.Substring(2);
             mtbInnNumber.Text = user.IdentificationNumber;
 
@@ -63,26 +64,35 @@ namespace HospitalApp
 
             using (var context = new HospitalDbContext())
             {
-                _myUser = context.Users.SingleOrDefault(x => x.Id == _myUser.Id);
-            }
-            if (_myUser != null)
-                {
-                _myUser.FirstName = tbFirstName.Text;
-                _myUser.MiddleName = tbMiddleName.Text;
-                _myUser.LastName = tbLastName.Text;
-                //result.Result.Birthday = dtpBirthday.Value;
-                //_myUser.Passport = mtbPassportSeries.Text.Trim() + mtbPassportNumber.Text.Trim();
-                //_myUser.IdentificationNumber = mtbInnNumber.Text.Trim();
-                //_myUser.Adress.Country = tbCountry.Text;
-                //_myUser.Adress.Region = tbRegion.Text;
-                //_myUser.Adress.District = tbDistrict.Text;
-                //_myUser.Adress.City = tbCity.Text;
-                //_myUser.Adress.Street = tbStreet.Text;
-                //_myUser.Adress.HouseNumber = tbHouseNumber.Text;
-
-                //result.Result.Adress.Appartment = Convert.ToInt32(tbAppartment.Text);
-                    using (var context = new HospitalDbContext())
+                _myUser = context.Users.SingleOrDefaultAsync(x => x.Id == _myUser.Id).Result;
+            //}
+                if (_myUser != null)
                     {
+                    _myUser.FirstName = tbFirstName.Text;
+                    _myUser.MiddleName = tbMiddleName.Text;
+                    _myUser.LastName = tbLastName.Text;
+                    _myUser.Birthday = dtpBirthday.Value;
+                    _myUser.Login = tbLogin.Text;
+
+                    if (tbPassword.Text.Trim() != String.Empty)
+                    {
+                        _myUser.Password = tbPassword.Text.GetMd5Hash(tbPassword.Text);
+
+                    }
+
+                    _myUser.Passport = mtbPassportSeries.Text.Trim() + mtbPassportNumber.Text.Trim();
+                    _myUser.IdentificationNumber = mtbInnNumber.Text.Trim();
+                    _myUser.Position = context.Positions.SingleOrDefault(x => x.Id == _myUser.Position.Id);
+                    _myUser.Adress.Country = tbCountry.Text;
+                    _myUser.Adress.Region = tbRegion.Text;
+                    _myUser.Adress.District = tbDistrict.Text;
+                    _myUser.Adress.City = tbCity.Text;
+                    _myUser.Adress.Street = tbStreet.Text;
+                    _myUser.Adress.HouseNumber = tbHouseNumber.Text;
+
+                    _myUser.Adress.Appartment = Convert.ToInt32(tbAppartment.Text);
+                //using (var context = new HospitalDbContext())
+                //    {
                         context.Entry(_myUser).State = EntityState.Modified;
                         context.SaveChanges();
 

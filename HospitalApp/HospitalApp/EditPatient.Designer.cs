@@ -56,19 +56,24 @@
             this.lbBirhday = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
             this.lbMiddleName = new System.Windows.Forms.Label();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
-            this.lbFirstName = new System.Windows.Forms.Label();
+            this.lbNewPassword = new System.Windows.Forms.Label();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
+            this.lbLogin = new System.Windows.Forms.Label();
+            this.tbLogin = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.lbFirstName = new System.Windows.Forms.Label();
             this.gpAdress.SuspendLayout();
             this.SuspendLayout();
             // 
             // btSave
             // 
             this.btSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btSave.Location = new System.Drawing.Point(320, 277);
+            this.btSave.Location = new System.Drawing.Point(222, 341);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(111, 23);
+            this.btSave.Size = new System.Drawing.Size(85, 23);
             this.btSave.TabIndex = 61;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
@@ -153,7 +158,7 @@
             this.gpAdress.Controls.Add(this.lblRegion);
             this.gpAdress.Controls.Add(this.lblDistrict);
             this.gpAdress.Controls.Add(this.lblCountry);
-            this.gpAdress.Location = new System.Drawing.Point(107, 147);
+            this.gpAdress.Location = new System.Drawing.Point(107, 197);
             this.gpAdress.Name = "gpAdress";
             this.gpAdress.Size = new System.Drawing.Size(324, 124);
             this.gpAdress.TabIndex = 87;
@@ -189,7 +194,7 @@
             // 
             // tbRegion
             // 
-            this.tbRegion.Location = new System.Drawing.Point(60, 64);
+            this.tbRegion.Location = new System.Drawing.Point(60, 67);
             this.tbRegion.Name = "tbRegion";
             this.tbRegion.Size = new System.Drawing.Size(81, 20);
             this.tbRegion.TabIndex = 9;
@@ -274,7 +279,7 @@
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(12, 164);
+            this.lbAddress.Location = new System.Drawing.Point(12, 214);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(45, 13);
             this.lbAddress.TabIndex = 86;
@@ -316,12 +321,12 @@
             this.lbMiddleName.TabIndex = 82;
             this.lbMiddleName.Text = "Middle Name";
             // 
-            // tbFirstName
+            // tbPassword
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(106, 9);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(325, 20);
-            this.tbFirstName.TabIndex = 78;
+            this.tbPassword.Location = new System.Drawing.Point(107, 171);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(325, 20);
+            this.tbPassword.TabIndex = 78;
             // 
             // tbLastName
             // 
@@ -331,14 +336,14 @@
             this.tbLastName.TabIndex = 80;
             this.tbLastName.Tag = "";
             // 
-            // lbFirstName
+            // lbNewPassword
             // 
-            this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(12, 12);
-            this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lbFirstName.TabIndex = 81;
-            this.lbFirstName.Text = "First Name";
+            this.lbNewPassword.AutoSize = true;
+            this.lbNewPassword.Location = new System.Drawing.Point(13, 174);
+            this.lbNewPassword.Name = "lbNewPassword";
+            this.lbNewPassword.Size = new System.Drawing.Size(78, 13);
+            this.lbNewPassword.TabIndex = 81;
+            this.lbNewPassword.Text = "New Password";
             // 
             // tbMiddleName
             // 
@@ -347,11 +352,56 @@
             this.tbMiddleName.Size = new System.Drawing.Size(325, 20);
             this.tbMiddleName.TabIndex = 79;
             // 
+            // lbLogin
+            // 
+            this.lbLogin.AutoSize = true;
+            this.lbLogin.Location = new System.Drawing.Point(13, 151);
+            this.lbLogin.Name = "lbLogin";
+            this.lbLogin.Size = new System.Drawing.Size(33, 13);
+            this.lbLogin.TabIndex = 81;
+            this.lbLogin.Text = "Login";
+            // 
+            // tbLogin
+            // 
+            this.tbLogin.Location = new System.Drawing.Point(107, 148);
+            this.tbLogin.Name = "tbLogin";
+            this.tbLogin.Size = new System.Drawing.Size(325, 20);
+            this.tbLogin.TabIndex = 78;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(341, 341);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 23);
+            this.btnCancel.TabIndex = 95;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.Location = new System.Drawing.Point(107, 4);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(325, 20);
+            this.tbFirstName.TabIndex = 96;
+            // 
+            // lbFirstName
+            // 
+            this.lbFirstName.AutoSize = true;
+            this.lbFirstName.Location = new System.Drawing.Point(13, 7);
+            this.lbFirstName.Name = "lbFirstName";
+            this.lbFirstName.Size = new System.Drawing.Size(57, 13);
+            this.lbFirstName.TabIndex = 97;
+            this.lbFirstName.Text = "First Name";
+            // 
             // EditPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 309);
+            this.ClientSize = new System.Drawing.Size(450, 376);
+            this.Controls.Add(this.tbFirstName);
+            this.Controls.Add(this.lbFirstName);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.mtbInnNumber);
             this.Controls.Add(this.mtbPassportSeries);
             this.Controls.Add(this.mtbPassportNumber);
@@ -365,9 +415,11 @@
             this.Controls.Add(this.lbBirhday);
             this.Controls.Add(this.lbLastName);
             this.Controls.Add(this.lbMiddleName);
-            this.Controls.Add(this.tbFirstName);
+            this.Controls.Add(this.tbLogin);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.lbLogin);
             this.Controls.Add(this.tbLastName);
-            this.Controls.Add(this.lbFirstName);
+            this.Controls.Add(this.lbNewPassword);
             this.Controls.Add(this.tbMiddleName);
             this.Controls.Add(this.btSave);
             this.Name = "EditPatient";
@@ -409,9 +461,14 @@
         private System.Windows.Forms.Label lbBirhday;
         private System.Windows.Forms.Label lbLastName;
         private System.Windows.Forms.Label lbMiddleName;
-        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.Label lbFirstName;
+        private System.Windows.Forms.Label lbNewPassword;
         private System.Windows.Forms.TextBox tbMiddleName;
+        private System.Windows.Forms.Label lbLogin;
+        private System.Windows.Forms.TextBox tbLogin;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.Label lbFirstName;
     }
 }

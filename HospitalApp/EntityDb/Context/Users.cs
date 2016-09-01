@@ -79,14 +79,14 @@ namespace EntityDb.Context
         /// <summary>
         /// Where I should look user
         /// </summary>
-        //[Required]
+        [Required]
         public virtual Adresses Adress { get; set; }
 
         //Foreign key
         /// <summary>
         /// Whom the person works
         /// </summary>
-        //[Required]
+        [Required]
         public virtual Positions Position { get; set; }
     }
 }

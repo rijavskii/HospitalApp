@@ -38,7 +38,7 @@ namespace HospitalApp
         private void btnFindUser_Click(object sender, EventArgs e)
         {
           work.Controls.Clear();
-          work.Controls.Add(new UCFindPatient());
+          work.Controls.Add(new UcFindPatient());
         }
 
         /// <summary>

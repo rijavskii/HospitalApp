@@ -12,22 +12,25 @@ using EntityDb.DAL;
 
 namespace HospitalApp
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'Authorization'
+    /// <summary>
+    /// Authorization form
+    /// </summary>
     public partial class Authorization : Form
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'Authorization'
     {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'Authorization._user'
+        /// <summary>
+        /// Concrete user which exist in db
+        /// </summary>
         public Users _user { get; private set; }
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'Authorization._user'
-        
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'Authorization.Authorization()'
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Authorization()
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'Authorization.Authorization()'
         {
             InitializeComponent();
 #if DEBUG
             tbLogin.Text = "admin";
-            tbPassword.Text = "admin";
+            tbPassword.Text = "";
             //var e = new EventArgs();
             //btnAuthorizate_Click(this, e );
 #endif

@@ -77,6 +77,11 @@ namespace EntityDb.DAL
         /// View for Medicines
         /// </summary>
         public DbSet<MedicineType> MedicineType { get; set; }
+        
+        /// <summary>
+        /// View for Medicines
+        /// </summary>
+        public DbSet<PositionType> PositionTypes { get; set; }
 
     }
 }

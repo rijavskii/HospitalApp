@@ -13,16 +13,22 @@ using EntityDb.DAL;
 
 namespace HospitalApp.UserControls
 {
-    public partial class UCAddUser : UserControl
+    /// <summary>
+    /// Creates new worker in database
+    /// </summary>
+    public partial class UcAddWorker : UserControl
     {
-        public UCAddUser()
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public UcAddWorker()
         {
             InitializeComponent();
             dtpBirthday.MaxDate = DateTime.Today;
         }
 
         /// <summary>
-        /// 
+        /// Check for correct input info
         /// </summary>
         /// <returns></returns>
         public bool ValidatePatient()
@@ -152,7 +158,7 @@ namespace HospitalApp.UserControls
             return isValid;
         }
 
-        private void btSave_Click(object sender, EventArgs e)
+        private void btCreate_Click(object sender, EventArgs e)
         {
             if (ValidatePatient())
             {

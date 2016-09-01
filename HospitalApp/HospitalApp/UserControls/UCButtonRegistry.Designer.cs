@@ -31,7 +31,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnNewPatient = new System.Windows.Forms.Button();
             this.btnFindUser = new System.Windows.Forms.Button();
-            this.btnSignInDoctor = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +40,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.btnNewPatient, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnFindUser, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnSignInDoctor, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -75,16 +73,6 @@
             this.btnFindUser.UseVisualStyleBackColor = true;
             this.btnFindUser.Click += new System.EventHandler(this.btnFindUser_Click);
             // 
-            // btnSignInDoctor
-            // 
-            this.btnSignInDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSignInDoctor.Location = new System.Drawing.Point(3, 121);
-            this.btnSignInDoctor.Name = "btnSignInDoctor";
-            this.btnSignInDoctor.Size = new System.Drawing.Size(188, 53);
-            this.btnSignInDoctor.TabIndex = 2;
-            this.btnSignInDoctor.Text = "Sign in to doctor";
-            this.btnSignInDoctor.UseVisualStyleBackColor = true;
-            // 
             // UcButtonRegistry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,6 +90,5 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnNewPatient;
         private System.Windows.Forms.Button btnFindUser;
-        private System.Windows.Forms.Button btnSignInDoctor;
     }
 }
