@@ -5,13 +5,8 @@ namespace EntityDb.Context
     /// <summary>
     /// Who makes drugs
     /// </summary>
-    public class Manufacturer : IPrimaryKey
+    public class Manufacturer : HeaderName
     {
-        /// <summary>
-        /// Primary key field of table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Who produce such a good medicine
         /// </summary>

@@ -6,14 +6,9 @@ namespace EntityDb.Context
     /// <summary>
     /// Adress users and patients of hospital
     /// </summary>
-    public class Adresses:IPrimaryKey
+    public class Adresses:HeaderID
     {
         
-        /// <summary>
-        /// Primary key field
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Country where person registered
         /// </summary>

@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Information about positions types in hospital
     /// </summary>
-    public class Positions : HeaderAbstract
+    public class Positions : HeaderName
     {
         ///// <summary>
         ///// Primary key field of table

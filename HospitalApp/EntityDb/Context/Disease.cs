@@ -6,13 +6,8 @@ namespace EntityDb.Context
     /// <summary>
     /// Disease which you have in your card
     /// </summary>
-    public class Disease: IPrimaryKey
+    public class Disease: HeaderName
     {
-        /// <summary>
-        /// Primary key field of table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Who has this disease 
         /// </summary>

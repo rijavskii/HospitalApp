@@ -9,13 +9,8 @@ namespace EntityDb.Context
     /// <summary>
     /// Informations about people which have relation to hospital
     /// </summary>
-    public class Users:IPrimaryKey
+    public class Users:HeaderID
     {
-        /// <summary>
-        /// Primary key field of table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// User First Name(How do I call you)
         /// </summary>

@@ -6,13 +6,8 @@ namespace EntityDb.Context
     /// <summary>
     /// When the worker work
     /// </summary>
-    public class WorkSchedules
+    public class WorkSchedules:HeaderID
     {
-        /// <summary>
-        /// Key to access to your acount
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Who this person is
         /// </summary>
@@ -30,17 +25,5 @@ namespace EntityDb.Context
         /// </summary>
         [Required]
         public DateTime Data { get; set; }
-
-        /// <summary>
-        ///  Time when working day is start
-        /// </summary>
-        [Required]
-        public DateTime StartWork { get; set; }
-
-        /// <summary>
-        /// Time when working day is over
-        /// </summary>
-        [Required]
-        public DateTime EndWork { get; set; }
     }
 }

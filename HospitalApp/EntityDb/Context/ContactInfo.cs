@@ -6,13 +6,8 @@ namespace EntityDb.Context
     /// <summary>
     /// If you want to contact with person look here
     /// </summary>
-    public class ContactInfo : IPrimaryKey
+    public class ContactInfo : HeaderID
     {
-        /// <summary>
-        /// Primary key field of table
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// User you want to contact
         /// </summary>

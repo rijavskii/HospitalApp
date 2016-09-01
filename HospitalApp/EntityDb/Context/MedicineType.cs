@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Drug types
     /// </summary>
-    public class MedicineType : HeaderAbstract
+    public class MedicineType : HeaderName
     {
         ///// <summary>
         ///// Primary key field of table

@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class PositionType: HeaderAbstract
+    public class PositionType: HeaderName
     {
         
     }

@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Type of concrete contact info 
     /// </summary>
-    public class ContactType : HeaderAbstract
+    public class ContactType : HeaderName
     {
         
     }

@@ -8,7 +8,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Records whith which patient card consists
     /// </summary>
-    public class Record
+    public class Record : HeaderID
     {
         /// <summary>
         /// Creates list of patient diseases and medicines
@@ -18,11 +18,6 @@ namespace EntityDb.Context
             Disease = new List<Disease>();
             Medicine = new List<Medicine>();
         }
-
-        /// <summary>
-        /// Primary key field of table
-        /// </summary>
-        public int Id { get; set; }
 
         /// <summary>
         /// Who are treatingor treated you

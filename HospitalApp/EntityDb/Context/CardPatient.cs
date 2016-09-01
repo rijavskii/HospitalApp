@@ -7,7 +7,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Card where should be written all diseases of patient
     /// </summary>
-    public class CardPatient:IPrimaryKey
+    public class CardPatient:HeaderID
     {
         /// <summary>
         /// Constructor which create list of patient records in hospital
@@ -17,11 +17,6 @@ namespace EntityDb.Context
             Record = new List<Record>();
         }
 
-        /// <summary>
-        /// Id for patient card
-        /// </summary>
-        public int Id { get; set; }
-        
         /// <summary>
         /// List with records in patient card
         /// </summary>

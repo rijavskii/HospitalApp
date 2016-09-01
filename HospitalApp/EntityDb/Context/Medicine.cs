@@ -6,13 +6,8 @@ namespace EntityDb.Context
     /// <summary>
     /// Include information about medicine
     /// </summary>
-    public class Medicine : IPrimaryKey
+    public class Medicine : HeaderID
     {
-
-        /// <summary>
-        /// Primary key field of table
-        /// </summary>
-        public int Id { get; set; }
 
         /// <summary>
         /// This is a name of drug
