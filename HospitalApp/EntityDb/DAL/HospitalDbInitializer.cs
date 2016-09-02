@@ -57,7 +57,7 @@ namespace EntityDb.DAL
                 LastName = "admin",
                 Birthday = DateTime.Today,
                 Login = "admin",
-                Password = Password.GetMd5Hash("admin"),
+                Password = Password.GetMd5Hash(),
                 Passport = "admin",
                 IdentificationNumber = "admin",
                 Adress = context.Adresses.First(x=>x.City=="admin"),

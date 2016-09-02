@@ -27,6 +27,8 @@ namespace HospitalApp.UserControls
             dtpBirthday.MaxDate = DateTime.Today;
         }
 
+        //private void FillComboBox
+
         /// <summary>
         /// Check for correct input info
         /// </summary>
@@ -197,7 +199,7 @@ namespace HospitalApp.UserControls
                         Position = context.Positions.FirstOrDefault(x => x.Name == "Undefined"),
 
                         Login = login,
-                        Password = psd.GetMd5Hash(psd)
+                        Password = psd.GetMd5Hash()
 
                     });
 

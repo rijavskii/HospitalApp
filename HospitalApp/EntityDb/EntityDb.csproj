@@ -77,9 +77,9 @@
     <Compile Include="Context\ContactInfo.cs" />
     <Compile Include="Context\ContactType.cs" />
     <Compile Include="Context\Disease.cs" />
-    <Compile Include="Context\HeaderAbstract.cs" />
+    <Compile Include="Context\HeaderID.cs" />
+    <Compile Include="Context\HeaderName.cs" />
     <Compile Include="Context\Helper.cs" />
-    <Compile Include="Context\IPrimaryKey.cs" />
     <Compile Include="Context\Manufacturer.cs" />
     <Compile Include="Context\Medicine.cs" />
     <Compile Include="Context\MedicineType.cs" />

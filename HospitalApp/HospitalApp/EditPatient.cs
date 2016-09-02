@@ -76,7 +76,7 @@ namespace HospitalApp
 
                     if (tbPassword.Text.Trim() != String.Empty)
                     {
-                        _myUser.Password = tbPassword.Text.GetMd5Hash(tbPassword.Text);
+                        _myUser.Password = tbPassword.Text.GetMd5Hash();
 
                     }
 

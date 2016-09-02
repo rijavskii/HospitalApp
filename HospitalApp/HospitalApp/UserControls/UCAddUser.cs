@@ -191,7 +191,7 @@ namespace HospitalApp.UserControls
                         Position = context.Positions.FirstOrDefault(x => x.Name == "Undefined"),
 
                         Login = login,
-                        Password = psd.GetMd5Hash(psd)
+                        Password = psd.GetMd5Hash()
 
                     });
 

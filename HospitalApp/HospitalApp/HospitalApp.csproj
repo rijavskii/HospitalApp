@@ -117,6 +117,12 @@
       <DependentUpon>ProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UcAddWorker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcAddWorker.Designer.cs">
+      <DependentUpon>UcAddWorker.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCAddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,12 @@
     </Compile>
     <Compile Include="UserControls\UCButtonRegistry.Designer.cs">
       <DependentUpon>UCButtonRegistry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcFindWorker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcFindWorker.Designer.cs">
+      <DependentUpon>UcFindWorker.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCDoctors.cs">
       <SubType>UserControl</SubType>
@@ -202,6 +214,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\UcAddWorker.resx">
+      <DependentUpon>UcAddWorker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCAddUser.resx">
       <DependentUpon>UCAddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCButtonRegistry.resx">
       <DependentUpon>UCButtonRegistry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcFindWorker.resx">
+      <DependentUpon>UcFindWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCDoctors.resx">
       <DependentUpon>UCDoctors.cs</DependentUpon>

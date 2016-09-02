@@ -13,16 +13,17 @@ namespace HospitalApp
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="source"></param>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static string GetMd5Hash(this string source,string input)
+        public static string GetMd5Hash(this string source)
         {
             StringBuilder sBuilder = new StringBuilder();
 
             using (MD5 md5Hash = MD5.Create())
             {
                 // Convert the input string to a byte array and compute the hash.
-                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(source));
 
                 // Create a new Stringbuilder to collect the bytes
                 // and create a string.
