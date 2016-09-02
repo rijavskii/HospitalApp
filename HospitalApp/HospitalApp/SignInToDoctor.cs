@@ -33,6 +33,7 @@ namespace HospitalApp
             List<Users> doctors;
             using (var context = new HospitalDbContext())
             {
+                //ToDo Move "doctor" to enum
                  doctors = context.Users.Where(x => x.Position.Name.ToLower() == "doctor").ToList();
             }
 

@@ -173,10 +173,12 @@ namespace HospitalApp.UserControls
                     });
                     context.SaveChanges();
                 }
+                //ToDo the same as in UcAddWorked.cs
                 using (var context = new HospitalDbContext())
                 {
                     
                     string login = tbLastName.Text + " " + tbFirstName.Text;
+                    //ToDo use String.Format
                     string psd = tbLastName.Text + " " + tbStreet.Text + " " + tbHouseNumber.Text;
                     context.Users.Add(new Users()
                     {

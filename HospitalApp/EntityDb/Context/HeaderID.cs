@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityDb.Context
 {
+    //ToDo Naming convention
     public class HeaderID
     {
         /// <summary>

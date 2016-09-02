@@ -13,6 +13,7 @@ namespace HospitalApp
     /// </summary>
     public partial class UcFindPatient : UserControl
     {
+        //ToDo remove global variables. Use only local
         private ListViewItem _items;
         private List<Users> _users;
         /// <summary>
@@ -32,7 +33,8 @@ namespace HospitalApp
                 _users = context.Users.Include(x=>x.Position).Include(x=>x.Adress).ToList();
                 //_users = context.Users.Where(x=>x.IsPatient).Include(x=>x.Position).Include(x=>x.Adress).ToList();
                 
-                
+                //ToDo write extension method for string, that will be check it
+                //or use String.IsNullOrEmpty
                 if (tbFirstName.Text.Trim() != String.Empty)
                 {
                     _users = _users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
@@ -63,6 +65,7 @@ namespace HospitalApp
         {
             lvFind.Items.Clear();
             string adress;
+            //ToDo You create context, but not use it!
             using (var context = new HospitalDbContext())
             {
                 foreach (var user in _users)
@@ -108,6 +111,7 @@ namespace HospitalApp
 
         private void EditPatient()
         {
+            //ToDo You can set up selection properties in properties of control and multiple selection will be denied
             int size = lvFind.SelectedItems.Count;
 
             if (size == 1)

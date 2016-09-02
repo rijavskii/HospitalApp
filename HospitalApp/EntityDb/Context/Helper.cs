@@ -5,6 +5,7 @@ using System.Text;
 
 namespace HospitalApp
 {
+    //ToDo move this class from "Context" folder
     /// <summary>
     /// 
     /// </summary>

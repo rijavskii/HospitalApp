@@ -181,6 +181,7 @@ namespace HospitalApp.UserControls
                     });
                     context.SaveChanges();
                 }
+                //ToDo While you create context again?
                 using (var context = new HospitalDbContext())
                 {
                     
@@ -213,6 +214,7 @@ namespace HospitalApp.UserControls
                     }
                     catch (DbEntityValidationException a)
                     {
+                        //ToDO move to new method
                         foreach (var eve in a.EntityValidationErrors)
                         {
                             MessageBox.Show("Entity of type \""+eve.Entry.Entity.GetType().Name+

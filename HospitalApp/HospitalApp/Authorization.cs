@@ -38,19 +38,34 @@ namespace HospitalApp
 
         private void btnAuthorizate_Click(object sender, EventArgs e)
         {
-            var context = new HospitalDbContext();
+            //ToDO Use context like this
+            using (var context = new HospitalDbContext())
+            {
+                var myLogin = this.tbLogin.Text;
+                var myPsd = this.tbPassword.Text.GetMd5Hash();
+                _user = context.Users.FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
+            }
+            
+            if (_user == null)
+            {
+                MessageBox.Show("Wrong Login or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                Close();
 
-            var myLogin = this.tbLogin.Text;
-            var myPsd = this.tbPassword.Text.GetMd5Hash();
+            //var context = new HospitalDbContext();
+
+            //var myLogin = this.tbLogin.Text;
+            //var myPsd = this.tbPassword.Text.GetMd5Hash();
 
            
-                _user = context.Users.FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
-                if (_user == null)
-                {
-                    MessageBox.Show("Wrong Login or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                    Close();
+            //    _user = context.Users.FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
+            //    if (_user == null)
+            //    {
+            //        MessageBox.Show("Wrong Login or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    else
+            //        Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

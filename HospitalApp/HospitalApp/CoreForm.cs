@@ -22,6 +22,7 @@ namespace HospitalApp
         /// <summary>
         /// Authorized user
         /// </summary>
+        //ToDo store user id in hidden field, and read it from db when it`s needed 
         private Users _myUser;
 
         
@@ -54,22 +55,19 @@ namespace HospitalApp
             var position = (EPositions)_myUser.Position.Id;
             switch (EPositions.Admin)
             {
-                //ToDO move to enum
                 case EPositions.Admin:
-                    this.scContent.Panel1.Controls.Clear();
+                    scContent.Panel1.Controls.Clear();
                     //this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
                     scContent.Panel1.Controls.Add(new UcButtonRegistry(scContent.Panel2));
-
                     break; 
-
                 case EPositions.Doctor:
-                    this.scContent.Panel1.Controls.Clear();
-                    this.scContent.Panel1.Controls.Add(new UCButtonDoctor(scContent.Panel2));
+                    scContent.Panel1.Controls.Clear();
+                    scContent.Panel1.Controls.Add(new UCButtonDoctor(scContent.Panel2));
                     break;
 
                 case EPositions.Nurse:
-                    this.scContent.Panel1.Controls.Clear();
-                    this.scContent.Panel1.Controls.Add(new UCButtonNurse());
+                    scContent.Panel1.Controls.Clear();
+                    scContent.Panel1.Controls.Add(new UCButtonNurse());
                     break;
 
                 case EPositions.Undefined:
@@ -142,7 +140,7 @@ namespace HospitalApp
         private void ParseAndAddCsvToDb(string fileName)
         {
             this.progressBar1.Visible = true;
-            
+            //Todo Use Encoding.Utf8, not  Encoding.GetEncoding("UTF-8")
             var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -184,10 +182,6 @@ namespace HospitalApp
                     //{
                     //    FactoryName = "",
                     //    Country = ""
-                    //});
-                    
-                    
-
                 
                     ifexist = new Manufacturer()
                     { 
@@ -195,11 +189,7 @@ namespace HospitalApp
                         Country = medItems[manufacturerCountry]
                     };
 
-
-
                 //Name = medItems[typeMedicine];
-
-
                 context.Medicines.Add(new Medicine()
                         {
                             Name = medItems[nameMedicine].Trim(),

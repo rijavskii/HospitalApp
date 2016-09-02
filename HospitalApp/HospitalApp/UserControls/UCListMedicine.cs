@@ -15,7 +15,7 @@ namespace HospitalApp
 
     public partial class UCListMedicine : UserControl
     {
-
+        //ToDo Naming convention!!
         public UCListMedicine()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace HospitalApp
                 }
             }
         }
-
+        //ToDo rename button. Provide normal button name
         private void button1_Click(object sender, EventArgs e)
         {
 

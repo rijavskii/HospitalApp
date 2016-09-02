@@ -19,6 +19,7 @@ namespace HospitalApp
     /// </summary>
     public partial class EditPatient : Form
     {
+        //ToDo remove this *details see at CoreForm.cs
         private Users _myUser = null;
         /// <summary>
         /// Base constructor
