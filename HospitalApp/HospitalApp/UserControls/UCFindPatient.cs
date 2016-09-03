@@ -35,7 +35,7 @@ namespace HospitalApp
                 
                 //ToDo write extension method for string, that will be check it
                 //or use String.IsNullOrEmpty
-                if (tbFirstName.Text.Trim() != String.Empty)
+                if (String.IsNullOrEmpty(tbFirstName.Text.Trim()))
                 {
                     _users = _users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
                 }
@@ -112,20 +112,15 @@ namespace HospitalApp
         private void EditPatient()
         {
             //ToDo You can set up selection properties in properties of control and multiple selection will be denied
-            int size = lvFind.SelectedItems.Count;
 
-            if (size == 1)
+            var currentUser = _users.ElementAt(_items.ListView.FocusedItem.Index);
+            EditPatient editPatient = new EditPatient(currentUser);
+            if (editPatient.ShowDialog() == DialogResult.Yes)
             {
-                var currentUser = _users.ElementAt(_items.ListView.FocusedItem.Index);
-                EditPatient editPatient = new EditPatient(currentUser);
-                if (editPatient.ShowDialog() == DialogResult.Yes)
-                {
-                    var context = new HospitalDbContext();
-                    _users = context.Users.ToList();
-                    AddToList();
-                }
+                var context = new HospitalDbContext();
+                _users = context.Users.ToList();
+                AddToList();
             }
-
         }
     }
 }

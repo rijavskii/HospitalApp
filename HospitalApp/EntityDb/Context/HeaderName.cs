@@ -2,7 +2,10 @@
 
 namespace EntityDb.Context
 {
-    public class HeaderName:HeaderID
+    /// <summary>
+    /// 
+    /// </summary>
+    public class HeaderName:HeaderId
     {
         /// <summary>
         /// 

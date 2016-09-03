@@ -4,7 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EntityDb.Context
 {
     //ToDo Naming convention
-    public class HeaderID
+    /// <summary>
+    /// 
+    /// </summary>
+    public class HeaderId
     {
         /// <summary>
         /// Primary key field of table

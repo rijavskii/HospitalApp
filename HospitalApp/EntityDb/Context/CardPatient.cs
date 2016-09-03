@@ -7,7 +7,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Card where should be written all diseases of patient
     /// </summary>
-    public class CardPatient:HeaderID
+    public class CardPatient:HeaderId
     {
         /// <summary>
         /// Constructor which create list of patient records in hospital

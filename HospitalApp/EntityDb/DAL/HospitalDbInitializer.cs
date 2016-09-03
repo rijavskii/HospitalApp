@@ -32,8 +32,10 @@ namespace EntityDb.DAL
             context.Positions.Add(new Positions() { Name = "Undefined" });
             context.Positions.Add(new Positions() { Name = "Doctor" });
             context.Positions.Add(new Positions() { Name = "Nurse" });
-            context.Positions.Add(new Positions() { Name = "Admin"});
+            context.Positions.Add(new Positions() { Name = "Admin" });
             context.Positions.Add(new Positions() { Name = "Registry" });
+
+            //context.PositionTypes.Add(new PositionType() { Name = "admin" });
 
             context.Adresses.Add(new Adresses()
             {
@@ -63,8 +65,9 @@ namespace EntityDb.DAL
                 Adress = context.Adresses.First(x=>x.City=="admin"),
                 Position = context.Positions.First(x => x.Name == "Admin")
                 
+                
             });
-
+            //context.SaveChanges();
             base.Seed(context);
             
             //defaulTypeMedicines.Add(new TypeMedicines() { });

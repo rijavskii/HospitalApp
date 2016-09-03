@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Adress users and patients of hospital
     /// </summary>
-    public class Adresses:HeaderID
+    public class Adresses:HeaderId
     {
         
         /// <summary>

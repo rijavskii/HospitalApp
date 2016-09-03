@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// When the worker work
     /// </summary>
-    public class WorkSchedules:HeaderID
+    public class WorkSchedules:HeaderId
     {
         /// <summary>
         /// Who this person is

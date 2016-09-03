@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Include information about medicine
     /// </summary>
-    public class Medicine : HeaderID
+    public class Medicine : HeaderId
     {
 
         /// <summary>

@@ -82,6 +82,7 @@
             this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1});
             this.lvFind.Location = new System.Drawing.Point(3, 6);
+            this.lvFind.MultiSelect = false;
             this.lvFind.Name = "lvFind";
             this.lvFind.Size = new System.Drawing.Size(543, 432);
             this.lvFind.TabIndex = 0;
@@ -322,7 +323,7 @@
             this.btEdit.UseVisualStyleBackColor = true;
             this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
-            // UCFindPatient
+            // UcFindPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

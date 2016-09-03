@@ -6,7 +6,7 @@ using EntityDb.DAL;
 
 namespace EntityDb
 {
-    public class BaseRepository<T> where T : HeaderID 
+    public class BaseRepository<T> where T : HeaderId 
     {
         private HospitalDbContext _context = new HospitalDbContext();
 

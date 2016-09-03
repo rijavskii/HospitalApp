@@ -8,7 +8,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Records whith which patient card consists
     /// </summary>
-    public class Record : HeaderID
+    public class Record : HeaderId
     {
         /// <summary>
         /// Creates list of patient diseases and medicines

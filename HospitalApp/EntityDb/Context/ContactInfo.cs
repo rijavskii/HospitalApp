@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// If you want to contact with person look here
     /// </summary>
-    public class ContactInfo : HeaderID
+    public class ContactInfo : HeaderId
     {
         /// <summary>
         /// User you want to contact
