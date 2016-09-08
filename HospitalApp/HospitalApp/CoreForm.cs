@@ -46,32 +46,40 @@ namespace HospitalApp
                 LoadControls();
             }
             //scContent.Panel2.Controls.Add(new UCDoctors());
-            //var d  = scContent.Parent.Size;
+            //var d = scContent.Parent.Size;
 
         }
 
         private void LoadControls()
         {
-            var position = (EPositions)_myUser.Position.Id;
-            switch (EPositions.Admin)
+            EPositions position;
+            using (var context = new HospitalDbContext())
+            {
+
+
+                position = (EPositions) context.Users.FirstOrDefaultAsync(x => x.Id == _myUser.Id).Id;
+            }
+            switch (position)
             {
                 case EPositions.Admin:
                     scContent.Panel1.Controls.Clear();
                     //this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
-                    scContent.Panel1.Controls.Add(new UcButtonRegistry(scContent.Panel2));
-                    break; 
+                    scContent.Panel1.Controls.Add(new UcButtonAdmin(scContent.Panel2));
+                    break;
+                     
                 case EPositions.Doctor:
                     scContent.Panel1.Controls.Clear();
-                    scContent.Panel1.Controls.Add(new UCButtonDoctor(scContent.Panel2));
+                    scContent.Panel1.Controls.Add(new UcButtonDoctor(scContent.Panel2));
                     break;
 
                 case EPositions.Nurse:
                     scContent.Panel1.Controls.Clear();
-                    scContent.Panel1.Controls.Add(new UCButtonNurse());
+                    scContent.Panel1.Controls.Add(new UcButtonNurse());
                     break;
 
-                case EPositions.Undefined:
-
+                case EPositions.Registry:
+                    scContent.Panel1.Controls.Clear();
+                    scContent.Panel1.Controls.Add(new UcButtonRegistry(scContent.Panel2));
                     break;
             }
         }
@@ -139,7 +147,7 @@ namespace HospitalApp
         /// <param name="fileName">full name of working file</param>
         private void ParseAndAddCsvToDb(string fileName)
         {
-            this.progressBar1.Visible = true;
+            progressBar1.Visible = true;
             //Todo Use Encoding.Utf8, not  Encoding.GetEncoding("UTF-8")
             var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
@@ -362,6 +370,11 @@ namespace HospitalApp
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void tsBtnAdminButtons_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

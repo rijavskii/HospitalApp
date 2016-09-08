@@ -14,23 +14,27 @@ using EntityDb.DAL;
 namespace HospitalApp
 {
     
-
-    public partial class UCButtonDoctor : UserControl
+    /// <summary>
+    /// User Controller with doctor buttons
+    /// </summary>
+    public partial class UcButtonDoctor : UserControl
     {
-        private Panel myPanel;
+        private readonly Panel _panel;
 
-        public UCButtonDoctor(Panel _panel)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="panel"></param>
+        public UcButtonDoctor(Panel panel)
         {
             InitializeComponent();
-            myPanel = _panel;
+            _panel = panel;
         }
-
-        
 
         private void btListMedicine_Click(object sender, EventArgs e)
         {
-            myPanel.Controls.Clear();
-            myPanel.Controls.Add(new UCListMedicine());
+            _panel.Controls.Clear();
+            _panel.Controls.Add(new UcListMedicine());
         }
     }
 }

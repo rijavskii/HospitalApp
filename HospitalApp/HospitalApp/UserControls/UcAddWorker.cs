@@ -25,6 +25,7 @@ namespace HospitalApp.UserControls
         {
             InitializeComponent();
             dtpBirthday.MaxDate = DateTime.Today;
+            FillPositionsCb();
         }
 
         //private void FillComboBox
@@ -147,7 +148,7 @@ namespace HospitalApp.UserControls
                 tbHouseNumber.BackColor = Color.White;
             }
 
-            if (tbAppartment.Text.Trim() == String.Empty || Convert.ToInt32(tbAppartment.Text.Trim())>0)
+            if (tbAppartment.Text.Trim() == String.Empty || Convert.ToInt32(tbAppartment.Text.Trim())<0)
             {
                 tbAppartment.BackColor = Color.Red;
                 isValid = false;
@@ -165,48 +166,76 @@ namespace HospitalApp.UserControls
             if (ValidatePatient())
             {
                 Adresses myAdress;
+
+                string login = $"{tbLastName.Text} {tbFirstName.Text}";
+                string psd = $"{tbLastName.Text} {tbStreet.Text} {tbHouseNumber.Text}";
+
                 string passport = (mtbPassportSeries.Text + mtbPassportNumber.Text).Trim();
                 using (var context = new HospitalDbContext())
                 {
-                    
-                    myAdress = context.Adresses.Add(new Adresses()
-                    {
-                        Country = tbCountry.Text,
-                        District = tbDistrict.Text,
-                        Region = tbRegion.Text,
-                        City = tbCity.Text,
-                        HouseNumber = tbHouseNumber.Text,
-                        Street = tbStreet.Text,
-                        Appartment = Convert.ToInt32(tbAppartment.Text)
-                    });
-                    context.SaveChanges();
-                }
-                //ToDo While you create context again?
-                using (var context = new HospitalDbContext())
-                {
-                    
-                    string login = tbLastName.Text + " " + tbFirstName.Text;
-                    string psd = tbLastName.Text + " " + tbStreet.Text + " " + tbHouseNumber.Text;
-                    context.Users.Add(new Users()
-                    {
-                        FirstName = tbFirstName.Text,
-                        MiddleName = tbMiddleName.Text,
-                        LastName = tbLastName.Text,
-                        Birthday = dtpBirthday.Value,
-                        Passport = passport,
-                        IdentificationNumber = mtbInnNumber.Text,
-                        IsPatient = true,
-                        Adress = context.Adresses.FirstOrDefault(x=>x.Id == myAdress.Id),
-                        Position = context.Positions.FirstOrDefault(x => x.Name == "Undefined"),
-
-                        Login = login,
-                        Password = psd.GetMd5Hash()
-
-                    });
-
-                    //context.SaveChanges();
                     try
                     {
+                        myAdress = context.Adresses.Add(new Adresses()
+                        {
+                            Country = tbCountry.Text,
+                            District = tbDistrict.Text,
+                            Region = tbRegion.Text,
+                            City = tbCity.Text,
+                            HouseNumber = tbHouseNumber.Text,
+                            Street = tbStreet.Text,
+                            Appartment = Convert.ToInt32(tbAppartment.Text)
+                        });
+                        // check if inputed position exist in db
+                        //if (!context.PositionTypes.Any(
+                        //        x => x.Name == tbPositionsType.Text && 
+                        //        x.Room == Convert.ToInt32(tbRoom.Text))
+                        //        )
+                        //{
+                        //    context.PositionTypes.Add(new PositionType()
+                        //    {
+                        //        Name = tbPositionsType.Text.Trim().ToLower(),
+                        //        Room = Convert.ToInt32(tbRoom.Text),
+                        //    });
+                        //}
+
+                        var posType = context.PositionTypes.Add(new PositionType()
+                        {
+                            Name = tbPositionsType.Text.Trim().ToLower(),
+                            Room = Convert.ToInt32(tbRoom.Text),
+                        });
+                        context.SaveChanges();
+
+                        var myPos = context.Positions.Add(new Positions()
+                        {
+                            Name = cbPositions.Text,
+                            PositionCode = context.Positions.First(x => x.Name == cbPositions.Text).PositionCode,
+                            WorkerPositionType = posType
+                        });
+
+                        context.SaveChanges();
+                        //ToDo Why you create context again?
+                        //string login = tbLastName.Text + " " + tbFirstName.Text;
+                        //string psd = tbLastName.Text + " " + tbStreet.Text + " " + tbHouseNumber.Text;
+
+                        context.Users.Add(new Users()
+                        {
+                            FirstName = tbFirstName.Text,
+                            MiddleName = tbMiddleName.Text,
+                            LastName = tbLastName.Text,
+                            Birthday = dtpBirthday.Value,
+                            Passport = passport,
+                            IdentificationNumber = mtbInnNumber.Text,
+                            IsPatient = false,
+                            Adress = context.Adresses.FirstOrDefault(x => x.Id == myAdress.Id),
+                            Position = context.Positions.FirstOrDefault(x=>x.Id == myPos.Id),
+
+                            Login = login,
+                            Password = psd.GetMd5Hash()
+
+                        });
+
+                        //context.SaveChanges();
+
                         // Your code...
                         // Could also be before try if you know the exception occurs in SaveChanges
 
@@ -215,26 +244,12 @@ namespace HospitalApp.UserControls
                     catch (DbEntityValidationException a)
                     {
                         //ToDO move to new method
-                        foreach (var eve in a.EntityValidationErrors)
-                        {
-                            MessageBox.Show("Entity of type \""+eve.Entry.Entity.GetType().Name+
-                                "\" in state \""+ eve.Entry.State + "\" has the following validation errors:",
-                        "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
-                            foreach (var ve in eve.ValidationErrors)
-                            {
-                                MessageBox.Show("- Property: \""+ve.PropertyName +"\", Error: \""+ ve.ErrorMessage+"\"",
-                        "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                    ve.PropertyName, ve.ErrorMessage);
-                            }
-                        }
+                        ShowErrors(a);
                         throw;
                     }
+
                     MessageBox.Show("Patient " + tbFirstName.Text + " " + tbLastName.Text + " was succefully created!" +
-                                    Environment.NewLine + "Login: " + "\"" + login + "\""+Environment.NewLine +
+                                    Environment.NewLine + "Login: " + "\"" + login + "\"" + Environment.NewLine +
                                     "Password: " + "\"" + psd + "\"",
                         "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,11 +257,46 @@ namespace HospitalApp.UserControls
             }
         }
 
+        private void ShowErrors(DbEntityValidationException a)
+        {
+            foreach (var eve in a.EntityValidationErrors)
+            {
+                MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name +
+                                "\" in state \"" + eve.Entry.State + "\" has the following validation errors:",
+                    "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"",
+                        "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+            }
+            
+        }
+
         private void tbAppartment_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar < '0' || e.KeyChar > '9')
                 if ((Keys)e.KeyChar != Keys.Back & (Keys)e.KeyChar != Keys.Delete )
                     e.Handled = true;
+        }
+
+        private void FillPositionsCb()
+        {
+            using (var context = new HospitalDbContext())
+            {
+                List<Positions> pos = context.Positions.ToList();
+                foreach (Positions _pos in pos)
+                {
+                    cbPositions.Items.Add(_pos.Name);
+                }
+            }
+            cbPositions.SelectedIndex=0;
+
         }
     }
 }

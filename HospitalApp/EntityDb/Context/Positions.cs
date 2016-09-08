@@ -11,13 +11,18 @@ namespace EntityDb.Context
         ///// <summary>
         ///// Primary key field of table
         ///// </summary>
-        //public int Id { get; set; }
+        //public new int Id { get; set; }
 
         ///// <summary>
         ///// Position name of hospital worker
         ///// </summary>
         //[Required]
         //public string Name { get; set; }
+
+        /// <summary>
+        /// Unique code for concrete position
+        /// </summary>
+        public int PositionCode { get; set; }
 
         /// <summary>
         /// Type of current worker position

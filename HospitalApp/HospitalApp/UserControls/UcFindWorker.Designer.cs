@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.btEdit = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
-            this.lbBirthday = new System.Windows.Forms.Label();
+            this.lblRoom = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
-            this.btSignInPatient = new System.Windows.Forms.Button();
+            this.btnRemoveWorker = new System.Windows.Forms.Button();
             this.scFindPatient = new System.Windows.Forms.SplitContainer();
+            this.tbRoom = new System.Windows.Forms.TextBox();
+            this.cbPositions = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbMiddleName = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -46,12 +48,9 @@
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chBirthday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chPassportNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chInnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.chPosition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.scFindPatient)).BeginInit();
             this.scFindPatient.Panel1.SuspendLayout();
             this.scFindPatient.Panel2.SuspendLayout();
@@ -66,14 +65,16 @@
             this.btEdit.TabIndex = 12;
             this.btEdit.Text = "Edit";
             this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Visible = false;
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(143, 116);
+            this.btnFind.Location = new System.Drawing.Point(143, 145);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
             this.btnFind.TabIndex = 0;
             this.btnFind.Text = "Find";
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // splitter1
             // 
@@ -83,21 +84,14 @@
             this.splitter1.TabIndex = 11;
             this.splitter1.TabStop = false;
             // 
-            // dtpBirthday
+            // lblRoom
             // 
-            this.dtpBirthday.Location = new System.Drawing.Point(108, 69);
-            this.dtpBirthday.Name = "dtpBirthday";
-            this.dtpBirthday.Size = new System.Drawing.Size(110, 20);
-            this.dtpBirthday.TabIndex = 4;
-            // 
-            // lbBirthday
-            // 
-            this.lbBirthday.AutoSize = true;
-            this.lbBirthday.Location = new System.Drawing.Point(14, 75);
-            this.lbBirthday.Name = "lbBirthday";
-            this.lbBirthday.Size = new System.Drawing.Size(45, 13);
-            this.lbBirthday.TabIndex = 9;
-            this.lbBirthday.Text = "Birthday";
+            this.lblRoom.AutoSize = true;
+            this.lblRoom.Location = new System.Drawing.Point(14, 74);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(35, 13);
+            this.lblRoom.TabIndex = 9;
+            this.lblRoom.Text = "Room";
             // 
             // lbLastName
             // 
@@ -108,14 +102,15 @@
             this.lbLastName.TabIndex = 7;
             this.lbLastName.Text = "Last Name";
             // 
-            // btSignInPatient
+            // btnRemoveWorker
             // 
-            this.btSignInPatient.Location = new System.Drawing.Point(475, 454);
-            this.btSignInPatient.Name = "btSignInPatient";
-            this.btSignInPatient.Size = new System.Drawing.Size(155, 23);
-            this.btSignInPatient.TabIndex = 11;
-            this.btSignInPatient.Text = "Sign in to doctor";
-            this.btSignInPatient.UseVisualStyleBackColor = true;
+            this.btnRemoveWorker.Location = new System.Drawing.Point(523, 454);
+            this.btnRemoveWorker.Name = "btnRemoveWorker";
+            this.btnRemoveWorker.Size = new System.Drawing.Size(107, 23);
+            this.btnRemoveWorker.TabIndex = 11;
+            this.btnRemoveWorker.Text = "Remove";
+            this.btnRemoveWorker.UseVisualStyleBackColor = true;
+            this.btnRemoveWorker.Click += new System.EventHandler(this.btnRemoveWorker_Click);
             // 
             // scFindPatient
             // 
@@ -124,12 +119,12 @@
             // 
             // scFindPatient.Panel1
             // 
-            this.scFindPatient.Panel1.Controls.Add(this.comboBox1);
+            this.scFindPatient.Panel1.Controls.Add(this.tbRoom);
+            this.scFindPatient.Panel1.Controls.Add(this.cbPositions);
             this.scFindPatient.Panel1.Controls.Add(this.label1);
             this.scFindPatient.Panel1.Controls.Add(this.btnFind);
             this.scFindPatient.Panel1.Controls.Add(this.splitter1);
-            this.scFindPatient.Panel1.Controls.Add(this.dtpBirthday);
-            this.scFindPatient.Panel1.Controls.Add(this.lbBirthday);
+            this.scFindPatient.Panel1.Controls.Add(this.lblRoom);
             this.scFindPatient.Panel1.Controls.Add(this.lbLastName);
             this.scFindPatient.Panel1.Controls.Add(this.lbMiddleName);
             this.scFindPatient.Panel1.Controls.Add(this.tbFirstName);
@@ -145,6 +140,31 @@
             this.scFindPatient.Size = new System.Drawing.Size(783, 438);
             this.scFindPatient.SplitterDistance = 229;
             this.scFindPatient.TabIndex = 10;
+            // 
+            // tbRoom
+            // 
+            this.tbRoom.Location = new System.Drawing.Point(108, 71);
+            this.tbRoom.Name = "tbRoom";
+            this.tbRoom.Size = new System.Drawing.Size(110, 20);
+            this.tbRoom.TabIndex = 14;
+            // 
+            // cbPositions
+            // 
+            this.cbPositions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPositions.FormattingEnabled = true;
+            this.cbPositions.Location = new System.Drawing.Point(108, 93);
+            this.cbPositions.Name = "cbPositions";
+            this.cbPositions.Size = new System.Drawing.Size(110, 21);
+            this.cbPositions.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Position";
             // 
             // lbMiddleName
             // 
@@ -191,18 +211,19 @@
             this.chFirstName,
             this.chMiddleName,
             this.chLastName,
-            this.chBirthday,
-            this.chAddress,
-            this.chPassportNumber,
-            this.chInnNumber});
+            this.chPosition,
+            this.chType,
+            this.chRoom});
             this.lvFind.FullRowSelect = true;
             this.lvFind.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup1.Tag = "1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
+            listViewGroup2.Tag = "1";
             this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup2});
+            this.lvFind.HideSelection = false;
             this.lvFind.Location = new System.Drawing.Point(4, 3);
+            this.lvFind.MultiSelect = false;
             this.lvFind.Name = "lvFind";
             this.lvFind.Size = new System.Drawing.Size(543, 432);
             this.lvFind.TabIndex = 0;
@@ -212,63 +233,41 @@
             // chFirstName
             // 
             this.chFirstName.Text = "First Name";
-            this.chFirstName.Width = 65;
+            this.chFirstName.Width = 84;
             // 
             // chMiddleName
             // 
             this.chMiddleName.Text = "Middle Name";
-            this.chMiddleName.Width = 78;
+            this.chMiddleName.Width = 108;
             // 
             // chLastName
             // 
             this.chLastName.Text = "Last Name";
-            this.chLastName.Width = 65;
+            this.chLastName.Width = 97;
             // 
-            // chBirthday
+            // chPosition
             // 
-            this.chBirthday.Text = "Birthday";
-            this.chBirthday.Width = 52;
+            this.chPosition.Text = "Position";
+            this.chPosition.Width = 74;
             // 
-            // chAddress
+            // chType
             // 
-            this.chAddress.Text = "Address";
-            this.chAddress.Width = 109;
+            this.chType.Text = "Type";
+            this.chType.Width = 85;
             // 
-            // chPassportNumber
+            // chRoom
             // 
-            this.chPassportNumber.Text = "Passport Number";
-            this.chPassportNumber.Width = 91;
+            this.chRoom.Text = "Room";
+            this.chRoom.Width = 89;
             // 
-            // chInnNumber
-            // 
-            this.chInnNumber.Text = "INN Number";
-            this.chInnNumber.Width = 76;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Position";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(110, 21);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // UcCreateWorker
+            // UcFindWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btEdit);
-            this.Controls.Add(this.btSignInPatient);
+            this.Controls.Add(this.btnRemoveWorker);
             this.Controls.Add(this.scFindPatient);
-            this.Name = "UcCreateWorker";
+            this.Name = "UcFindWorker";
             this.Size = new System.Drawing.Size(798, 492);
             this.scFindPatient.Panel1.ResumeLayout(false);
             this.scFindPatient.Panel1.PerformLayout();
@@ -284,10 +283,9 @@
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.DateTimePicker dtpBirthday;
-        private System.Windows.Forms.Label lbBirthday;
+        private System.Windows.Forms.Label lblRoom;
         private System.Windows.Forms.Label lbLastName;
-        private System.Windows.Forms.Button btSignInPatient;
+        private System.Windows.Forms.Button btnRemoveWorker;
         private System.Windows.Forms.SplitContainer scFindPatient;
         private System.Windows.Forms.Label lbMiddleName;
         private System.Windows.Forms.TextBox tbFirstName;
@@ -298,11 +296,11 @@
         private System.Windows.Forms.ColumnHeader chFirstName;
         private System.Windows.Forms.ColumnHeader chMiddleName;
         private System.Windows.Forms.ColumnHeader chLastName;
-        private System.Windows.Forms.ColumnHeader chBirthday;
-        private System.Windows.Forms.ColumnHeader chAddress;
-        private System.Windows.Forms.ColumnHeader chPassportNumber;
-        private System.Windows.Forms.ColumnHeader chInnNumber;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ColumnHeader chPosition;
+        private System.Windows.Forms.ColumnHeader chType;
+        private System.Windows.Forms.ColumnHeader chRoom;
+        private System.Windows.Forms.ComboBox cbPositions;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbRoom;
     }
 }

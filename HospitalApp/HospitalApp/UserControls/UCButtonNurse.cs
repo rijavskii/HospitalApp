@@ -11,11 +11,11 @@ using System.Windows.Forms;
 namespace HospitalApp.UserControls
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCButtonNurse'
-    public partial class UCButtonNurse : UserControl
+    public partial class UcButtonNurse : UserControl
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonNurse'
     {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'UCButtonNurse.UCButtonNurse()'
-        public UCButtonNurse()
+        public UcButtonNurse()
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonNurse.UCButtonNurse()'
         {
             InitializeComponent();

@@ -63,6 +63,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,7 +80,8 @@
     <Compile Include="Context\Disease.cs" />
     <Compile Include="Context\HeaderID.cs" />
     <Compile Include="Context\HeaderName.cs" />
-    <Compile Include="Context\Helper.cs" />
+    <Compile Include="Context\PrimeKei.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Context\Manufacturer.cs" />
     <Compile Include="Context\Medicine.cs" />
     <Compile Include="Context\MedicineType.cs" />
@@ -90,6 +92,11 @@
     <Compile Include="Context\WorkSchedules.cs" />
     <Compile Include="DAL\HospitalDbContext.cs" />
     <Compile Include="DAL\HospitalDbInitializer.cs" />
+    <Compile Include="Migrations\201609052026480_InitialCreate.cs" />
+    <Compile Include="Migrations\201609052026480_InitialCreate.Designer.cs">
+      <DependentUpon>201609052026480_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -112,6 +119,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609052026480_InitialCreate.resx">
+      <DependentUpon>201609052026480_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

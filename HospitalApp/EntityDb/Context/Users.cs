@@ -9,8 +9,9 @@ namespace EntityDb.Context
     /// <summary>
     /// Informations about people which have relation to hospital
     /// </summary>
-    public class Users:HeaderId
+    public class Users: HeaderId
     {
+
         /// <summary>
         /// User First Name(How do I call you)
         /// </summary>
@@ -39,6 +40,7 @@ namespace EntityDb.Context
         /// When patient or worker was born
         /// </summary>
         [Column(TypeName = "datetime2")]
+        [Required]
         public DateTime Birthday { get; set; }
 
         /// <summary>
@@ -83,5 +85,6 @@ namespace EntityDb.Context
         /// </summary>
         [Required]
         public virtual Positions Position { get; set; }
+
     }
 }

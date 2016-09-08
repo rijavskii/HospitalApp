@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp
 {
-    partial class UCListMedicine
+    partial class UcListMedicine
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvDrugs = new System.Windows.Forms.ListView();
             this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chManufacturer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btCancel = new System.Windows.Forms.Button();
-            this.btEdit = new System.Windows.Forms.Button();
             this.chCountry = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnEdit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listView1
+            // lvDrugs
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvDrugs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chName,
             this.chManufacturer,
             this.chCountry,
             this.chType});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(4, 8);
-            this.listView1.Name = "listView1";
-            this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(749, 338);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvDrugs.FullRowSelect = true;
+            this.lvDrugs.GridLines = true;
+            this.lvDrugs.Location = new System.Drawing.Point(4, 8);
+            this.lvDrugs.Name = "lvDrugs";
+            this.lvDrugs.ShowItemToolTips = true;
+            this.lvDrugs.Size = new System.Drawing.Size(749, 338);
+            this.lvDrugs.TabIndex = 0;
+            this.lvDrugs.UseCompatibleStateImageBehavior = false;
+            this.lvDrugs.View = System.Windows.Forms.View.Details;
             // 
             // chName
             // 
@@ -64,43 +63,33 @@
             this.chManufacturer.Text = "Manufacturer";
             this.chManufacturer.Width = 170;
             // 
-            // chType
-            // 
-            this.chType.Text = "Type";
-            this.chType.Width = 169;
-            // 
-            // btCancel
-            // 
-            this.btCancel.Location = new System.Drawing.Point(643, 352);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(110, 23);
-            this.btCancel.TabIndex = 1;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.UseVisualStyleBackColor = true;
-            this.btCancel.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btEdit
-            // 
-            this.btEdit.Location = new System.Drawing.Point(527, 352);
-            this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(110, 23);
-            this.btEdit.TabIndex = 2;
-            this.btEdit.Text = "Edit";
-            this.btEdit.UseVisualStyleBackColor = true;
-            // 
             // chCountry
             // 
             this.chCountry.Text = "Country";
             this.chCountry.Width = 151;
             // 
-            // UCListMedicine
+            // chType
+            // 
+            this.chType.Text = "Type";
+            this.chType.Width = 169;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Location = new System.Drawing.Point(643, 352);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(110, 23);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // UcListMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btEdit);
-            this.Controls.Add(this.btCancel);
-            this.Controls.Add(this.listView1);
-            this.Name = "UCListMedicine";
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.lvDrugs);
+            this.Name = "UcListMedicine";
             this.Size = new System.Drawing.Size(756, 386);
             this.ResumeLayout(false);
 
@@ -108,12 +97,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvDrugs;
         private System.Windows.Forms.ColumnHeader chName;
         private System.Windows.Forms.ColumnHeader chManufacturer;
         private System.Windows.Forms.ColumnHeader chType;
-        private System.Windows.Forms.Button btCancel;
-        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ColumnHeader chCountry;
     }
 }

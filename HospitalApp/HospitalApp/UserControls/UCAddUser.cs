@@ -13,9 +13,9 @@ using EntityDb.DAL;
 
 namespace HospitalApp.UserControls
 {
-    public partial class UCAddUser : UserControl
+    public partial class UcAddUser : UserControl
     {
-        public UCAddUser()
+        public UcAddUser()
         {
             InitializeComponent();
             dtpBirthday.MaxDate = DateTime.Today;
@@ -139,7 +139,7 @@ namespace HospitalApp.UserControls
                 tbHouseNumber.BackColor = Color.White;
             }
 
-            if (tbAppartment.Text.Trim() == String.Empty || Convert.ToInt32(tbAppartment.Text.Trim())>0)
+            if (tbAppartment.Text.Trim() == String.Empty || Convert.ToInt32(tbAppartment.Text.Trim())<0)
             {
                 tbAppartment.BackColor = Color.Red;
                 isValid = false;
@@ -172,14 +172,12 @@ namespace HospitalApp.UserControls
                         Appartment = Convert.ToInt32(tbAppartment.Text)
                     });
                     context.SaveChanges();
-                }
                 //ToDo the same as in UcAddWorked.cs
-                using (var context = new HospitalDbContext())
-                {
-                    
-                    string login = tbLastName.Text + " " + tbFirstName.Text;
+                    //string login = String.Format("{0} {1}", tbLastName.Text, tbFirstName.Text);
+                    string login = $"{tbLastName.Text} {tbFirstName.Text}";
                     //ToDo use String.Format
-                    string psd = tbLastName.Text + " " + tbStreet.Text + " " + tbHouseNumber.Text;
+                    //string psd = String.Format("{0} {1} {2}",tbLastName.Text, tbStreet.Text, tbHouseNumber.Text);
+                    string psd = $"{tbLastName.Text} {tbStreet.Text} {tbHouseNumber.Text}";
                     context.Users.Add(new Users()
                     {
                         FirstName = tbFirstName.Text,
@@ -207,29 +205,35 @@ namespace HospitalApp.UserControls
                     }
                     catch (DbEntityValidationException a)
                     {
-                        foreach (var eve in a.EntityValidationErrors)
-                        {
-                            MessageBox.Show("Entity of type \""+eve.Entry.Entity.GetType().Name+
-                                "\" in state \""+ eve.Entry.State + "\" has the following validation errors:",
-                        "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
-                            foreach (var ve in eve.ValidationErrors)
-                            {
-                                MessageBox.Show("- Property: \""+ve.PropertyName +"\", Error: \""+ ve.ErrorMessage+"\"",
-                        "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                    ve.PropertyName, ve.ErrorMessage);
-                            }
-                        }
+                        ShowErrors(a);
                         throw;
                     }
+
                     MessageBox.Show("Patient " + tbFirstName.Text + " " + tbLastName.Text + " was succefully created!" +
                                     Environment.NewLine + "Login: " + "\"" + login + "\""+Environment.NewLine +
                                     "Password: " + "\"" + psd + "\"",
                         "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void ShowErrors(DbEntityValidationException a)
+        {
+            foreach (var eve in a.EntityValidationErrors)
+            {
+                MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name +
+                                "\" in state \"" + eve.Entry.State + "\" has the following validation errors:",
+                    "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"",
+                        "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
                 }
             }
         }

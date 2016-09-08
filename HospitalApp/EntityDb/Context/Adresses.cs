@@ -6,7 +6,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Adress users and patients of hospital
     /// </summary>
-    public class Adresses:HeaderId
+    public class Adresses: HeaderId
     {
         
         /// <summary>
@@ -54,7 +54,7 @@ namespace EntityDb.Context
         /// <summary>
         /// Person who lives by this adress
         /// </summary>
-        public Users Users { get; set; }
+        //public Users Users { get; set; }
 
     }
 }

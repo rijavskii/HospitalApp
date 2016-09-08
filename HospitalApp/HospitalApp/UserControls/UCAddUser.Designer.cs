@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp.UserControls
 {
-    partial class UCAddUser
+    partial class UcAddUser
     {
         /// <summary> 
         /// Required designer variable.

@@ -12,11 +12,16 @@ using EntityDb.DAL;
 
 namespace HospitalApp
 {
-
-    public partial class UCListMedicine : UserControl
+    /// <summary>
+    /// Show all drugs in database
+    /// </summary>
+    public partial class UcListMedicine : UserControl
     {
-        //ToDo Naming convention!!
-        public UCListMedicine()
+        //ToDo Naming convention!!!
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public UcListMedicine()
         {
             InitializeComponent();
             AddDrugsToListView();
@@ -37,14 +42,10 @@ namespace HospitalApp
                     items.SubItems.Add(allDrug.Manufacturer.Country);
                     items.SubItems.Add(allDrug.MedicineType.Name);
 
-                    listView1.Items.Add(items);
+                    lvDrugs.Items.Add(items);
                 }
             }
         }
-        //ToDo rename button. Provide normal button name
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

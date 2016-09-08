@@ -37,13 +37,13 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvDoctors = new System.Windows.Forms.ListView();
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDocType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.dtpSignPatientDate = new System.Windows.Forms.DateTimePicker();
+            this.lvSchedule = new System.Windows.Forms.ListView();
             this.chTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chBusy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -128,19 +128,22 @@
             this.tbMiddleName.Size = new System.Drawing.Size(142, 20);
             this.tbMiddleName.TabIndex = 35;
             // 
-            // listView1
+            // lvDoctors
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvDoctors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chFirstName,
             this.chLastName,
             this.chDocType,
             this.chRoom});
-            this.listView1.Location = new System.Drawing.Point(17, 137);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(233, 243);
-            this.listView1.TabIndex = 54;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvDoctors.FullRowSelect = true;
+            this.lvDoctors.GridLines = true;
+            this.lvDoctors.HideSelection = false;
+            this.lvDoctors.Location = new System.Drawing.Point(17, 137);
+            this.lvDoctors.Name = "lvDoctors";
+            this.lvDoctors.Size = new System.Drawing.Size(233, 243);
+            this.lvDoctors.TabIndex = 54;
+            this.lvDoctors.UseCompatibleStateImageBehavior = false;
+            this.lvDoctors.View = System.Windows.Forms.View.Details;
             // 
             // chFirstName
             // 
@@ -160,25 +163,29 @@
             // 
             this.chRoom.Text = "Room";
             // 
-            // dateTimePicker1
+            // dtpSignPatientDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(306, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(124, 20);
-            this.dateTimePicker1.TabIndex = 55;
+            this.dtpSignPatientDate.Location = new System.Drawing.Point(306, 18);
+            this.dtpSignPatientDate.Name = "dtpSignPatientDate";
+            this.dtpSignPatientDate.Size = new System.Drawing.Size(124, 20);
+            this.dtpSignPatientDate.TabIndex = 55;
             // 
-            // listView2
+            // lvSchedule
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chTime,
             this.chBusy,
             this.chPatient});
-            this.listView2.Location = new System.Drawing.Point(305, 49);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(255, 325);
-            this.listView2.TabIndex = 56;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.lvSchedule.FullRowSelect = true;
+            this.lvSchedule.GridLines = true;
+            this.lvSchedule.HideSelection = false;
+            this.lvSchedule.Location = new System.Drawing.Point(305, 49);
+            this.lvSchedule.MultiSelect = false;
+            this.lvSchedule.Name = "lvSchedule";
+            this.lvSchedule.Size = new System.Drawing.Size(255, 325);
+            this.lvSchedule.TabIndex = 56;
+            this.lvSchedule.UseCompatibleStateImageBehavior = false;
+            this.lvSchedule.View = System.Windows.Forms.View.Details;
             // 
             // chTime
             // 
@@ -212,6 +219,7 @@
             this.btnSearch.TabIndex = 58;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // SignInToDoctor
             // 
@@ -220,9 +228,9 @@
             this.ClientSize = new System.Drawing.Size(684, 392);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnSignIn);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvSchedule);
+            this.Controls.Add(this.dtpSignPatientDate);
+            this.Controls.Add(this.lvDoctors);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.lbPositionType);
             this.Controls.Add(this.lbLastName);
@@ -236,6 +244,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sign to Doctor";
+            this.Load += new System.EventHandler(this.SignInToDoctor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,11 +262,11 @@
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lbFirstName;
         private System.Windows.Forms.TextBox tbMiddleName;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvDoctors;
         private System.Windows.Forms.ColumnHeader chFirstName;
         private System.Windows.Forms.ColumnHeader chLastName;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.DateTimePicker dtpSignPatientDate;
+        private System.Windows.Forms.ListView lvSchedule;
         private System.Windows.Forms.ColumnHeader chTime;
         private System.Windows.Forms.ColumnHeader chBusy;
         private System.Windows.Forms.ColumnHeader chPatient;

@@ -48,7 +48,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(194, 239);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(185, 239);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnNewPatient
@@ -56,7 +56,7 @@
             this.btnNewPatient.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNewPatient.Location = new System.Drawing.Point(3, 3);
             this.btnNewPatient.Name = "btnNewPatient";
-            this.btnNewPatient.Size = new System.Drawing.Size(188, 53);
+            this.btnNewPatient.Size = new System.Drawing.Size(179, 53);
             this.btnNewPatient.TabIndex = 0;
             this.btnNewPatient.Text = "New patient";
             this.btnNewPatient.UseVisualStyleBackColor = true;
@@ -67,7 +67,7 @@
             this.btnFindUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFindUser.Location = new System.Drawing.Point(3, 62);
             this.btnFindUser.Name = "btnFindUser";
-            this.btnFindUser.Size = new System.Drawing.Size(188, 53);
+            this.btnFindUser.Size = new System.Drawing.Size(179, 53);
             this.btnFindUser.TabIndex = 1;
             this.btnFindUser.Text = "Find User";
             this.btnFindUser.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UcButtonRegistry";
-            this.Size = new System.Drawing.Size(200, 250);
+            this.Size = new System.Drawing.Size(191, 250);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

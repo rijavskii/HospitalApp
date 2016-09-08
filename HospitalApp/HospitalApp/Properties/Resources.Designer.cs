@@ -63,6 +63,16 @@ namespace HospitalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap devid {
+            get {
+                object obj = ResourceManager.GetObject("devid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Register_icon {
             get {
                 object obj = ResourceManager.GetObject("Register-icon", resourceCulture);
@@ -76,6 +86,26 @@ namespace HospitalApp.Properties {
         internal static System.Drawing.Bitmap Register_icon__1_ {
             get {
                 object obj = ResourceManager.GetObject("Register-icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_female_olive_green {
+            get {
+                object obj = ResourceManager.GetObject("user_female_olive_green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

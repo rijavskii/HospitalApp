@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
@@ -66,19 +67,18 @@ namespace HospitalApp
             using (var context = new HospitalDbContext())
             {
                 _myUser = context.Users.SingleOrDefaultAsync(x => x.Id == _myUser.Id).Result;
-            //}
+           
                 if (_myUser != null)
-                    {
+                {
                     _myUser.FirstName = tbFirstName.Text;
                     _myUser.MiddleName = tbMiddleName.Text;
                     _myUser.LastName = tbLastName.Text;
                     _myUser.Birthday = dtpBirthday.Value;
                     _myUser.Login = tbLogin.Text;
 
-                    if (tbPassword.Text.Trim() != String.Empty)
+                    if (String.IsNullOrWhiteSpace(tbPassword.Text.Trim()))
                     {
                         _myUser.Password = tbPassword.Text.GetMd5Hash();
-
                     }
 
                     _myUser.Passport = mtbPassportSeries.Text.Trim() + mtbPassportNumber.Text.Trim();
@@ -94,7 +94,7 @@ namespace HospitalApp
                     _myUser.Adress.Appartment = Convert.ToInt32(tbAppartment.Text);
                 //using (var context = new HospitalDbContext())
                 //    {
-                        context.Entry(_myUser).State = EntityState.Modified;
+                        context.Users.AddOrUpdate(_myUser);
                         context.SaveChanges();
 
                         //try
@@ -119,9 +119,8 @@ namespace HospitalApp
                         //    }
                         //    throw;
                         //}
-                    }
-
                 }
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace HospitalApp
             InitializeComponent();
 #if DEBUG
             tbLogin.Text = "admin";
-            tbPassword.Text = "";
+            tbPassword.Text = "admin";
             //var e = new EventArgs();
             //btnAuthorizate_Click(this, e );
 #endif
@@ -44,6 +44,7 @@ namespace HospitalApp
                 var myLogin = this.tbLogin.Text;
                 var myPsd = this.tbPassword.Text.GetMd5Hash();
                 _user = context.Users.FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
+                
             }
             
             if (_user == null)

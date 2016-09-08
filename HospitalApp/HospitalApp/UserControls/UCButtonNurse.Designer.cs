@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp.UserControls
 {
-    partial class UCButtonNurse
+    partial class UcButtonNurse
     {
         /// <summary> 
         /// Required designer variable.

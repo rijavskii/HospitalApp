@@ -81,6 +81,7 @@
             listViewGroup1.Tag = "1";
             this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1});
+            this.lvFind.HideSelection = false;
             this.lvFind.Location = new System.Drawing.Point(3, 6);
             this.lvFind.MultiSelect = false;
             this.lvFind.Name = "lvFind";

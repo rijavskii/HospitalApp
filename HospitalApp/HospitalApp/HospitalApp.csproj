@@ -123,35 +123,35 @@
     <Compile Include="UserControls\UcAddWorker.Designer.cs">
       <DependentUpon>UcAddWorker.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCAddUser.cs">
+    <Compile Include="UserControls\UcAddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCAddUser.Designer.cs">
-      <DependentUpon>UCAddUser.cs</DependentUpon>
+    <Compile Include="UserControls\UcAddUser.Designer.cs">
+      <DependentUpon>UcAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCButtonAdmin.cs">
+    <Compile Include="UserControls\UcButtonAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCButtonAdmin.Designer.cs">
-      <DependentUpon>UCButtonAdmin.cs</DependentUpon>
+    <Compile Include="UserControls\UcButtonAdmin.Designer.cs">
+      <DependentUpon>UcButtonAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCButtonDoctor.cs">
+    <Compile Include="UserControls\UcButtonDoctor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCButtonDoctor.Designer.cs">
-      <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    <Compile Include="UserControls\UcButtonDoctor.Designer.cs">
+      <DependentUpon>UcButtonDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCButtonNurse.cs">
+    <Compile Include="UserControls\UcButtonNurse.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCButtonNurse.Designer.cs">
-      <DependentUpon>UCButtonNurse.cs</DependentUpon>
+    <Compile Include="UserControls\UcButtonNurse.Designer.cs">
+      <DependentUpon>UcButtonNurse.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCButtonRegistry.cs">
+    <Compile Include="UserControls\UcButtonRegistry.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCButtonRegistry.Designer.cs">
-      <DependentUpon>UCButtonRegistry.cs</DependentUpon>
+    <Compile Include="UserControls\UcButtonRegistry.Designer.cs">
+      <DependentUpon>UcButtonRegistry.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UcFindWorker.cs">
       <SubType>UserControl</SubType>
@@ -159,35 +159,35 @@
     <Compile Include="UserControls\UcFindWorker.Designer.cs">
       <DependentUpon>UcFindWorker.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCDoctors.cs">
+    <Compile Include="UserControls\UcDoctors.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCDoctors.Designer.cs">
-      <DependentUpon>UCDoctors.cs</DependentUpon>
+    <Compile Include="UserControls\UcDoctors.Designer.cs">
+      <DependentUpon>UcDoctors.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCEditPatientInfo.cs">
+    <Compile Include="UserControls\UcEditPatientInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCEditPatientInfo.Designer.cs">
-      <DependentUpon>UCEditPatientInfo.cs</DependentUpon>
+    <Compile Include="UserControls\UcEditPatientInfo.Designer.cs">
+      <DependentUpon>UcEditPatientInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCFindPatient.cs">
+    <Compile Include="UserControls\UcFindPatient.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCFindPatient.Designer.cs">
-      <DependentUpon>UCFindPatient.cs</DependentUpon>
+    <Compile Include="UserControls\UcFindPatient.Designer.cs">
+      <DependentUpon>UcFindPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCImportMedicine.cs">
+    <Compile Include="UserControls\UcImportMedicine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCImportMedicine.Designer.cs">
-      <DependentUpon>UCImportMedicine.cs</DependentUpon>
+    <Compile Include="UserControls\UcImportMedicine.Designer.cs">
+      <DependentUpon>UcImportMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UCListMedicine.cs">
+    <Compile Include="UserControls\UcListMedicine.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UCListMedicine.Designer.cs">
-      <DependentUpon>UCListMedicine.cs</DependentUpon>
+    <Compile Include="UserControls\UcListMedicine.Designer.cs">
+      <DependentUpon>UcListMedicine.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="EditPatient.resx">
       <DependentUpon>EditPatient.cs</DependentUpon>
@@ -217,38 +217,38 @@
     <EmbeddedResource Include="UserControls\UcAddWorker.resx">
       <DependentUpon>UcAddWorker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCAddUser.resx">
-      <DependentUpon>UCAddUser.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcAddUser.resx">
+      <DependentUpon>UcAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCButtonAdmin.resx">
-      <DependentUpon>UCButtonAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcButtonAdmin.resx">
+      <DependentUpon>UcButtonAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCButtonDoctor.resx">
-      <DependentUpon>UCButtonDoctor.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcButtonDoctor.resx">
+      <DependentUpon>UcButtonDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCButtonNurse.resx">
-      <DependentUpon>UCButtonNurse.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcButtonNurse.resx">
+      <DependentUpon>UcButtonNurse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCButtonRegistry.resx">
-      <DependentUpon>UCButtonRegistry.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcButtonRegistry.resx">
+      <DependentUpon>UcButtonRegistry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcFindWorker.resx">
       <DependentUpon>UcFindWorker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCDoctors.resx">
-      <DependentUpon>UCDoctors.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcDoctors.resx">
+      <DependentUpon>UcDoctors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCEditPatientInfo.resx">
-      <DependentUpon>UCEditPatientInfo.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcEditPatientInfo.resx">
+      <DependentUpon>UcEditPatientInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCFindPatient.resx">
-      <DependentUpon>UCFindPatient.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcFindPatient.resx">
+      <DependentUpon>UcFindPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCImportMedicine.resx">
-      <DependentUpon>UCImportMedicine.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcImportMedicine.resx">
+      <DependentUpon>UcImportMedicine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCListMedicine.resx">
-      <DependentUpon>UCListMedicine.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcListMedicine.resx">
+      <DependentUpon>UcListMedicine.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -285,8 +285,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="icons\devid.ico" />
     <Content Include="icons\Icons-Land-Points-Of-Interest-Hospital-Red-2.ico" />
     <None Include="icons\Register-icon %281%29.png" />
+    <Content Include="icons\user.ico" />
+    <Content Include="icons\user_female_olive_green.ico" />
     <Content Include="icons\Webiconset-Application-Register.ico" />
     <None Include="Resources\y_96cc5968.jpg" />
   </ItemGroup>

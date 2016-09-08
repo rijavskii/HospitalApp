@@ -1,4 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Windows.Forms;
 using EntityDb.Context;
 
 namespace EntityDb.DAL
@@ -15,7 +18,31 @@ namespace EntityDb.DAL
         {
             //Set db initializer for default value of dictionary on create db
             Database.SetInitializer<HospitalDbContext>(new HospitalDbInitializer());
-            Database.Initialize(true);
+            try
+            {
+                Database.Initialize(true);
+            }
+            catch (DbEntityValidationException a)
+            {
+                foreach (var eve in a.EntityValidationErrors)
+                {
+                    MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name +
+                                    "\" in state \"" + eve.Entry.State + "\" has the following validation errors:",
+                        "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"",
+                            "Information",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+
         }
 
         /// <summary>
@@ -24,7 +51,8 @@ namespace EntityDb.DAL
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Users>().HasRequired(x => x.Adress).WithOptional(y => y.Users);
+            modelBuilder.Entity<Users>().HasKey(x => x.Id);
+            //modelBuilder.Entity<Users>().HasRequired(x => x.Adress).WithOptional(y => y.Users);
             base.OnModelCreating(modelBuilder);
         }
 

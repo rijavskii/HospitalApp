@@ -33,7 +33,7 @@ namespace HospitalApp
         private void btnNewPatient_Click(object sender, EventArgs e)
         {
             work.Controls.Clear();
-            work.Controls.Add(new UCAddUser());
+            work.Controls.Add(new UcAddUser());
         }
 
         private void btnFindUser_Click(object sender, EventArgs e)

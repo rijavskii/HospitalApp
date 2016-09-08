@@ -8,21 +8,28 @@
         /// <summary>
         /// 
         /// </summary>
-        Admin = 4,
+        Registry = 3,
 
         /// <summary>
         /// 
         /// </summary>
-        Doctor = 2,
+        Admin = 2,
 
         /// <summary>
         /// 
         /// </summary>
-        Undefined = 3,
+        Nurse = 5,
 
         /// <summary>
         /// 
         /// </summary>
-        Nurse = 1
+        Doctor = 4,
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Undefined = 1,
+
+        
     }
 }

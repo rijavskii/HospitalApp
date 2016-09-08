@@ -12,7 +12,13 @@ namespace EntityDb.Context
         /// Who this person is
         /// </summary>
         [Required]
-        public Users FkWorker { get; set; }
+        public Users Worker { get; set; }
+
+        /// <summary>
+        /// Patient
+        /// </summary>
+        //[Required]
+        public Users Patient { get; set; }
 
         /// <summary>
         /// Where I should look for him
