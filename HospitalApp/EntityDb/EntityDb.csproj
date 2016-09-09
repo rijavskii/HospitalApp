@@ -92,9 +92,9 @@
     <Compile Include="Context\WorkSchedules.cs" />
     <Compile Include="DAL\HospitalDbContext.cs" />
     <Compile Include="DAL\HospitalDbInitializer.cs" />
-    <Compile Include="Migrations\201609052026480_InitialCreate.cs" />
-    <Compile Include="Migrations\201609052026480_InitialCreate.Designer.cs">
-      <DependentUpon>201609052026480_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201609081555389_InitDb.cs" />
+    <Compile Include="Migrations\201609081555389_InitDb.Designer.cs">
+      <DependentUpon>201609081555389_InitDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,8 +119,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609052026480_InitialCreate.resx">
-      <DependentUpon>201609052026480_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609081555389_InitDb.resx">
+      <DependentUpon>201609081555389_InitDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

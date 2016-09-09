@@ -5,7 +5,7 @@ namespace EntityDb.Context
     /// <summary>
     /// Who makes drugs
     /// </summary>
-    public class Manufacturer : HeaderName
+    public class Manufacturer : HeaderId
     {
         /// <summary>
         /// Who produce such a good medicine

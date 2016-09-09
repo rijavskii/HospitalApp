@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -23,9 +24,8 @@ namespace HospitalApp
         /// Authorized user
         /// </summary>
         //ToDo store user id in hidden field, and read it from db when it`s needed 
-        private Users _myUser;
+        private readonly Users _myUser;
 
-        
         ///// <summary>
         ///// 
         ///// </summary>
@@ -55,16 +55,13 @@ namespace HospitalApp
             EPositions position;
             using (var context = new HospitalDbContext())
             {
-
-
-                position = (EPositions) context.Users.FirstOrDefaultAsync(x => x.Id == _myUser.Id).Id;
+                position = (EPositions)context.Users.Include(x=>x.Position).FirstOrDefault(x => x.Id == _myUser.Id).Position.PositionCode;
             }
             switch (position)
             {
                 case EPositions.Admin:
                     scContent.Panel1.Controls.Clear();
-                    //this.scContent.Panel1.Controls.Add(new UCButtonAdmin());
-                    scContent.Panel1.Controls.Add(new UcButtonAdmin(scContent.Panel2));
+                     scContent.Panel1.Controls.Add(new UcButtonAdmin(scContent.Panel2));
                     break;
                      
                 case EPositions.Doctor:
@@ -160,17 +157,18 @@ namespace HospitalApp
             var refMan = typeof(Manufacturer).GetProperties();
             var refTypeMed = typeof(MedicineType).GetProperties();
             
-            int nameMedicine = nameFields.FindIndex(x=>x.Trim().Equals(refMed[1].Name));
-            int typeMedicine = nameFields.FindIndex(x => x.Trim().Equals(refTypeMed[1].Name));
-            int manufacturerName = nameFields.FindIndex(x => x.Trim().Equals(refMan[1].Name));
-            int manufacturerCountry = nameFields.FindIndex(x => x.Trim().Equals(refMan[2].Name));
+            int nameMedicine = nameFields.FindIndex(x=>x.Trim().Equals(refMed[0].Name));
+            int typeMedicine = nameFields.FindLastIndex(x => x.Trim().Equals(refTypeMed[0].Name));
+            int manufacturerName = nameFields.FindIndex(x => x.Trim().Equals(refMan[0].Name));
+            int manufacturerCountry = nameFields.FindIndex(x => x.Trim().Equals(refMan[1].Name));
 
-            var context = new HospitalDbContext();
-            
+            using (var context = new HospitalDbContext())
+            {
+
                 foreach (var item in linesMedicine)
                 {
 
-                    
+
                     List<string> medItems = item.Split(',').ToList();
                     string nameC = medItems[manufacturerCountry].Trim();
                     string nameF = medItems[manufacturerName].Trim();
@@ -179,10 +177,10 @@ namespace HospitalApp
                     //MedicineType drugType=null;
 
                     MedicineType drugType = null;
-                                //context.MedicineType.FirstOrDefault(
-                                //    x => x.Name.ToString().ToLower() == medItems.ElementAt(typeMedicine).ToLower());
+                    //context.MedicineType.FirstOrDefault(
+                    //    x => x.Name.ToString().ToLower() == medItems.ElementAt(typeMedicine).ToLower());
 
-                    Manufacturer ifexist = null;//context.Manufacturers.FirstOrDefault(x => (
+                    Manufacturer ifexist = null; //context.Manufacturers.FirstOrDefault(x => (
                     //        x.Country.Trim().ToLower() ==  nameC.ToLower() &&
                     //        x.FactoryName.Trim().ToLower() == nameF));
 
@@ -190,27 +188,40 @@ namespace HospitalApp
                     //{
                     //    FactoryName = "",
                     //    Country = ""
-                
-                    ifexist = new Manufacturer()
-                    { 
-                        FactoryName = medItems[manufacturerName],
-                        Country = medItems[manufacturerCountry]
-                    };
 
-                //Name = medItems[typeMedicine];
-                context.Medicines.Add(new Medicine()
+                    //ifexist = new Manufacturer()
+                    //{
+                    //    FactoryName = medItems[manufacturerName].Trim(),
+                    //    Country = medItems[manufacturerCountry].Trim()
+                    //};
+                    //context.SaveChanges();
+                    //Name = medItems[typeMedicine];
+                    context.Medicines.Add(new Medicine()
+                    {
+                        Name = medItems[nameMedicine].Trim(),
+                        Manufacturer = new Manufacturer()
                         {
-                            Name = medItems[nameMedicine].Trim(),
-                            Manufacturer = ifexist,
-                            MedicineType = new MedicineType()
-                            {
-                                Name =  medItems[typeMedicine]
-                            }
-                });
+                            FactoryName = medItems[manufacturerName].Trim(),
+                            Country = medItems[manufacturerCountry].Trim()
+                        },
+                        MedicineType = new MedicineType()
+                        {
+                            Name = medItems[typeMedicine]
+                        }
+                    });
                    
                 }
-                context.SaveChanges();
-            
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException a)
+                {
+                    ShowErrors(a);
+                    throw;
+                }
+                
+            }
 
             this.progressBar1.Visible = false;
 
@@ -219,8 +230,26 @@ namespace HospitalApp
                              MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        
-        
+        private void ShowErrors(DbEntityValidationException a)
+        {
+            foreach (var eve in a.EntityValidationErrors)
+            {
+                MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name +
+                                "\" in state \"" + eve.Entry.State + "\" has the following validation errors:",
+                    "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"",
+                        "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                        ve.PropertyName, ve.ErrorMessage);
+                }
+            }
+        }
+
         /// <summary>
         /// Read and parse data about drugs from *.txt file
         /// </summary>
@@ -229,7 +258,7 @@ namespace HospitalApp
         {
             this.progressBar1.Visible = true;
 
-            var fileContent = File.ReadAllText(fileName, Encoding.GetEncoding("UTF-8"));
+            var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
             
             List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
                 StringSplitOptions.RemoveEmptyEntries).ToList();
