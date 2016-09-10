@@ -61,28 +61,34 @@ namespace HospitalApp
             }
         }
 
+        private bool IfSelectedLvItem()
+        {
+            bool result = lvPatients.SelectedIndices.Count>0;
+            return result;
+        }
+
         private void AddToList()
         {
-            lvFind.Items.Clear();
-            string adress;
+            lvPatients.Items.Clear();
+            
             foreach (var user in _users)
             {
 
-                adress =
+                string adress =
                     $"{user.Adress.Country} {user.Adress.District} {user.Adress.Region} " +
-                    $"{user.Adress.City} {user.Adress.Street} {user.Adress.HouseNumber} " +
+                    $"{user.Adress.City} {Environment.NewLine} {user.Adress.HouseNumber} " +
                     $"{user.Adress.Appartment}";
 
-             var _items = new ListViewItem(user.FirstName);
-                _items.SubItems.Add(user.MiddleName);
-                _items.SubItems.Add(user.LastName);
-                _items.SubItems.Add(user.Birthday.ToShortDateString());
-                _items.SubItems.Add(adress);
-                _items.SubItems.Add(user.Passport);
-                _items.SubItems.Add(user.IdentificationNumber);
-                _items.SubItems.Add(user.Id.ToString());
+                var items = new ListViewItem(user.FirstName);
+                    items.SubItems.Add(user.MiddleName);
+                    items.SubItems.Add(user.LastName);
+                    items.SubItems.Add(user.Birthday.ToShortDateString());
+                    items.SubItems.Add(adress);
+                    items.SubItems.Add(user.Passport);
+                    items.SubItems.Add(user.IdentificationNumber);
+                    items.SubItems.Add(user.Id.ToString());
 
-                lvFind.Items.Add(_items);
+                lvPatients.Items.Add(items);
             }
             
         }
@@ -94,7 +100,7 @@ namespace HospitalApp
 
         private void btSignInPatient_Click(object sender, EventArgs e)
         {
-            var signToDoc = new SignInToDoctor();
+            var signToDoc = new SignUpToDoctor(Convert.ToInt32(lvPatients.FocusedItem.SubItems[7].Text));
             signToDoc.ShowDialog();
         }
 
@@ -107,7 +113,7 @@ namespace HospitalApp
         {
             //ToDo You can set up selection properties in properties of control and multiple selection will be denied
 
-            var currentUser = _users.ElementAt(lvFind.FocusedItem.Index);
+            var currentUser = _users.ElementAt(lvPatients.FocusedItem.Index);
             EditPatient editPatient = new EditPatient(currentUser);
             if (editPatient.ShowDialog() == DialogResult.Yes)
             {
@@ -117,6 +123,11 @@ namespace HospitalApp
             }
         }
 
-        
+        private void lvPatients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var b = IfSelectedLvItem() ? btnSignUpPatient.Enabled = true : btnSignUpPatient.Enabled = false;
+            var c = IfSelectedLvItem() ? btnEdit.Enabled = true : btnEdit.Enabled = false;
+        }
+
     }
 }

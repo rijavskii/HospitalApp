@@ -78,6 +78,10 @@ namespace HospitalApp
                     scContent.Panel1.Controls.Clear();
                     scContent.Panel1.Controls.Add(new UcButtonRegistry(scContent.Panel2));
                     break;
+                case EPositions.Undefined:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -91,14 +95,12 @@ namespace HospitalApp
             // Displays an OpenFileDialog so the user can select a File.
             SaveFileDialog saveFile = new SaveFileDialog
             {
-                Filter = "Text Files|*.txt|CSV Files|*.csv",
-                Title = "Export Medicine"
+                Filter = "Text Files|*.txt|CSV Files|*.csv", Title = "Export Medicine"
             };
 
             // Show the Dialog.
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                
                 switch (saveFile.FilterIndex)
                 {
                     case 1:
@@ -120,12 +122,10 @@ namespace HospitalApp
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Text Files|*.txt|CSV Files|*.csv",
-                Title = "Import Medicine"
+                Filter = "Text Files|*.txt|CSV Files|*.csv", Title = "Import Medicine"
             };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                
                 switch (openFileDialog.FilterIndex)
                 {
                     case 1:
@@ -147,28 +147,24 @@ namespace HospitalApp
             progressBar1.Visible = true;
             //Todo Use Encoding.Utf8, not  Encoding.GetEncoding("UTF-8")
             var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
-            var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
-                StringSplitOptions.RemoveEmptyEntries).ToList();
+            var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
             var nameFields = linesMedicine.ElementAt(0).Split(',').ToList();
-                linesMedicine.RemoveAt(0);
+            linesMedicine.RemoveAt(0);
 
             var refMed = typeof(Medicine).GetProperties();
             var refMan = typeof(Manufacturer).GetProperties();
             var refTypeMed = typeof(MedicineType).GetProperties();
-            
-            int nameMedicine = nameFields.FindIndex(x=>x.Trim().Equals(refMed[0].Name));
+
+            int nameMedicine = nameFields.FindIndex(x => x.Trim().Equals(refMed[0].Name));
             int typeMedicine = nameFields.FindLastIndex(x => x.Trim().Equals(refTypeMed[0].Name));
             int manufacturerName = nameFields.FindIndex(x => x.Trim().Equals(refMan[0].Name));
             int manufacturerCountry = nameFields.FindIndex(x => x.Trim().Equals(refMan[1].Name));
 
             using (var context = new HospitalDbContext())
             {
-
                 foreach (var item in linesMedicine)
                 {
-
-
                     List<string> medItems = item.Split(',').ToList();
                     string nameC = medItems[manufacturerCountry].Trim();
                     string nameF = medItems[manufacturerName].Trim();
@@ -198,18 +194,15 @@ namespace HospitalApp
                     //Name = medItems[typeMedicine];
                     context.Medicines.Add(new Medicine()
                     {
-                        Name = medItems[nameMedicine].Trim(),
-                        Manufacturer = new Manufacturer()
+                        Name = medItems[nameMedicine].Trim(), Manufacturer = new Manufacturer()
                         {
-                            FactoryName = medItems[manufacturerName].Trim(),
-                            Country = medItems[manufacturerCountry].Trim()
+                            FactoryName = medItems[manufacturerName].Trim(), Country = medItems[manufacturerCountry].Trim()
                         },
                         MedicineType = new MedicineType()
                         {
                             Name = medItems[typeMedicine]
                         }
                     });
-                   
                 }
                 try
                 {
@@ -220,32 +213,24 @@ namespace HospitalApp
                     ShowErrors(a);
                     throw;
                 }
-                
             }
 
             this.progressBar1.Visible = false;
 
             var name = fileName.Split('\\').Last();
-            MessageBox.Show("File " + name + " imported!", "Information",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("File " + name + " imported!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ShowErrors(DbEntityValidationException a)
         {
             foreach (var eve in a.EntityValidationErrors)
             {
-                MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name +
-                                "\" in state \"" + eve.Entry.State + "\" has the following validation errors:",
-                    "Information",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name + "\" in state \"" + eve.Entry.State + "\" has the following validation errors:", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 foreach (var ve in eve.ValidationErrors)
                 {
-                    MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"",
-                        "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                        ve.PropertyName, ve.ErrorMessage);
+                    MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"", ve.PropertyName, ve.ErrorMessage);
                 }
             }
         }
@@ -259,9 +244,8 @@ namespace HospitalApp
             this.progressBar1.Visible = true;
 
             var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
-            
-            List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(),
-                StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
             List<Drugs> medDrug = new List<Drugs>();
 
@@ -271,11 +255,9 @@ namespace HospitalApp
 
                 Drugs itemMedicine = new Drugs
                 {
-                    Name = medItems[0],
-                    Manufacturers = new Manufacturer()
+                    Name = medItems[0], Manufacturers = new Manufacturer()
                     {
-                        FactoryName = medItems[1],
-                        Country = medItems[2]
+                        FactoryName = medItems[1], Country = medItems[2]
                     },
                     Type = new MedicineType() {Name = medItems[3]}
                 };
@@ -284,7 +266,6 @@ namespace HospitalApp
             }
             var name = fileName.Split('\\').Last();
             AddDrugToDb(medDrug, name);
-                 
         }
 
         /// <summary>
@@ -295,19 +276,17 @@ namespace HospitalApp
         /// </summary>
         /// <param name="medDrug">List of drugs which need to be saved</param>
         /// <param name="name">short name of file we read</param>
-        private void AddDrugToDb(List<Drugs> medDrug, string name )
-        { 
+        private void AddDrugToDb(List<Drugs> medDrug, string name)
+        {
             using (var context = new HospitalDbContext())
             {
                 foreach (var item in medDrug)
                 {
                     context.Medicines.Add(new Medicine()
                     {
-                        Name = item.Name,
-                        Manufacturer = new Manufacturer()
+                        Name = item.Name, Manufacturer = new Manufacturer()
                         {
-                            FactoryName = item.Manufacturers.FactoryName,
-                            Country = item.Manufacturers.Country,
+                            FactoryName = item.Manufacturers.FactoryName, Country = item.Manufacturers.Country,
                         },
                         MedicineType = new MedicineType()
                         {
@@ -318,8 +297,7 @@ namespace HospitalApp
                 context.SaveChanges();
             }
 
-            MessageBox.Show("File " + name + " imported!", "Information",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("File " + name + " imported!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.progressBar1.Visible = false;
         }
 
@@ -329,7 +307,6 @@ namespace HospitalApp
         /// <param name="fileName">Full path for saving file</param>
         private void SaveToTxtMethod(string fileName)
         {
-            
             var context = new HospitalDbContext();
             var listMedicines = context.Medicines.ToList();
 
@@ -339,10 +316,7 @@ namespace HospitalApp
                 {
                     foreach (var drug in listMedicines)
                     {
-                            fileWrite.Write("{0}, {1}, {2}, {3}, {4}",
-                            drug.Name, drug.Manufacturer.FactoryName,
-                            drug.Manufacturer.Country, drug.MedicineType.Name,
-                            Environment.NewLine);
+                        fileWrite.Write("{0}, {1}, {2}, {3}, {4}", drug.Name, drug.Manufacturer.FactoryName, drug.Manufacturer.Country, drug.MedicineType.Name, Environment.NewLine);
                     }
                     fileWrite.Close();
                 }
@@ -351,8 +325,7 @@ namespace HospitalApp
             //throw new NotImplementedException();
 
             var name = fileName.Split('\\').Last();
-            MessageBox.Show("File " + name + " was succefully created!", "Information",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("File " + name + " was succefully created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -370,25 +343,15 @@ namespace HospitalApp
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
-                    streamWriter.Write("{0}, {1}, {2}, {3} {4}",
-                                        typeof(Medicine).GetProperties()[1].Name, 
-                                        typeof(Manufacturer).GetProperties()[1].Name,
-                                        typeof(Manufacturer).GetProperties()[2].Name,
-                                        typeof(MedicineType).GetProperties()[1].Name,
-                                        Environment.NewLine);
+                    streamWriter.Write("{0}, {1}, {2}, {3} {4}", typeof(Medicine).GetProperties()[1].Name, typeof(Manufacturer).GetProperties()[1].Name, typeof(Manufacturer).GetProperties()[2].Name, typeof(MedicineType).GetProperties()[1].Name, Environment.NewLine);
 
                     foreach (var drug in listMedicines)
                     {
-                        streamWriter.Write("{0}, {1}, {2}, {3}, {4}", 
-                            drug.Name, drug.Manufacturer.FactoryName,
-                            drug.Manufacturer.Country, drug.MedicineType.Name,
-                            Environment.NewLine);
+                        streamWriter.Write("{0}, {1}, {2}, {3}, {4}", drug.Name, drug.Manufacturer.FactoryName, drug.Manufacturer.Country, drug.MedicineType.Name, Environment.NewLine);
                     }
                 }
-                
             }
-           MessageBox.Show("File "+name+" was succefully created!", "Information",
-                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("File " + name + " was succefully created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -403,7 +366,6 @@ namespace HospitalApp
 
         private void tsBtnAdminButtons_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

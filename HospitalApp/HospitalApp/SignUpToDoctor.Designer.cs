@@ -1,6 +1,6 @@
 ﻿namespace HospitalApp
 {
-    partial class SignInToDoctor
+    partial class SignUpToDoctor
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.chTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chBusy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSignIn = new System.Windows.Forms.Button();
+            this.btnSignUp = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -169,6 +169,7 @@
             this.dtpSignPatientDate.Name = "dtpSignPatientDate";
             this.dtpSignPatientDate.Size = new System.Drawing.Size(124, 20);
             this.dtpSignPatientDate.TabIndex = 55;
+            this.dtpSignPatientDate.Value = new System.DateTime(2016, 9, 11, 0, 0, 0, 0);
             // 
             // lvSchedule
             // 
@@ -202,14 +203,15 @@
             this.chPatient.Text = "Patient";
             this.chPatient.Width = 103;
             // 
-            // btnSignIn
+            // btnSignUp
             // 
-            this.btnSignIn.Location = new System.Drawing.Point(580, 344);
-            this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(97, 30);
-            this.btnSignIn.TabIndex = 57;
-            this.btnSignIn.Text = "Sign in";
-            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignUp.Location = new System.Drawing.Point(580, 344);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(97, 30);
+            this.btnSignUp.TabIndex = 57;
+            this.btnSignUp.Text = "Sign up";
+            this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // btnSearch
             // 
@@ -221,13 +223,13 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // SignInToDoctor
+            // SignUpToDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 392);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnSignIn);
+            this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.lvSchedule);
             this.Controls.Add(this.dtpSignPatientDate);
             this.Controls.Add(this.lvDoctors);
@@ -240,7 +242,7 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
-            this.Name = "SignInToDoctor";
+            this.Name = "SignUpToDoctor";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sign to Doctor";
@@ -270,7 +272,7 @@
         private System.Windows.Forms.ColumnHeader chTime;
         private System.Windows.Forms.ColumnHeader chBusy;
         private System.Windows.Forms.ColumnHeader chPatient;
-        private System.Windows.Forms.Button btnSignIn;
+        private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.ColumnHeader chDocType;
         private System.Windows.Forms.ColumnHeader chRoom;
         private System.Windows.Forms.Button btnSearch;

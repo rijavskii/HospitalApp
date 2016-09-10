@@ -26,9 +26,9 @@ namespace HospitalApp
 
                 // Convert the byte array to hexadecimal string
                 StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hashBytes.Length; i++)
+                foreach (byte t in hashBytes)
                 {
-                    sb.Append(hashBytes[i].ToString("X2"));
+                    sb.Append(t.ToString("X2"));
                 }
                 return sb.ToString();
             }

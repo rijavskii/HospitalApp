@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            this.lvFind = new System.Windows.Forms.ListView();
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            this.lvPatients = new System.Windows.Forms.ListView();
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,9 +45,9 @@
             this.scFindPatient = new System.Windows.Forms.SplitContainer();
             this.gpPassport = new System.Windows.Forms.GroupBox();
             this.mtbPassportSeries = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbSeries = new System.Windows.Forms.Label();
             this.mtbPassportNumber = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbPassportNumber = new System.Windows.Forms.Label();
             this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.lbInn = new System.Windows.Forms.Label();
@@ -55,8 +55,8 @@
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.lbBirthday = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
-            this.btSignInPatient = new System.Windows.Forms.Button();
-            this.btEdit = new System.Windows.Forms.Button();
+            this.btnSignUpPatient = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scFindPatient)).BeginInit();
             this.scFindPatient.Panel1.SuspendLayout();
             this.scFindPatient.Panel2.SuspendLayout();
@@ -64,9 +64,9 @@
             this.gpPassport.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lvFind
+            // lvPatients
             // 
-            this.lvFind.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvPatients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chFirstName,
             this.chMiddleName,
             this.chLastName,
@@ -74,22 +74,23 @@
             this.chAddress,
             this.chPassportNumber,
             this.chInnNumber});
-            this.lvFind.FullRowSelect = true;
-            this.lvFind.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup1.Tag = "1";
-            this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
-            this.lvFind.HideSelection = false;
-            this.lvFind.Location = new System.Drawing.Point(3, 6);
-            this.lvFind.MultiSelect = false;
-            this.lvFind.Name = "lvFind";
-            this.lvFind.Size = new System.Drawing.Size(543, 432);
-            this.lvFind.TabIndex = 0;
-            this.lvFind.UseCompatibleStateImageBehavior = false;
-            this.lvFind.View = System.Windows.Forms.View.Details;
-            this.lvFind.DoubleClick += new System.EventHandler(this.lvFind_DoubleClick);
+            this.lvPatients.FullRowSelect = true;
+            this.lvPatients.GridLines = true;
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
+            listViewGroup2.Tag = "1";
+            this.lvPatients.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup2});
+            this.lvPatients.HideSelection = false;
+            this.lvPatients.Location = new System.Drawing.Point(3, 6);
+            this.lvPatients.MultiSelect = false;
+            this.lvPatients.Name = "lvPatients";
+            this.lvPatients.Size = new System.Drawing.Size(543, 432);
+            this.lvPatients.TabIndex = 0;
+            this.lvPatients.UseCompatibleStateImageBehavior = false;
+            this.lvPatients.View = System.Windows.Forms.View.Details;
+            this.lvPatients.SelectedIndexChanged += new System.EventHandler(this.lvPatients_SelectedIndexChanged);
+            this.lvPatients.DoubleClick += new System.EventHandler(this.lvFind_DoubleClick);
             // 
             // chFirstName
             // 
@@ -189,7 +190,7 @@
             // 
             // scFindPatient.Panel2
             // 
-            this.scFindPatient.Panel2.Controls.Add(this.lvFind);
+            this.scFindPatient.Panel2.Controls.Add(this.lvPatients);
             this.scFindPatient.Panel2MinSize = 550;
             this.scFindPatient.Size = new System.Drawing.Size(783, 438);
             this.scFindPatient.SplitterDistance = 229;
@@ -198,9 +199,9 @@
             // gpPassport
             // 
             this.gpPassport.Controls.Add(this.mtbPassportSeries);
-            this.gpPassport.Controls.Add(this.label1);
+            this.gpPassport.Controls.Add(this.lbSeries);
             this.gpPassport.Controls.Add(this.mtbPassportNumber);
-            this.gpPassport.Controls.Add(this.label2);
+            this.gpPassport.Controls.Add(this.lbPassportNumber);
             this.gpPassport.Location = new System.Drawing.Point(13, 95);
             this.gpPassport.Name = "gpPassport";
             this.gpPassport.Size = new System.Drawing.Size(208, 56);
@@ -217,14 +218,14 @@
             this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
             this.mtbPassportSeries.TabIndex = 42;
             // 
-            // label1
+            // lbSeries
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Series";
+            this.lbSeries.AutoSize = true;
+            this.lbSeries.Location = new System.Drawing.Point(6, 22);
+            this.lbSeries.Name = "lbSeries";
+            this.lbSeries.Size = new System.Drawing.Size(36, 13);
+            this.lbSeries.TabIndex = 39;
+            this.lbSeries.Text = "Series";
             // 
             // mtbPassportNumber
             // 
@@ -235,14 +236,14 @@
             this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
             this.mtbPassportNumber.TabIndex = 41;
             // 
-            // label2
+            // lbPassportNumber
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Number";
+            this.lbPassportNumber.AutoSize = true;
+            this.lbPassportNumber.Location = new System.Drawing.Point(86, 22);
+            this.lbPassportNumber.Name = "lbPassportNumber";
+            this.lbPassportNumber.Size = new System.Drawing.Size(44, 13);
+            this.lbPassportNumber.TabIndex = 40;
+            this.lbPassportNumber.Text = "Number";
             // 
             // mtbInnNumber
             // 
@@ -255,7 +256,7 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(146, 187);
+            this.btnFind.Location = new System.Drawing.Point(143, 201);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
             this.btnFind.TabIndex = 0;
@@ -304,32 +305,34 @@
             this.lbLastName.TabIndex = 7;
             this.lbLastName.Text = "Last Name";
             // 
-            // btSignInPatient
+            // btnSignUpPatient
             // 
-            this.btSignInPatient.Location = new System.Drawing.Point(470, 447);
-            this.btSignInPatient.Name = "btSignInPatient";
-            this.btSignInPatient.Size = new System.Drawing.Size(155, 23);
-            this.btSignInPatient.TabIndex = 8;
-            this.btSignInPatient.Text = "Sign in to doctor";
-            this.btSignInPatient.UseVisualStyleBackColor = true;
-            this.btSignInPatient.Click += new System.EventHandler(this.btSignInPatient_Click);
+            this.btnSignUpPatient.Enabled = false;
+            this.btnSignUpPatient.Location = new System.Drawing.Point(470, 447);
+            this.btnSignUpPatient.Name = "btnSignUpPatient";
+            this.btnSignUpPatient.Size = new System.Drawing.Size(155, 23);
+            this.btnSignUpPatient.TabIndex = 8;
+            this.btnSignUpPatient.Text = "Sign up to doctor";
+            this.btnSignUpPatient.UseVisualStyleBackColor = true;
+            this.btnSignUpPatient.Click += new System.EventHandler(this.btSignInPatient_Click);
             // 
-            // btEdit
+            // btnEdit
             // 
-            this.btEdit.Location = new System.Drawing.Point(631, 447);
-            this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(155, 23);
-            this.btEdit.TabIndex = 9;
-            this.btEdit.Text = "Edit";
-            this.btEdit.UseVisualStyleBackColor = true;
-            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Location = new System.Drawing.Point(631, 447);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(155, 23);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // UcFindPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btEdit);
-            this.Controls.Add(this.btSignInPatient);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnSignUpPatient);
             this.Controls.Add(this.scFindPatient);
             this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(800, 483);
@@ -348,14 +351,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lvFind;
+        private System.Windows.Forms.ListView lvPatients;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbMiddleName;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lbFirstName;
         private System.Windows.Forms.Label lbMiddleName;
         private System.Windows.Forms.SplitContainer scFindPatient;
-        private System.Windows.Forms.Button btSignInPatient;
+        private System.Windows.Forms.Button btnSignUpPatient;
         private System.Windows.Forms.Label lbLastName;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
         private System.Windows.Forms.Label lbBirthday;
@@ -366,14 +369,14 @@
         private System.Windows.Forms.ColumnHeader chAddress;
         private System.Windows.Forms.Label lbInn;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ColumnHeader chPassportNumber;
         private System.Windows.Forms.ColumnHeader chInnNumber;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.MaskedTextBox mtbPassportSeries;
         private System.Windows.Forms.MaskedTextBox mtbPassportNumber;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbPassportNumber;
+        private System.Windows.Forms.Label lbSeries;
         private System.Windows.Forms.MaskedTextBox mtbInnNumber;
         private System.Windows.Forms.GroupBox gpPassport;
     }

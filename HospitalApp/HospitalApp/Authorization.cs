@@ -38,6 +38,7 @@ namespace HospitalApp
 
         private void btnAuthorizate_Click(object sender, EventArgs e)
         {
+            
             //ToDO Use context like this
             using (var context = new HospitalDbContext())
             {
