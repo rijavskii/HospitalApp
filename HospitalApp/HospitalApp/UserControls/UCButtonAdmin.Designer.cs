@@ -69,7 +69,7 @@
             // tsBtnDocButtons
             // 
             this.tsBtnDocButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsBtnDocButtons.Image = global::HospitalApp.Properties.Resources.user;
+            this.tsBtnDocButtons.Image = Properties.Resources.user;
             this.tsBtnDocButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnDocButtons.Name = "tsBtnDocButtons";
             this.tsBtnDocButtons.Size = new System.Drawing.Size(23, 22);
@@ -79,7 +79,7 @@
             // tsBtnAdminButtons
             // 
             this.tsBtnAdminButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsBtnAdminButtons.Image = global::HospitalApp.Properties.Resources.devid;
+            this.tsBtnAdminButtons.Image = Properties.Resources.devid;
             this.tsBtnAdminButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnAdminButtons.Name = "tsBtnAdminButtons";
             this.tsBtnAdminButtons.Size = new System.Drawing.Size(23, 22);
@@ -110,7 +110,7 @@
             this.btnFindWorker.Name = "btnFindWorker";
             this.btnFindWorker.Size = new System.Drawing.Size(167, 75);
             this.btnFindWorker.TabIndex = 2;
-            this.btnFindWorker.Text = "Find user";
+            this.btnFindWorker.Text = "Find worker";
             this.btnFindWorker.UseVisualStyleBackColor = true;
             this.btnFindWorker.Click += new System.EventHandler(this.btnFindWorker_Click);
             // 

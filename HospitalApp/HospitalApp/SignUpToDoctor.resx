@@ -117,4 +117,415 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnFind.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 108</value>
+  </data>
+  <data name="btnFind.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnFind.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="btnFind.Text" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="&gt;&gt;btnFind.Name" xml:space="preserve">
+    <value>btnFind</value>
+  </data>
+  <data name="&gt;&gt;btnFind.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnFind.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnFind.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbPositionType.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbPositionType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 85</value>
+  </data>
+  <data name="lbPositionType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 13</value>
+  </data>
+  <data name="lbPositionType.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="lbPositionType.Text" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="&gt;&gt;lbPositionType.Name" xml:space="preserve">
+    <value>lbPositionType</value>
+  </data>
+  <data name="&gt;&gt;lbPositionType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbPositionType.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbPositionType.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbLastName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbLastName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 63</value>
+  </data>
+  <data name="lbLastName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="lbLastName.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="lbLastName.Text" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="&gt;&gt;lbLastName.Name" xml:space="preserve">
+    <value>lbLastName</value>
+  </data>
+  <data name="&gt;&gt;lbLastName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbLastName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbLastName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbMiddleName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbMiddleName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 42</value>
+  </data>
+  <data name="lbMiddleName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="lbMiddleName.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="lbMiddleName.Text" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="&gt;&gt;lbMiddleName.Name" xml:space="preserve">
+    <value>lbMiddleName</value>
+  </data>
+  <data name="&gt;&gt;lbMiddleName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbMiddleName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbMiddleName.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tbDocType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 82</value>
+  </data>
+  <data name="tbDocType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 20</value>
+  </data>
+  <data name="tbDocType.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;tbDocType.Name" xml:space="preserve">
+    <value>tbDocType</value>
+  </data>
+  <data name="&gt;&gt;tbDocType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbDocType.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbDocType.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tbFirstName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 18</value>
+  </data>
+  <data name="tbFirstName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 20</value>
+  </data>
+  <data name="tbFirstName.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;tbFirstName.Name" xml:space="preserve">
+    <value>tbFirstName</value>
+  </data>
+  <data name="&gt;&gt;tbFirstName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbFirstName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbFirstName.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="tbLastName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 60</value>
+  </data>
+  <data name="tbLastName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 20</value>
+  </data>
+  <data name="tbLastName.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;tbLastName.Name" xml:space="preserve">
+    <value>tbLastName</value>
+  </data>
+  <data name="&gt;&gt;tbLastName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbLastName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbLastName.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lbFirstName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbFirstName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 21</value>
+  </data>
+  <data name="lbFirstName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="lbFirstName.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="lbFirstName.Text" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="&gt;&gt;lbFirstName.Name" xml:space="preserve">
+    <value>lbFirstName</value>
+  </data>
+  <data name="&gt;&gt;lbFirstName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbFirstName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbFirstName.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="tbMiddleName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 39</value>
+  </data>
+  <data name="tbMiddleName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 20</value>
+  </data>
+  <data name="tbMiddleName.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;tbMiddleName.Name" xml:space="preserve">
+    <value>tbMiddleName</value>
+  </data>
+  <data name="&gt;&gt;tbMiddleName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbMiddleName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbMiddleName.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lvDoctors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 137</value>
+  </data>
+  <data name="lvDoctors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 243</value>
+  </data>
+  <data name="lvDoctors.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;lvDoctors.Name" xml:space="preserve">
+    <value>lvDoctors</value>
+  </data>
+  <data name="&gt;&gt;lvDoctors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lvDoctors.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lvDoctors.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="chFirstName.Text" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="chLastName.Text" xml:space="preserve">
+    <value>LastName</value>
+  </data>
+  <data name="chLastName.Width" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="chDocType.Text" xml:space="preserve">
+    <value>Doctor </value>
+  </data>
+  <data name="chDocType.Width" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="chRoom.Text" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="dtpSignPatientDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>269, 18</value>
+  </data>
+  <data name="dtpSignPatientDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 20</value>
+  </data>
+  <data name="dtpSignPatientDate.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="&gt;&gt;dtpSignPatientDate.Name" xml:space="preserve">
+    <value>dtpSignPatientDate</value>
+  </data>
+  <data name="&gt;&gt;dtpSignPatientDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpSignPatientDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dtpSignPatientDate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lvSchedule.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 44</value>
+  </data>
+  <data name="lvSchedule.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 296</value>
+  </data>
+  <data name="lvSchedule.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="&gt;&gt;lvSchedule.Name" xml:space="preserve">
+    <value>lvSchedule</value>
+  </data>
+  <data name="&gt;&gt;lvSchedule.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lvSchedule.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lvSchedule.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chTime.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="chTime.Width" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="chBusy.Text" xml:space="preserve">
+    <value>Allowed</value>
+  </data>
+  <data name="chBusy.Width" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="chPatient.Text" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="chPatient.Width" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
+  <data name="btnSignUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>426, 351</value>
+  </data>
+  <data name="btnSignUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 30</value>
+  </data>
+  <data name="btnSignUp.TabIndex" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="btnSignUp.Text" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="&gt;&gt;btnSignUp.Name" xml:space="preserve">
+    <value>btnSignUp</value>
+  </data>
+  <data name="&gt;&gt;btnSignUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSignUp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSignUp.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>531, 388</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Sign to Doctor</value>
+  </data>
+  <data name="&gt;&gt;chFirstName.Name" xml:space="preserve">
+    <value>chFirstName</value>
+  </data>
+  <data name="&gt;&gt;chFirstName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chLastName.Name" xml:space="preserve">
+    <value>chLastName</value>
+  </data>
+  <data name="&gt;&gt;chLastName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chDocType.Name" xml:space="preserve">
+    <value>chDocType</value>
+  </data>
+  <data name="&gt;&gt;chDocType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chRoom.Name" xml:space="preserve">
+    <value>chRoom</value>
+  </data>
+  <data name="&gt;&gt;chRoom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chTime.Name" xml:space="preserve">
+    <value>chTime</value>
+  </data>
+  <data name="&gt;&gt;chTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chBusy.Name" xml:space="preserve">
+    <value>chBusy</value>
+  </data>
+  <data name="&gt;&gt;chBusy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chPatient.Name" xml:space="preserve">
+    <value>chPatient</value>
+  </data>
+  <data name="&gt;&gt;chPatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>SignUpToDoctor</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

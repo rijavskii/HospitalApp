@@ -286,12 +286,13 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="icons\devid.ico" />
+    <None Include="icons\eye_closed.png" />
+    <Content Include="icons\eye_open.png" />
     <Content Include="icons\Icons-Land-Points-Of-Interest-Hospital-Red-2.ico" />
     <None Include="icons\Register-icon %281%29.png" />
     <Content Include="icons\user.ico" />
     <Content Include="icons\user_female_olive_green.ico" />
     <Content Include="icons\Webiconset-Application-Register.ico" />
-    <None Include="Resources\y_96cc5968.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

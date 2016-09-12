@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpToDoctor));
             this.btnFind = new System.Windows.Forms.Button();
             this.lbPositionType = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
@@ -48,85 +49,57 @@
             this.chBusy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSignUp = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(139, 108);
+            resources.ApplyResources(this.btnFind, "btnFind");
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(111, 23);
-            this.btnFind.TabIndex = 53;
-            this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // lbPositionType
             // 
-            this.lbPositionType.AutoSize = true;
-            this.lbPositionType.Location = new System.Drawing.Point(14, 85);
+            resources.ApplyResources(this.lbPositionType, "lbPositionType");
             this.lbPositionType.Name = "lbPositionType";
-            this.lbPositionType.Size = new System.Drawing.Size(39, 13);
-            this.lbPositionType.TabIndex = 41;
-            this.lbPositionType.Text = "Doctor";
             // 
             // lbLastName
             // 
-            this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(14, 63);
+            resources.ApplyResources(this.lbLastName, "lbLastName");
             this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(58, 13);
-            this.lbLastName.TabIndex = 40;
-            this.lbLastName.Text = "Last Name";
             // 
             // lbMiddleName
             // 
-            this.lbMiddleName.AutoSize = true;
-            this.lbMiddleName.Location = new System.Drawing.Point(14, 42);
+            resources.ApplyResources(this.lbMiddleName, "lbMiddleName");
             this.lbMiddleName.Name = "lbMiddleName";
-            this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
-            this.lbMiddleName.TabIndex = 39;
-            this.lbMiddleName.Text = "Middle Name";
             // 
             // tbDocType
             // 
             this.tbDocType.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbDocType.Location = new System.Drawing.Point(108, 82);
+            resources.ApplyResources(this.tbDocType, "tbDocType");
             this.tbDocType.Name = "tbDocType";
-            this.tbDocType.Size = new System.Drawing.Size(142, 20);
-            this.tbDocType.TabIndex = 37;
             this.tbDocType.TextChanged += new System.EventHandler(this.tbDocType_TextChanged);
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(108, 18);
+            resources.ApplyResources(this.tbFirstName, "tbFirstName");
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(142, 20);
-            this.tbFirstName.TabIndex = 34;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(108, 60);
+            resources.ApplyResources(this.tbLastName, "tbLastName");
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(142, 20);
-            this.tbLastName.TabIndex = 36;
             this.tbLastName.Tag = "";
             // 
             // lbFirstName
             // 
-            this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(14, 21);
+            resources.ApplyResources(this.lbFirstName, "lbFirstName");
             this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(57, 13);
-            this.lbFirstName.TabIndex = 38;
-            this.lbFirstName.Text = "First Name";
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Location = new System.Drawing.Point(108, 39);
+            resources.ApplyResources(this.tbMiddleName, "tbMiddleName");
             this.tbMiddleName.Name = "tbMiddleName";
-            this.tbMiddleName.Size = new System.Drawing.Size(142, 20);
-            this.tbMiddleName.TabIndex = 35;
             // 
             // lvDoctors
             // 
@@ -138,38 +111,33 @@
             this.lvDoctors.FullRowSelect = true;
             this.lvDoctors.GridLines = true;
             this.lvDoctors.HideSelection = false;
-            this.lvDoctors.Location = new System.Drawing.Point(17, 137);
+            resources.ApplyResources(this.lvDoctors, "lvDoctors");
             this.lvDoctors.Name = "lvDoctors";
-            this.lvDoctors.Size = new System.Drawing.Size(233, 243);
-            this.lvDoctors.TabIndex = 54;
             this.lvDoctors.UseCompatibleStateImageBehavior = false;
             this.lvDoctors.View = System.Windows.Forms.View.Details;
             // 
             // chFirstName
             // 
-            this.chFirstName.Text = "First name";
+            resources.ApplyResources(this.chFirstName, "chFirstName");
             // 
             // chLastName
             // 
-            this.chLastName.Text = "LastName";
-            this.chLastName.Width = 65;
+            resources.ApplyResources(this.chLastName, "chLastName");
             // 
             // chDocType
             // 
-            this.chDocType.Text = "Doctor ";
-            this.chDocType.Width = 51;
+            resources.ApplyResources(this.chDocType, "chDocType");
             // 
             // chRoom
             // 
-            this.chRoom.Text = "Room";
+            resources.ApplyResources(this.chRoom, "chRoom");
             // 
             // dtpSignPatientDate
             // 
-            this.dtpSignPatientDate.Location = new System.Drawing.Point(306, 18);
+            resources.ApplyResources(this.dtpSignPatientDate, "dtpSignPatientDate");
             this.dtpSignPatientDate.Name = "dtpSignPatientDate";
-            this.dtpSignPatientDate.Size = new System.Drawing.Size(124, 20);
-            this.dtpSignPatientDate.TabIndex = 55;
             this.dtpSignPatientDate.Value = new System.DateTime(2016, 9, 11, 0, 0, 0, 0);
+            this.dtpSignPatientDate.ValueChanged += new System.EventHandler(this.dtpSignPatientDate_ValueChanged);
             // 
             // lvSchedule
             // 
@@ -180,55 +148,38 @@
             this.lvSchedule.FullRowSelect = true;
             this.lvSchedule.GridLines = true;
             this.lvSchedule.HideSelection = false;
-            this.lvSchedule.Location = new System.Drawing.Point(305, 49);
+            resources.ApplyResources(this.lvSchedule, "lvSchedule");
             this.lvSchedule.MultiSelect = false;
             this.lvSchedule.Name = "lvSchedule";
-            this.lvSchedule.Size = new System.Drawing.Size(255, 325);
-            this.lvSchedule.TabIndex = 56;
             this.lvSchedule.UseCompatibleStateImageBehavior = false;
             this.lvSchedule.View = System.Windows.Forms.View.Details;
             // 
             // chTime
             // 
-            this.chTime.Text = "Time";
-            this.chTime.Width = 73;
+            resources.ApplyResources(this.chTime, "chTime");
             // 
             // chBusy
             // 
-            this.chBusy.Text = "Allowed";
-            this.chBusy.Width = 74;
+            resources.ApplyResources(this.chBusy, "chBusy");
             // 
             // chPatient
             // 
-            this.chPatient.Text = "Patient";
-            this.chPatient.Width = 103;
+            resources.ApplyResources(this.chPatient, "chPatient");
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(580, 344);
+            this.btnSignUp.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.btnSignUp, "btnSignUp");
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(97, 30);
-            this.btnSignUp.TabIndex = 57;
-            this.btnSignUp.Text = "Sign up";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(457, 17);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(103, 21);
-            this.btnSearch.TabIndex = 58;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // SignUpToDoctor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 392);
-            this.Controls.Add(this.btnSearch);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.lvSchedule);
             this.Controls.Add(this.dtpSignPatientDate);
@@ -242,10 +193,10 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SignUpToDoctor";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Sign to Doctor";
             this.Load += new System.EventHandler(this.SignInToDoctor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -254,7 +205,7 @@
 
         #endregion
 
-        private UCEditPatientInfo ucEditPatientInfo1;
+        //private UCEditPatientInfo ucEditPatientInfo;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Label lbPositionType;
         private System.Windows.Forms.Label lbLastName;
@@ -275,6 +226,5 @@
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.ColumnHeader chDocType;
         private System.Windows.Forms.ColumnHeader chRoom;
-        private System.Windows.Forms.Button btnSearch;
     }
 }

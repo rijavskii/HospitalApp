@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using EntityDb.Context;
 using EntityDb.DAL;
 using HospitalApp.Enum;
+using Microsoft.Win32;
 
 namespace HospitalApp
 {
@@ -27,6 +28,7 @@ namespace HospitalApp
             concreteUser = patient;
             tbDocType.AutoCompleteMode = AutoCompleteMode.Suggest;
             tbDocType.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            dtpSignPatientDate.MinDate = DateTime.Today;
             //FillTime();
             
         }
@@ -120,70 +122,127 @@ namespace HospitalApp
             
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            lvSchedule.Items.Clear();
-            if (lvDoctors.SelectedIndices.Count>0)
-            {
-                var date = dtpSignPatientDate.Value;
+        //private void btnSearch_Click(object sender, EventArgs e)
+        //{
+        //    lvSchedule.Items.Clear();
+        //    if (lvDoctors.SelectedIndices.Count > 0)
+        //    {
+        //        var date = dtpSignPatientDate.Value;
 
-                using (var context = new HospitalDbContext())
-                {
+        //        using (var context = new HospitalDbContext())
+        //        {
 
-                    //Select focused Id doctor from list view, lvHeader with id not exist
-                    int docId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[4].Text);
-                    var concreteSchedule = context.WorkSchedules.Where(x =>x.Worker.Id == docId);
-                    concreteSchedule = concreteSchedule.OrderBy(x => x.Data);
+        //            //Select focused Id doctor from list view, lvHeader with id not exist
+        //            int docId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[4].Text);
+        //            var concreteSchedule = context.WorkSchedules.Where(x => x.Worker.Id == docId);
+        //            concreteSchedule = concreteSchedule.OrderBy(x => x.Data);
 
-                    int workTime = 17;
-                    DateTime schedule = dtpSignPatientDate.Value;
-                    
-                    schedule = schedule.AddHours(9);
+        //            int workTime = 17;
+        //            DateTime schedule = dtpSignPatientDate.Value;
 
-                    for (int i = 0; i < workTime; i++)
-                    {
-                        var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
-                        WorkSchedules signIn =
-                            context.WorkSchedules.Include(x=>x.Worker).Include(x=>x.Patient).FirstOrDefault(x => x.Worker.Id == docId
-                                                                && x.Data.Year == date.Year
-                                                                && x.Data.Month == date.Month
-                                                                && x.Data.Day == date.Day
-                                                                && x.Data.Hour == schedule.Hour
-                                                                && x.Data.Minute == schedule.Minute);
-                        string patient = $"{signIn?.Patient.LastName} {signIn?.Patient.FirstName}";
-                        a.SubItems.Add(signIn == null ? "" : "busy");
-                        a.SubItems.Add(patient);
+        //            schedule = schedule.AddHours(9);
 
-                        schedule = schedule.AddMinutes(30);
-                    }
-                }
-            }
-        }
+        //            for (int i = 0; i < workTime; i++)
+        //            {
+        //                var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
+        //                WorkSchedules signIn =
+        //                    context.WorkSchedules.Include(x => x.Worker).Include(x => x.Patient).FirstOrDefault(x => x.Worker.Id == docId
+        //                                                            && x.Data.Year == date.Year
+        //                                                            && x.Data.Month == date.Month
+        //                                                            && x.Data.Day == date.Day
+        //                                                            && x.Data.Hour == schedule.Hour
+        //                                                            && x.Data.Minute == schedule.Minute);
+        //                string patient = $"{signIn?.Patient.LastName} {signIn?.Patient.FirstName}";
+        //                a.SubItems.Add(signIn == null ? "" : "busy");
+        //                a.SubItems.Add(patient);
+
+        //                schedule = schedule.AddMinutes(30);
+        //            }
+        //        }
+        //    }
+        //}
 
         private int SelectedDocId()
         {
             var size = lvDoctors.FocusedItem.SubItems.Count;
-
+            //return last subitem in listview with id
             return Convert.ToInt32(lvDoctors.FocusedItem.SubItems[--size].Text);
         }
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            var a = Registry.Users.GetSubKeyNames();
+
             using (var context = new HospitalDbContext())
             {
                 var doc = SelectedDocId();
                 //var patient = sender.GetType().GUID;
-                var data = Convert.ToDateTime(lvSchedule.FocusedItem.SubItems[0].Text);
-                //TODO correct data should write to db
+                var myData = Convert.ToDateTime(lvSchedule.FocusedItem.SubItems[0].Text);
+
+                var data = dtpSignPatientDate.Value;
+                data = data.AddHours(myData.Hour);
+                data = data.AddMinutes(myData.Minute);
+
+                var myDoc = context.Users.First(x => x.Id == doc);
+                var myPatient = context.Users.First(x => x.Id == concreteUser);
+
                 WorkSchedules currentSchedules = new WorkSchedules()
                 {
-                    Worker = context.Users.First(x => x.Id == doc),
-                    Patient = context.Users.First(x => x.Id == concreteUser),
+                    Worker = myDoc,
+                    Patient = myPatient,
                     Data = data,
                     WorkRoom = 105,
                 };
 
                 context.WorkSchedules.Add(currentSchedules);
                 context.SaveChanges();
+                var result =
+                    $"{myPatient.FirstName} {myPatient.LastName} signed to {myDoc.Position.WorkerPositionType.Name}";
+
+                MessageBox.Show(result,"Sign up", MessageBoxButtons.OK);
+            }
+            this.Close();
+        }
+
+        private void dtpSignPatientDate_ValueChanged(object sender, EventArgs e)
+        {
+            lvSchedule.Items.Clear();
+            if (lvDoctors.SelectedIndices.Count <= 0) return;
+
+            var date = dtpSignPatientDate.Value;
+
+            using (var context = new HospitalDbContext())
+            {
+
+                //Select focused Id doctor from list view, lvHeader with id not exist
+                int docId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[4].Text);
+                var concreteSchedule = context.WorkSchedules.Where(x => x.Worker.Id == docId);
+                concreteSchedule = concreteSchedule.OrderBy(x => x.Data);
+
+                int workTime = 17;
+                DateTime schedule = dtpSignPatientDate.Value;
+
+                schedule = schedule.AddHours(9);
+
+                for (int i = 0; i < workTime; i++)
+                {
+                    var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
+
+                    WorkSchedules signIn =
+                        context.WorkSchedules.Include(x => x.Worker).
+                        Include(x => x.Patient).FirstOrDefault(x => x.Worker.Id == docId
+                                && x.Data.Year == date.Year
+                                && x.Data.Month == date.Month
+                                && x.Data.Day == date.Day
+                                && x.Data.Hour == schedule.Hour
+                                && x.Data.Minute == schedule.Minute);
+
+                    string patient = $"{signIn?.Patient.LastName} {signIn?.Patient.FirstName}";
+                    a.SubItems.Add(signIn == null ? "" : "busy");
+                    a.SubItems.Add(patient);
+
+                    schedule = schedule.AddMinutes(30);
+                }
             }
         }
     }

@@ -73,9 +73,19 @@ namespace HospitalApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Register_icon {
+        internal static System.Drawing.Bitmap eye_closed {
             get {
-                object obj = ResourceManager.GetObject("Register-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("eye_closed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_open {
+            get {
+                object obj = ResourceManager.GetObject("eye_open", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,16 +126,6 @@ namespace HospitalApp.Properties {
         internal static System.Drawing.Bitmap Webiconset_Application_Register {
             get {
                 object obj = ResourceManager.GetObject("Webiconset-Application-Register", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap y_96cc5968 {
-            get {
-                object obj = ResourceManager.GetObject("y_96cc5968", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

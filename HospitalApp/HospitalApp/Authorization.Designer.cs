@@ -35,14 +35,15 @@
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btShowPassword = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAuthorizate
             // 
-            this.btnAuthorizate.Location = new System.Drawing.Point(208, 101);
+            this.btnAuthorizate.Location = new System.Drawing.Point(207, 82);
             this.btnAuthorizate.Name = "btnAuthorizate";
             this.btnAuthorizate.Size = new System.Drawing.Size(75, 23);
             this.btnAuthorizate.TabIndex = 0;
@@ -80,14 +81,14 @@
             // 
             this.tbPassword.Location = new System.Drawing.Point(177, 47);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(187, 20);
+            this.tbPassword.Size = new System.Drawing.Size(186, 20);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(289, 101);
+            this.btnCancel.Location = new System.Drawing.Point(288, 82);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -95,10 +96,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::HospitalApp.Properties.Resources.eye_closed;
+            this.pictureBox2.Location = new System.Drawing.Point(341, 48);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HospitalApp.Properties.Resources.Register_icon__1_;
-            this.pictureBox1.InitialImage = global::HospitalApp.Properties.Resources.y_96cc5968;
             this.pictureBox1.Location = new System.Drawing.Point(23, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(84, 77);
@@ -106,25 +119,15 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
-            // btShowPassword
-            // 
-            this.btShowPassword.Location = new System.Drawing.Point(208, 72);
-            this.btShowPassword.Name = "btShowPassword";
-            this.btShowPassword.Size = new System.Drawing.Size(156, 23);
-            this.btShowPassword.TabIndex = 7;
-            this.btShowPassword.Text = "Show password";
-            this.btShowPassword.UseVisualStyleBackColor = true;
-            this.btShowPassword.Click += new System.EventHandler(this.btShowPassword_Click);
-            // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(395, 136);
+            this.ClientSize = new System.Drawing.Size(385, 122);
             this.ControlBox = false;
-            this.Controls.Add(this.btShowPassword);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbPassword);
@@ -141,6 +144,7 @@
             this.Text = "Authorization";
             this.Load += new System.EventHandler(this.Authorization_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Authorization_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,6 +160,6 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btShowPassword;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

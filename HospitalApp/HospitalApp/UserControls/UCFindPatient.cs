@@ -73,13 +73,14 @@ namespace HospitalApp
             
             foreach (var user in _users)
             {
+                if (user.IsPatient)
+                {
+                    string adress =
+                        $"{user.Adress.Country} {user.Adress.District} {user.Adress.Region} " +
+                        $"{user.Adress.City} {Environment.NewLine} {user.Adress.HouseNumber} " +
+                        $"{user.Adress.Appartment}";
 
-                string adress =
-                    $"{user.Adress.Country} {user.Adress.District} {user.Adress.Region} " +
-                    $"{user.Adress.City} {Environment.NewLine} {user.Adress.HouseNumber} " +
-                    $"{user.Adress.Appartment}";
-
-                var items = new ListViewItem(user.FirstName);
+                    var items = new ListViewItem(user.FirstName);
                     items.SubItems.Add(user.MiddleName);
                     items.SubItems.Add(user.LastName);
                     items.SubItems.Add(user.Birthday.ToShortDateString());
@@ -88,7 +89,8 @@ namespace HospitalApp
                     items.SubItems.Add(user.IdentificationNumber);
                     items.SubItems.Add(user.Id.ToString());
 
-                lvPatients.Items.Add(items);
+                    lvPatients.Items.Add(items);
+                }
             }
             
         }

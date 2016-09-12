@@ -18,31 +18,7 @@ namespace EntityDb.DAL
         {
             //Set db initializer for default value of dictionary on create db
             Database.SetInitializer<HospitalDbContext>(new HospitalDbInitializer());
-            try
-            {
-                Database.Initialize(true);
-            }
-            catch (DbEntityValidationException a)
-            {
-                foreach (var eve in a.EntityValidationErrors)
-                {
-                    MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name +
-                                    "\" in state \"" + eve.Entry.State + "\" has the following validation errors:",
-                        "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        MessageBox.Show("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"",
-                            "Information",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                            ve.PropertyName, ve.ErrorMessage);
-                    }
-                }
-                throw;
-            }
-
+            Database.Initialize(true);
         }
 
         /// <summary>

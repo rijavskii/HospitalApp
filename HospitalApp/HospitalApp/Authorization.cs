@@ -80,20 +80,6 @@ namespace HospitalApp
             tbPassword.PasswordChar = '*';
         }
 
-        private void btShowPassword_Click(object sender, EventArgs e)
-        {
-            if (tbPassword.PasswordChar == '*')
-            {
-                this.btShowPassword.Text = @"Hide password";
-                tbPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                this.btShowPassword.Text = @"Show password";
-                tbPassword.PasswordChar = '*';
-            }
-        }
-
         private void tbLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch ((Keys)e.KeyChar)
@@ -124,6 +110,20 @@ namespace HospitalApp
                     btnCancel_Click(sender, e);
                     e.Handled = true;
                     break;
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == '*')
+            {
+                pictureBox2.Image = global::HospitalApp.Properties.Resources.eye_open;
+                tbPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                pictureBox2.Image = global::HospitalApp.Properties.Resources.eye_closed;
+                tbPassword.PasswordChar = '*';
             }
         }
     }
