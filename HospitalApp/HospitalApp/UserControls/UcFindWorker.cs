@@ -30,7 +30,6 @@ namespace HospitalApp.UserControls
                 var users = context.Users.Include(x => x.Position).Include(x => x.Adress).Include(x=>x.Position.WorkerPositionType).ToList();
                 //_users = context.Users.Where(x=>x.IsPatient).Include(x=>x.Position).Include(x=>x.Adress).ToList();
 
-                //ToDo write extension method for string, that will be check it or use String.IsNullOrEmpty
                 if (!String.IsNullOrWhiteSpace(tbFirstName.Text))
                 {
                     users = users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
@@ -55,6 +54,7 @@ namespace HospitalApp.UserControls
             //Update with other positions
             switch (textToEnum)
             {
+                //ToDo Use parse to enum, not switch
                 case "Doctor":
                     return (int)EPositions.Doctor;
                 case "Registry":

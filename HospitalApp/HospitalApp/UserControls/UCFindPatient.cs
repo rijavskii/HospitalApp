@@ -34,7 +34,6 @@ namespace HospitalApp
                 _users = context.Users.Where(x=>x.IsPatient).Include(x=>x.Position).Include(x=>x.Adress).ToList();
                 //_users = context.Users.Where(x=>x.IsPatient).Include(x=>x.Position).Include(x=>x.Adress).ToList();
                 
-                //ToDo write extension method for string, that will be check it or use String.IsNullOrEmpty
                 if (!String.IsNullOrWhiteSpace(tbFirstName.Text))
                 {
                     _users = _users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
@@ -58,7 +57,7 @@ namespace HospitalApp
                 _users = _users.Where(x => x.Birthday.Year == dtpBirthday.Value.Year
                                         && x.Birthday.Month == dtpBirthday.Value.Month
                                         && x.Birthday.Day == dtpBirthday.Value.Day).ToList();
-
+                //ToDo use .ToList only there, not in code behind
                 _users = _users.OrderByDescending(x=>x.FirstName).ToList();
                 AddToList();
                 

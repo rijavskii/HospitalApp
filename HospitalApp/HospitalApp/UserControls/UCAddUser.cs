@@ -182,10 +182,15 @@ namespace HospitalApp.UserControls
                         Appartment = Convert.ToInt32(tbAppartment.Text)
                     });
                     context.SaveChanges();
+<<<<<<< HEAD
                 
                     //string login = String.Format("{0} {1}", tbLastName.Text, tbFirstName.Text);
                     string login = $"{tbLastName.Text}{tbFirstName.Text}{dtpBirthday.Value.Year}";
                     
+=======
+                    //string login = String.Format("{0} {1}", tbLastName.Text, tbFirstName.Text);
+                    string login = $"{tbLastName.Text} {tbFirstName.Text}";
+>>>>>>> 81f63de5ce187130eb42a1fef33a3a3b557a37ff
                     //string psd = String.Format("{0} {1} {2}",tbLastName.Text, tbStreet.Text, tbHouseNumber.Text);
                     string psd = $"{tbLastName.Text}{tbStreet.Text}{tbHouseNumber.Text}";
                     context.Users.Add(new Users()

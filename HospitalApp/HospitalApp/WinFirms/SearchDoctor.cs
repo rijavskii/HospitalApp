@@ -16,6 +16,7 @@ namespace HospitalApp
 {
     public partial class SearchDoctor : Form
     {
+        //ToDO why public not private?
         public int doctorId;
         public SearchDoctor()
         {
@@ -29,7 +30,6 @@ namespace HospitalApp
 
             using (var context = new HospitalDbContext())
             {
-                //ToDo Move "doctor" to enum
                 doctors = context.Users.Where(x => x.Position.PositionCode == (int)EPositions.Doctor).Include(x => x.Position.WorkerPositionType).ToList();
             }
             if (!String.IsNullOrWhiteSpace(tbFirstName.Text.Trim()))
@@ -66,7 +66,8 @@ namespace HospitalApp
         private void lvDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
             var size = lvDoctors.FocusedItem.SubItems.Count-1;
-
+            //ToDo use new variable with lvDoctors.FocusedItem.SubItems[size].Text
+            //because you two times read this data
             if (String.IsNullOrWhiteSpace(lvDoctors.FocusedItem.SubItems[size].Text)) return;
 
             var userId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[size].Text);

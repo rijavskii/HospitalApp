@@ -224,7 +224,6 @@ namespace HospitalApp.UserControls
                         });
 
                         context.SaveChanges();
-                        //ToDo Why you create context again?
                         //string login = tbLastName.Text + " " + tbFirstName.Text;
                         //string psd = tbLastName.Text + " " + tbStreet.Text + " " + tbHouseNumber.Text;
 
@@ -254,7 +253,6 @@ namespace HospitalApp.UserControls
                     }
                     catch (DbEntityValidationException a)
                     {
-                        //ToDO move to new method
                         ShowErrors(a);
                         throw;
                     }
