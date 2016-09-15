@@ -150,7 +150,6 @@ namespace HospitalApp
             pbLoading.Visible = true;
             this.Enabled = false;
 
-            //Todo Use Encoding.Utf8, not  Encoding.GetEncoding("UTF-8")
             var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 

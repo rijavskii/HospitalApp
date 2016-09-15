@@ -182,10 +182,8 @@ namespace HospitalApp.UserControls
                         Appartment = Convert.ToInt32(tbAppartment.Text)
                     });
                     context.SaveChanges();
-                //ToDo the same as in UcAddWorked.cs
                     //string login = String.Format("{0} {1}", tbLastName.Text, tbFirstName.Text);
                     string login = $"{tbLastName.Text} {tbFirstName.Text}";
-                    //ToDo use String.Format
                     //string psd = String.Format("{0} {1} {2}",tbLastName.Text, tbStreet.Text, tbHouseNumber.Text);
                     string psd = $"{tbLastName.Text} {tbStreet.Text} {tbHouseNumber.Text}";
                     context.Users.Add(new Users()

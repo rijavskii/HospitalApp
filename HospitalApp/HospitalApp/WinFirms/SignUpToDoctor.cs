@@ -41,7 +41,6 @@ namespace HospitalApp
 
             using (var context = new HospitalDbContext())
             {
-                //ToDo Move "doctor" to enum
                  doctors = context.Users.Where(x => x.Position.PositionCode == (int)EPositions.Doctor).Include(x=>x.Position.WorkerPositionType).ToList();
             }
             if (!String.IsNullOrWhiteSpace(tbFirstName.Text.Trim()))
@@ -92,22 +91,25 @@ namespace HospitalApp
         {
             using (var context = new HospitalDbContext())
             {
-                var arr = context.Positions.ToList();
-                string[] myArr = new string[arr.Count];
+                //ToDo Better way - use this
+                _collection.AddRange(context.Positions.Select(x => x.Name).ToArray());
 
-                int i = 0;
+                //var arr = context.Positions.ToList();
+                //string[] myArr = new string[arr.Count];
 
-                foreach (var pos in arr)
-                {
-                    myArr[i++] = pos.Name;
-                }
+                //int i = 0;
 
-                _collection.AddRange(myArr);
+                //foreach (var pos in arr)
+                //{
+                //    myArr[i++] = pos.Name;
+                //}
+
+                //_collection.AddRange(myArr);
             }
 
             
         }
-
+        //ToDO Remove unusage method
         private void FillTime()
         {
             int workTime = 17;
@@ -193,6 +195,7 @@ namespace HospitalApp
                     Worker = myDoc,
                     Patient = myPatient,
                     Data = data,
+                    //ToDo why it`s static number?
                     WorkRoom = 105,
                 };
 
@@ -201,7 +204,6 @@ namespace HospitalApp
                 var result =
                     $"\"{myPatient.FirstName} {myPatient.LastName}\" signed to \"{myDoc.Position.WorkerPositionType.Name}\"" +
                     $" {data.ToLongDateString()} {data.ToShortTimeString()}";
-
                 MessageBox.Show(result,"Sign up", MessageBoxButtons.OK);
             }
             this.Close();
@@ -215,6 +217,7 @@ namespace HospitalApp
         private void DocSchedule()
         {
             lvSchedule.Items.Clear();
+            //ToDo Use .Any not Count
             if (lvDoctors.SelectedIndices.Count <= 0) return;
 
             var date = dtpSignPatientDate.Value;
@@ -224,6 +227,7 @@ namespace HospitalApp
                 //Select focused Id doctor from list view, lvHeader with id not exist
                 int docId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[4].Text);
 
+                //ToDo why static data?
                 int workTime = 17;
                 DateTime schedule = dtpSignPatientDate.Value;
 

@@ -40,6 +40,7 @@ namespace HospitalApp.UserControls
             lblDayOfWeek.Text = dtpAppointmentTime.Value.DayOfWeek.ToString();
 
             var workingDate = date;
+            //ToDo if needed replase this to app.config
             int workTime = 17;
 
             lvAppointment.Items.Clear();
