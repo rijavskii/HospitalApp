@@ -25,10 +25,7 @@
         /// </summary>
         Doctor = 4,
 
-        /// <summary>
-        /// 
-        /// </summary>
-        None = 1,
+        
 
         
     }

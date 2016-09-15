@@ -41,12 +41,33 @@ namespace HospitalApp.UserControls
                     users = users.Where(x => x.LastName.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
                 }
 
-                users = users.Where(x => x.Position.PositionCode == cbPositions.SelectedIndex+1).ToList();
+                users = users.Where(x => x.Position.PositionCode == ToPositionEnum(cbPositions.Text)).ToList();
                 
                 users = users.OrderByDescending(x => x.FirstName).ToList();
-
+                
                 AddToList(users);
             }
+        }
+
+
+        private int ToPositionEnum(string textToEnum)
+        {
+            //Update with other positions
+            switch (textToEnum)
+            {
+                case "Doctor":
+                    return (int)EPositions.Doctor;
+                case "Registry":
+                    return (int)EPositions.Registry;
+                //case "None":
+                //    return (int)EPositions.None;
+                case "Nurse":
+                    return (int)EPositions.Nurse;
+                //default:
+                //    return (int)EPositions.None;
+            }
+
+            return 0;
         }
 
         private void AddToList(List<Users> users )
@@ -88,6 +109,7 @@ namespace HospitalApp.UserControls
         {
             if (lvFind.SelectedIndices.Count>0)
             {
+                
                 var subitemCount = lvFind.FocusedItem.SubItems.Count;
                 var userId = Convert.ToInt32(lvFind.FocusedItem.SubItems[subitemCount - 1].Text);
 

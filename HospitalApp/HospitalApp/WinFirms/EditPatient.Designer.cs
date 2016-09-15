@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPatient));
             this.btSave = new System.Windows.Forms.Button();
             this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
             this.mtbPassportSeries = new System.Windows.Forms.MaskedTextBox();
@@ -422,6 +423,8 @@
             this.Controls.Add(this.lbNewPassword);
             this.Controls.Add(this.tbMiddleName);
             this.Controls.Add(this.btSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditPatient";
             this.ShowInTaskbar = false;
             this.Text = "Edit Patient";

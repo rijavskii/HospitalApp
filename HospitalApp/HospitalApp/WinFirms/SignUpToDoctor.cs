@@ -64,7 +64,7 @@ namespace HospitalApp
             FillLvDoc(doctors);
         }
 
-        private void FillLvDoc(List<Users> doctors)
+        public void FillLvDoc(List<Users> doctors)
         {
             foreach (var doc in doctors)
             {

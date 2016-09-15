@@ -109,7 +109,7 @@
             this.MainMenuStrip = this.msMainMenu;
             this.MinimumSize = new System.Drawing.Size(1010, 560);
             this.Name = "CoreForm";
-            this.Text = "Hospital";
+            this.Text = "Hospital App";
             this.msMainMenu.ResumeLayout(false);
             this.msMainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).EndInit();

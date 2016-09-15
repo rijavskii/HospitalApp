@@ -23,7 +23,7 @@ namespace HospitalApp
     public partial class UcButtonDoctor : UserControl
     {
         private readonly Panel _panel;
-        private readonly int doctor;
+        private int doctor;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -32,13 +32,15 @@ namespace HospitalApp
         {
             //TODO Check if doctor. If true return id doctor, else show dialog to choose doctor if admin
             //CheckIfDoctor(docId);
+            doctor = CheckDoctor(docId);
+            if (doctor > 0)
+            {
+                InitializeComponent();
 
-            InitializeComponent();
-            _panel = panel;
-            doctor = docId;
+                _panel = panel;
 
-            CheckDoctor(doctor);
-            btnSchedule.PerformClick();
+                btnSchedule.PerformClick();
+            }
             //var me = this.ParentForm.FindForm();
             //var me = ParentForm.Owner.GetType();
         }
@@ -59,12 +61,13 @@ namespace HospitalApp
                             var doc = new SearchDoctor();
                             if (doc.ShowDialog() == DialogResult.OK)
                             {
-                                    
+                               return doc.GetDoctor();
                             }
-
-                        break;
+                        return 0;
+                        
+                    default:
+                        return 0;
                 }
-                return 0;
             }
         } 
         private void btListMedicine_Click(object sender, EventArgs e)

@@ -62,7 +62,7 @@ namespace HospitalApp
             {
                 case EPositions.Admin:
                     scContent.Panel1.Controls.Clear();
-                     scContent.Panel1.Controls.Add(new UcButtonAdmin(scContent.Panel2, _myUser.Id));
+                    scContent.Panel1.Controls.Add(new UcButtonAdmin(scContent.Panel2, _myUser.Id));
                     break;
                      
                 case EPositions.Doctor:
@@ -80,8 +80,8 @@ namespace HospitalApp
                     scContent.Panel1.Controls.Add(new UcButtonRegistry(scContent.Panel2));
                     break;
 
-                case EPositions.None:
-                    break;
+                //case EPositions.None:
+                //    break;
 
                 default:
                     throw new ArgumentOutOfRangeException();

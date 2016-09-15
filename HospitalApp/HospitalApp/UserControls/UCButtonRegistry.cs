@@ -26,6 +26,7 @@ namespace HospitalApp
         {
             InitializeComponent();
             work = myPanel;
+            btnNewPatient.PerformClick();
         }
 
         
