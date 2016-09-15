@@ -56,6 +56,7 @@ namespace HospitalApp
             EPositions position;
             using (var context = new HospitalDbContext())
             {
+                //ToDo Check for null
                 position = (EPositions)context.Users.Include(x=>x.Position).FirstOrDefault(x => x.Id == _myUser.Id).Position.PositionCode;
             }
             switch (position)
