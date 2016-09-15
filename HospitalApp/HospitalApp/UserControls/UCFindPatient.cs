@@ -55,9 +55,13 @@ namespace HospitalApp
                 {
                     _users = _users.Where(x => x.IdentificationNumber.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
                 }
+                _users = _users.Where(x => x.Birthday.Year == dtpBirthday.Value.Year
+                                        && x.Birthday.Month == dtpBirthday.Value.Month
+                                        && x.Birthday.Day == dtpBirthday.Value.Day).ToList();
 
                 _users = _users.OrderByDescending(x=>x.FirstName).ToList();
                 AddToList();
+                
             }
         }
 

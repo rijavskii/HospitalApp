@@ -29,7 +29,7 @@ namespace HospitalApp.UserControls
         {
             bool isValid = true;
 
-            if (tbFirstName.Text.Length < 3)
+            if (tbFirstName.Text.Trim().Length < 3)
             {
                 tbFirstName.BackColor = Color.Red;
                 isValid = false;
@@ -39,7 +39,7 @@ namespace HospitalApp.UserControls
                 tbFirstName.BackColor = Color.White;
             }
 
-            if (tbMiddleName.Text.Length < 3)
+            if (tbMiddleName.Text.Trim().Length < 3)
             {
                 tbMiddleName.BackColor = Color.Red;
                 isValid = false;
@@ -49,7 +49,7 @@ namespace HospitalApp.UserControls
                 tbMiddleName.BackColor = Color.White;
             }
 
-            if (tbLastName.Text.Length < 3)
+            if (tbLastName.Text.Trim().Length < 3)
             {
                 tbLastName.BackColor = Color.Red;
                 isValid = false;
@@ -89,7 +89,7 @@ namespace HospitalApp.UserControls
                 mtbInnNumber.BackColor = Color.White;
             }
 
-            if (tbCountry.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbCountry.Text.Trim()))
             {
                 tbCountry.BackColor = Color.Red;
                 isValid = false;
@@ -99,7 +99,17 @@ namespace HospitalApp.UserControls
                 tbCountry.BackColor = Color.White;
             }
 
-            if (tbDistrict.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbRegion.Text.Trim()))
+            {
+                tbRegion.BackColor = Color.Red;
+                isValid = false;
+            }
+            else
+            {
+                tbRegion.BackColor = Color.White;
+            }
+
+            if (String.IsNullOrWhiteSpace(tbDistrict.Text.Trim()))
             {
                 tbDistrict.BackColor = Color.Red;
                 isValid = false;
@@ -109,7 +119,7 @@ namespace HospitalApp.UserControls
                 tbDistrict.BackColor = Color.White;
             }
 
-            if (tbCity.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbCity.Text.Trim()))
             {
                 tbCity.BackColor = Color.Red;
                 isValid = false;
@@ -119,7 +129,7 @@ namespace HospitalApp.UserControls
                 tbCity.BackColor = Color.White;
             }
 
-            if (tbStreet.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbStreet.Text.Trim()))
             {
                 tbStreet.BackColor = Color.Red;
                 isValid = false;
@@ -129,7 +139,7 @@ namespace HospitalApp.UserControls
                 tbStreet.BackColor = Color.White;
             }
 
-            if (tbHouseNumber.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbHouseNumber.Text.Trim()))
             {
                 tbHouseNumber.BackColor = Color.Red;
                 isValid = false;
@@ -139,7 +149,7 @@ namespace HospitalApp.UserControls
                 tbHouseNumber.BackColor = Color.White;
             }
 
-            if (tbAppartment.Text.Trim() == String.Empty || Convert.ToInt32(tbAppartment.Text.Trim())<0)
+            if (String.IsNullOrWhiteSpace(tbAppartment.Text.Trim()))
             {
                 tbAppartment.BackColor = Color.Red;
                 isValid = false;

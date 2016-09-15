@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityDb.Context;
 using EntityDb.DAL;
+using HospitalApp.Enum;
 
 namespace HospitalApp.UserControls
 {
@@ -98,7 +99,7 @@ namespace HospitalApp.UserControls
                 mtbInnNumber.BackColor = Color.White;
             }
 
-            if (tbCountry.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbCountry.Text.Trim()))
             {
                 tbCountry.BackColor = Color.Red;
                 isValid = false;
@@ -108,7 +109,17 @@ namespace HospitalApp.UserControls
                 tbCountry.BackColor = Color.White;
             }
 
-            if (tbDistrict.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbRegion.Text.Trim()))
+            {
+                tbRegion.BackColor = Color.Red;
+                isValid = false;
+            }
+            else
+            {
+                tbRegion.BackColor = Color.White;
+            }
+
+            if (String.IsNullOrWhiteSpace(tbDistrict.Text.Trim()))
             {
                 tbDistrict.BackColor = Color.Red;
                 isValid = false;
@@ -118,7 +129,7 @@ namespace HospitalApp.UserControls
                 tbDistrict.BackColor = Color.White;
             }
 
-            if (tbCity.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbCity.Text.Trim()))
             {
                 tbCity.BackColor = Color.Red;
                 isValid = false;
@@ -128,7 +139,7 @@ namespace HospitalApp.UserControls
                 tbCity.BackColor = Color.White;
             }
 
-            if (tbStreet.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbStreet.Text.Trim()))
             {
                 tbStreet.BackColor = Color.Red;
                 isValid = false;
@@ -138,7 +149,7 @@ namespace HospitalApp.UserControls
                 tbStreet.BackColor = Color.White;
             }
 
-            if (tbHouseNumber.Text.Trim() == String.Empty)
+            if (String.IsNullOrWhiteSpace(tbHouseNumber.Text.Trim()))
             {
                 tbHouseNumber.BackColor = Color.Red;
                 isValid = false;
@@ -148,7 +159,7 @@ namespace HospitalApp.UserControls
                 tbHouseNumber.BackColor = Color.White;
             }
 
-            if (tbAppartment.Text.Trim() == String.Empty || Convert.ToInt32(tbAppartment.Text.Trim())<0)
+            if (String.IsNullOrWhiteSpace(tbAppartment.Text.Trim()))
             {
                 tbAppartment.BackColor = Color.Red;
                 isValid = false;
@@ -287,16 +298,21 @@ namespace HospitalApp.UserControls
 
         private void FillPositionsCb()
         {
-            using (var context = new HospitalDbContext())
+          
+            foreach (string pos in GetDataSourceTypes())
             {
-                List<Positions> pos = context.Positions.ToList();
-                foreach (Positions _pos in pos)
-                {
-                    cbPositions.Items.Add(_pos.Name);
-                }
+                if (pos.ToLower() != "admin")
+                    cbPositions.Items.Add(pos);
             }
-            cbPositions.SelectedIndex=0;
-
+            cbPositions.SelectedIndex = 0;
+        }
+        /// <summary>
+        /// Return list strings with enum names
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetDataSourceTypes()
+        {
+            return System.Enum.GetNames(typeof(EPositions)).ToList();
         }
     }
 }

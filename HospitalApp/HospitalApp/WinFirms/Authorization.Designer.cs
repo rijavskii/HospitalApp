@@ -101,7 +101,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::HospitalApp.Properties.Resources.eye_closed;
-            this.pictureBox2.Location = new System.Drawing.Point(341, 48);
+            this.pictureBox2.Location = new System.Drawing.Point(344, 48);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(18, 18);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

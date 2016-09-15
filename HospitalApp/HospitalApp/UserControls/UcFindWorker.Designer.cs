@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.btEdit = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -59,6 +59,7 @@
             // 
             // btEdit
             // 
+            this.btEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEdit.Location = new System.Drawing.Point(636, 454);
             this.btEdit.Name = "btEdit";
             this.btEdit.Size = new System.Drawing.Size(155, 23);
@@ -69,6 +70,7 @@
             // 
             // btnFind
             // 
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Location = new System.Drawing.Point(143, 145);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
@@ -104,6 +106,7 @@
             // 
             // btnRemoveWorker
             // 
+            this.btnRemoveWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveWorker.Location = new System.Drawing.Point(523, 454);
             this.btnRemoveWorker.Name = "btnRemoveWorker";
             this.btnRemoveWorker.Size = new System.Drawing.Size(107, 23);
@@ -216,11 +219,11 @@
             this.chRoom});
             this.lvFind.FullRowSelect = true;
             this.lvFind.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup1";
-            listViewGroup2.Tag = "1";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup1.Tag = "1";
             this.lvFind.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup1});
             this.lvFind.HideSelection = false;
             this.lvFind.Location = new System.Drawing.Point(4, 3);
             this.lvFind.MultiSelect = false;

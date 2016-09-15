@@ -30,7 +30,6 @@
         {
             this.btSave = new System.Windows.Forms.Button();
             this.lbAddress = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.lbBirhday = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
@@ -61,13 +60,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbPassportNumber = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gpAdress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(321, 282);
+            this.btSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSave.Location = new System.Drawing.Point(321, 322);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(111, 23);
             this.btSave.TabIndex = 69;
@@ -78,23 +80,15 @@
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(13, 169);
+            this.lbAddress.Location = new System.Drawing.Point(13, 222);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(45, 13);
             this.lbAddress.TabIndex = 68;
             this.lbAddress.Text = "Address";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(438, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 152);
-            this.pictureBox1.TabIndex = 66;
-            this.pictureBox1.TabStop = false;
-            // 
             // dtpBirthday
             // 
-            this.dtpBirthday.Location = new System.Drawing.Point(107, 77);
+            this.dtpBirthday.Location = new System.Drawing.Point(107, 130);
             this.dtpBirthday.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(325, 20);
@@ -104,7 +98,7 @@
             // lbBirhday
             // 
             this.lbBirhday.AutoSize = true;
-            this.lbBirhday.Location = new System.Drawing.Point(13, 83);
+            this.lbBirhday.Location = new System.Drawing.Point(13, 136);
             this.lbBirhday.Name = "lbBirhday";
             this.lbBirhday.Size = new System.Drawing.Size(45, 13);
             this.lbBirhday.TabIndex = 62;
@@ -113,7 +107,7 @@
             // lbLastName
             // 
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(13, 59);
+            this.lbLastName.Location = new System.Drawing.Point(13, 112);
             this.lbLastName.Name = "lbLastName";
             this.lbLastName.Size = new System.Drawing.Size(58, 13);
             this.lbLastName.TabIndex = 60;
@@ -122,7 +116,7 @@
             // lbMiddleName
             // 
             this.lbMiddleName.AutoSize = true;
-            this.lbMiddleName.Location = new System.Drawing.Point(13, 38);
+            this.lbMiddleName.Location = new System.Drawing.Point(13, 91);
             this.lbMiddleName.Name = "lbMiddleName";
             this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
             this.lbMiddleName.TabIndex = 59;
@@ -130,14 +124,14 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(107, 14);
+            this.tbFirstName.Location = new System.Drawing.Point(107, 67);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(325, 20);
             this.tbFirstName.TabIndex = 54;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(107, 56);
+            this.tbLastName.Location = new System.Drawing.Point(107, 109);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(325, 20);
             this.tbLastName.TabIndex = 56;
@@ -146,7 +140,7 @@
             // lbFirstName
             // 
             this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(13, 17);
+            this.lbFirstName.Location = new System.Drawing.Point(13, 70);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(57, 13);
             this.lbFirstName.TabIndex = 58;
@@ -154,7 +148,7 @@
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Location = new System.Drawing.Point(107, 35);
+            this.tbMiddleName.Location = new System.Drawing.Point(107, 88);
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(325, 20);
             this.tbMiddleName.TabIndex = 55;
@@ -175,15 +169,15 @@
             this.gpAdress.Controls.Add(this.lblRegion);
             this.gpAdress.Controls.Add(this.lblDistrict);
             this.gpAdress.Controls.Add(this.lblCountry);
-            this.gpAdress.Location = new System.Drawing.Point(108, 152);
+            this.gpAdress.Location = new System.Drawing.Point(108, 205);
             this.gpAdress.Name = "gpAdress";
-            this.gpAdress.Size = new System.Drawing.Size(324, 124);
+            this.gpAdress.Size = new System.Drawing.Size(324, 111);
             this.gpAdress.TabIndex = 70;
             this.gpAdress.TabStop = false;
             // 
             // tbAppartment
             // 
-            this.tbAppartment.Location = new System.Drawing.Point(234, 67);
+            this.tbAppartment.Location = new System.Drawing.Point(234, 61);
             this.tbAppartment.Name = "tbAppartment";
             this.tbAppartment.Size = new System.Drawing.Size(81, 20);
             this.tbAppartment.TabIndex = 13;
@@ -205,14 +199,14 @@
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(60, 86);
+            this.tbCity.Location = new System.Drawing.Point(60, 83);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(81, 20);
             this.tbCity.TabIndex = 10;
             // 
             // tbRegion
             // 
-            this.tbRegion.Location = new System.Drawing.Point(60, 64);
+            this.tbRegion.Location = new System.Drawing.Point(60, 61);
             this.tbRegion.Name = "tbRegion";
             this.tbRegion.Size = new System.Drawing.Size(81, 20);
             this.tbRegion.TabIndex = 9;
@@ -234,7 +228,7 @@
             // lblAppartment
             // 
             this.lblAppartment.AutoSize = true;
-            this.lblAppartment.Location = new System.Drawing.Point(150, 67);
+            this.lblAppartment.Location = new System.Drawing.Point(150, 64);
             this.lblAppartment.Name = "lblAppartment";
             this.lblAppartment.Size = new System.Drawing.Size(61, 13);
             this.lblAppartment.TabIndex = 6;
@@ -261,7 +255,7 @@
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(11, 89);
+            this.lblCity.Location = new System.Drawing.Point(11, 86);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(24, 13);
             this.lblCity.TabIndex = 3;
@@ -270,7 +264,7 @@
             // lblRegion
             // 
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(11, 67);
+            this.lblRegion.Location = new System.Drawing.Point(11, 64);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(41, 13);
             this.lblRegion.TabIndex = 2;
@@ -297,7 +291,7 @@
             // mtbInnNumber
             // 
             this.mtbInnNumber.HidePromptOnLeave = true;
-            this.mtbInnNumber.Location = new System.Drawing.Point(110, 127);
+            this.mtbInnNumber.Location = new System.Drawing.Point(110, 180);
             this.mtbInnNumber.Mask = "0000 0000 00";
             this.mtbInnNumber.Name = "mtbInnNumber";
             this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
@@ -306,7 +300,7 @@
             // mtbPassportSeries
             // 
             this.mtbPassportSeries.HidePromptOnLeave = true;
-            this.mtbPassportSeries.Location = new System.Drawing.Point(176, 106);
+            this.mtbPassportSeries.Location = new System.Drawing.Point(176, 159);
             this.mtbPassportSeries.Mask = " L L";
             this.mtbPassportSeries.Name = "mtbPassportSeries";
             this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
@@ -315,7 +309,7 @@
             // mtbPassportNumber
             // 
             this.mtbPassportNumber.HidePromptOnLeave = true;
-            this.mtbPassportNumber.Location = new System.Drawing.Point(273, 106);
+            this.mtbPassportNumber.Location = new System.Drawing.Point(273, 159);
             this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
             this.mtbPassportNumber.Name = "mtbPassportNumber";
             this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
@@ -324,7 +318,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(223, 109);
+            this.label2.Location = new System.Drawing.Point(223, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 74;
@@ -333,7 +327,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 109);
+            this.label1.Location = new System.Drawing.Point(134, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 73;
@@ -342,7 +336,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 130);
+            this.label3.Location = new System.Drawing.Point(13, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 72;
@@ -351,16 +345,35 @@
             // lbPassportNumber
             // 
             this.lbPassportNumber.AutoSize = true;
-            this.lbPassportNumber.Location = new System.Drawing.Point(13, 109);
+            this.lbPassportNumber.Location = new System.Drawing.Point(13, 162);
             this.lbPassportNumber.Name = "lbPassportNumber";
-            this.lbPassportNumber.Size = new System.Drawing.Size(91, 13);
+            this.lbPassportNumber.Size = new System.Drawing.Size(51, 13);
             this.lbPassportNumber.TabIndex = 71;
-            this.lbPassportNumber.Text = "Passport Number:";
+            this.lbPassportNumber.Text = "Passport:";
             // 
-            // UCAddUser
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(168, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(230, 46);
+            this.label4.TabIndex = 78;
+            this.label4.Text = "New patient";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(438, 61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(132, 152);
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
+            // UcAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.mtbInnNumber);
             this.Controls.Add(this.mtbPassportSeries);
             this.Controls.Add(this.mtbPassportNumber);
@@ -380,11 +393,11 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
-            this.Name = "UCAddUser";
-            this.Size = new System.Drawing.Size(581, 323);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Name = "UcAddUser";
+            this.Size = new System.Drawing.Size(581, 372);
             this.gpAdress.ResumeLayout(false);
             this.gpAdress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,5 +438,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbPassportNumber;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -41,7 +41,6 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbAddress = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.clbDisease = new System.Windows.Forms.CheckedListBox();
@@ -49,11 +48,9 @@
             this.lbBannedDrugs = new System.Windows.Forms.Label();
             this.tbBannedDrugs = new System.Windows.Forms.TextBox();
             this.btSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mtbPassportNumber = new System.Windows.Forms.MaskedTextBox();
-            this.mtbPassportSeries = new System.Windows.Forms.MaskedTextBox();
             this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
+            this.tbPassport = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,14 +136,6 @@
             this.tbMiddleName.Size = new System.Drawing.Size(473, 20);
             this.tbMiddleName.TabIndex = 14;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(624, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 222);
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
@@ -198,48 +187,13 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(697, 345);
+            this.btSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSave.Location = new System.Drawing.Point(482, 309);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(111, 23);
             this.btSave.TabIndex = 33;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Series";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Number";
-            // 
-            // mtbPassportNumber
-            // 
-            this.mtbPassportNumber.HidePromptOnLeave = true;
-            this.mtbPassportNumber.Location = new System.Drawing.Point(283, 124);
-            this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
-            this.mtbPassportNumber.Name = "mtbPassportNumber";
-            this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
-            this.mtbPassportNumber.TabIndex = 37;
-            // 
-            // mtbPassportSeries
-            // 
-            this.mtbPassportSeries.HidePromptOnLeave = true;
-            this.mtbPassportSeries.Location = new System.Drawing.Point(186, 124);
-            this.mtbPassportSeries.Mask = " L L";
-            this.mtbPassportSeries.Name = "mtbPassportSeries";
-            this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
-            this.mtbPassportSeries.TabIndex = 38;
             // 
             // mtbInnNumber
             // 
@@ -250,15 +204,27 @@
             this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
             this.mtbInnNumber.TabIndex = 39;
             // 
+            // tbPassport
+            // 
+            this.tbPassport.Location = new System.Drawing.Point(120, 124);
+            this.tbPassport.Name = "tbPassport";
+            this.tbPassport.Size = new System.Drawing.Size(128, 20);
+            this.tbPassport.TabIndex = 40;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(624, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(184, 222);
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // UCEditPatientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tbPassport);
             this.Controls.Add(this.mtbInnNumber);
-            this.Controls.Add(this.mtbPassportSeries);
-            this.Controls.Add(this.mtbPassportNumber);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.lbBannedDrugs);
             this.Controls.Add(this.tbBannedDrugs);
@@ -278,7 +244,7 @@
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
             this.Name = "UCEditPatientInfo";
-            this.Size = new System.Drawing.Size(828, 379);
+            this.Size = new System.Drawing.Size(617, 379);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,10 +271,7 @@
         private System.Windows.Forms.Label lbBannedDrugs;
         private System.Windows.Forms.TextBox tbBannedDrugs;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox mtbPassportNumber;
-        private System.Windows.Forms.MaskedTextBox mtbPassportSeries;
         private System.Windows.Forms.MaskedTextBox mtbInnNumber;
+        private System.Windows.Forms.TextBox tbPassport;
     }
 }

@@ -15,11 +15,17 @@ namespace HospitalApp.UserControls
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonAdmin'
     {
         private Panel _panel;
-        public UcButtonAdmin(Panel myPanel )
+        private readonly int position;
+        public UcButtonAdmin(Panel myPanel, int id )
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'UCButtonAdmin.UCButtonAdmin()'
         {
             InitializeComponent();
+
+            position = id;
             _panel = myPanel;
+
+
+            //toolTip1.SetToolTip(tsBtnDocButtons,"Doctor interface");
         }
 
         private void tsBtnRegBut_Click(object sender, EventArgs e)
@@ -34,7 +40,8 @@ namespace HospitalApp.UserControls
             pnlButtons.Controls.Clear();
             tlpAdminBtns.Visible = false;
             pnlButtons.Show();
-            pnlButtons.Controls.Add(new UcButtonDoctor(_panel));
+            
+            pnlButtons.Controls.Add(new UcButtonDoctor(_panel, position));
         }
 
         private void tsBtnAdminButtons_Click(object sender, EventArgs e)

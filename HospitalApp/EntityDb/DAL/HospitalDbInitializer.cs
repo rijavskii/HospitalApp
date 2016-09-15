@@ -21,7 +21,7 @@ namespace EntityDb.DAL
         {
             try
             {
-                context.Positions.Add(new Positions() { Name = "undefined", PositionCode = 1});
+                context.Positions.Add(new Positions() { Name = "none", PositionCode = 1});
                 context.Positions.Add(new Positions() { Name = "doctor", PositionCode = 4});
                 context.Positions.Add(new Positions() { Name = "nurse", PositionCode = 5});
                 context.Positions.Add(new Positions() { Name = "admin", PositionCode = 2});

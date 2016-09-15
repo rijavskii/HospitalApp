@@ -64,16 +64,18 @@
             this.lblPositionType = new System.Windows.Forms.Label();
             this.cbPositions = new System.Windows.Forms.ComboBox();
             this.lblPosition = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbRoom = new System.Windows.Forms.TextBox();
             this.lblRoom = new System.Windows.Forms.Label();
+            this.lblNewWorker = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gpAdress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(329, 382);
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Location = new System.Drawing.Point(329, 383);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(111, 23);
             this.btnCreate.TabIndex = 69;
@@ -84,7 +86,7 @@
             // lbAddress
             // 
             this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(21, 194);
+            this.lbAddress.Location = new System.Drawing.Point(21, 200);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(45, 13);
             this.lbAddress.TabIndex = 68;
@@ -173,15 +175,15 @@
             this.gpAdress.Controls.Add(this.lblRegion);
             this.gpAdress.Controls.Add(this.lblDistrict);
             this.gpAdress.Controls.Add(this.lblCountry);
-            this.gpAdress.Location = new System.Drawing.Point(116, 177);
+            this.gpAdress.Location = new System.Drawing.Point(116, 183);
             this.gpAdress.Name = "gpAdress";
-            this.gpAdress.Size = new System.Drawing.Size(324, 124);
+            this.gpAdress.Size = new System.Drawing.Size(324, 110);
             this.gpAdress.TabIndex = 70;
             this.gpAdress.TabStop = false;
             // 
             // tbAppartment
             // 
-            this.tbAppartment.Location = new System.Drawing.Point(234, 67);
+            this.tbAppartment.Location = new System.Drawing.Point(234, 60);
             this.tbAppartment.Name = "tbAppartment";
             this.tbAppartment.Size = new System.Drawing.Size(81, 20);
             this.tbAppartment.TabIndex = 13;
@@ -203,14 +205,14 @@
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(60, 86);
+            this.tbCity.Location = new System.Drawing.Point(60, 82);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(81, 20);
             this.tbCity.TabIndex = 10;
             // 
             // tbRegion
             // 
-            this.tbRegion.Location = new System.Drawing.Point(60, 64);
+            this.tbRegion.Location = new System.Drawing.Point(60, 60);
             this.tbRegion.Name = "tbRegion";
             this.tbRegion.Size = new System.Drawing.Size(81, 20);
             this.tbRegion.TabIndex = 9;
@@ -232,7 +234,7 @@
             // lblAppartment
             // 
             this.lblAppartment.AutoSize = true;
-            this.lblAppartment.Location = new System.Drawing.Point(150, 67);
+            this.lblAppartment.Location = new System.Drawing.Point(150, 63);
             this.lblAppartment.Name = "lblAppartment";
             this.lblAppartment.Size = new System.Drawing.Size(61, 13);
             this.lblAppartment.TabIndex = 6;
@@ -259,7 +261,7 @@
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(11, 89);
+            this.lblCity.Location = new System.Drawing.Point(11, 85);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(24, 13);
             this.lblCity.TabIndex = 3;
@@ -268,7 +270,7 @@
             // lblRegion
             // 
             this.lblRegion.AutoSize = true;
-            this.lblRegion.Location = new System.Drawing.Point(11, 67);
+            this.lblRegion.Location = new System.Drawing.Point(11, 63);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(41, 13);
             this.lblRegion.TabIndex = 2;
@@ -295,16 +297,16 @@
             // mtbInnNumber
             // 
             this.mtbInnNumber.HidePromptOnLeave = true;
-            this.mtbInnNumber.Location = new System.Drawing.Point(118, 152);
+            this.mtbInnNumber.Location = new System.Drawing.Point(115, 164);
             this.mtbInnNumber.Mask = "0000 0000 00";
             this.mtbInnNumber.Name = "mtbInnNumber";
-            this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
+            this.mtbInnNumber.Size = new System.Drawing.Size(78, 20);
             this.mtbInnNumber.TabIndex = 77;
             // 
             // mtbPassportSeries
             // 
             this.mtbPassportSeries.HidePromptOnLeave = true;
-            this.mtbPassportSeries.Location = new System.Drawing.Point(185, 133);
+            this.mtbPassportSeries.Location = new System.Drawing.Point(189, 138);
             this.mtbPassportSeries.Mask = " L L";
             this.mtbPassportSeries.Name = "mtbPassportSeries";
             this.mtbPassportSeries.Size = new System.Drawing.Size(34, 20);
@@ -313,7 +315,7 @@
             // mtbPassportNumber
             // 
             this.mtbPassportNumber.HidePromptOnLeave = true;
-            this.mtbPassportNumber.Location = new System.Drawing.Point(282, 133);
+            this.mtbPassportNumber.Location = new System.Drawing.Point(286, 138);
             this.mtbPassportNumber.Mask = " 0 0 0 0 0 0";
             this.mtbPassportNumber.Name = "mtbPassportNumber";
             this.mtbPassportNumber.Size = new System.Drawing.Size(66, 20);
@@ -322,7 +324,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 136);
+            this.label2.Location = new System.Drawing.Point(236, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 74;
@@ -331,7 +333,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 136);
+            this.label1.Location = new System.Drawing.Point(147, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 73;
@@ -340,7 +342,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 155);
+            this.label3.Location = new System.Drawing.Point(22, 167);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 72;
@@ -349,15 +351,15 @@
             // lbPassportNumber
             // 
             this.lbPassportNumber.AutoSize = true;
-            this.lbPassportNumber.Location = new System.Drawing.Point(21, 136);
+            this.lbPassportNumber.Location = new System.Drawing.Point(21, 141);
             this.lbPassportNumber.Name = "lbPassportNumber";
-            this.lbPassportNumber.Size = new System.Drawing.Size(91, 13);
+            this.lbPassportNumber.Size = new System.Drawing.Size(51, 13);
             this.lbPassportNumber.TabIndex = 71;
-            this.lbPassportNumber.Text = "Passport Number:";
+            this.lbPassportNumber.Text = "Passport:";
             // 
             // tbPositionsType
             // 
-            this.tbPositionsType.Location = new System.Drawing.Point(115, 333);
+            this.tbPositionsType.Location = new System.Drawing.Point(115, 324);
             this.tbPositionsType.Name = "tbPositionsType";
             this.tbPositionsType.Size = new System.Drawing.Size(169, 20);
             this.tbPositionsType.TabIndex = 85;
@@ -365,7 +367,7 @@
             // lblPositionType
             // 
             this.lblPositionType.AutoSize = true;
-            this.lblPositionType.Location = new System.Drawing.Point(21, 340);
+            this.lblPositionType.Location = new System.Drawing.Point(21, 331);
             this.lblPositionType.Name = "lblPositionType";
             this.lblPositionType.Size = new System.Drawing.Size(67, 13);
             this.lblPositionType.TabIndex = 84;
@@ -376,7 +378,7 @@
             this.cbPositions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbPositions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPositions.FormattingEnabled = true;
-            this.cbPositions.Location = new System.Drawing.Point(115, 307);
+            this.cbPositions.Location = new System.Drawing.Point(115, 298);
             this.cbPositions.Name = "cbPositions";
             this.cbPositions.Size = new System.Drawing.Size(169, 21);
             this.cbPositions.TabIndex = 83;
@@ -384,11 +386,38 @@
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(21, 315);
+            this.lblPosition.Location = new System.Drawing.Point(21, 306);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(44, 13);
             this.lblPosition.TabIndex = 82;
             this.lblPosition.Text = "Position";
+            // 
+            // tbRoom
+            // 
+            this.tbRoom.Location = new System.Drawing.Point(115, 351);
+            this.tbRoom.Name = "tbRoom";
+            this.tbRoom.Size = new System.Drawing.Size(81, 20);
+            this.tbRoom.TabIndex = 15;
+            // 
+            // lblRoom
+            // 
+            this.lblRoom.AutoSize = true;
+            this.lblRoom.Location = new System.Drawing.Point(21, 354);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(35, 13);
+            this.lblRoom.TabIndex = 14;
+            this.lblRoom.Text = "Room";
+            // 
+            // lblNewWorker
+            // 
+            this.lblNewWorker.AutoSize = true;
+            this.lblNewWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblNewWorker.Location = new System.Drawing.Point(194, 0);
+            this.lblNewWorker.Name = "lblNewWorker";
+            this.lblNewWorker.Size = new System.Drawing.Size(185, 44);
+            this.lblNewWorker.TabIndex = 86;
+            this.lblNewWorker.Text = "New worker";
+            this.lblNewWorker.UseCompatibleTextRendering = true;
             // 
             // pictureBox1
             // 
@@ -398,26 +427,11 @@
             this.pictureBox1.TabIndex = 66;
             this.pictureBox1.TabStop = false;
             // 
-            // tbRoom
-            // 
-            this.tbRoom.Location = new System.Drawing.Point(115, 360);
-            this.tbRoom.Name = "tbRoom";
-            this.tbRoom.Size = new System.Drawing.Size(81, 20);
-            this.tbRoom.TabIndex = 15;
-            // 
-            // lblRoom
-            // 
-            this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(21, 363);
-            this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(35, 13);
-            this.lblRoom.TabIndex = 14;
-            this.lblRoom.Text = "Room";
-            // 
             // UcAddWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblNewWorker);
             this.Controls.Add(this.tbRoom);
             this.Controls.Add(this.tbPositionsType);
             this.Controls.Add(this.lblRoom);
@@ -444,7 +458,7 @@
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
             this.Name = "UcAddWorker";
-            this.Size = new System.Drawing.Size(594, 405);
+            this.Size = new System.Drawing.Size(594, 412);
             this.gpAdress.ResumeLayout(false);
             this.gpAdress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -494,5 +508,6 @@
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.TextBox tbRoom;
         private System.Windows.Forms.Label lblRoom;
+        private System.Windows.Forms.Label lblNewWorker;
     }
 }

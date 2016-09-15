@@ -18,6 +18,8 @@ namespace HospitalApp
     public partial class SignUpToDoctor : Form
     {
         private readonly int concreteUser;
+        private readonly AutoCompleteStringCollection _collection = new AutoCompleteStringCollection();
+
         /// <summary>
         /// Main constructor
         /// </summary>
@@ -74,7 +76,6 @@ namespace HospitalApp
             }
         }
 
-        private readonly AutoCompleteStringCollection _collection = new AutoCompleteStringCollection();
         private void tbDocType_TextChanged(object sender, EventArgs e)
         {
             TextBox t = sender as TextBox;
@@ -103,6 +104,8 @@ namespace HospitalApp
 
                 _collection.AddRange(myArr);
             }
+
+            
         }
 
         private void FillTime()
@@ -114,8 +117,7 @@ namespace HospitalApp
             for (int i = 0; i < workTime; i++)
             {
                 var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
-                a.SubItems.Add("Empty");
-                a.SubItems.Add("Me");
+                
                 schedule = schedule.AddMinutes(30);
                 
             }
@@ -197,7 +199,8 @@ namespace HospitalApp
                 context.WorkSchedules.Add(currentSchedules);
                 context.SaveChanges();
                 var result =
-                    $"{myPatient.FirstName} {myPatient.LastName} signed to {myDoc.Position.WorkerPositionType.Name}";
+                    $"\"{myPatient.FirstName} {myPatient.LastName}\" signed to \"{myDoc.Position.WorkerPositionType.Name}\"" +
+                    $" {data.ToLongDateString()} {data.ToShortTimeString()}";
 
                 MessageBox.Show(result,"Sign up", MessageBoxButtons.OK);
             }
@@ -206,6 +209,11 @@ namespace HospitalApp
 
         private void dtpSignPatientDate_ValueChanged(object sender, EventArgs e)
         {
+            DocSchedule();
+        }
+
+        private void DocSchedule()
+        {
             lvSchedule.Items.Clear();
             if (lvDoctors.SelectedIndices.Count <= 0) return;
 
@@ -213,11 +221,8 @@ namespace HospitalApp
 
             using (var context = new HospitalDbContext())
             {
-
                 //Select focused Id doctor from list view, lvHeader with id not exist
                 int docId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[4].Text);
-                var concreteSchedule = context.WorkSchedules.Where(x => x.Worker.Id == docId);
-                concreteSchedule = concreteSchedule.OrderBy(x => x.Data);
 
                 int workTime = 17;
                 DateTime schedule = dtpSignPatientDate.Value;
@@ -226,24 +231,35 @@ namespace HospitalApp
 
                 for (int i = 0; i < workTime; i++)
                 {
-                    var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
-
                     WorkSchedules signIn =
                         context.WorkSchedules.Include(x => x.Worker).
-                        Include(x => x.Patient).FirstOrDefault(x => x.Worker.Id == docId
-                                && x.Data.Year == date.Year
-                                && x.Data.Month == date.Month
-                                && x.Data.Day == date.Day
-                                && x.Data.Hour == schedule.Hour
-                                && x.Data.Minute == schedule.Minute);
+                            Include(x => x.Patient).FirstOrDefault(x => x.Worker.Id == docId
+                                                                        && x.Data.Year == date.Year
+                                                                        && x.Data.Month == date.Month
+                                                                        && x.Data.Day == date.Day
+                                                                        && x.Data.Hour == schedule.Hour
+                                                                        && x.Data.Minute == schedule.Minute);
 
                     string patient = $"{signIn?.Patient.LastName} {signIn?.Patient.FirstName}";
-                    a.SubItems.Add(signIn == null ? "" : "busy");
-                    a.SubItems.Add(patient);
+
+                    var time = new ListViewItem(schedule.ToShortTimeString());
+                    time.SubItems.Add(signIn == null ? "" : "busy");
+                    time.SubItems.Add(patient);
+                    lvSchedule.Items.Add(time);
 
                     schedule = schedule.AddMinutes(30);
                 }
             }
+        }
+
+        private void lvDoctors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DocSchedule();
+        }
+
+        private void lvSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSignUp.Enabled = true;
         }
     }
 }

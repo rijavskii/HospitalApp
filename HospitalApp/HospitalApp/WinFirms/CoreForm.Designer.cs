@@ -29,67 +29,56 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoreForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.msMainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportMedicineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scContent = new System.Windows.Forms.SplitContainer();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.menuStrip1.SuspendLayout();
+            this.tsTips = new System.Windows.Forms.ToolStrip();
+            this.msMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
             this.scContent.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // msMainMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(995, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.msMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.msMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.msMainMenu.Name = "msMainMenu";
+            this.msMainMenu.Size = new System.Drawing.Size(995, 24);
+            this.msMainMenu.TabIndex = 0;
+            this.msMainMenu.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importMedicineToolStripMenuItem,
-            this.exportMedicineToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // importMedicineToolStripMenuItem
-            // 
-            this.importMedicineToolStripMenuItem.Name = "importMedicineToolStripMenuItem";
-            this.importMedicineToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.importMedicineToolStripMenuItem.Text = "Import medicine";
-            this.importMedicineToolStripMenuItem.Click += new System.EventHandler(this.importMedicineToolStripMenuItem_Click);
-            // 
-            // exportMedicineToolStripMenuItem
-            // 
-            this.exportMedicineToolStripMenuItem.Name = "exportMedicineToolStripMenuItem";
-            this.exportMedicineToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.exportMedicineToolStripMenuItem.Text = "Export medicine";
-            this.exportMedicineToolStripMenuItem.Click += new System.EventHandler(this.exportMedicineToolStripMenuItem_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // scContent
             // 
@@ -102,38 +91,27 @@
             this.scContent.SplitterDistance = 200;
             this.scContent.TabIndex = 1;
             // 
-            // progressBar1
+            // tsTips
             // 
-            this.progressBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar1.Location = new System.Drawing.Point(0, 499);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(995, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Visible = false;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(100, 25);
-            this.toolStrip1.TabIndex = 0;
+            this.tsTips.Location = new System.Drawing.Point(0, 0);
+            this.tsTips.Name = "tsTips";
+            this.tsTips.Size = new System.Drawing.Size(100, 25);
+            this.tsTips.TabIndex = 0;
             // 
             // CoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 522);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.scContent);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.msMainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.msMainMenu;
             this.MinimumSize = new System.Drawing.Size(1010, 560);
             this.Name = "CoreForm";
             this.Text = "Hospital";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.msMainMenu.ResumeLayout(false);
+            this.msMainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).EndInit();
             this.scContent.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -143,16 +121,13 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip msMainMenu;
         private System.Windows.Forms.SplitContainer scContent;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportMedicineToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importMedicineToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsTips;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

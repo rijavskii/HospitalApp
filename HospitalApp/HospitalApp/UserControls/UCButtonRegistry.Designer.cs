@@ -69,7 +69,7 @@
             this.btnFindUser.Name = "btnFindUser";
             this.btnFindUser.Size = new System.Drawing.Size(179, 53);
             this.btnFindUser.TabIndex = 1;
-            this.btnFindUser.Text = "Find User";
+            this.btnFindUser.Text = "Find patient";
             this.btnFindUser.UseVisualStyleBackColor = true;
             this.btnFindUser.Click += new System.EventHandler(this.btnFindUser_Click);
             // 

@@ -28,7 +28,7 @@
         /// <summary>
         /// 
         /// </summary>
-        Undefined = 1,
+        None = 1,
 
         
     }

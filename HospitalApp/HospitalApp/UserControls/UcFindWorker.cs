@@ -73,7 +73,8 @@ namespace HospitalApp.UserControls
         {
             foreach (string pos in GetDataSourceTypes() )
             {
-                cbPositions.Items.Add(pos);
+                if(pos.ToLower() != "admin")
+                    cbPositions.Items.Add(pos);
             }
             cbPositions.SelectedIndex = 0;
         }

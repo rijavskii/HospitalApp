@@ -115,6 +115,7 @@
             this.lvDoctors.Name = "lvDoctors";
             this.lvDoctors.UseCompatibleStateImageBehavior = false;
             this.lvDoctors.View = System.Windows.Forms.View.Details;
+            this.lvDoctors.SelectedIndexChanged += new System.EventHandler(this.lvDoctors_SelectedIndexChanged);
             // 
             // chFirstName
             // 
@@ -153,6 +154,7 @@
             this.lvSchedule.Name = "lvSchedule";
             this.lvSchedule.UseCompatibleStateImageBehavior = false;
             this.lvSchedule.View = System.Windows.Forms.View.Details;
+            this.lvSchedule.SelectedIndexChanged += new System.EventHandler(this.lvSchedule_SelectedIndexChanged);
             // 
             // chTime
             // 
@@ -193,6 +195,7 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SignUpToDoctor";

@@ -81,6 +81,7 @@
     <Compile Include="Context\HeaderID.cs" />
     <Compile Include="Context\HeaderName.cs" />
     <Compile Include="Context\PrimeKei.cs" />
+    <Compile Include="Context\WorkerPositions.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Context\Manufacturer.cs" />
     <Compile Include="Context\Medicine.cs" />
@@ -95,6 +96,10 @@
     <Compile Include="Migrations\201609081555389_InitDb.cs" />
     <Compile Include="Migrations\201609081555389_InitDb.Designer.cs">
       <DependentUpon>201609081555389_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609131057548_newposition.cs" />
+    <Compile Include="Migrations\201609131057548_newposition.Designer.cs">
+      <DependentUpon>201609131057548_newposition.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,6 +126,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609081555389_InitDb.resx">
       <DependentUpon>201609081555389_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609131057548_newposition.resx">
+      <DependentUpon>201609131057548_newposition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

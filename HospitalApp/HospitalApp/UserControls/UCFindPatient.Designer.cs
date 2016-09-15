@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.lvPatients = new System.Windows.Forms.ListView();
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -76,11 +76,11 @@
             this.chInnNumber});
             this.lvPatients.FullRowSelect = true;
             this.lvPatients.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup1";
-            listViewGroup2.Tag = "1";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup1.Tag = "1";
             this.lvPatients.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup1});
             this.lvPatients.HideSelection = false;
             this.lvPatients.Location = new System.Drawing.Point(3, 6);
             this.lvPatients.MultiSelect = false;
@@ -256,6 +256,7 @@
             // 
             // btnFind
             // 
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Location = new System.Drawing.Point(143, 201);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
@@ -308,6 +309,7 @@
             // btnSignUpPatient
             // 
             this.btnSignUpPatient.Enabled = false;
+            this.btnSignUpPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignUpPatient.Location = new System.Drawing.Point(470, 447);
             this.btnSignUpPatient.Name = "btnSignUpPatient";
             this.btnSignUpPatient.Size = new System.Drawing.Size(155, 23);
@@ -319,6 +321,7 @@
             // btnEdit
             // 
             this.btnEdit.Enabled = false;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Location = new System.Drawing.Point(631, 447);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(155, 23);

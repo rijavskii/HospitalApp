@@ -65,6 +65,7 @@
             this.btnSchedule.TabIndex = 10;
             this.btnSchedule.Text = "Schedule";
             this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // tableLayoutPanel1
             // 

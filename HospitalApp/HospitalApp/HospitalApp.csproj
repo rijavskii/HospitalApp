@@ -80,28 +80,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditPatient.cs">
+    <Compile Include="WinFirms\AboutHospitalApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditPatient.Designer.cs">
+    <Compile Include="WinFirms\AboutHospitalApp.Designer.cs">
+      <DependentUpon>AboutHospitalApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinFirms\EditPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFirms\EditPatient.Designer.cs">
       <DependentUpon>EditPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignUpToDoctor.cs">
+    <Compile Include="WinFirms\PatientCard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUpToDoctor.Designer.cs">
+    <Compile Include="WinFirms\PatientCard.Designer.cs">
+      <DependentUpon>PatientCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinFirms\SearchDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFirms\SearchDoctor.Designer.cs">
+      <DependentUpon>SearchDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinFirms\SignUpToDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFirms\SignUpToDoctor.Designer.cs">
       <DependentUpon>SignUpToDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Authorization.cs">
+    <Compile Include="WinFirms\Authorization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authorization.Designer.cs">
+    <Compile Include="WinFirms\Authorization.Designer.cs">
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
-    <Compile Include="CoreForm.cs">
+    <Compile Include="WinFirms\CoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoreForm.Designer.cs">
+    <Compile Include="WinFirms\CoreForm.Designer.cs">
       <DependentUpon>CoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Enum\EPositions.cs" />
@@ -110,10 +128,10 @@
     <Compile Include="Drugs.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgressBar.cs">
+    <Compile Include="WinFirms\ProgressBar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgressBar.Designer.cs">
+    <Compile Include="WinFirms\ProgressBar.Designer.cs">
       <DependentUpon>ProgressBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +171,12 @@
     <Compile Include="UserControls\UcButtonRegistry.Designer.cs">
       <DependentUpon>UcButtonRegistry.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcDoctorSchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcDoctorSchedule.Designer.cs">
+      <DependentUpon>UcDoctorSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UcFindWorker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,19 +213,28 @@
     <Compile Include="UserControls\UcListMedicine.Designer.cs">
       <DependentUpon>UcListMedicine.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EditPatient.resx">
+    <EmbeddedResource Include="WinFirms\AboutHospitalApp.resx">
+      <DependentUpon>AboutHospitalApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinFirms\EditPatient.resx">
       <DependentUpon>EditPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUpToDoctor.resx">
+    <EmbeddedResource Include="WinFirms\PatientCard.resx">
+      <DependentUpon>PatientCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinFirms\SearchDoctor.resx">
+      <DependentUpon>SearchDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinFirms\SignUpToDoctor.resx">
       <DependentUpon>SignUpToDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authorization.resx">
+    <EmbeddedResource Include="WinFirms\Authorization.resx">
       <DependentUpon>Authorization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CoreForm.resx">
+    <EmbeddedResource Include="WinFirms\CoreForm.resx">
       <DependentUpon>CoreForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressBar.resx">
+    <EmbeddedResource Include="WinFirms\ProgressBar.resx">
       <DependentUpon>ProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -231,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcButtonRegistry.resx">
       <DependentUpon>UcButtonRegistry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcDoctorSchedule.resx">
+      <DependentUpon>UcDoctorSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UcFindWorker.resx">
       <DependentUpon>UcFindWorker.cs</DependentUpon>

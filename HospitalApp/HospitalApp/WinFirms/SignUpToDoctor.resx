@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnFind.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnFind.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 108</value>
@@ -129,7 +133,7 @@
     <value>53</value>
   </data>
   <data name="btnFind.Text" xml:space="preserve">
-    <value>Find</value>
+    <value>Find doctor</value>
   </data>
   <data name="&gt;&gt;btnFind.Name" xml:space="preserve">
     <value>btnFind</value>
@@ -395,6 +399,24 @@
   <data name="&gt;&gt;dtpSignPatientDate.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="chTime.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="chTime.Width" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="chBusy.Text" xml:space="preserve">
+    <value>Allowed</value>
+  </data>
+  <data name="chBusy.Width" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="chPatient.Text" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="chPatient.Width" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
   <data name="lvSchedule.Location" type="System.Drawing.Point, System.Drawing">
     <value>268, 44</value>
   </data>
@@ -416,23 +438,11 @@
   <data name="&gt;&gt;lvSchedule.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="chTime.Text" xml:space="preserve">
-    <value>Time</value>
+  <data name="btnSignUp.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="chTime.Width" type="System.Int32, mscorlib">
-    <value>73</value>
-  </data>
-  <data name="chBusy.Text" xml:space="preserve">
-    <value>Allowed</value>
-  </data>
-  <data name="chBusy.Width" type="System.Int32, mscorlib">
-    <value>74</value>
-  </data>
-  <data name="chPatient.Text" xml:space="preserve">
-    <value>Patient</value>
-  </data>
-  <data name="chPatient.Width" type="System.Int32, mscorlib">
-    <value>103</value>
+  <data name="btnSignUp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="btnSignUp.Location" type="System.Drawing.Point, System.Drawing">
     <value>426, 351</value>
@@ -473,7 +483,6 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>531, 388</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>

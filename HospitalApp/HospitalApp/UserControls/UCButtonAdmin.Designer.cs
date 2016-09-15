@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsBtnRegBut = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnDocButtons = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnAdminButtons = new System.Windows.Forms.ToolStripButton();
             this.tlpAdminBtns = new System.Windows.Forms.TableLayoutPanel();
             this.btnFindWorker = new System.Windows.Forms.Button();
             this.btnCreateWorker = new System.Windows.Forms.Button();
             this.pnlButtons = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tsBtnRegBut = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnDocButtons = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnAdminButtons = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tlpAdminBtns.SuspendLayout();
             this.pnlButtons.SuspendLayout();
@@ -54,37 +56,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(193, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsBtnRegBut
-            // 
-            this.tsBtnRegBut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsBtnRegBut.Image = global::HospitalApp.Properties.Resources.user_female_olive_green;
-            this.tsBtnRegBut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnRegBut.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-            this.tsBtnRegBut.Name = "tsBtnRegBut";
-            this.tsBtnRegBut.Size = new System.Drawing.Size(23, 22);
-            this.tsBtnRegBut.Text = "Registry buttons Navigation";
-            this.tsBtnRegBut.Click += new System.EventHandler(this.tsBtnRegBut_Click);
-            // 
-            // tsBtnDocButtons
-            // 
-            this.tsBtnDocButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsBtnDocButtons.Image = Properties.Resources.user;
-            this.tsBtnDocButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnDocButtons.Name = "tsBtnDocButtons";
-            this.tsBtnDocButtons.Size = new System.Drawing.Size(23, 22);
-            this.tsBtnDocButtons.Text = "Doctor buttons Navigation";
-            this.tsBtnDocButtons.Click += new System.EventHandler(this.tsBtnDocButtons_Click);
-            // 
-            // tsBtnAdminButtons
-            // 
-            this.tsBtnAdminButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsBtnAdminButtons.Image = Properties.Resources.devid;
-            this.tsBtnAdminButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnAdminButtons.Name = "tsBtnAdminButtons";
-            this.tsBtnAdminButtons.Size = new System.Drawing.Size(23, 22);
-            this.tsBtnAdminButtons.Text = "Admin buttons Navigation";
-            this.tsBtnAdminButtons.Click += new System.EventHandler(this.tsBtnAdminButtons_Click);
             // 
             // tlpAdminBtns
             // 
@@ -134,6 +105,41 @@
             this.pnlButtons.Size = new System.Drawing.Size(187, 251);
             this.pnlButtons.TabIndex = 2;
             // 
+            // tsBtnRegBut
+            // 
+            this.tsBtnRegBut.AutoToolTip = false;
+            this.tsBtnRegBut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnRegBut.Image = global::HospitalApp.Properties.Resources.user_female_olive_green;
+            this.tsBtnRegBut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnRegBut.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+            this.tsBtnRegBut.Name = "tsBtnRegBut";
+            this.tsBtnRegBut.Size = new System.Drawing.Size(23, 22);
+            this.tsBtnRegBut.Text = "Registry buttons Navigation";
+            this.tsBtnRegBut.Click += new System.EventHandler(this.tsBtnRegBut_Click);
+            // 
+            // tsBtnDocButtons
+            // 
+            this.tsBtnDocButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnDocButtons.Image = global::HospitalApp.Properties.Resources.user;
+            this.tsBtnDocButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnDocButtons.Name = "tsBtnDocButtons";
+            this.tsBtnDocButtons.Size = new System.Drawing.Size(23, 22);
+            this.tsBtnDocButtons.Text = "Doctor buttons Navigation";
+            this.tsBtnDocButtons.Click += new System.EventHandler(this.tsBtnDocButtons_Click);
+            // 
+            // tsBtnAdminButtons
+            // 
+            this.tsBtnAdminButtons.AutoToolTip = false;
+            this.tsBtnAdminButtons.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnAdminButtons.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.tsBtnAdminButtons.Image = global::HospitalApp.Properties.Resources.devid;
+            this.tsBtnAdminButtons.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnAdminButtons.Name = "tsBtnAdminButtons";
+            this.tsBtnAdminButtons.Size = new System.Drawing.Size(23, 22);
+            this.tsBtnAdminButtons.Text = "Admin buttons Navigation";
+            this.tsBtnAdminButtons.ToolTipText = "Admin buttons Navigation";
+            this.tsBtnAdminButtons.Click += new System.EventHandler(this.tsBtnAdminButtons_Click);
+            // 
             // UcButtonAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,5 +169,6 @@
         private System.Windows.Forms.ToolStripButton tsBtnDocButtons;
         private System.Windows.Forms.ToolStripButton tsBtnAdminButtons;
         private System.Windows.Forms.Panel pnlButtons;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
