@@ -17,7 +17,7 @@ namespace HospitalApp
     /// </summary>
     public partial class SignUpToDoctor : Form
     {
-        private readonly int concreteUser;
+        private readonly int _concreteUser;
         private readonly AutoCompleteStringCollection _collection = new AutoCompleteStringCollection();
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace HospitalApp
         {
             InitializeComponent();
 
-            concreteUser = patient;
+            _concreteUser = patient;
             tbDocType.AutoCompleteMode = AutoCompleteMode.Suggest;
             tbDocType.AutoCompleteSource = AutoCompleteSource.CustomSource;
             dtpSignPatientDate.MinDate = DateTime.Today;
@@ -63,6 +63,10 @@ namespace HospitalApp
             FillLvDoc(doctors);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="doctors"></param>
         public void FillLvDoc(List<Users> doctors)
         {
             foreach (var doc in doctors)
@@ -79,7 +83,7 @@ namespace HospitalApp
         {
             TextBox t = sender as TextBox;
 
-            this.tbDocType.AutoCompleteCustomSource = _collection;
+            tbDocType.AutoCompleteCustomSource = _collection;
             
             //allow take selected items in schedule list
             //var ac = lvSchedule.FocusedItem.SubItems[0].Text;
@@ -91,8 +95,8 @@ namespace HospitalApp
         {
             using (var context = new HospitalDbContext())
             {
-                //ToDo Better way - use this
-                _collection.AddRange(context.Positions.Select(x => x.Name).ToArray());
+                //Better way - use this
+                this._collection.AddRange(context.PositionTypes.Select(x => x.Name).ToArray());
 
                 //var arr = context.Positions.ToList();
                 //string[] myArr = new string[arr.Count];
@@ -109,22 +113,22 @@ namespace HospitalApp
 
             
         }
-        //ToDO Remove unusage method
-        private void FillTime()
-        {
-            int workTime = 17;
-            DateTime schedule = DateTime.Today;
-            schedule = schedule.AddHours(9);
+        //Remove unusage method
+        //private void FillTime()
+        //{
+        //    int workTime = 17;
+        //    DateTime schedule = DateTime.Today;
+        //    schedule = schedule.AddHours(9);
             
-            for (int i = 0; i < workTime; i++)
-            {
-                var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
+        //    for (int i = 0; i < workTime; i++)
+        //    {
+        //        var a = lvSchedule.Items.Add(schedule.ToShortTimeString());
                 
-                schedule = schedule.AddMinutes(30);
+        //        schedule = schedule.AddMinutes(30);
                 
-            }
+        //    }
             
-        }
+        //}
 
         //private void btnSearch_Click(object sender, EventArgs e)
         //{
@@ -170,43 +174,51 @@ namespace HospitalApp
         {
             var size = lvDoctors.FocusedItem.SubItems.Count;
             //return last subitem in listview with id
-            return Convert.ToInt32(lvDoctors.FocusedItem.SubItems[--size].Text);
+            return Convert.ToInt32(lvDoctors.FocusedItem.SubItems[size-1].Text);
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            var a = Registry.Users.GetSubKeyNames();
-
-            using (var context = new HospitalDbContext())
+            //var a = Registry.Users.GetSubKeyNames();
+            var busy = lvSchedule.FocusedItem.SubItems[chBusy.Index].Text;
+            if (string.IsNullOrWhiteSpace(busy))
             {
-                var doc = SelectedDocId();
-                //var patient = sender.GetType().GUID;
-                var myData = Convert.ToDateTime(lvSchedule.FocusedItem.SubItems[0].Text);
-
-                var data = dtpSignPatientDate.Value;
-                data = data.AddHours(myData.Hour);
-                data = data.AddMinutes(myData.Minute);
-
-                var myDoc = context.Users.First(x => x.Id == doc);
-                var myPatient = context.Users.First(x => x.Id == concreteUser);
-
-                WorkSchedules currentSchedules = new WorkSchedules()
+                using (var context = new HospitalDbContext())
                 {
-                    Worker = myDoc,
-                    Patient = myPatient,
-                    Data = data,
-                    //ToDo why it`s static number?
-                    WorkRoom = 105,
-                };
+                    var doc = SelectedDocId();
+                    //var patient = sender.GetType().GUID;
+                    var myData = Convert.ToDateTime(lvSchedule.FocusedItem.SubItems[0].Text);
 
-                context.WorkSchedules.Add(currentSchedules);
-                context.SaveChanges();
-                var result =
-                    $"\"{myPatient.FirstName} {myPatient.LastName}\" signed to \"{myDoc.Position.WorkerPositionType.Name}\"" +
-                    $" {data.ToLongDateString()} {data.ToShortTimeString()}";
-                MessageBox.Show(result,"Sign up", MessageBoxButtons.OK);
+                    var data = dtpSignPatientDate.Value;
+                    data = data.AddHours(myData.Hour);
+                    data = data.AddMinutes(myData.Minute);
+
+                    //get value via column header
+                    var room = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[chRoom.Index].Text);
+                    Users myDoc =
+                        context.Users.Include(x => x.Adress)
+                            .Include(x => x.Position.WorkerPositionType)
+                            .First(x => x.Id == doc);
+                    var myPatient = context.Users.First(x => x.Id == _concreteUser);
+
+                    WorkSchedules currentSchedules = new WorkSchedules()
+                    {
+                        Worker = myDoc,
+                        Patient = myPatient,
+                        Data = data,
+                        // why it`s static number?
+                        WorkRoom = room,
+                    };
+
+                    context.WorkSchedules.Add(currentSchedules);
+                    context.SaveChanges();
+                    var result =
+                        $"\"{myPatient.FirstName} {myPatient.LastName}\" signed to \"{myDoc.Position.WorkerPositionType.Name}\"" +
+                        $" {data.ToLongDateString()} {data.ToShortTimeString()}";
+                    MessageBox.Show(result, @"Sign up", MessageBoxButtons.OK);
+                }
+                this.Close();
             }
-            this.Close();
         }
 
         private void dtpSignPatientDate_ValueChanged(object sender, EventArgs e)
@@ -217,7 +229,7 @@ namespace HospitalApp
         private void DocSchedule()
         {
             lvSchedule.Items.Clear();
-            //ToDo Use .Any not Count
+            //Use .Any not Count
             if (lvDoctors.SelectedIndices.Count <= 0) return;
 
             var date = dtpSignPatientDate.Value;
@@ -227,13 +239,13 @@ namespace HospitalApp
                 //Select focused Id doctor from list view, lvHeader with id not exist
                 int docId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[4].Text);
 
-                //ToDo why static data?
-                int workTime = 17;
+                //why static data?
+                //int workTime = 17;
                 DateTime schedule = dtpSignPatientDate.Value;
 
                 schedule = schedule.AddHours(9);
 
-                for (int i = 0; i < workTime; i++)
+                while (true)
                 {
                     WorkSchedules signIn =
                         context.WorkSchedules.Include(x => x.Worker).
@@ -252,6 +264,9 @@ namespace HospitalApp
                     lvSchedule.Items.Add(time);
 
                     schedule = schedule.AddMinutes(30);
+
+                    // repeat till 17 o clock will come
+                    if (schedule.Hour > 16 && schedule.Minute>0) break;
                 }
             }
         }
@@ -263,7 +278,10 @@ namespace HospitalApp
 
         private void lvSchedule_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //TODO check if record is empty
             btnSignUp.Enabled = true;
         }
+
+
     }
 }

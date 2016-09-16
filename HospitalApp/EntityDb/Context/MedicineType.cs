@@ -16,8 +16,8 @@ namespace EntityDb.Context
         ///// <summary>
         ///// Name of drug type
         ///// </summary>
-        ////ToDo Rename to Name
-        ////ToDo Make Required
+        //// Rename to Name
+        //// Make Required
         //[Required]
         //public string Name { get; set; }
     }

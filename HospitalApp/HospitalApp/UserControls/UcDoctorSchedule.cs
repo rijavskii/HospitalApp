@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityDb.Context;
 using EntityDb.DAL;
+using HospitalApp.WinFirms;
 
 namespace HospitalApp.UserControls
 {
@@ -40,8 +41,8 @@ namespace HospitalApp.UserControls
             lblDayOfWeek.Text = dtpAppointmentTime.Value.DayOfWeek.ToString();
 
             var workingDate = date;
-            //ToDo if needed replase this to app.config
-            int workTime = 17;
+            // if needed replase this to app.config
+            //int workTime = 17;
 
             lvAppointment.Items.Clear();
             DateTime schedule = dtpAppointmentTime.Value;
@@ -49,7 +50,7 @@ namespace HospitalApp.UserControls
             schedule = schedule.AddHours(9);
             using (var context = new HospitalDbContext())
             {
-                for (int i = 0; i < workTime; i++)
+                while (true)
                 {
                     
                     WorkSchedules signIn =
@@ -70,17 +71,37 @@ namespace HospitalApp.UserControls
                     lvAppointment.Items.Add(time);
 
                     schedule = schedule.AddMinutes(30);
+
+                    //repeat till 17:00 o clock
+                    if (schedule.Hour > 16 && schedule.Minute > 0) break;
                 }
             }
         }
 
         private void btnPatientCard_Click(object sender, EventArgs e)
         {
-            var patient = new PatientCard();
+            var patientId = lvAppointment.FocusedItem.SubItems[chPatient.Index + 1].Text;
 
-            patient.ShowDialog();
+            if (!string.IsNullOrEmpty(patientId))
+            {
+                var patient = new PatientCard(Int32.Parse(patientId));
+
+                patient.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(@"You need to choose a record", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var appointment = new PatientApointment(currentDoctor);
 
+            appointment.ShowDialog();
+        }
     }
+
+
+    
 }

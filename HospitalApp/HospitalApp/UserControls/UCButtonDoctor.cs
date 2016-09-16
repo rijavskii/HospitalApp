@@ -30,7 +30,7 @@ namespace HospitalApp
         /// <param name="panel"></param>
         public UcButtonDoctor(Panel panel, int docId=0)
         {
-            //TODO Check if doctor. If true return id doctor, else show dialog to choose doctor if admin
+            //Check if doctor. If true return id doctor, else show dialog to choose doctor if admin
             //CheckIfDoctor(docId);
             doctor = CheckDoctor(docId);
             if (doctor > 0)
@@ -51,7 +51,7 @@ namespace HospitalApp
             using (var context = new HospitalDbContext())
             {
                 Users user = context.Users.Include(x=>x.Position).First(x => x.Id == docId);
-
+                if (user == null) return 0;
                 switch ((EPositions)user.Position.PositionCode)
                 {
                         case EPositions.Doctor:

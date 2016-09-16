@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityDb.Context;
 using EntityDb.DAL;
+using HospitalApp.WinForms;
 
 namespace HospitalApp
 {
@@ -20,8 +21,8 @@ namespace HospitalApp
     /// </summary>
     public partial class UcListMedicine : UserControl
     {
-        //ToDo Naming convention!!!
-        private List<Medicine> allDrugs ;
+        //Naming convention!!!
+        private List<Medicine> _allDrugs ;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -30,7 +31,7 @@ namespace HospitalApp
             InitializeComponent();
             using (var context = new HospitalDbContext())
             {
-                allDrugs = context.Medicines.OrderByDescending(x => x.Name).ToList();
+                _allDrugs = context.Medicines.OrderByDescending(x => x.Name).ToList();
                 AddDrugsToListView();
             }
         }
@@ -40,7 +41,7 @@ namespace HospitalApp
 
             lvDrugs.Items.Clear();
             
-                foreach (var allDrug in allDrugs)
+                foreach (var allDrug in _allDrugs)
                 {
                     var items = new ListViewItem(allDrug.Name);
                     items.SubItems.Add(allDrug.Manufacturer.FactoryName.Trim());
@@ -59,32 +60,32 @@ namespace HospitalApp
             //ListViewHitTestInfo hit = lvDrugs.HitTest(mousePosition);
             //int columnIndex = hit.Item.SubItems.IndexOf(hit.SubItem);
             //SortListView(columnIndex);
-            var lv = lvDrugs.Sorting == SortOrder.Ascending;
-            var f = chManufacturer.ListView.Sorting == SortOrder.Descending;
+            //var lv = lvDrugs.Sorting == SortOrder.Ascending;
+            //var f = chManufacturer.ListView.Sorting == SortOrder.Descending;
         }
 
-        private void SortListView(int columnIndex)
-        {
-            switch (columnIndex)
-            {
-                case 0:
-                    allDrugs = allDrugs.OrderByDescending(x => x.Name).ToList();
-                    AddDrugsToListView();
-                    break;
-                case 1:
-                    allDrugs = allDrugs.OrderByDescending(x => x.Manufacturer.FactoryName).ToList();
-                    AddDrugsToListView();
-                    break;
-                case 2:
-                    allDrugs = allDrugs.OrderByDescending(x => x.MedicineType.Name).ToList();
-                    AddDrugsToListView();
-                    break;
-                case 3:
-                    allDrugs = allDrugs.OrderByDescending(x => x.Manufacturer.Country).ToList();
-                    AddDrugsToListView();
-                    break;
-            }
-        }
+        //private void SortListView(int columnIndex)
+        //{
+        //    switch (columnIndex)
+        //    {
+        //        case 0:
+        //            _allDrugs = _allDrugs.OrderByDescending(x => x.Name).ToList();
+        //            AddDrugsToListView();
+        //            break;
+        //        case 1:
+        //            _allDrugs = _allDrugs.OrderByDescending(x => x.Manufacturer.FactoryName).ToList();
+        //            AddDrugsToListView();
+        //            break;
+        //        case 2:
+        //            _allDrugs = _allDrugs.OrderByDescending(x => x.MedicineType.Name).ToList();
+        //            AddDrugsToListView();
+        //            break;
+        //        case 3:
+        //            _allDrugs = _allDrugs.OrderByDescending(x => x.Manufacturer.Country).ToList();
+        //            AddDrugsToListView();
+        //            break;
+        //    }
+        //}
 
         /// <summary>
         /// Export medicines from .txt, .csv files into program
@@ -96,8 +97,8 @@ namespace HospitalApp
             // Displays an OpenFileDialog so the user can select a File.
             SaveFileDialog saveFile = new SaveFileDialog
             {
-                Filter = "Text Files|*.txt|CSV Files|*.csv",
-                Title = "Export Medicine"
+                Filter = @"Text Files|*.txt|CSV Files|*.csv",
+                Title = @"Export Medicine"
             };
 
             // Show the Dialog.
@@ -124,8 +125,8 @@ namespace HospitalApp
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Text Files|*.txt|CSV Files|*.csv",
-                Title = "Import Medicine"
+                Filter = @"Text Files|*.txt|CSV Files|*.csv",
+                Title = @"Import Medicine"
             };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -145,10 +146,12 @@ namespace HospitalApp
         /// Method for parsing csv and adding parsed list to database
         /// </summary>
         /// <param name="fileName">full name of working file</param>
-        private void ParseAndAddCsvToDb(string fileName)
+        private async void ParseAndAddCsvToDb(string fileName)
         {
-            pbLoading.Visible = true;
-            this.Enabled = false;
+            var progress = new LoadingForm();
+            progress.Show();
+            Enabled = false;
+            
 
             var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
             var linesMedicine = fileContent.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -167,58 +170,72 @@ namespace HospitalApp
 
             using (var context = new HospitalDbContext())
             {
-                foreach (var item in linesMedicine)
-                {
-                    List<string> medItems = item.Split(',').ToList();
-                    string nameC = medItems[manufacturerCountry].Trim();
-                    //string nameF = medItems[manufacturerName].Trim();
-                    
-                    //Manufacturer ifexist=null;
-                    //MedicineType drugType=null;
-
-                    MedicineType drugType = new MedicineType()
-                    {
-                        Name = medItems[typeMedicine]
-                    };
-                    Manufacturer manufacturer = new Manufacturer()
-                    {
-                        FactoryName = medItems[manufacturerName].Trim(),
-                        Country = medItems[manufacturerCountry].Trim()
-                    };
-                    context.Manufacturers.AddIfNoExists(manufacturer);
-                    //context.MedicineType.AddOrUpdate(drugType);
-                    context.SaveChanges();
-                    //Name = medItems[typeMedicine];
-                    context.Medicines.Add(new Medicine()
-                    {
-                        Name = medItems[nameMedicine].Trim(),
-                        Manufacturer = manufacturer,
-                        MedicineType = drugType
-                    });
-                }
                 try
                 {
-                    context.SaveChanges();
+                    List<MedicineType> drugs = new List<MedicineType>();
+                    List<Manufacturer> manuf = new List<Manufacturer>();
+
+                    foreach (var item in linesMedicine)
+                    {
+                        List<string> medItems = item.Split(',').ToList();
+                    
+                        MedicineType drugType = new MedicineType()
+                        {
+                            Name = medItems[typeMedicine]
+                        };
+
+                        Manufacturer manufacturer = new Manufacturer()
+                        {
+                            FactoryName = medItems[manufacturerName].Trim(),
+                            Country = medItems[manufacturerCountry].Trim()
+                        };
+                        drugs.Add(drugType);
+                        manuf.Add(manufacturer);
+                    }
+                    context.Manufacturers.AddRange(manuf);
+                    context.MedicineType.AddRange(drugs);
+                    await context.SaveChangesAsync();
+                    List<Medicine> medicine = new List<Medicine>();
+                    int i = 0;
+                    foreach (var item in linesMedicine)
+                    {
+                        List<string> medItems = item.Split(',').ToList();
+
+                        var mydrugs = new Medicine()
+                        {
+                            Name = medItems[nameMedicine].Trim(),
+                            Manufacturer = manuf[i],
+                            MedicineType = drugs[i]
+                        };
+                        medicine.Add(mydrugs);
+                        i++;
+                    }
+
+                    context.Medicines.AddRange(medicine);
+
+                    await context.SaveChangesAsync();
                 }
                 catch (DbEntityValidationException a)
                 {
                     ShowErrors(a);
                     throw;
                 }
+                finally
+                {
+                    progress.CloseForm();
+                    Enabled = true;
+                }
             }
-
-            this.pbLoading.Visible = false;
-            this.Enabled = true;
-
+            
             var name = fileName.Split('\\').Last();
-            MessageBox.Show("File " + name + " imported!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"File " + name + @" imported!", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ShowErrors(DbEntityValidationException a)
         {
             foreach (var eve in a.EntityValidationErrors)
             {
-                MessageBox.Show("Entity of type \"" + eve.Entry.Entity.GetType().Name + "\" in state \"" + eve.Entry.State + "\" has the following validation errors:", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(@"Entity of type " + eve.Entry.Entity.GetType().Name + @" in state " + eve.Entry.State + "\" has the following validation errors:", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 foreach (var ve in eve.ValidationErrors)
                 {
@@ -232,36 +249,79 @@ namespace HospitalApp
         /// Read and parse data about drugs from *.txt file
         /// </summary>
         /// <param name="fileName"></param>
-        private void TxtParseMethod(string fileName)
+        private async void TxtParseMethod(string fileName)
         {
-            pbLoading.Visible = true;
-            this.Enabled = false;
+            var progress = new LoadingForm();
+            progress.Show();
+            Enabled = false;
 
             var fileContent = File.ReadAllText(fileName, Encoding.UTF8);
 
             List<string> stringMedicine = fileContent.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            List<Drugs> medDrug = new List<Drugs>();
-
-            foreach (var item in stringMedicine)
+            using (var context = new HospitalDbContext())
             {
-                var medItems = item.Split(',').ToList();
-
-                Drugs itemMedicine = new Drugs
+                try
                 {
-                    Name = medItems[0],
-                    Manufacturers = new Manufacturer()
-                    {
-                        FactoryName = medItems[1],
-                        Country = medItems[2]
-                    },
-                    Type = new MedicineType() { Name = medItems[3] }
-                };
+                    List<MedicineType> drugs = new List<MedicineType>();
+                    List<Manufacturer> manuf = new List<Manufacturer>();
 
-                medDrug.Add(itemMedicine);
+                    foreach (var item in stringMedicine)
+                    {
+                        List<string> medItems = item.Split(',').ToList();
+
+                        MedicineType drugType = new MedicineType()
+                        {
+                            Name = medItems[3]
+                        };
+
+                        Manufacturer manufacturer = new Manufacturer()
+                        {
+                            FactoryName = medItems[1].Trim(),
+                            Country = medItems[2].Trim()
+                        };
+                        drugs.Add(drugType);
+                        manuf.Add(manufacturer);
+                    }
+
+                    context.Manufacturers.AddRange(manuf);
+                    context.MedicineType.AddRange(drugs);
+                    await context.SaveChangesAsync();
+                    List<Medicine> medicine = new List<Medicine>();
+                    int i = 0;
+                    foreach (var item in stringMedicine)
+                    {
+                        List<string> medItems = item.Split(',').ToList();
+
+                        var mydrugs = new Medicine()
+                        {
+                            Name = medItems[0].Trim(),
+                            Manufacturer = manuf[i],
+                            MedicineType = drugs[i]
+                        };
+                        medicine.Add(mydrugs);
+                        i++;
+                    }
+
+                    context.Medicines.AddRange(medicine);
+
+                    await context.SaveChangesAsync();
+                }
+                catch (DbEntityValidationException a)
+                {
+                    ShowErrors(a);
+                    throw;
+                }
+                finally
+                {
+                    progress.CloseForm();
+                    Enabled = true;
+
+                }
             }
+
             var name = fileName.Split('\\').Last();
-            AddDrugToDb(medDrug, name);
+            //AddDrugToDb(medDrug, name);
         }
 
         /// <summary>
@@ -272,7 +332,7 @@ namespace HospitalApp
         /// </summary>
         /// <param name="medDrug">List of drugs which need to be saved</param>
         /// <param name="name">short name of file we read</param>
-        private void AddDrugToDb(List<Drugs> medDrug, string name)
+        private async void AddDrugToDb(List<Drugs> medDrug, string name)
         {
             using (var context = new HospitalDbContext())
             {
@@ -292,12 +352,11 @@ namespace HospitalApp
                         }
                     });
                 }
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
 
-            MessageBox.Show("File " + name + " imported!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.pbLoading.Visible = false;
-            this.Enabled = true;
+            MessageBox.Show(@"File " + name + @" imported!", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         /// <summary>
@@ -324,7 +383,7 @@ namespace HospitalApp
             //throw new NotImplementedException();
 
             var name = fileName.Split('\\').Last();
-            MessageBox.Show("File " + name + " was succefully created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"File " + name + @" was succefully created!", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -336,7 +395,7 @@ namespace HospitalApp
             var name = fileName.Split('\\').Last();
             var context = new HospitalDbContext();
             var listMedicines = context.Medicines.ToList();
-            var size = listMedicines.Count;
+            //var size = listMedicines.Count;
 
             using (var fileStream = new FileStream(fileName, FileMode.Create))
             {
@@ -360,7 +419,7 @@ namespace HospitalApp
                     }
                 }
             }
-            MessageBox.Show("File " + name + " was succefully created!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"File " + name + @" was succefully created!", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         

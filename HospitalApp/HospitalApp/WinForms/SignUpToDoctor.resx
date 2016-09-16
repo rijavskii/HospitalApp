@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnFind.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 108</value>
+    <value>151, 108</value>
   </data>
   <data name="btnFind.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 23</value>
@@ -229,7 +229,7 @@
     <value>7</value>
   </data>
   <data name="tbDocType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 82</value>
+    <value>120, 82</value>
   </data>
   <data name="tbDocType.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 20</value>
@@ -250,7 +250,7 @@
     <value>8</value>
   </data>
   <data name="tbFirstName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 18</value>
+    <value>120, 39</value>
   </data>
   <data name="tbFirstName.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 20</value>
@@ -271,7 +271,7 @@
     <value>9</value>
   </data>
   <data name="tbLastName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 60</value>
+    <value>120, 60</value>
   </data>
   <data name="tbLastName.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 20</value>
@@ -319,7 +319,7 @@
     <value>11</value>
   </data>
   <data name="tbMiddleName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 39</value>
+    <value>120, 18</value>
   </data>
   <data name="tbMiddleName.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 20</value>
@@ -346,7 +346,7 @@
     <value>LastName</value>
   </data>
   <data name="chLastName.Width" type="System.Int32, mscorlib">
-    <value>65</value>
+    <value>61</value>
   </data>
   <data name="chDocType.Text" xml:space="preserve">
     <value>Doctor </value>
@@ -357,11 +357,14 @@
   <data name="chRoom.Text" xml:space="preserve">
     <value>Room</value>
   </data>
+  <data name="chRoom.Width" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
   <data name="lvDoctors.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 137</value>
   </data>
   <data name="lvDoctors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 243</value>
+    <value>245, 243</value>
   </data>
   <data name="lvDoctors.TabIndex" type="System.Int32, mscorlib">
     <value>54</value>
@@ -379,10 +382,10 @@
     <value>3</value>
   </data>
   <data name="dtpSignPatientDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 18</value>
+    <value>281, 18</value>
   </data>
   <data name="dtpSignPatientDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 20</value>
+    <value>242, 20</value>
   </data>
   <data name="dtpSignPatientDate.TabIndex" type="System.Int32, mscorlib">
     <value>55</value>
@@ -399,11 +402,29 @@
   <data name="&gt;&gt;dtpSignPatientDate.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="chTime.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="chTime.Width" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="chBusy.Text" xml:space="preserve">
+    <value>Allowed</value>
+  </data>
+  <data name="chBusy.Width" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="chPatient.Text" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="chPatient.Width" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
   <data name="lvSchedule.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 44</value>
+    <value>281, 44</value>
   </data>
   <data name="lvSchedule.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 296</value>
+    <value>242, 296</value>
   </data>
   <data name="lvSchedule.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
@@ -419,24 +440,6 @@
   </data>
   <data name="&gt;&gt;lvSchedule.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="chTime.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="chTime.Width" type="System.Int32, mscorlib">
-    <value>73</value>
-  </data>
-  <data name="chBusy.Text" xml:space="preserve">
-    <value>Allowed</value>
-  </data>
-  <data name="chBusy.Width" type="System.Int32, mscorlib">
-    <value>74</value>
-  </data>
-  <data name="chPatient.Text" xml:space="preserve">
-    <value>Patient</value>
-  </data>
-  <data name="chPatient.Width" type="System.Int32, mscorlib">
-    <value>103</value>
   </data>
   <data name="btnSignUp.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>

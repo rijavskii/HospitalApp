@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityDb.Context
 {
-    //ToDo Naming convention
+    // Naming convention
     /// <summary>
     /// 
     /// </summary>

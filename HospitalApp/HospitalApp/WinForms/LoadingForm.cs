@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalApp
+namespace HospitalApp.WinForms
 {
-    public partial class PatientCard : Form
+    public partial class LoadingForm : Form
     {
-        public PatientCard()
+        public LoadingForm()
         {
             InitializeComponent();
         }
 
-        private void PatientCard_Load(object sender, EventArgs e)
+        public void CloseForm()
         {
-
+            Close();
         }
     }
 }

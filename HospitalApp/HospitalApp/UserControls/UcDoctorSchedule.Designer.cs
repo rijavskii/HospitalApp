@@ -36,7 +36,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPatientCard = new System.Windows.Forms.Button();
             this.btnDiagnose = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnPatientAppointment = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.btnPatientCard, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnDiagnose, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnPatientAppointment, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(282, 15);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -126,16 +126,17 @@
             this.btnDiagnose.Text = "Write diagnose";
             this.btnDiagnose.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnPatientAppointment
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(3, 159);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 71);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Patient appointment";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnPatientAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPatientAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPatientAppointment.Location = new System.Drawing.Point(3, 159);
+            this.btnPatientAppointment.Name = "btnPatientAppointment";
+            this.btnPatientAppointment.Size = new System.Drawing.Size(197, 71);
+            this.btnPatientAppointment.TabIndex = 1;
+            this.btnPatientAppointment.Text = "Patient appointment";
+            this.btnPatientAppointment.UseVisualStyleBackColor = true;
+            this.btnPatientAppointment.Click += new System.EventHandler(this.button3_Click);
             // 
             // UcDoctorSchedule
             // 
@@ -162,6 +163,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnPatientCard;
         private System.Windows.Forms.Button btnDiagnose;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPatientAppointment;
     }
 }

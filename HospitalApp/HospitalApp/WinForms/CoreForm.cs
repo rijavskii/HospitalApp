@@ -24,7 +24,7 @@ namespace HospitalApp
         /// <summary>
         /// Authorized user
         /// </summary>
-        //ToDo store user id in hidden field, and read it from db when it`s needed 
+        // store user id in hidden field, and read it from db when it`s needed 
         private readonly Users _myUser;
 
         ///// <summary>
@@ -56,8 +56,11 @@ namespace HospitalApp
             EPositions position;
             using (var context = new HospitalDbContext())
             {
-                //ToDo Check for null
-                position = (EPositions)context.Users.Include(x=>x.Position).FirstOrDefault(x => x.Id == _myUser.Id).Position.PositionCode;
+                //Check for null
+                var firstOrDefault = context.Users.Include(x=>x.Position).FirstOrDefault(x => x.Id == _myUser.Id);
+                if (firstOrDefault != null)
+                    position = (EPositions) firstOrDefault.Position.PositionCode;
+                else return;
             }
             switch (position)
             {
@@ -105,7 +108,7 @@ namespace HospitalApp
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO about
+            // about
             var about = new AboutHospitalApp();
             about.ShowDialog();
         }

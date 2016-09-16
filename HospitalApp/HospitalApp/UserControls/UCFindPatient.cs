@@ -13,7 +13,7 @@ namespace HospitalApp
     /// </summary>
     public partial class UcFindPatient : UserControl
     {
-        //ToDo remove global variables. Use only local
+        //remove global variables. Use only local
         
         private List<Users> _users;
 
@@ -36,28 +36,28 @@ namespace HospitalApp
                 
                 if (!String.IsNullOrWhiteSpace(tbFirstName.Text))
                 {
-                    _users = _users.Where(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim()).ToList();
+                    _users = _users.FindAll(x => x.FirstName.ToLower() == tbFirstName.Text.ToLower().Trim());
                 }
 
                 if (!String.IsNullOrWhiteSpace(tbLastName.Text))
                 {
-                    _users = _users.Where(x => x.LastName.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
+                    _users = _users.FindAll(x => x.LastName.ToLower() == tbLastName.Text.ToLower().Trim());
                 }
                 
                 if (!String.IsNullOrWhiteSpace(mtbPassportSeries.Text) && String.IsNullOrWhiteSpace(mtbPassportNumber.Text))
                 {
                     var passport = mtbPassportSeries.Text + mtbPassportNumber.Text;
-                    _users = _users.Where(x => x.Passport.ToLower() == passport.ToLower().Trim()).ToList();
+                    _users = _users.FindAll(x => x.Passport.ToLower() == passport.ToLower().Trim());
                 }
 
                 if (!String.IsNullOrWhiteSpace(mtbInnNumber.Text))
                 {
-                    _users = _users.Where(x => x.IdentificationNumber.ToLower() == tbLastName.Text.ToLower().Trim()).ToList();
+                    _users = _users.FindAll(x => x.IdentificationNumber.ToLower() == tbLastName.Text.ToLower().Trim());
                 }
-                _users = _users.Where(x => x.Birthday.Year == dtpBirthday.Value.Year
+                _users = _users.FindAll(x => x.Birthday.Year == dtpBirthday.Value.Year
                                         && x.Birthday.Month == dtpBirthday.Value.Month
-                                        && x.Birthday.Day == dtpBirthday.Value.Day).ToList();
-                //ToDo use .ToList only there, not in code behind
+                                        && x.Birthday.Day == dtpBirthday.Value.Day);
+                // use .ToList only there, not in code behind
                 _users = _users.OrderByDescending(x=>x.FirstName).ToList();
                 AddToList();
                 
@@ -116,7 +116,7 @@ namespace HospitalApp
 
         private void EditPatient()
         {
-            //ToDo You can set up selection properties in properties of control and multiple selection will be denied
+            //You can set up selection properties in properties of control and multiple selection will be denied
 
             var currentUser = _users.ElementAt(lvPatients.FocusedItem.Index);
             EditPatient editPatient = new EditPatient(currentUser);

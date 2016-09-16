@@ -5,7 +5,6 @@ using System.Text;
 
 namespace HospitalApp
 {
-    //ToDo move this class from "Context" folder
     /// <summary>
     /// Helper with "Convert to MD5" method
     /// </summary>

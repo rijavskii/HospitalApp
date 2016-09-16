@@ -16,8 +16,8 @@ namespace HospitalApp
 {
     public partial class SearchDoctor : Form
     {
-        //ToDO why public not private?
-        public int doctorId;
+        // why public not private?
+        private int doctorId;
         public SearchDoctor()
         {
             InitializeComponent();
@@ -66,11 +66,13 @@ namespace HospitalApp
         private void lvDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
             var size = lvDoctors.FocusedItem.SubItems.Count-1;
-            //ToDo use new variable with lvDoctors.FocusedItem.SubItems[size].Text
+            // use new variable with lvDoctors.FocusedItem.SubItems[size].Text
+            var value = lvDoctors.FocusedItem.SubItems[size].Text;
+            
             //because you two times read this data
-            if (String.IsNullOrWhiteSpace(lvDoctors.FocusedItem.SubItems[size].Text)) return;
+            if (String.IsNullOrWhiteSpace(value)) return;
 
-            var userId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[size].Text);
+            var userId = Convert.ToInt32(value);
             using (var context = new HospitalDbContext())
             {
                 var myDoc = context.Users.Include(x=>x.Position.WorkerPositionType).First(x => x.Id == userId);
@@ -84,7 +86,7 @@ namespace HospitalApp
 
         private void FillUserInfo(Users user)
         {
-            this.tbDocFirstName.Text = user.FirstName;
+            tbDocFirstName.Text = user.FirstName;
             tbDocMiddleName.Text = user.MiddleName;
             tbDocLastName.Text = user.LastName;
             dtpBirthday.Value = user.Birthday;
@@ -97,6 +99,10 @@ namespace HospitalApp
 
         }
 
+        /// <summary>
+        /// Return Id of current doctor from search
+        /// </summary>
+        /// <returns></returns>
         public int GetDoctor()
         {
             return doctorId;
@@ -105,7 +111,7 @@ namespace HospitalApp
         private void btnChoose_Click(object sender, EventArgs e)
         {
             doctorId = Convert.ToInt32(lvDoctors.FocusedItem.SubItems[(lvDoctors.FocusedItem.SubItems.Count)- 1].Text);
-            this.DialogResult=DialogResult.OK;
+            DialogResult=DialogResult.OK;
         }
     }
 }

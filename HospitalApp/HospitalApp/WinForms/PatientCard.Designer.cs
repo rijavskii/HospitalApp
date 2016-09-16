@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientCard));
             this.tbPassport = new System.Windows.Forms.TextBox();
             this.mtbInnNumber = new System.Windows.Forms.MaskedTextBox();
-            this.btSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lbBannedDrugs = new System.Windows.Forms.Label();
             this.tbBannedDrugs = new System.Windows.Forms.TextBox();
             this.lbDisease = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             // 
             // tbPassport
             // 
+            this.tbPassport.Enabled = false;
             this.tbPassport.Location = new System.Drawing.Point(119, 100);
             this.tbPassport.Name = "tbPassport";
             this.tbPassport.Size = new System.Drawing.Size(128, 20);
@@ -61,6 +62,7 @@
             // 
             // mtbInnNumber
             // 
+            this.mtbInnNumber.Enabled = false;
             this.mtbInnNumber.HidePromptOnLeave = true;
             this.mtbInnNumber.Location = new System.Drawing.Point(119, 121);
             this.mtbInnNumber.Mask = "0000 0000 00";
@@ -68,14 +70,14 @@
             this.mtbInnNumber.Size = new System.Drawing.Size(100, 20);
             this.mtbInnNumber.TabIndex = 59;
             // 
-            // btSave
+            // btnClose
             // 
-            this.btSave.Location = new System.Drawing.Point(481, 285);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(111, 23);
-            this.btSave.TabIndex = 58;
-            this.btSave.Text = "Save";
-            this.btSave.UseVisualStyleBackColor = true;
+            this.btnClose.Location = new System.Drawing.Point(481, 285);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(111, 23);
+            this.btnClose.TabIndex = 58;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // lbBannedDrugs
             // 
@@ -88,6 +90,7 @@
             // 
             // tbBannedDrugs
             // 
+            this.tbBannedDrugs.Enabled = false;
             this.tbBannedDrugs.Location = new System.Drawing.Point(119, 259);
             this.tbBannedDrugs.Name = "tbBannedDrugs";
             this.tbBannedDrugs.Size = new System.Drawing.Size(473, 20);
@@ -104,6 +107,7 @@
             // 
             // clbDisease
             // 
+            this.clbDisease.Enabled = false;
             this.clbDisease.FormattingEnabled = true;
             this.clbDisease.Location = new System.Drawing.Point(119, 164);
             this.clbDisease.Name = "clbDisease";
@@ -121,6 +125,7 @@
             // 
             // tbAddress
             // 
+            this.tbAddress.Enabled = false;
             this.tbAddress.Location = new System.Drawing.Point(119, 142);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(473, 20);
@@ -137,6 +142,7 @@
             // 
             // dtpBirthday
             // 
+            this.dtpBirthday.Enabled = false;
             this.dtpBirthday.Location = new System.Drawing.Point(119, 79);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(473, 20);
@@ -188,6 +194,7 @@
             // 
             // tbLastName
             // 
+            this.tbLastName.Enabled = false;
             this.tbLastName.Location = new System.Drawing.Point(119, 58);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(473, 20);
@@ -204,6 +211,7 @@
             // 
             // tbMiddleName
             // 
+            this.tbMiddleName.Enabled = false;
             this.tbMiddleName.Location = new System.Drawing.Point(119, 37);
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(473, 20);
@@ -224,7 +232,7 @@
             this.ClientSize = new System.Drawing.Size(607, 317);
             this.Controls.Add(this.tbPassport);
             this.Controls.Add(this.mtbInnNumber);
-            this.Controls.Add(this.btSave);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lbBannedDrugs);
             this.Controls.Add(this.tbBannedDrugs);
             this.Controls.Add(this.lbDisease);
@@ -261,7 +269,7 @@
 
         private System.Windows.Forms.TextBox tbPassport;
         private System.Windows.Forms.MaskedTextBox mtbInnNumber;
-        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lbBannedDrugs;
         private System.Windows.Forms.TextBox tbBannedDrugs;
         private System.Windows.Forms.Label lbDisease;

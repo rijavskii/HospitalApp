@@ -35,7 +35,6 @@
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnExport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
-            this.pbLoading = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lvDrugs
@@ -98,20 +97,10 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
-            // pbLoading
-            // 
-            this.pbLoading.Location = new System.Drawing.Point(115, 151);
-            this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(437, 38);
-            this.pbLoading.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.pbLoading.TabIndex = 3;
-            this.pbLoading.Visible = false;
-            // 
             // UcListMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pbLoading);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.lvDrugs);
@@ -130,6 +119,5 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.ColumnHeader chCountry;
         private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.ProgressBar pbLoading;
     }
 }

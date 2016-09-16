@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,13 +41,13 @@ namespace HospitalApp
         private void btnAuthorizate_Click(object sender, EventArgs e)
         {
             
-            //ToDO Use context like this
+            // Use context like this
             using (var context = new HospitalDbContext())
             {
                 var myLogin = this.tbLogin.Text;
                 var myPsd = this.tbPassword.Text.GetMd5Hash();
-                _user = context.Users.FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
-                //TODO include position to user
+                _user = context.Users.Include(x=>x.Position).FirstOrDefault(x => x.Login == myLogin && x.Password == myPsd);
+                //include position to user
             }
             
             if (_user == null)

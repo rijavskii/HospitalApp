@@ -52,22 +52,23 @@ namespace HospitalApp.UserControls
         private int ToPositionEnum(string textToEnum)
         {
             //Update with other positions
-            switch (textToEnum)
-            {
-                //ToDo Use parse to enum, not switch
-                case "Doctor":
-                    return (int)EPositions.Doctor;
-                case "Registry":
-                    return (int)EPositions.Registry;
-                //case "None":
-                //    return (int)EPositions.None;
-                case "Nurse":
-                    return (int)EPositions.Nurse;
-                //default:
-                //    return (int)EPositions.None;
-            }
+            int a = (int)System.Enum.Parse(typeof(EPositions),textToEnum);
+            //switch (textToEnum)
+            //{
+            //    // Use parse to enum, not switch
+            //    case "Doctor":
+            //        return (int)EPositions.Doctor;
+            //    case "Registry":
+            //        return (int)EPositions.Registry;
+            //    //case "None":
+            //    //    return (int)EPositions.None;
+            //    case "Nurse":
+            //        return (int)EPositions.Nurse;
+            //    //default:
+            //    //    return (int)EPositions.None;
+            //}
 
-            return 0;
+            return a;
         }
 
         private void AddToList(List<Users> users )

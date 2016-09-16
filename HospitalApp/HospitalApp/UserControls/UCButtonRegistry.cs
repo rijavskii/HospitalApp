@@ -17,7 +17,7 @@ namespace HospitalApp
     /// </summary>
     public partial class UcButtonRegistry : UserControl
     {
-        //ToDO check if you realy need to use this Panel
+        //check if you realy need to use this Panel
         private Panel work;
         /// <summary>
         /// 
