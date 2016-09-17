@@ -31,11 +31,6 @@ namespace HospitalApp.UserControls
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            FillLvSchedule(dtpAppointmentTime.Value);
-        }
-
         private void FillLvSchedule(DateTime date)
         {
             lblDayOfWeek.Text = dtpAppointmentTime.Value.DayOfWeek.ToString();
@@ -80,6 +75,7 @@ namespace HospitalApp.UserControls
 
         private void btnPatientCard_Click(object sender, EventArgs e)
         {
+            if (lvAppointment.FocusedItem == null) return;
             var patientId = lvAppointment.FocusedItem.SubItems[chPatient.Index + 1].Text;
 
             if (!string.IsNullOrEmpty(patientId))
@@ -94,11 +90,20 @@ namespace HospitalApp.UserControls
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        
+
+        private void dtpAppointmentTime_ValueChanged(object sender, EventArgs e)
         {
+            FillLvSchedule(dtpAppointmentTime.Value);
+        }
+
+        private void btnPatientAppointment_Click(object sender, EventArgs e)
+        {
+
             var appointment = new PatientApointment(currentDoctor);
 
             appointment.ShowDialog();
+            FillLvSchedule(dtpAppointmentTime.Value);
         }
     }
 

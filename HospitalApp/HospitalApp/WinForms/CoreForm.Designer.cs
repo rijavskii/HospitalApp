@@ -48,7 +48,7 @@
             this.aboutToolStripMenuItem});
             this.msMainMenu.Location = new System.Drawing.Point(0, 0);
             this.msMainMenu.Name = "msMainMenu";
-            this.msMainMenu.Size = new System.Drawing.Size(995, 24);
+            this.msMainMenu.Size = new System.Drawing.Size(810, 24);
             this.msMainMenu.TabIndex = 0;
             this.msMainMenu.Text = "menuStrip1";
             // 
@@ -64,12 +64,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(89, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -82,12 +82,13 @@
             // 
             // scContent
             // 
-            this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scContent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.scContent.IsSplitterFixed = true;
             this.scContent.Location = new System.Drawing.Point(0, 24);
             this.scContent.Name = "scContent";
             this.scContent.Panel1MinSize = 200;
-            this.scContent.Panel2MinSize = 750;
-            this.scContent.Size = new System.Drawing.Size(995, 498);
+            this.scContent.Panel2MinSize = 600;
+            this.scContent.Size = new System.Drawing.Size(804, 498);
             this.scContent.SplitterDistance = 200;
             this.scContent.TabIndex = 1;
             // 
@@ -102,12 +103,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 522);
+            this.ClientSize = new System.Drawing.Size(810, 522);
             this.Controls.Add(this.scContent);
             this.Controls.Add(this.msMainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msMainMenu;
-            this.MinimumSize = new System.Drawing.Size(1010, 560);
             this.Name = "CoreForm";
             this.Text = "Hospital App";
             this.msMainMenu.ResumeLayout(false);

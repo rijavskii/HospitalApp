@@ -31,7 +31,6 @@
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.btEdit = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.lblRoom = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
             this.btnRemoveWorker = new System.Windows.Forms.Button();
@@ -60,7 +59,7 @@
             // btEdit
             // 
             this.btEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btEdit.Location = new System.Drawing.Point(636, 454);
+            this.btEdit.Location = new System.Drawing.Point(485, 454);
             this.btEdit.Name = "btEdit";
             this.btEdit.Size = new System.Drawing.Size(155, 23);
             this.btEdit.TabIndex = 12;
@@ -71,25 +70,17 @@
             // btnFind
             // 
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Location = new System.Drawing.Point(143, 145);
+            this.btnFind.Location = new System.Drawing.Point(132, 147);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
             this.btnFind.TabIndex = 0;
             this.btnFind.Text = "Find";
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 438);
-            this.splitter1.TabIndex = 11;
-            this.splitter1.TabStop = false;
-            // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(14, 74);
+            this.lblRoom.Location = new System.Drawing.Point(3, 76);
             this.lblRoom.Name = "lblRoom";
             this.lblRoom.Size = new System.Drawing.Size(35, 13);
             this.lblRoom.TabIndex = 9;
@@ -98,7 +89,7 @@
             // lbLastName
             // 
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(14, 51);
+            this.lbLastName.Location = new System.Drawing.Point(3, 53);
             this.lbLastName.Name = "lbLastName";
             this.lbLastName.Size = new System.Drawing.Size(58, 13);
             this.lbLastName.TabIndex = 7;
@@ -107,7 +98,7 @@
             // btnRemoveWorker
             // 
             this.btnRemoveWorker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveWorker.Location = new System.Drawing.Point(523, 454);
+            this.btnRemoveWorker.Location = new System.Drawing.Point(355, 454);
             this.btnRemoveWorker.Name = "btnRemoveWorker";
             this.btnRemoveWorker.Size = new System.Drawing.Size(107, 23);
             this.btnRemoveWorker.TabIndex = 11;
@@ -117,7 +108,7 @@
             // 
             // scFindPatient
             // 
-            this.scFindPatient.Location = new System.Drawing.Point(8, 10);
+            this.scFindPatient.Location = new System.Drawing.Point(0, 0);
             this.scFindPatient.Name = "scFindPatient";
             // 
             // scFindPatient.Panel1
@@ -126,7 +117,6 @@
             this.scFindPatient.Panel1.Controls.Add(this.cbPositions);
             this.scFindPatient.Panel1.Controls.Add(this.label1);
             this.scFindPatient.Panel1.Controls.Add(this.btnFind);
-            this.scFindPatient.Panel1.Controls.Add(this.splitter1);
             this.scFindPatient.Panel1.Controls.Add(this.lblRoom);
             this.scFindPatient.Panel1.Controls.Add(this.lbLastName);
             this.scFindPatient.Panel1.Controls.Add(this.lbMiddleName);
@@ -134,19 +124,19 @@
             this.scFindPatient.Panel1.Controls.Add(this.tbLastName);
             this.scFindPatient.Panel1.Controls.Add(this.lbFirstName);
             this.scFindPatient.Panel1.Controls.Add(this.tbMiddleName);
-            this.scFindPatient.Panel1MinSize = 229;
+            this.scFindPatient.Panel1MinSize = 200;
             // 
             // scFindPatient.Panel2
             // 
             this.scFindPatient.Panel2.Controls.Add(this.lvFind);
             this.scFindPatient.Panel2MinSize = 550;
-            this.scFindPatient.Size = new System.Drawing.Size(783, 438);
-            this.scFindPatient.SplitterDistance = 229;
+            this.scFindPatient.Size = new System.Drawing.Size(791, 448);
+            this.scFindPatient.SplitterDistance = 211;
             this.scFindPatient.TabIndex = 10;
             // 
             // tbRoom
             // 
-            this.tbRoom.Location = new System.Drawing.Point(108, 71);
+            this.tbRoom.Location = new System.Drawing.Point(97, 73);
             this.tbRoom.Name = "tbRoom";
             this.tbRoom.Size = new System.Drawing.Size(110, 20);
             this.tbRoom.TabIndex = 14;
@@ -155,7 +145,7 @@
             // 
             this.cbPositions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPositions.FormattingEnabled = true;
-            this.cbPositions.Location = new System.Drawing.Point(108, 93);
+            this.cbPositions.Location = new System.Drawing.Point(97, 95);
             this.cbPositions.Name = "cbPositions";
             this.cbPositions.Size = new System.Drawing.Size(110, 21);
             this.cbPositions.TabIndex = 13;
@@ -163,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 96);
+            this.label1.Location = new System.Drawing.Point(3, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 12;
@@ -172,7 +162,7 @@
             // lbMiddleName
             // 
             this.lbMiddleName.AutoSize = true;
-            this.lbMiddleName.Location = new System.Drawing.Point(14, 30);
+            this.lbMiddleName.Location = new System.Drawing.Point(3, 32);
             this.lbMiddleName.Name = "lbMiddleName";
             this.lbMiddleName.Size = new System.Drawing.Size(69, 13);
             this.lbMiddleName.TabIndex = 6;
@@ -180,14 +170,14 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(108, 6);
+            this.tbFirstName.Location = new System.Drawing.Point(97, 8);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(110, 20);
             this.tbFirstName.TabIndex = 1;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(108, 48);
+            this.tbLastName.Location = new System.Drawing.Point(97, 50);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(110, 20);
             this.tbLastName.TabIndex = 3;
@@ -195,7 +185,7 @@
             // lbFirstName
             // 
             this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(14, 9);
+            this.lbFirstName.Location = new System.Drawing.Point(3, 11);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(57, 13);
             this.lbFirstName.TabIndex = 5;
@@ -203,7 +193,7 @@
             // 
             // tbMiddleName
             // 
-            this.tbMiddleName.Location = new System.Drawing.Point(108, 27);
+            this.tbMiddleName.Location = new System.Drawing.Point(97, 29);
             this.tbMiddleName.Name = "tbMiddleName";
             this.tbMiddleName.Size = new System.Drawing.Size(110, 20);
             this.tbMiddleName.TabIndex = 2;
@@ -228,7 +218,7 @@
             this.lvFind.Location = new System.Drawing.Point(4, 3);
             this.lvFind.MultiSelect = false;
             this.lvFind.Name = "lvFind";
-            this.lvFind.Size = new System.Drawing.Size(543, 432);
+            this.lvFind.Size = new System.Drawing.Size(372, 432);
             this.lvFind.TabIndex = 0;
             this.lvFind.UseCompatibleStateImageBehavior = false;
             this.lvFind.View = System.Windows.Forms.View.Details;
@@ -236,32 +226,32 @@
             // chFirstName
             // 
             this.chFirstName.Text = "First Name";
-            this.chFirstName.Width = 84;
+            this.chFirstName.Width = 70;
             // 
             // chMiddleName
             // 
             this.chMiddleName.Text = "Middle Name";
-            this.chMiddleName.Width = 108;
+            this.chMiddleName.Width = 78;
             // 
             // chLastName
             // 
             this.chLastName.Text = "Last Name";
-            this.chLastName.Width = 97;
+            this.chLastName.Width = 65;
             // 
             // chPosition
             // 
             this.chPosition.Text = "Position";
-            this.chPosition.Width = 74;
+            this.chPosition.Width = 55;
             // 
             // chType
             // 
             this.chType.Text = "Type";
-            this.chType.Width = 85;
+            this.chType.Width = 52;
             // 
             // chRoom
             // 
             this.chRoom.Text = "Room";
-            this.chRoom.Width = 89;
+            this.chRoom.Width = 43;
             // 
             // UcFindWorker
             // 
@@ -272,6 +262,7 @@
             this.Controls.Add(this.scFindPatient);
             this.Name = "UcFindWorker";
             this.Size = new System.Drawing.Size(798, 492);
+            this.Load += new System.EventHandler(this.UcFindWorker_Load);
             this.scFindPatient.Panel1.ResumeLayout(false);
             this.scFindPatient.Panel1.PerformLayout();
             this.scFindPatient.Panel2.ResumeLayout(false);
@@ -285,7 +276,6 @@
 
         private System.Windows.Forms.Button btEdit;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label lblRoom;
         private System.Windows.Forms.Label lbLastName;
         private System.Windows.Forms.Button btnRemoveWorker;

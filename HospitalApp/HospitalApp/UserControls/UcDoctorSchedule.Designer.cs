@@ -47,7 +47,7 @@
             this.dtpAppointmentTime.Size = new System.Drawing.Size(247, 20);
             this.dtpAppointmentTime.TabIndex = 1;
             this.dtpAppointmentTime.Value = new System.DateTime(2016, 9, 13, 0, 0, 0, 0);
-            this.dtpAppointmentTime.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpAppointmentTime.ValueChanged += new System.EventHandler(this.dtpAppointmentTime_ValueChanged);
             // 
             // lblDayOfWeek
             // 
@@ -125,6 +125,7 @@
             this.btnDiagnose.TabIndex = 1;
             this.btnDiagnose.Text = "Write diagnose";
             this.btnDiagnose.UseVisualStyleBackColor = true;
+            this.btnDiagnose.Visible = false;
             // 
             // btnPatientAppointment
             // 
@@ -136,7 +137,7 @@
             this.btnPatientAppointment.TabIndex = 1;
             this.btnPatientAppointment.Text = "Patient appointment";
             this.btnPatientAppointment.UseVisualStyleBackColor = true;
-            this.btnPatientAppointment.Click += new System.EventHandler(this.button3_Click);
+            this.btnPatientAppointment.Click += new System.EventHandler(this.btnPatientAppointment_Click);
             // 
             // UcDoctorSchedule
             // 

@@ -178,8 +178,8 @@ namespace HospitalApp.UserControls
             {
                 Adresses myAdress;
 
-                string login = $"{tbLastName.Text} {tbFirstName.Text}";
-                string psd = $"{tbLastName.Text} {tbStreet.Text} {tbHouseNumber.Text}";
+                string login = $"{tbLastName.Text}{tbFirstName.Text}{dtpBirthday.Value.Year}";
+                string psd = $"{tbLastName.Text}{tbStreet.Text}{tbHouseNumber.Text}";
 
                 string passport = (mtbPassportSeries.Text + mtbPassportNumber.Text).Trim();
                 using (var context = new HospitalDbContext())

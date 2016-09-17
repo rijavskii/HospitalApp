@@ -32,14 +32,13 @@
             this.btnSignUp = new System.Windows.Forms.Button();
             this.lvSchedule = new System.Windows.Forms.ListView();
             this.chTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chBusy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dtpSignPatientDate = new System.Windows.Forms.DateTimePicker();
-            this.lvDoctors = new System.Windows.Forms.ListView();
+            this.lvPatients = new System.Windows.Forms.ListView();
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDocType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMiddleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnFind = new System.Windows.Forms.Button();
             this.lblBirthday = new System.Windows.Forms.Label();
             this.lbLastName = new System.Windows.Forms.Label();
@@ -48,13 +47,12 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
             this.tbMiddleName = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnSignUp
             // 
             this.btnSignUp.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSignUp.Enabled = false;
             this.btnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignUp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSignUp.Location = new System.Drawing.Point(441, 345);
@@ -63,12 +61,12 @@
             this.btnSignUp.TabIndex = 70;
             this.btnSignUp.Text = "Sign up";
             this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // lvSchedule
             // 
             this.lvSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chTime,
-            this.chBusy,
             this.chPatient});
             this.lvSchedule.FullRowSelect = true;
             this.lvSchedule.GridLines = true;
@@ -86,15 +84,10 @@
             this.chTime.Text = "Time";
             this.chTime.Width = 44;
             // 
-            // chBusy
-            // 
-            this.chBusy.Text = "Allowed";
-            this.chBusy.Width = 74;
-            // 
             // chPatient
             // 
             this.chPatient.Text = "Patient";
-            this.chPatient.Width = 103;
+            this.chPatient.Width = 155;
             // 
             // dtpSignPatientDate
             // 
@@ -105,23 +98,27 @@
             this.dtpSignPatientDate.Value = new System.DateTime(2016, 9, 11, 0, 0, 0, 0);
             this.dtpSignPatientDate.ValueChanged += new System.EventHandler(this.dtpSignPatientDate_ValueChanged);
             // 
-            // lvDoctors
+            // lvPatients
             // 
-            this.lvDoctors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvPatients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chId,
             this.chFirstName,
             this.chLastName,
-            this.chDocType,
-            this.chRoom});
-            this.lvDoctors.FullRowSelect = true;
-            this.lvDoctors.GridLines = true;
-            this.lvDoctors.HideSelection = false;
-            this.lvDoctors.Location = new System.Drawing.Point(9, 124);
-            this.lvDoctors.Name = "lvDoctors";
-            this.lvDoctors.Size = new System.Drawing.Size(245, 243);
-            this.lvDoctors.TabIndex = 67;
-            this.lvDoctors.UseCompatibleStateImageBehavior = false;
-            this.lvDoctors.View = System.Windows.Forms.View.Details;
-            this.lvDoctors.SelectedIndexChanged += new System.EventHandler(this.lvDoctors_SelectedIndexChanged);
+            this.chMiddleName});
+            this.lvPatients.FullRowSelect = true;
+            this.lvPatients.GridLines = true;
+            this.lvPatients.HideSelection = false;
+            this.lvPatients.Location = new System.Drawing.Point(9, 124);
+            this.lvPatients.Name = "lvPatients";
+            this.lvPatients.Size = new System.Drawing.Size(245, 243);
+            this.lvPatients.TabIndex = 67;
+            this.lvPatients.UseCompatibleStateImageBehavior = false;
+            this.lvPatients.View = System.Windows.Forms.View.Details;
+            // 
+            // chId
+            // 
+            this.chId.Text = "ID";
+            this.chId.Width = 27;
             // 
             // chFirstName
             // 
@@ -129,18 +126,15 @@
             // 
             // chLastName
             // 
+            this.chLastName.DisplayIndex = 3;
             this.chLastName.Text = "LastName";
-            this.chLastName.Width = 61;
+            this.chLastName.Width = 66;
             // 
-            // chDocType
+            // chMiddleName
             // 
-            this.chDocType.Text = "Doctor ";
-            this.chDocType.Width = 52;
-            // 
-            // chRoom
-            // 
-            this.chRoom.Text = "Room";
-            this.chRoom.Width = 53;
+            this.chMiddleName.DisplayIndex = 2;
+            this.chMiddleName.Text = "Middle Name";
+            this.chMiddleName.Width = 76;
             // 
             // btnFind
             // 
@@ -152,6 +146,7 @@
             this.btnFind.TabIndex = 66;
             this.btnFind.Text = "Find patient";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // lblBirthday
             // 
@@ -215,24 +210,24 @@
             this.tbMiddleName.Size = new System.Drawing.Size(142, 20);
             this.tbMiddleName.TabIndex = 59;
             // 
-            // dateTimePicker1
+            // dtpBirthday
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 66);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(142, 20);
-            this.dateTimePicker1.TabIndex = 71;
-            this.dateTimePicker1.Value = new System.DateTime(2016, 9, 11, 0, 0, 0, 0);
+            this.dtpBirthday.Location = new System.Drawing.Point(112, 66);
+            this.dtpBirthday.Name = "dtpBirthday";
+            this.dtpBirthday.Size = new System.Drawing.Size(142, 20);
+            this.dtpBirthday.TabIndex = 71;
+            this.dtpBirthday.Value = new System.DateTime(2016, 9, 11, 0, 0, 0, 0);
             // 
             // PatientApointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 377);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpBirthday);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.lvSchedule);
             this.Controls.Add(this.dtpSignPatientDate);
-            this.Controls.Add(this.lvDoctors);
+            this.Controls.Add(this.lvPatients);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.lblBirthday);
             this.Controls.Add(this.lbLastName);
@@ -244,6 +239,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PatientApointment";
+            this.ShowInTaskbar = false;
             this.Text = "PatientApointment";
             this.Load += new System.EventHandler(this.PatientApointment_Load);
             this.ResumeLayout(false);
@@ -256,14 +252,11 @@
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.ListView lvSchedule;
         private System.Windows.Forms.ColumnHeader chTime;
-        private System.Windows.Forms.ColumnHeader chBusy;
         private System.Windows.Forms.ColumnHeader chPatient;
         private System.Windows.Forms.DateTimePicker dtpSignPatientDate;
-        private System.Windows.Forms.ListView lvDoctors;
+        private System.Windows.Forms.ListView lvPatients;
         private System.Windows.Forms.ColumnHeader chFirstName;
         private System.Windows.Forms.ColumnHeader chLastName;
-        private System.Windows.Forms.ColumnHeader chDocType;
-        private System.Windows.Forms.ColumnHeader chRoom;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Label lblBirthday;
         private System.Windows.Forms.Label lbLastName;
@@ -272,6 +265,8 @@
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lbFirstName;
         private System.Windows.Forms.TextBox tbMiddleName;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpBirthday;
+        private System.Windows.Forms.ColumnHeader chId;
+        private System.Windows.Forms.ColumnHeader chMiddleName;
     }
 }

@@ -127,5 +127,10 @@ namespace HospitalApp.UserControls
                 }
             }
         }
+
+        private void UcFindWorker_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

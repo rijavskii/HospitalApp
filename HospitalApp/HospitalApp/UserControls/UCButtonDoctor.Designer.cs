@@ -44,6 +44,7 @@
             this.btReports.TabIndex = 7;
             this.btReports.Text = "Reports";
             this.btReports.UseVisualStyleBackColor = true;
+            this.btReports.Visible = false;
             // 
             // btListMedicine
             // 

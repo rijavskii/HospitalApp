@@ -394,7 +394,7 @@
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.tbMiddleName);
             this.Name = "UcAddUser";
-            this.Size = new System.Drawing.Size(581, 372);
+            this.Size = new System.Drawing.Size(438, 372);
             this.gpAdress.ResumeLayout(false);
             this.gpAdress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

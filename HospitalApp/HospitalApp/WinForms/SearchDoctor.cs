@@ -14,6 +14,9 @@ using HospitalApp.Enum;
 
 namespace HospitalApp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class SearchDoctor : Form
     {
         // why public not private?
@@ -65,6 +68,7 @@ namespace HospitalApp
 
         private void lvDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lvDoctors.FocusedItem == null) return;
             var size = lvDoctors.FocusedItem.SubItems.Count-1;
             // use new variable with lvDoctors.FocusedItem.SubItems[size].Text
             var value = lvDoctors.FocusedItem.SubItems[size].Text;

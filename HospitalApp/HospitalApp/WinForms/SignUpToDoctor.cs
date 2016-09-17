@@ -198,8 +198,8 @@ namespace HospitalApp
                     Users myDoc =
                         context.Users.Include(x => x.Adress)
                             .Include(x => x.Position.WorkerPositionType)
-                            .First(x => x.Id == doc);
-                    var myPatient = context.Users.First(x => x.Id == _concreteUser);
+                            .FirstOrDefault(x => x.Id == doc);
+                    var myPatient = context.Users.FirstOrDefault(x => x.Id == _concreteUser);
 
                     WorkSchedules currentSchedules = new WorkSchedules()
                     {
