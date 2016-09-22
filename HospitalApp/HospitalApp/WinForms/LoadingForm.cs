@@ -17,9 +17,9 @@ namespace HospitalApp.WinForms
             InitializeComponent();
         }
 
-        public void CloseForm()
-        {
-            Close();
-        }
+        public void CloseForm() => Close();
+        //{
+        //    Close();
+        //}
     }
 }
